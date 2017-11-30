@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image } from 'react-native';
+import Stagecard from '../../Components/COH/stagecard';
 
 export default class extends Component {
   constructor(props) {
     super();
-    this.state = {
-
-    }
   }
 
   render() {
@@ -23,6 +21,9 @@ export default class extends Component {
               color='blue'
             />
           </View>
+          {this.props.stages.map(stage => {
+            return <Stagecard key={stage.number.toString()} currentStage={this.props.currentStage} number={stage.number} stage={stage.stage}/>
+          })}
       </View>
     )
   }
