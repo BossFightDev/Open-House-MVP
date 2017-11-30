@@ -73,27 +73,14 @@ export default class extends Component {
         <Dropdown
           label='Where did you hear about this open house?'
           value='Select One'
-          onChangeText={(value) => this.setState({ openHouse: value})}
+          onChangeText={(value) => this.setState({ openHouse: value })}
           data={data}
         />
-        {/* <Button
-          onPress={() => {}}
+        <Button
+          onPress={ () => alert('Submitted!') }
           title='Submit'
           color='black'
-        /> */}
-        {/* <Button
-          onPress={this.pickerMenu.bind(this)}
-          title={this.state.openHouse}
-          color='black'
         />
-        {this.state.showPicker ? <Picker
-          selectedValue={this.state.openHouse}
-          onValueChange={(item) => this.setState({openHouse: item, showPicker: false})}
-          mode="dropdown">
-          <Picker.Item label='Select One' value='Select One' />
-          <Picker.Item label='Option One' value='Option One' />
-          <Picker.Item label='Option Two' value='Option Two' />
-        </Picker> : null } */}
       </View>
     )
   }
