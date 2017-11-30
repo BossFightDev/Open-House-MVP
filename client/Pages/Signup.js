@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, View, Text, Picker, Button } from 'react-native';
+import { TextInput, View, Text, Button } from 'react-native';
 import { SegmentedControls } from 'react-native-radio-buttons';
 import { Dropdown } from 'react-native-material-dropdown';
 
@@ -17,10 +17,6 @@ export default class extends Component {
       openHouse: 'Select One',
       showPicker: false,
     }
-  }
-
-  static navigationOptions = {
-    title: 'Sign Up'
   }
 
   pickerMenu() {

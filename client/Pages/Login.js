@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
-import { TextInput, View, Text, Picker, Button } from 'react-native';
+import { TextInput, View, Text, Button } from 'react-native';
 
 export default class extends Component {
   constructor() {
     super();
-  }
 
-  static navigationOptions = {
-    title: 'Log In',
+    this.state = {
+      username: '',
+      password: '',
+    }
   }
 
   render() {
     return(
       <View>
-        <Text>Log In</Text>
+        <Text>Username</Text>
+        <TextInput
+          style={{borderColor: 'black', borderWidth: 1}}
+          onChangeText={(username) => this.setState({ username })}
+          value={this.state.username}
+        />
+        <Text>Password</Text>
+        <TextInput
+          style={{borderColor: 'black', borderWidth: 1}}
+          onChangeText={(password) => this.setState({ password })}
+          value={this.state.password}
+        />
+        <Button
+          onPress={ () => this.props.navigation.navigate('OpenHouses') }
+          title='Login'
+          color='black'
+        />
+        <Text>Forgot Password</Text>
       </View>
     )
   }
