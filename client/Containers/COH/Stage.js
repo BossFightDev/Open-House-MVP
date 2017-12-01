@@ -56,7 +56,7 @@ export default class extends Component {
 
   render() {
     return (
-      <View>
+      <View style={this.props.style}>
         <TitleCard title='PAST OPEN HOUSE' navigation={this.props.navigation} nextLocation='Open Houses'/> 
         <Text>{this.props.title}</Text>
         {this.props.fields.map((field, i) => {
