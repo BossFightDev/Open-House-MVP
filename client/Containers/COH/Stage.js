@@ -16,6 +16,7 @@ export default class extends Component {
         <Text>{this.props.title}</Text>
         {this.props.fields.map((field, i) => {
           return <FieldSwitch 
+            key={i.toString()}
             question={field.Question} 
             type={field.type} 
             value={field.value} 
