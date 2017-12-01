@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image } from 'react-native';
-import StageCard from '../../Components/COH/StageCard';
-import AddressCard from '../../Components/COH/AddressCard'
+import TitleCard from '../../Components/TitleClose';
+
 
 export default class extends Component {
   constructor(props) {
