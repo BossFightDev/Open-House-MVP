@@ -13,17 +13,17 @@ export default class extends Component {
 
   render() {
     return(
-      <View>
+      <View style={{alignItems: 'center'}}>
         <Image source={require('../Assets/logo.png')} />
         <Text>Username</Text>
         <TextInput
-          style={{borderColor: 'black', borderWidth: 1}}
+          style={{borderColor: 'black', borderWidth: 1, width: '75%'}}
           onChangeText={(username) => this.setState({ username })}
           value={this.state.username}
         />
         <Text>Password</Text>
         <TextInput
-          style={{borderColor: 'black', borderWidth: 1}}
+          style={{borderColor: 'black', borderWidth: 1, width: '75%'}}
           onChangeText={(password) => this.setState({ password })}
           value={this.state.password}
         />

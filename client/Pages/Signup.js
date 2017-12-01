@@ -16,23 +16,24 @@ export default class extends Component {
       agentName: '',
       openHouse: 'Select One',
       visible: false,
-      visibility: new Animated.Value(0),
+      visibility: new Animated.Value(1),
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   Animated.timing(this._visibility, {
-  //     toValue: nextProps.visible ? 1 : 0,
-  //     duration: 300
-  //   });
+  // componentDidMount() {
+  //   Animated.timing(this.state.visibility, {
+  //     toValue: 1,
+  //     duration: 10000,
+  //   }).start()
   // }
 
   handleSubmit() {
+    this.setState({ visible: true });
     Animated.timing(this.state.visibility, {
       toValue: 1,
-      duration: 300,
+      duration: 5000,
     }).start(() => {
-      this.setState({ visible: true });
+      this.setState({ visible: false });
     })
   }
 
@@ -47,73 +48,66 @@ export default class extends Component {
       {value: 'Option Two'},
     ];
 
-    const containerStyle = {
-      opacity: this.state.visibility.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0, 1],
-      }),
-      transform: [
-        {
-          scale: this.state.visibility.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1.1, 1],
-          }),
-        },
-      ],
-    };
+    let agent = this.state.realEstateAgent === 'Yes' ? true : false;
 
-    if (!this.state.visible) {
-      return (
-        <View>
-          <Text>Name</Text>
-          <TextInput
-            style={{borderColor: 'black', borderWidth: 1}}
-            onChangeText={(name) => this.setState({ name })}
-            value={this.state.name}
-          />
-          <Text>E-mail Address</Text>
-          <TextInput
-            style={{borderColor: 'black', borderWidth: 1}}
-            onChangeText={(email) => this.setState({ email })}
-            value={this.state.email}
-          />
-          <Text>Phone Number</Text>
-          <TextInput
-            style={{borderColor: 'black', borderWidth: 1}}
-            onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
-            value={this.state.phoneNumber}
-          />
-          <Text>Are you currently working with a Real Estate Agent?</Text>
-          <SegmentedControls
-            options={ options }
-            onSelection={ (selectedOption) => { this.setState({ realEstateAgent: selectedOption }) } }
-            selectedOption={ this.state.realEstateAgent }
-          />
-          <TextInput
-            style={{borderColor: 'black', borderWidth: 1}}
-            onChangeText={(agentName) => this.setState({ agentName })}
-            value={this.state.agentName}
-          />
-          <Dropdown
-            label='Where did you hear about this open house?'
-            value='Select One'
-            onChangeText={(value) => this.setState({ openHouse: value })}
-            data={data}
-          />
-          <Button
-            onPress={ () => this.handleSubmit() }
-            title='Submit'
-            color='black'
-          />
-        </View>
-      )
-    } else {
-      return (
-        <Animated.View style={containerStyle}>
-          <Text>Thank You</Text>
-          <Text>Enjoy your visit</Text>
-        </Animated.View>
-      )
-    }
+    return (
+      <View>
+        {!this.state.visible ?
+          <View style={{alignItems: 'center'}}>
+            <Text>Name</Text>
+            <TextInput
+              style={{borderColor: 'black', borderWidth: 1, width: '75%'}}
+              onChangeText={(name) => this.setState({ name })}
+              value={this.state.name}
+            />
+            <Text>E-mail Address</Text>
+            <TextInput
+              style={{borderColor: 'black', borderWidth: 1, width: '75%'}}
+              onChangeText={(email) => this.setState({ email })}
+              value={this.state.email}
+            />
+            <Text>Phone Number</Text>
+            <TextInput
+              style={{borderColor: 'black', borderWidth: 1, width: '75%'}}
+              onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
+              value={this.state.phoneNumber}
+            />
+            <Text>Are you currently working with a Real Estate Agent?</Text>
+            <SegmentedControls
+              optionContainerStyle={{width: '50%'}}
+              options={ options }
+              onSelection={ (selectedOption) => { this.setState({ realEstateAgent: selectedOption }) } }
+              selectedOption={ this.state.realEstateAgent }
+            />
+            <TextInput
+              editable={agent}
+              style={{
+                borderColor: 'black',
+                borderWidth: 1,
+                backgroundColor: agent ? 'transparent' : 'darkgray',
+                width: '75%'
+              }}
+              onChangeText={(agentName) => this.setState({ agentName })}
+              value={this.state.agentName}
+            />
+            <Dropdown
+              label='Where did you hear about this open house?'
+              value='Select One'
+              onChangeText={(value) => this.setState({ openHouse: value })}
+              data={data}
+            />
+            <Button
+              onPress={ () => this.handleSubmit() }
+              title='Submit'
+              color='black'
+            />
+          </View> :
+          <Animated.View style={{ opacity: this.state.visibility }}>
+            <Text>Thank You</Text>
+            <Text>Enjoy your visit</Text>
+          </Animated.View>
+        }
+      </View>
+    )
   }
 }
