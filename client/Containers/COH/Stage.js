@@ -24,6 +24,11 @@ export default class extends Component {
         return (
           <View>
             <Button
+              onPress={ () => this.props.activeOnPress(this.props.active) }
+              title='Back'
+              color='black'
+            />
+            <Button
               onPress={ () => this.props.navigation.navigate('Signup') }
               title='Preview and Launch'
               color='black'

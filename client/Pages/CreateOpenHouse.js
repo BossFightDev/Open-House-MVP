@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TextInput, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Button, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import Sidebar from '../Containers/COH/Sidebar';
 import Stage from '../Containers/COH/Stage'
 import TitleClose from '../Components/TitleClose';
@@ -52,18 +52,20 @@ export default class extends Component {
   render() {
     const PivotingFields = this.state.fields.map((field, i) => {
       return <Stage 
-      navigation={this.props.navigation} 
-      title={this.state.sideBarStages[i].stage}
-      fields={field}
-      active={i}
-      switchOnPress={this.switchStateChange}
-      activeOnPress={this.activeStageChange}
-      lastStage={this.state.fields.length - 1}
-    />
+        style={styles.fields}
+        navigation={this.props.navigation} 
+        title={this.state.sideBarStages[i].stage}
+        fields={field}
+        active={i}
+        switchOnPress={this.switchStateChange}
+        activeOnPress={this.activeStageChange}
+        lastStage={this.state.fields.length - 1}
+      />
     })
     return (
-      <View>
+      <View style={styles.screen}>
         <Sidebar 
+          style={styles.sidebar}
           currentStage= {this.state.currentStage}
           MLS='1234567' 
           Address='123 Main Street, San Marcos'
@@ -77,3 +79,20 @@ export default class extends Component {
     )
   }
 }
+
+const styles=StyleSheet.create({
+  screen: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  sidebar: {
+    flex:1,
+    flexDirection: 'column',
+    backgroundColor:'#454545',
+    justifyContent: 'flex-end',
+    alignContent: 'center',
+  },
+  fields: {
+    flex: 4,
+  }
+})
