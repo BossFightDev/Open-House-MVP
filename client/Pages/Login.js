@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, View, Text, Button } from 'react-native';
+import { TextInput, View, Text, Button, Image } from 'react-native';
 
 export default class extends Component {
   constructor() {
@@ -14,6 +14,7 @@ export default class extends Component {
   render() {
     return(
       <View>
+        <Image source={require('../Assets/logo.png')} />
         <Text>Username</Text>
         <TextInput
           style={{borderColor: 'black', borderWidth: 1}}

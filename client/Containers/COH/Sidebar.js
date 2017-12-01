@@ -13,7 +13,7 @@ export default class extends Component {
   render() {
     return (
         <View>
-          <AddressCard 
+          <AddressCard
             MLS={this.props.MLS}
             Address={this.props.Address}
             navigation={this.props.navigation}
