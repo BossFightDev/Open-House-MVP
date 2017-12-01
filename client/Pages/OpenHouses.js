@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Button, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, Button, FlatList, TouchableOpacity} from 'react-native';
 // import Orientation from 'react-native-orientation';
 
 export default class App extends Component {
@@ -41,14 +41,25 @@ export default class App extends Component {
               style={{backgroundColor:'white'}}
               placeholder = "Enter MLS# or Select a Listing"
               />
-              <Button
-                style={{
-                  border: 'none',
-                  color: 'white',
-                }}
-                onPress={() => this.props.navigation.navigate('CreateOpenHouse')}
-                title="Start"
-              />
+              <TouchableOpacity
+          style={{marginRight:40,
+            marginLeft:40,
+           marginTop:10,
+            paddingTop:10,
+            paddingBottom:10,
+            backgroundColor:'#25AAFB',
+            borderRadius:0,
+            borderWidth: 1,
+            borderColor: '#fff'}}
+          onPress={() => navigate('HomeScreen')}
+          underlayColor='#fff'
+          onPress={() => this.props.navigation.navigate('CreateOpenHouse')}
+          >
+          <Text style={{color:'#fff',
+      textAlign:'center',
+      paddingLeft : 10,
+      paddingRight : 10}}>Start</Text>
+ </TouchableOpacity>
             </View>
           </View>
           <View>
