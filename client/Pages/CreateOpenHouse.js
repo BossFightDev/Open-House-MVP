@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, TextInput, Image, TouchableOpacity } from 'react-native';
 import Sidebar from '../Containers/COH/Sidebar';
+import TitleClose from '../Components/TitleClose';
 
 const stages = [{
     number: 1,
@@ -38,16 +39,10 @@ export default class extends Component {
           MLS='1234567' 
           Address='123 Main Street, San Marcos'
           stages={this.state.stages}
+          navigation={this.props.navigation}
         />
         <View>
-          <View>
-            <Text>Past Open House</Text>
-            <TouchableOpacity
-              onPress={ () => this.props.navigation.navigate('OpenHouses') }
-            >
-              <Image source={require('../Assets/iconClose.png')} />
-            </TouchableOpacity>
-          </View> 
+          
           <Button
             onPress={ () => this.props.navigation.navigate('Signup') }
             title='Preview and Launch'

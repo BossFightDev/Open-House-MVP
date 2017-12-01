@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Image, View } from 'react-native';
 
 
-const stagecard = (props) => {
+const StageCard = (props) => {
   let color = props.currentStage === props.number ? 'red' : 'blue';
   return (
     <View>
@@ -13,4 +13,4 @@ const stagecard = (props) => {
   )
 }
 
-export default stagecard
+export default StageCard
