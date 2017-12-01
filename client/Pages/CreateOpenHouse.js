@@ -50,6 +50,17 @@ export default class extends Component {
     })
   }
   render() {
+    const PivotingFields = this.state.fields.map((field, i) => {
+      return <Stage 
+      navigation={this.props.navigation} 
+      title={this.state.sideBarStages[i].stage}
+      fields={field}
+      active={i}
+      switchOnPress={this.switchStateChange}
+      activeOnPress={this.activeStageChange}
+      lastStage={this.state.fields.length - 1}
+    />
+    })
     return (
       <View>
         <Sidebar 
@@ -60,19 +71,7 @@ export default class extends Component {
           navigation={this.props.navigation}
         />
         <View>
-          <Stage 
-            navigation={this.props.navigation} 
-            title={this.state.sideBarStages[0].stage}
-            fields={this.state.fields[0]}
-            active={0}
-            switchOnPress={this.switchStateChange}
-            activeOnPress={this.activeStageChange}
-          />
-          <Button
-            onPress={ () => this.props.navigation.navigate('Signup') }
-            title='Preview and Launch'
-            color='black'
-          />
+          {PivotingFields[this.state.currentStage - 1]}
         </View>
       </View>
     )

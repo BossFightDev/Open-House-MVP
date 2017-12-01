@@ -7,9 +7,49 @@ export default class extends Component {
   constructor(props) {
     super();
   }
+  buttonRenderer(){
+    switch(this.props.active) {
+      case 0:
+        return (
+          <View>
+            <Button
+              onPress={ () => this.props.activeOnPress(this.props.active+2) }
+              title='Next'
+              color='black'
+            />
+          </View>
+        )
+        break;
+      case this.props.lastStage:
+        return (
+          <View>
+            <Button
+              onPress={ () => this.props.navigation.navigate('Signup') }
+              title='Preview and Launch'
+              color='black'
+            />
+          </View>
+        )
+        break;
+      default:
+        return (
+          <View>
+            <Button
+              onPress={ () => this.props.activeOnPress(this.props.active) }
+              title='Back'
+              color='black'
+            />
+            <Button
+              onPress={ () => this.props.activeOnPress(this.props.active+2) }
+              title='Next'
+              color='black'
+            />
+          </View>
+        )
+    }
+  }
 
   render() {
-    console.log(JSON.stringify(this.props.fields));
     return (
       <View>
         <TitleCard title='PAST OPEN HOUSE' navigation={this.props.navigation} nextLocation='Open Houses'/> 
@@ -25,6 +65,7 @@ export default class extends Component {
             switchChange={this.props.switchOnPress}
             />
         })}
+        {this.buttonRenderer()}
       </View>
     )
   }
