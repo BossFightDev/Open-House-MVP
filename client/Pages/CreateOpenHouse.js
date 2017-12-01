@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Button, TextInput, Image, TouchableOpacity } from 'react-native';
 import Sidebar from '../Containers/COH/Sidebar';
 import TitleClose from '../Components/TitleClose';
+import Fields from '../Assets/questions';
 
 const stages = [{
     number: 1,
@@ -28,6 +29,7 @@ export default class extends Component {
     this.state = {
       currentStage: 1,
       stages: stages,
+      fields: Fields
     }
   }
 
