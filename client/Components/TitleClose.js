@@ -1,15 +1,17 @@
 import React from 'react';
-import { Text, Switch } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 const TitleClose = (props) => {
   return(
     <View>
-      <Text>Past Open House</Text>
+      <Text>{props.title}</Text>
       <TouchableOpacity
-        onPress={ () => this.props.navigation.navigate(props.nextLocation) }
+        onPress={ () => props.navigation.navigate(props.nextLocation) }
       >
         <Image source={require('../Assets/iconClose.png')} />
       </TouchableOpacity>
     </View> 
   )
 }
+
+export default TitleClose;
