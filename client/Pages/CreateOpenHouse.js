@@ -52,7 +52,6 @@ export default class extends Component {
   render() {
     const PivotingFields = this.state.fields.map((field, i) => {
       return <Stage 
-        style={styles.fields}
         navigation={this.props.navigation} 
         title={this.state.sideBarStages[i].stage}
         fields={field}
@@ -63,6 +62,7 @@ export default class extends Component {
       />
     })
     return (
+      <View style={styles.divider}>
       <View style={styles.screen}>
         <Sidebar 
           style={styles.sidebar}
@@ -72,27 +72,30 @@ export default class extends Component {
           stages={this.state.sideBarStages}
           navigation={this.props.navigation}
         />
-        <View>
+        <View style={styles.fields}>
           {PivotingFields[this.state.currentStage - 1]}
         </View>
+      </View>
       </View>
     )
   }
 }
 
 const styles=StyleSheet.create({
+
   screen: {
-    flex: 1,
+    marginTop: 25,
     flexDirection: 'row',
+    height: '100%',
   },
   sidebar: {
-    flex:1,
-    flexDirection: 'column',
+    padding: 20,
+    flex: 2,
     backgroundColor:'#454545',
-    justifyContent: 'flex-end',
-    alignContent: 'center',
+    alignItems: 'center',
   },
   fields: {
     flex: 4,
+    alignItems: 'center',
   }
 })

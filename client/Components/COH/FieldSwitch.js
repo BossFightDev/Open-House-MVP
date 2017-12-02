@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Switch } from 'react-native';
+import {View, Text, Switch, StyleSheet } from 'react-native';
 
 const FieldSwitch = (props) => {
   function onValueChange() {
@@ -44,5 +44,6 @@ const FieldSwitch = (props) => {
       )
   }
 }
+
 
 export default FieldSwitch
