@@ -73,12 +73,13 @@ export default class extends Component {
               value={this.state.phoneNumber}
             />
             <Text>Are you currently working with a Real Estate Agent?</Text>
-            <SegmentedControls
-              optionContainerStyle={{width: '50%'}}
-              options={ options }
-              onSelection={ (selectedOption) => { this.setState({ realEstateAgent: selectedOption }) } }
-              selectedOption={ this.state.realEstateAgent }
-            />
+            <View style={{width: '75%'}}>
+              <SegmentedControls
+                options={ options }
+                onSelection={ (selectedOption) => { this.setState({ realEstateAgent: selectedOption }) } }
+                selectedOption={ this.state.realEstateAgent }
+              />
+            </View>
             <TextInput
               editable={agent}
               style={{
@@ -91,6 +92,8 @@ export default class extends Component {
               value={this.state.agentName}
             />
             <Dropdown
+              containerStyle={{width: '75%'}}
+              pickerStyle={{width: '75%'}}
               label='Where did you hear about this open house?'
               value='Select One'
               onChangeText={(value) => this.setState({ openHouse: value })}
