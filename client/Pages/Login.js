@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { TextInput, View, Text, Button, Image } from 'react-native';
+import authenticateUser from '../actions';
+import {connect} from 'react-redux'
 
-export default class extends Component {
+class Login extends Component {
   constructor() {
     super();
 
@@ -33,7 +35,14 @@ export default class extends Component {
           color='black'
         />
         <Text>Forgot Password</Text>
+        <Text> {this.props.authenticated} </Text>
       </View>
     )
   }
 }
+
+const mapStateToProps= (state) => {
+  authenticated = state.authenticated
+}
+
+export default connect(mapStateToProps, { authenticateUser })(Login)

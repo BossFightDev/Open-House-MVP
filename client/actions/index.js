@@ -1,8 +1,8 @@
-import React from 'react';
+export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 
-export default (state, action) => {
-  switch (action.type) {
-    default:
-      return state;
+export const authenticateUser = (validation) => {
+  return {
+    type: 'AUTHENTICATE_USER',
+    authenticate: validation,
   }
 }
