@@ -20,13 +20,6 @@ export default class extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   Animated.timing(this.state.visibility, {
-  //     toValue: 1,
-  //     duration: 10000,
-  //   }).start()
-  // }
-
   handleSubmit() {
     this.setState({ visible: true });
     Animated.timing(this.state.visibility, {

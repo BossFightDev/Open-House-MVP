@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { Provider, connect } from 'react-redux';
+import { CreateStore, combineReducers } from 'redux';
 import * as Pages from './Pages';
 
 const Routes = StackNavigator({
@@ -10,6 +12,24 @@ const Routes = StackNavigator({
   PastOpenHouses: { screen: Pages.PastOpenHouses },
 }, {
   headerMode: 'none'
-})
+});
 
-export default Routes;
+const AppWithNavigationState = connect((state) => ({
+  nav: state.nav,
+}))(({ dispatch, nav }) => (
+  <Routes navigation={addNavigationHelpers({ dispatch, state: nav })} />
+));
+
+const store = createStore(reducers);
+
+const App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <AppWithNavigationState />
+      </Provider>
+    )
+  }
+}
+
+// export default Routes;
