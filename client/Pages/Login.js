@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TextInput, View, Text, Button, Image } from 'react-native';
-import authenticateUser from '../actions';
+import { authenticateUser } from '../actions';
 import {connect} from 'react-redux'
 
 class Login extends Component {
@@ -30,7 +30,13 @@ class Login extends Component {
           value={this.state.password}
         />
         <Button
-          onPress={ () => this.props.navigation.navigate('OpenHouses') }
+          onPress={ 
+          
+            () => {
+              const validated = authenticateUser(true); // <~~ change this to true or false
+              if (validated.authenticate) this.props.navigation.navigate('OpenHouses')
+            
+            } }
           title='Login'
           color='black'
         />
@@ -42,7 +48,7 @@ class Login extends Component {
 }
 
 const mapStateToProps= (state) => {
-  authenticated = state.authenticated
+  return {authenticated : state.authenticated}
 }
 
 export default connect(mapStateToProps, { authenticateUser })(Login)
