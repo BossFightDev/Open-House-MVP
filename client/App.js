@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import { Provider, connect } from 'react-redux';
-import { CreateStore, combineReducers } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import * as Pages from './Pages';
 import reducers from './reducers';
 
@@ -24,7 +24,7 @@ const Routes = StackNavigator({
 
 const store = createStore(reducers);
 
-const App extends Component {
+class App extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -34,4 +34,4 @@ const App extends Component {
   }
 }
 
-// export default Routes;
+export default App;
