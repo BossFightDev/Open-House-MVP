@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, Image } from 'react-native';
 import TitleCard from '../../Components/TitleClose';
-import FieldSwitch from '../../Components/COH/FieldSwitch';
+import FieldSwitch from '../../Containers/COH/FieldSwitch';
 
 export default class extends Component {
   constructor(props) {
