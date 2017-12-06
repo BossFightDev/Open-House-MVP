@@ -30,13 +30,11 @@ class Login extends Component {
           value={this.state.password}
         />
         <Button
-          onPress={ 
-          
+          onPress={
             () => {
               const validated = authenticateUser(true); // <~~ change this to true or false
               if (validated.authenticate) this.props.navigation.navigate('OpenHouses')
-            
-            } }
+            }}
           title='Login'
           color='black'
         />
