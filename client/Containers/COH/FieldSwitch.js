@@ -84,9 +84,14 @@ class FieldSwitch extends Component{
 const styles={
   simpleField:{
     flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white',
     justifyContent: 'space-between',
     paddingBottom: 10,
+    margin: 10,
+    width: '74%',
     borderWidth: 1,
+    borderRadius: 5,
     borderColor: 'gray',
     flex: 1,
   },

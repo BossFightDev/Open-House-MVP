@@ -96,7 +96,16 @@ const styles = StyleSheet.create({
 
   },
   button: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    backgroundColor: 'blue',
+    width: "75%",
     flex: 1,
-    justifyContent: 'space-between',
+  },
+  button1: {
+  },
+  button2: {
+
   }
+
 })
