@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import TitleCard from '../../Components/TitleClose';
-import FieldSwitch from '../../Components/COH/FieldSwitch';
+import FieldSwitch from '../../Containers/COH/FieldSwitch';
 
 export default class extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class extends Component {
     switch(this.props.active) {
       case 0:
         return (
-          <View>
+          <View style={styles.button}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active+2) }
               title='Next'
@@ -22,7 +22,7 @@ export default class extends Component {
         break;
       case this.props.lastStage:
         return (
-          <View>
+          <View style={styles.button}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
               title='Back'
@@ -38,7 +38,7 @@ export default class extends Component {
         break;
       default:
         return (
-          <View>
+          <View style={styles.button}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
               title='Back'
@@ -57,7 +57,11 @@ export default class extends Component {
   render() {
     return (
       <View style={this.props.style}>
-        <TitleCard title='PAST OPEN HOUSE' navigation={this.props.navigation} nextLocation='Open Houses'/> 
+        <TitleCard title='PAST OPEN HOUSE' 
+          navigation={this.props.navigation}
+          style={styles.title} 
+          nextLocation='Open Houses'
+        /> 
         <Text>{this.props.title}</Text>
         {this.props.fields.map((field, i) => {
           return <FieldSwitch 
@@ -68,6 +72,7 @@ export default class extends Component {
             parentIndex={this.props.active}
             switchIndex={i}
             switchChange={this.props.switchOnPress}
+            style={styles.fields}
             />
         })}
         {this.buttonRenderer()}
@@ -75,3 +80,23 @@ export default class extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  title:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: 10,
+    marginBottom: 5,
+    borderBottomWidth: 1,
+    borderColor: 'gray'
+  },
+  fields:{
+    flexBasis: '15%',
+    alignContent: 'flex-end',
+
+  },
+  button: {
+    flex: 1,
+    justifyContent: 'space-between',
+  }
+})
