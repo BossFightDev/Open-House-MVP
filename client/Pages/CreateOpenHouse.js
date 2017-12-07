@@ -82,20 +82,24 @@ export default class extends Component {
 }
 
 const styles=StyleSheet.create({
-
   screen: {
+    display: 'flex',
     marginTop: 25,
     flexDirection: 'row',
     height: '100%',
+    width: '100%',
   },
   sidebar: {
     padding: 20,
     flex: 2,
     backgroundColor:'#454545',
-    alignItems: 'center',
+    alignItems: 'stretch',
   },
   fields: {
     flex: 4,
-    alignItems: 'center',
+    padding: 20,
+    backgroundColor: 'brown',
+    flexDirection: 'row',
+    alignItems:'stretch',
   }
 })

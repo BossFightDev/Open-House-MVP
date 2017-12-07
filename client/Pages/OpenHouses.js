@@ -133,8 +133,10 @@ export default class App extends Component {
             </View>
           </View>
           <View>
-            <Text>Past Open Houses</Text>
-            <Text># of Guests</Text>
+            <View style={{flexDirection:'row'}}>
+            <Text style={{marginLeft:25,marginRight:300, fontFamily:'Montserrat-Regular'}}>Past Open Houses</Text>
+            <Text style={{fontFamily:'Montserrat-Regular'}}># of Guests</Text>
+            </View>
             <FlatList
               data={[
                 {
@@ -192,9 +194,14 @@ export default class App extends Component {
                     style={landscape.POHItemImage}
                     source={{ uri: `${item.image}` }}
                   />
-                  <Text>{item.date}</Text>
-                  <Text>{item.address}</Text>
-                  <Text>{item.number}</Text>
+                  <View style={{justifyContent: 'center'}}>
+                  <View style={{flexDirection: 'column', marginLeft: 10}}>
+                  <Text style={{fontFamily:'Montserrat-Bold'}}>{item.date}</Text>
+                  <Text style={{fontFamily:'Montserrat-Regular'}}>{item.address}</Text>
+                  </View>
+                  <Text style={{fontFamily:'Montserrat-Bold', color: "#25AAFB", marginLeft: 250,
+                  }}>{item.number}</Text>
+                  </View>
                 </View>
               )}
             />
@@ -294,7 +301,13 @@ const landscape = StyleSheet.create({
     borderColor: "#fff"
   },
   POHItem: {
-    backgroundColor: "white"
+    flexDirection: 'row',
+    width: 500,
+    backgroundColor: "white",
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 25,
+    marginLeft: 25,
   },
   POHItemImage: {
     width: 50, 
