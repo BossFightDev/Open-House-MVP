@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 const RequiredField = (props) => {
   return(
-    <View>
+    <View style={props.style}>
       <Text>
         {props.question}
       </Text>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Switch } from 'react-native';
+import { View, Text, Switch, StyleSheet } from 'react-native';
 
 const SwitchField = (props) => {
   return(
-    <View>
+    <View style={props.style}>
       <Text>
         {props.question}
       </Text>
@@ -13,5 +13,6 @@ const SwitchField = (props) => {
     </View>
   )
 }
+
 
 export default SwitchField;
