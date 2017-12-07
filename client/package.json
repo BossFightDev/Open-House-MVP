@@ -9,7 +9,7 @@
   },
   "rnpm": {
     "assets": [
-      "./assets/fonts"
+      "./Assets/fonts"
     ]
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
