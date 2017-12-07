@@ -91,6 +91,8 @@ const styles = StyleSheet.create({
     borderColor: 'gray'
   },
   fields:{
+    display:'flex',
+    flex: 1,
     flexBasis: '15%',
     alignContent: 'flex-end',
 

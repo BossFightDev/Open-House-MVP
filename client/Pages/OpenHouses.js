@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-native-modal";
+import { Font } from "expo";
 import {
   StyleSheet,
   Text,
@@ -17,7 +18,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isModalVisible: false
+      isModalVisible: false,
+      fontLoaded: false
     };
   }
   /**
@@ -28,22 +30,30 @@ export default class App extends Component {
   onLayout(e) {
     const {width, height} = Dimensions.get('window')
   }
+  async componentDidMount() {
+    await Font.loadAsync({
+      "Montserrat-Light": require("../Assets/fonts/Montserrat-Light.ttf"),
+      "Montserrat-Regular": require("../Assets/fonts/Montserrat-Regular.ttf"),
+      "Montserrat-Bold": require("../Assets/fonts/Montserrat-Bold.ttf")
+    });
+    this.setState({ fontLoaded: true });
+  }
 
   render() {
-    return (
+    return this.state.fontLoaded ? (
       <View
         style={landscape.container}
       >
         <View
           style={landscape.logo}
         >
-          <Image source={require("../Assets/logo.png")} />
+          <Image source={require("../Assets/logo.png")} style={{width: 180, height: 65}}/>
         </View>
         <View
           style={landscape.openHouseContainer}
         >
           <View style={landscape.inputButtonContainer}>
-            <Text>Create a New Open House</Text>
+            <Text style={{fontFamily: 'Montserrat-Regular', fontSize: 14, marginTop: 25, marginBottom: 10,}}>Create a New Open House</Text>
             <View style={landscape.searchBarContainer}>
               <TextInput
                 style={landscape.searchBar}
@@ -57,7 +67,7 @@ export default class App extends Component {
                 <Text
                   style={landscape.buttonText}
                 >
-                  Start
+                  START
                 </Text>
               </TouchableOpacity>
               <View style={landscape.modalContainer}>
@@ -123,8 +133,10 @@ export default class App extends Component {
             </View>
           </View>
           <View>
-            <Text>Past Open Houses</Text>
-            <Text># of Guests</Text>
+            <View style={{flexDirection:'row'}}>
+            <Text style={{marginLeft:25,marginRight:300, fontFamily:'Montserrat-Regular'}}>Past Open Houses</Text>
+            <Text style={{fontFamily:'Montserrat-Regular'}}># of Guests</Text>
+            </View>
             <FlatList
               data={[
                 {
@@ -182,21 +194,27 @@ export default class App extends Component {
                     style={landscape.POHItemImage}
                     source={{ uri: `${item.image}` }}
                   />
-                  <Text>{item.date}</Text>
-                  <Text>{item.address}</Text>
-                  <Text>{item.number}</Text>
+                  <View style={{justifyContent: 'center'}}>
+                  <View style={{flexDirection: 'column', marginLeft: 10}}>
+                  <Text style={{fontFamily:'Montserrat-Bold'}}>{item.date}</Text>
+                  <Text style={{fontFamily:'Montserrat-Regular'}}>{item.address}</Text>
+                  </View>
+                  <Text style={{fontFamily:'Montserrat-Bold', color: "#25AAFB", marginLeft: 250,
+                  }}>{item.number}</Text>
+                  </View>
                 </View>
               )}
             />
           </View>
         </View>
       </View>
-    );
+      ) : null;
   }
 }
 
 const landscape = StyleSheet.create({
   container: {
+    marginTop: 20,
     flex: 1,
     flexDirection: "row"
   },
@@ -210,35 +228,45 @@ const landscape = StyleSheet.create({
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
     alignItems: "flex-end",
-    height: "100%"
+    height: "100%",
+    width: "50%"
   },
   inputButtonContainer: {
+    paddingLeft: 18,
     borderBottomWidth: 1, 
     borderBottomColor: "#DDDDDD"
   },
   searchBarContainer: {
     flexDirection: "row", 
-    alignItems: "center" 
+    alignItems: "center",
+    marginBottom: 25,
+    marginRight: 20
   },
   searchBar: {
-    backgroundColor: "white"
+    paddingTop: 10,
+    paddingBottom: 5,
+    width: 200,
+    backgroundColor: "white",
+    borderRadius: 2,
+    fontFamily: 'Montserrat-Light',
+    fontSize: 10,
+    textAlign: 'center' 
   },
   buttonContainer: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
+    marginLeft: 5,
     paddingTop: 10,
-    paddingBottom: 10,
+    paddingBottom: 5,
     backgroundColor: "#25AAFB",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
+    width: 90,
+    borderRadius: 2,
   },
   buttonText: {
     color: "#fff",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontFamily: "Montserrat-Bold",
+    fontSize: 10
   },
   modalContainer: {
     justifyContent: "center",
@@ -273,7 +301,13 @@ const landscape = StyleSheet.create({
     borderColor: "#fff"
   },
   POHItem: {
-    backgroundColor: "white"
+    flexDirection: 'row',
+    width: 500,
+    backgroundColor: "white",
+    marginTop: 10,
+    marginBottom: 10,
+    marginRight: 25,
+    marginLeft: 25,
   },
   POHItemImage: {
     width: 50, 

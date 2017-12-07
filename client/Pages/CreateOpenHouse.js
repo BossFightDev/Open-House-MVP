@@ -98,6 +98,7 @@ const styles=StyleSheet.create({
   fields: {
     flex: 4,
     padding: 20,
+    backgroundColor: 'brown',
     flexDirection: 'row',
     alignItems:'stretch',
   }
