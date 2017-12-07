@@ -36,7 +36,7 @@ class FieldSwitch extends Component{
     switch(this.props.type){
       case 'Required':
         return(
-          <RequiredField question={this.props.question}/>
+          <RequiredField question={this.props.question} style={styles.simpleField}/>
         )
         break;
       case 'Image':
@@ -59,6 +59,7 @@ class FieldSwitch extends Component{
           <SwitchField question={this.props.question} 
             value={this.props.value} 
             onChange={this.onValueChange}
+            style={styles.simpleField}
           />
         )
         break;
@@ -72,12 +73,23 @@ class FieldSwitch extends Component{
   render(){
     let { image } = this.state;
     return (
-      <View>
+      <View style={this.props.style}>
         {this.renderQuestions()}
       </View>
     )
 
   }
+}
+
+const styles={
+  simpleField:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingBottom: 10,
+    borderWidth: 1,
+    borderColor: 'gray',
+    flex: 1,
+  },
 }
 
 export default FieldSwitch

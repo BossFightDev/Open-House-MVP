@@ -38,6 +38,12 @@ class Login extends Component {
           title='Login'
           color='black'
         />
+        <Button
+          onPress={
+            () => {this.props.navigation.navigate('CreateOpenHouse')}}
+          title='COH'
+          color='purple'
+        />
         <Text>Forgot Password</Text>
         <Text> {this.props.authenticated} </Text>
       </View>
