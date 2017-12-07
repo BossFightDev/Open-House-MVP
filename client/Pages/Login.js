@@ -79,7 +79,6 @@ class Login extends Component {
     ) : null;
   }
 }
-
 const mapStateToProps = state => {
   return { authenticated: state.authenticated };
 };
