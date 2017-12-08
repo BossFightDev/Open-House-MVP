@@ -30,16 +30,21 @@ export default class extends Component {
 
 const styles = StyleSheet.create({
   logo: {
-    backgroundColor: '#454545',
+    marginTop: 20,
+    flex: 1,
+    width: undefined,
+    height: undefined,
   },
   stageCard: {
     alignItems: 'center',
     flex: 1,
+    backgroundColor: '#454545'
   },
   addressCard: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: 'rgba(51, 51, 51, .7)'
   },
 
 })

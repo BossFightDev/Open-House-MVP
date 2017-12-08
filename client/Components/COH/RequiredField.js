@@ -4,10 +4,10 @@ import { View, Text } from 'react-native';
 const RequiredField = (props) => {
   return(
     <View style={props.style}>
-      <Text>
+      <Text style={{padding:'2%'}}>
         {props.question}
       </Text>
-      <Text> Required </Text>
+      <Text style={{padding: '2%'}}> Required </Text>
     </View>
   )
 }
