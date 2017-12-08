@@ -13,7 +13,6 @@ import {
   Dimensions
 } from "react-native";
 
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +27,7 @@ export default class App extends Component {
   _showModal = () => this.setState({ isModalVisible: true });
   _hideModal = () => this.setState({ isModalVisible: false });
   onLayout(e) {
-    const {width, height} = Dimensions.get('window')
+    const { width, height } = Dimensions.get("window");
   }
   async componentDidMount() {
     await Font.loadAsync({
@@ -41,19 +40,25 @@ export default class App extends Component {
 
   render() {
     return this.state.fontLoaded ? (
-      <View
-        style={landscape.container}
-      >
-        <View
-          style={landscape.logo}
-        >
-          <Image source={require("../Assets/logo.png")} style={{width: 180, height: 65}}/>
+      <View style={landscape.container}>
+        <View style={landscape.logo}>
+          <Image
+            source={require("../Assets/logo.png")}
+            style={{ width: 180, height: 65 }}
+          />
         </View>
-        <View
-          style={landscape.openHouseContainer}
-        >
+        <View style={landscape.openHouseContainer}>
           <View style={landscape.inputButtonContainer}>
-            <Text style={{fontFamily: 'Montserrat-Regular', fontSize: 14, marginTop: 25, marginBottom: 10,}}>Create a New Open House</Text>
+            <Text
+              style={{
+                fontFamily: "Montserrat-Regular",
+                fontSize: 14,
+                marginTop: 25,
+                marginBottom: 10
+              }}
+            >
+              Create a New Open House
+            </Text>
             <View style={landscape.searchBarContainer}>
               <TextInput
                 style={landscape.searchBar}
@@ -64,78 +69,24 @@ export default class App extends Component {
                 onPress={this._showModal}
                 underlayColor="#fff"
               >
-                <Text
-                  style={landscape.buttonText}
-                >
-                  START
-                </Text>
+                <Text style={landscape.buttonText}>START</Text>
               </TouchableOpacity>
-              <View style={landscape.modalContainer}>
-              <Modal 
-              isVisible={this.state.isModalVisible}
-              supportedOrientations={['portrait', 'portrait-upside-down', 'landscape-left', 'landscape-right']}
-              >
-                <View>
-                  <Text>MLS# 12345678</Text>
-                  <Text>245 North Maple Avenue, Apt101, Waco</Text>
-                  <Text>$345,000</Text>
-                </View>
-                <View>
-                  <Image
-                    style={landscape.modalIamge}
-                    source={{
-                      uri:
-                        "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg"
-                    }}
-                  />
-                </View>
-                <View>
-                  <View>
-                    <TouchableOpacity
-                      style={landscape.modalConfirmButton}
-                      onPress={() => {
-                        this._hideModal();
-                        this.props.navigation.navigate("CreateOpenHouse");
-                      }}
-                      underlayColor="#fff"
-                    >
-                      <Text
-                        style={{
-                          color: "#fff",
-                          textAlign: "center",
-                          paddingLeft: 10,
-                          paddingRight: 10
-                        }}
-                      >
-                        Confirm
-                      </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={landscape.modalNopeButton}
-                      onPress={this._hideModal}
-                      underlayColor="#fff"
-                    >
-                      <Text
-                        style={{
-                          color: "gray",
-                          textAlign: "center",
-                          paddingLeft: 10,
-                          paddingRight: 10
-                        }}
-                      >
-                        Nope, Wrong Property
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </Modal>
-              </View>
             </View>
           </View>
           <View>
-            <View style={{flexDirection:'row'}}>
-            <Text style={{marginLeft:25,marginRight:300, fontFamily:'Montserrat-Regular'}}>Past Open Houses</Text>
-            <Text style={{fontFamily:'Montserrat-Regular'}}># of Guests</Text>
+            <View style={{ flexDirection: "row", marginTop: 25 }}>
+              <Text
+                style={{
+                  marginLeft: 25,
+                  marginRight: 250,
+                  fontFamily: "Montserrat-Regular"
+                }}
+              >
+                Past Open Houses
+              </Text>
+              <Text style={{ fontFamily: "Montserrat-Regular" }}>
+                # of Guests
+              </Text>
             </View>
             <FlatList
               data={[
@@ -194,21 +145,101 @@ export default class App extends Component {
                     style={landscape.POHItemImage}
                     source={{ uri: `${item.image}` }}
                   />
-                  <View style={{justifyContent: 'center'}}>
-                  <View style={{flexDirection: 'column', marginLeft: 10}}>
-                  <Text style={{fontFamily:'Montserrat-Bold'}}>{item.date}</Text>
-                  <Text style={{fontFamily:'Montserrat-Regular'}}>{item.address}</Text>
-                  </View>
-                  <Text style={{fontFamily:'Montserrat-Bold', color: "#25AAFB", marginLeft: 250,
-                  }}>{item.number}</Text>
-                  </View>
+                    <View style={{ flexDirection: 'column',marginLeft: 10 }}>
+                      <Text style={{ fontFamily: "Montserrat-Bold" }}>
+                        {item.date}
+                      </Text>
+                      <Text style={{ fontFamily: "Montserrat-Regular" }}>
+                        {item.address}
+                      </Text>
+                    </View>
+                    <View style={{ justifyContent: 'center', flex: 1
+                        }}>
+                  <Text
+                      style={{
+                        fontFamily: "Montserrat-Bold",
+                        color: "#25AAFB",
+                        textAlign: 'right',
+                        marginRight: 10
+                      }}
+                    >
+                      {item.number}
+                    </Text>
+                    </View>
                 </View>
               )}
             />
           </View>
         </View>
+        <View style={landscape.modalContainer}>
+                <Modal
+                  isVisible={this.state.isModalVisible}
+                  supportedOrientations={[
+                    "portrait",
+                    "portrait-upside-down",
+                    "landscape-left",
+                    "landscape-right"
+                  ]}
+                  style={{backgroundColor: "blue", height: 400, width:400, justifyContent: 'center', paddingTop: 0,
+                }}
+                >
+                  <View style={{backgroundColor:'pink'}}>
+                    <Text>MLS# 12345678</Text>
+                    <Text>245 North Maple Avenue, Apt101, Waco</Text>
+                    <Text>$345,000</Text>
+                  </View>
+                  <View style={{justifyContent: 'center', backgroundColor:'orange'}}>
+                    <Image
+                      style={landscape.modalIamge}
+                      source={{
+                        uri:
+                          "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg"
+                      }}
+                    />
+                  </View>
+                  <View>
+                    <View style={{flexDirection:'row', backgroundColor: 'green'}}>
+                      <TouchableOpacity
+                        style={landscape.modalConfirmButton}
+                        onPress={() => {
+                          this._hideModal();
+                          this.props.navigation.navigate("CreateOpenHouse");
+                        }}
+                        underlayColor="#fff"
+                      >
+                        <Text
+                          style={{
+                            color: "#fff",
+                            textAlign: "center",
+                            paddingLeft: 10,
+                            paddingRight: 10
+                          }}
+                        >
+                          Confirm
+                        </Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        style={landscape.modalNopeButton}
+                        onPress={this._hideModal}
+                        underlayColor="#fff"
+                      >
+                        <Text
+                          style={{
+                            color: "gray",
+                            textAlign: "center",
+                            paddingLeft: 10,
+                            paddingRight: 10
+                          }}
+                        >
+                          Nope, Wrong Property
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </Modal>
+                </View>
       </View>
-      ) : null;
+    ) : null;
   }
 }
 
@@ -227,38 +258,37 @@ const landscape = StyleSheet.create({
   },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
-    alignItems: "flex-end",
     height: "100%",
     width: "50%"
   },
   inputButtonContainer: {
-    paddingLeft: 18,
-    borderBottomWidth: 1, 
+    paddingLeft: 25,
+    borderBottomWidth: 1,
     borderBottomColor: "#DDDDDD"
   },
   searchBarContainer: {
-    flexDirection: "row", 
-    alignItems: "center",
+    flexDirection: "row",
     marginBottom: 25,
-    marginRight: 20
+    // marginRight: 20,
+    justifyContent: "flex-start"
   },
   searchBar: {
     paddingTop: 10,
     paddingBottom: 5,
-    width: 200,
+    width: 300,
     backgroundColor: "white",
     borderRadius: 2,
-    fontFamily: 'Montserrat-Light',
+    fontFamily: "Montserrat-Light",
     fontSize: 10,
-    textAlign: 'center' 
+    textAlign: "center"
   },
   buttonContainer: {
     marginLeft: 5,
     paddingTop: 10,
     paddingBottom: 5,
     backgroundColor: "#25AAFB",
-    width: 90,
-    borderRadius: 2,
+    width: 150,
+    borderRadius: 2
   },
   buttonText: {
     color: "#fff",
@@ -270,13 +300,13 @@ const landscape = StyleSheet.create({
   },
   modalContainer: {
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    position: "absolute",
   },
   modalIamge: {
-    
     height: 200,
     width: 300,
-    alignItems: 'center'
+    justifyContent: "center"
   },
   modalNopeButton: {
     marginRight: 20,
@@ -301,8 +331,8 @@ const landscape = StyleSheet.create({
     borderColor: "#fff"
   },
   POHItem: {
-    flexDirection: 'row',
-    width: 500,
+    flexDirection: "row",
+    width: 460,
     backgroundColor: "white",
     marginTop: 10,
     marginBottom: 10,
@@ -310,7 +340,7 @@ const landscape = StyleSheet.create({
     marginLeft: 25,
   },
   POHItemImage: {
-    width: 50, 
+    width: 50,
     height: 50
-  },
+  }
 });
