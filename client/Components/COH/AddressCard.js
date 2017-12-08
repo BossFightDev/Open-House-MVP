@@ -8,9 +8,9 @@ class AddressCard extends Component{
   render() {
   return(
     <View style={this.props.style}>
-      <Image source={require('../../Assets/iconHouse.png')} />
-      <Text>MLS# {this.props.MLS}</Text>
-      <Text>{this.props.Address}</Text>
+      <Image source={require('../../Assets/iconHouse2x.png')} />
+      <Text style={styles.text}>MLS# {this.props.MLS}</Text>
+      <Text style={styles.text}>{this.props.Address}</Text>
       <Button
         onPress={() => this.props.navigation.navigate('OpenHouses')}
         title='Change Property'
@@ -21,6 +21,10 @@ class AddressCard extends Component{
 }
 
 const styles = StyleSheet.create({
+  text:{
+    color: '#fff',
+    fontSize: 16,
+  }
 
 })
 

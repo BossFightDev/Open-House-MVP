@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
-import TitleCard from '../../Components/TitleClose';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import TitleClose from '../../Components/TitleClose';
+import components from '../../Components';
 import FieldSwitch from '../../Containers/COH/FieldSwitch';
+const { Button } = components;
 
 export default class extends Component {
   constructor(props) {
@@ -14,8 +16,9 @@ export default class extends Component {
           <View style={styles.button}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active+2) }
-              title='Next'
+              label='Next'
               color='black'
+              arrow='right'
             />
           </View>
         )
@@ -25,13 +28,15 @@ export default class extends Component {
           <View style={styles.button}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
-              title='Back'
+              label='Back'
               color='black'
+              arrow='left'
             />
             <Button
               onPress={ () => this.props.navigation.navigate('Signup') }
-              title='Preview and Launch'
+              label='Preview and Launch'
               color='black'
+              arrow='right'
             />
           </View>
         )
@@ -41,13 +46,15 @@ export default class extends Component {
           <View style={styles.button}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
-              title='Back'
+              label='Back'
               color='black'
+              arrow='left'
             />
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active+2) }
-              title='Next'
+              label='Next'
               color='black'
+              arrow='right'
             />
           </View>
         )
@@ -57,12 +64,11 @@ export default class extends Component {
   render() {
     return (
       <View style={this.props.style}>
-        <TitleCard title='PAST OPEN HOUSE' 
+        <TitleClose title='CREATE OPEN HOUSE' 
           navigation={this.props.navigation}
-          style={styles.title} 
-          nextLocation='Open Houses'
+          nextLocation='OpenHouses'
         /> 
-        <Text>{this.props.title}</Text>
+        <Text style={styles.title}>{this.props.title}</Text>
         {this.props.fields.map((field, i) => {
           return <FieldSwitch 
             key={i.toString()}
@@ -82,14 +88,6 @@ export default class extends Component {
 }
 
 const styles = StyleSheet.create({
-  title:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingBottom: 10,
-    marginBottom: 5,
-    borderBottomWidth: 1,
-    borderColor: 'gray'
-  },
   fields:{
     flexBasis: '15%',
     alignContent: 'flex-end',
@@ -100,9 +98,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     backgroundColor: 'blue',
     width: "75%",
-    flex: 1,
+    flex: 0,
   },
-  button1: {
+  title: {
+    fontSize: 18,
+    fontWeight: '300',
+    color: '#454545',
   },
   button2: {
 

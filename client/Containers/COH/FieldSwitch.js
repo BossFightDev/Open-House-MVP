@@ -92,8 +92,10 @@ const styles={
     width: '74%',
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: 'gray',
+    borderColor: '#ddd',
     flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 3,
   },
 }
 
