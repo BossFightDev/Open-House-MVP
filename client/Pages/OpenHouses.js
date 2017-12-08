@@ -93,7 +93,7 @@ export default class App extends Component {
                 {
                   key: 1,
                   image:
-                    "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+                  "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
                   date: "Oct 24, 2017",
                   address: "245 Maple Ave, Waco",
                   number: 52
@@ -109,7 +109,7 @@ export default class App extends Component {
                 {
                   key: 3,
                   image:
-                    "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+                  "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
                   date: "Oct 24, 2017",
                   address: "245 Maple Ave, Waco",
                   number: 52
@@ -125,7 +125,7 @@ export default class App extends Component {
                 {
                   key: 5,
                   image:
-                    "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+                  "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
                   date: "Oct 24, 2017",
                   address: "245 Maple Ave, Waco",
                   number: 52
