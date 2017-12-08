@@ -88,6 +88,8 @@ const styles=StyleSheet.create({
     flexDirection: 'row',
     height: '100%',
     width: '100%',
+    borderColor: 'purple',
+    borderWidth: 3,
   },
   sidebar: {
     width: '25%',
@@ -101,8 +103,9 @@ const styles=StyleSheet.create({
   fields: {
     flex: 3,
     padding: 20,
-    backgroundColor: 'brown',
     flexDirection: 'row',
     alignItems:'stretch',
+    borderWidth: 3,
+    borderColor: 'yellow',
   }
 })
