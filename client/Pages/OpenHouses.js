@@ -145,99 +145,125 @@ export default class App extends Component {
                     style={landscape.POHItemImage}
                     source={{ uri: `${item.image}` }}
                   />
-                    <View style={{ flexDirection: 'column',marginLeft: 10 }}>
-                      <Text style={{ fontFamily: "Montserrat-Bold" }}>
-                        {item.date}
-                      </Text>
-                      <Text style={{ fontFamily: "Montserrat-Regular" }}>
-                        {item.address}
-                      </Text>
-                    </View>
-                    <View style={{ justifyContent: 'center', flex: 1
-                        }}>
-                  <Text
+                  <View style={{ flexDirection: "column", marginLeft: 10 }}>
+                    <Text style={{ fontFamily: "Montserrat-Bold" }}>
+                      {item.date}
+                    </Text>
+                    <Text style={{ fontFamily: "Montserrat-Regular" }}>
+                      {item.address}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      justifyContent: "center",
+                      flex: 1
+                    }}
+                  >
+                    <Text
                       style={{
                         fontFamily: "Montserrat-Bold",
                         color: "#25AAFB",
-                        textAlign: 'right',
+                        textAlign: "right",
                         marginRight: 10
                       }}
                     >
                       {item.number}
                     </Text>
-                    </View>
+                  </View>
                 </View>
               )}
             />
           </View>
         </View>
-        <View style={landscape.modalContainer}>
-                <Modal
-                  isVisible={this.state.isModalVisible}
-                  supportedOrientations={[
-                    "portrait",
-                    "portrait-upside-down",
-                    "landscape-left",
-                    "landscape-right"
-                  ]}
-                  style={{backgroundColor: "blue", height: 400, width:400, justifyContent: 'center', paddingTop: 0,
+        <View
+          style={{
+            // borderWidth: 3,
+            // borderColor: "red",
+            // display: this.state.isModalVisible ? "flex" : "none",
+            // justifyContent: "center",
+            // alignItems: "center",
+            // position: "absolute",
+            // width: "100%",
+            // height: "100%"
+          }}
+        >
+          <Modal
+            isVisible={this.state.isModalVisible}
+            supportedOrientations={[
+              "portrait",
+              "portrait-upside-down",
+              "landscape-left",
+              "landscape-right"
+            ]}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingTop: 0
+            }}
+          >
+          <View style={{height: 400, width: 400}}>
+            <View style={{ backgroundColor: "#F1F1F1"}}>
+              <Text>MLS# 12345678</Text>
+              <Text>245 North Maple Avenue, Apt101, Waco</Text>
+              <Text>$345,000</Text>
+            </View>
+            <View
+              style={{ display: "flex", justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#F1F1F1",
+              }}
+            >
+              <Image
+                style={landscape.modalIamge}
+                source={{
+                  uri:
+                  "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15"
                 }}
+              />
+            </View>
+            <View>
+              <View style={{ flexDirection: "row", backgroundColor: "#F1F1F1" }}>
+                <TouchableOpacity
+                  style={landscape.modalConfirmButton}
+                  onPress={() => {
+                    this._hideModal();
+                    this.props.navigation.navigate("CreateOpenHouse");
+                  }}
+                  underlayColor="#fff"
                 >
-                  <View style={{backgroundColor:'pink'}}>
-                    <Text>MLS# 12345678</Text>
-                    <Text>245 North Maple Avenue, Apt101, Waco</Text>
-                    <Text>$345,000</Text>
-                  </View>
-                  <View style={{justifyContent: 'center', backgroundColor:'orange'}}>
-                    <Image
-                      style={landscape.modalIamge}
-                      source={{
-                        uri:
-                          "https://static.pexels.com/photos/106399/pexels-photo-106399.jpeg"
-                      }}
-                    />
-                  </View>
-                  <View>
-                    <View style={{flexDirection:'row', backgroundColor: 'green'}}>
-                      <TouchableOpacity
-                        style={landscape.modalConfirmButton}
-                        onPress={() => {
-                          this._hideModal();
-                          this.props.navigation.navigate("CreateOpenHouse");
-                        }}
-                        underlayColor="#fff"
-                      >
-                        <Text
-                          style={{
-                            color: "#fff",
-                            textAlign: "center",
-                            paddingLeft: 10,
-                            paddingRight: 10
-                          }}
-                        >
-                          Confirm
-                        </Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        style={landscape.modalNopeButton}
-                        onPress={this._hideModal}
-                        underlayColor="#fff"
-                      >
-                        <Text
-                          style={{
-                            color: "gray",
-                            textAlign: "center",
-                            paddingLeft: 10,
-                            paddingRight: 10
-                          }}
-                        >
-                          Nope, Wrong Property
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-                  </View>
-                </Modal>
-                </View>
+                  <Text
+                    style={{
+                      color: "#fff",
+                      textAlign: "center",
+                      paddingLeft: 10,
+                      paddingRight: 10
+                    }}
+                  >
+                    Confirm
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={landscape.modalNopeButton}
+                  onPress={this._hideModal}
+                  underlayColor="#fff"
+                >
+                  <Text
+                    style={{
+                      color: "gray",
+                      textAlign: "center",
+                      paddingLeft: 10,
+                      paddingRight: 10
+                    }}
+                  >
+                    Nope, Wrong Property
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            </View>
+          </Modal>
+        </View>
       </View>
     ) : null;
   }
@@ -299,11 +325,15 @@ const landscape = StyleSheet.create({
     fontSize: 10
   },
   modalContainer: {
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
+    width: "100%",
+    height: "100%"
   },
   modalIamge: {
+    backgroundColor: "#F1F1F1",
     height: 200,
     width: 300,
     justifyContent: "center"
@@ -337,7 +367,7 @@ const landscape = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     marginRight: 25,
-    marginLeft: 25,
+    marginLeft: 25
   },
   POHItemImage: {
     width: 50,
