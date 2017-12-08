@@ -58,7 +58,7 @@ class Login extends Component {
           <Text style={landscape.buttonText}>LOGIN</Text>
         </TouchableOpacity>
         <Text style={{fontFamily: "Montserrat-Regular", color: 'white', fontSize:8}}>Forgot Password</Text>
-        <Button
+        {/* <Button
           onPress={
             () => {
               const validated = authenticateUser(true); // <~~ change this to true or false
@@ -74,7 +74,7 @@ class Login extends Component {
           color='purple'
         />
         <Text>Forgot Password</Text>
-        <Text> {this.props.authenticated} </Text>
+        <Text> {this.props.authenticated} </Text> */}
       </View>
     ) : null;
   }

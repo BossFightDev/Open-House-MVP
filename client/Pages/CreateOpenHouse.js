@@ -84,7 +84,6 @@ export default class extends Component {
 const styles=StyleSheet.create({
   screen: {
     display: 'flex',
-    marginTop: 25,
     flexDirection: 'row',
     height: '100%',
     width: '100%',
