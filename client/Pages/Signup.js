@@ -12,9 +12,14 @@ export default class extends Component {
 
     this.state = {
       launched: false,
+      confirmed: false,
       visible: false,
       visibility: new Animated.Value(1),
+      pin: '',
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.launchSignup = this.launchSignup.bind(this)
+    this.confirmPin = this.confirmPin.bind(this)
   }
 
   handleSubmit() {
@@ -31,15 +36,22 @@ export default class extends Component {
     this.setState({ launched: true })
   }
 
+  confirmPin() {
+    this.setState({ confirmed: true })
+  }
+
   render() {
     return (
       <View>
         {!this.state.launched ?
-          <LaunchOptions launchSignup={this.launchSignup.bind(this)} navigation={this.props.navigation} /> :
-          <CreatePin />
-        }
-        {!this.state.visible ?
-          <SignupForm handleSubmit={this.handleSubmit.bind(this)} /> :
+          <View>
+            <LaunchOptions launchSignup={this.launchSignup} navigation={this.props.navigation} />
+            <SignupForm handleSubmit={() => {}} />
+          </View> :
+        !this.state.confirmed ?
+          <CreatePin confirmPin={this.confirmPin} /> :
+        !this.state.visible ?
+          <SignupForm handleSubmit={this.handleSubmit} /> :
           <Animated.View style={{ opacity: this.state.visibility }}><Submitted /></Animated.View>
         }
       </View>
