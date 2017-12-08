@@ -33,7 +33,7 @@ export default class extends Component {
   }
 
   launchSignup() {
-    this.setState({ launched: true })
+    this.setState({ launched: !this.state.launched })
   }
 
   confirmPin() {
@@ -49,7 +49,7 @@ export default class extends Component {
             <SignupForm handleSubmit={() => {}} />
           </View> :
         !this.state.confirmed ?
-          <CreatePin confirmPin={this.confirmPin} /> :
+          <CreatePin confirmPin={this.confirmPin} launchSignup={this.launchSignup}/> :
         !this.state.visible ?
           <SignupForm handleSubmit={this.handleSubmit} /> :
           <Animated.View style={{ opacity: this.state.visibility }}><Submitted /></Animated.View>

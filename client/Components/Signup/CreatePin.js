@@ -118,11 +118,11 @@ export default class extends Component {
               }
             }}
           />
-          <TouchableOpacity
-            onPress={this.cancelPin()}>
-            <Text>Cancel</Text>
-          </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          onPress={this.props.launchSignup}>
+          <Text style={{color: 'blue'}}>Cancel</Text>
+        </TouchableOpacity>
       </View>
     )
   }
