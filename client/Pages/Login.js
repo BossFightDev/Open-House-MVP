@@ -52,7 +52,7 @@ class Login extends Component {
           onPress={() => {
             const validated = authenticateUser(true); // <~~ change this to true or false
             if (validated.authenticate)
-              this.props.navigation.navigate("CreateOpenHouse");
+              this.props.navigation.navigate("OpenHouses");
           }}
         >
           <Text style={landscape.buttonText}>LOGIN</Text>
