@@ -22,9 +22,9 @@ class AddHashtags extends Component {
       hashtags.map((hashtag, i) => {
       console.log("Hello World")
       return (
-        <View>
+        <View key={i.toString()}>
         <TextInput 
-          key={i.toString()}
+          
           style={{width:'75%', borderWidth: 2}}
           placeholder='Enter hashtag'
           onChangeText={(text) => this.onChange(text, i)} 
