@@ -17,8 +17,8 @@ class Login extends Component {
     super();
 
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       fontLoaded: false
     };
   }
@@ -52,29 +52,12 @@ class Login extends Component {
           onPress={() => {
             const validated = authenticateUser(true); // <~~ change this to true or false
             if (validated.authenticate)
-              this.props.navigation.navigate("OpenHouses");
+              this.props.navigation.navigate("CreateOpenHouse");
           }}
         >
           <Text style={landscape.buttonText}>LOGIN</Text>
         </TouchableOpacity>
         <Text style={{fontFamily: "Montserrat-Regular", color: 'white', fontSize:8}}>Forgot Password</Text>
-        {/* <Button
-          onPress={
-            () => {
-              const validated = authenticateUser(true); // <~~ change this to true or false
-              if (validated.authenticate) this.props.navigation.navigate('OpenHouses')
-            }}
-          title='Login'
-          color='black'
-        />
-        <Button
-          onPress={
-            () => {this.props.navigation.navigate('CreateOpenHouse')}}
-          title='COH'
-          color='purple'
-        />
-        <Text>Forgot Password</Text>
-        <Text> {this.props.authenticated} </Text> */}
       </View>
     ) : null;
   }

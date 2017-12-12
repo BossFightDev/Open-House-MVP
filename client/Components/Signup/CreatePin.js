@@ -10,10 +10,25 @@ export default class extends Component {
       confirmed: false,
       pin: '',
       confirmedPin: '',
+      errorMessage: '',
     }
     this.cancelPin = this.cancelPin.bind(this)
     this.clearPins = this.clearPins.bind(this)
     this.setPin = this.setPin.bind(this)
+  }
+
+  componentDidUpdate() {
+    if (this.state.pin.length === 4 && this.state.confirmedPin.length === 4) {
+      if (this.state.pin === this.state.confirmedPin) this.props.confirmPin()
+      else {
+        this.setState({ errorMessage: 'PIN\'s don\'t match! Try again.'})
+        setTimeout(() => {
+          this.setState({ errorMessage: ''})
+        }, 3000)
+        this.cancelPin()
+        this.clearPins()
+      }
+    }
   }
 
   cancelPin() {
@@ -31,17 +46,13 @@ export default class extends Component {
     this.refs.pin1.focus()
   }
 
-  setPin(field, value) {
-    if (field === 'pin') {
-      const { pin } = this.state
-      const newPin = pin.concat(value)
+  setPin(event) {
+    if (!this.state.created) {
+      const newPin = this.state.pin.concat(event.nativeEvent.text)
       this.setState({ pin: newPin })
-      console.log('pin: ' + this.state.pin)
     } else {
-      const { confirmedPin } = this.state
-      const newPin = confirmedPin.concat(value)
+      const newPin = this.state.confirmedPin.concat(event.nativeEvent.text)
       this.setState({ confirmedPin: newPin })
-      console.log('confirmedPin: ' + this.state.confirmedPin)
     }
   }
 
@@ -59,70 +70,44 @@ export default class extends Component {
             maxLength={1}
             autoFocus={true}
             style={{borderColor: 'black', borderWidth: 1, width: 25}}
-            onChangeText={(num) => {
-              if (!this.state.created) this.setPin('pin', num)
-              else this.setPin('confirmPin', num)
-              this.refs.pin2.focus()
-            }}
+            onChange={this.setPin}
+            onChangeText={() => this.refs.pin2.focus()}
           />
           <TextInput
             ref='pin2'
             keyboardType={'numeric'}
             maxLength={1}
             style={{borderColor: 'black', borderWidth: 1, width: 25}}
-            onChangeText={(num) => {
-              if (!this.state.created) this.setPin('pin', num)
-              else this.setPin('confirmPin', num)
-              this.refs.pin3.focus()
-            }}
+            onChange={this.setPin}
+            onChangeText={() => this.refs.pin3.focus()}
           />
           <TextInput
             ref='pin3'
             keyboardType={'numeric'}
             maxLength={1}
             style={{borderColor: 'black', borderWidth: 1, width: 25}}
-            onChangeText={(num) => {
-              if (!this.state.created) this.setPin('pin', num)
-              else this.setPin('confirmPin', num)
-              this.refs.pin4.focus()
-            }}
+            onChange={this.setPin}
+            onChangeText={() => this.refs.pin4.focus()}
           />
           <TextInput
             ref='pin4'
             keyboardType={'numeric'}
             maxLength={1}
             style={{borderColor: 'black', borderWidth: 1, width: 25}}
-            onChangeText={(num) => {
+            onChange={this.setPin}
+            onChangeText={() => {
               if (!this.state.created) {
-                this.setPin('pin', num)
                 this.setState({ created: true })
-                console.log('pin: ' + JSON.stringify(this.state))
                 this.clearPins()
-              }
-              else if (!this.state.confirmed) {
-                this.setPin('confirmPin', num)
-                console.log('pin: ' + JSON.stringify(this.state))
-                if (this.state.pin === this.state.confirmedPin) {
-                  this.setState({ confirmed: true })
-                  console.log('true')
-                  this.props.confirmPin()
-                } else {
-                  // alert('PIN\'s don\'t match!')
-                  this.setState({ created: false })
-                  this.setState({ pin: '' })
-                  this.setState({ confirmedPin: '' })
-                  this.clearPins()
-                  console.log('false')
-                  this.props.confirmPin() // Not in final product
-                }
               }
             }}
           />
         </View>
         <TouchableOpacity
-          onPress={this.props.launchSignup}>
+          onPress={() => this.props.launchSignup()}>
           <Text style={{color: 'blue'}}>Cancel</Text>
         </TouchableOpacity>
+        <Text>{this.state.errorMessage}</Text>
       </View>
     )
   }
