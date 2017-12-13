@@ -21,8 +21,6 @@ class FieldSwitch extends Component{
       aspect: [4, 3],
     });
 
-    //console.log(result);
-
     this._handleImagePicked(result)
   };
 
@@ -36,7 +34,7 @@ class FieldSwitch extends Component{
       if(!pickerResult.cancelled) {
         uploadResponse = await uploadImageAsync(pickerResult.uri)
         uploadResult = await uploadResponse.json()
-        this.setState({ image: uploadResult.location})
+        this.setState({ image: uploadResult.url})
       }
     } catch(err) {
       console.log({ uploadResponse })
