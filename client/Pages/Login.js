@@ -38,8 +38,8 @@ class Login extends Component {
     super();
 
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       fontLoaded: false
     };
   }
@@ -78,7 +78,7 @@ class Login extends Component {
           onPress={() => {
             const validated = authenticateUser(true); // <~~ change this to true or false
             if (validated.authenticate)
-              this.props.navigation.navigate("OpenHouses");
+              this.props.navigation.navigate("CreateOpenHouse");
           }}
         >
           <Text style={styles.buttonText}>LOGIN</Text>

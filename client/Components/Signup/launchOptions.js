@@ -14,12 +14,12 @@ export default class extends Component {
       <View style={{marginTop: 10}}>
         <TouchableOpacity
           style={{backgroundColor: 'white'}}
-          onPress={this.props.launchSignup}>
+          onPress={() => this.props.launchSignup()}>
           <Text style={{color: 'green'}}>Launch</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{backgroundColor: 'white'}}
-          onPress={ () => this.props.navigation.goBack() }>
+          onPress={() => this.props.navigation.goBack()}>
           <Text style={{color: 'red'}}>Edit/Cancel</Text>
         </TouchableOpacity>
       </View>
