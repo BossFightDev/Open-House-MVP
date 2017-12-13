@@ -6,19 +6,40 @@ import {
   Button,
   Image,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Platform,
+  Dimensions
 } from "react-native";
+import { portrait, landscape } from "./Style/login-style.js"
 import { authenticateUser } from "../actions";
 import { connect } from "react-redux";
 import { Font } from "expo";
 
+const {height, width} = Dimensions.get('window'); 
+const aspectRatio = height/width;
+console.log('HEIGHT: ' + height);
+console.log('WIDTH: ' + width);
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+}
+let styles;
+if (aspectRatio > 1.6) {
+   styles = portrait;
+  console.log('IPHONE');
+  
+}
+else {
+   styles = landscape;
+  changeScreenOrientation();
+  console.log('IPAD');
+}
 class Login extends Component {
   constructor() {
     super();
 
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       fontLoaded: false
     };
   }
@@ -33,31 +54,37 @@ class Login extends Component {
 
   render() {
     return this.state.fontLoaded ? (
-      <View style={{ marginTop: 25, height: '100%', alignItems: "center", backgroundColor:"#454545"}}>
-        <Image source={require("../Assets/logo.png")} style={{width: 180, height: 65, marginTop: 30}}/>
-        <Text style={{ marginRight: '22%', marginTop: 25, fontFamily: "Montserrat-Regular", color: 'white', fontSize:8 }}>Username</Text>
+      <View style={styles.container}>
+        <Image source={require("../Assets/logo.png")} style={styles.logo}/>
+        <View style={styles.loginContainer}>
+        <View style={styles.inputContainer}>
+        <Text style={styles.inputTitle}>Username</Text>
         <TextInput
-          style={landscape.inputContainer}
+          style={styles.input}
           onChangeText={username => this.setState({ username })}
           value={this.state.username}
         />
-        <Text style={{ marginRight: '22%', fontFamily: "Montserrat-Regular", color: 'white', fontSize:8 }}>Password</Text>
+        </View>
+        <View style={styles.inputContainer}>
+        <Text style={styles.inputTitle}>Password</Text>
         <TextInput
-          style={landscape.inputContainer}
+          style={styles.input}
           onChangeText={password => this.setState({ password })}
           value={this.state.password}
         />
+        </View>
         <TouchableOpacity
-          style={landscape.buttonContainer}
+          style={styles.button}
           onPress={() => {
             const validated = authenticateUser(true); // <~~ change this to true or false
             if (validated.authenticate)
-              this.props.navigation.navigate("OpenHouses");
+              this.props.navigation.navigate("CreateOpenHouse");
           }}
         >
-          <Text style={landscape.buttonText}>LOGIN</Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
-        <Text style={{fontFamily: "Montserrat-Regular", color: 'white', fontSize:8}}>Forgot Password</Text>
+        <Text style={styles.text}>Forgot Password</Text>
+        </View>
         {/* <Button
           onPress={
             () => {
@@ -82,103 +109,5 @@ class Login extends Component {
 const mapStateToProps = state => {
   return { authenticated: state.authenticated };
 };
-
-const landscape = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row"
-  },
-  logo: {
-    backgroundColor: "#454545",
-    height: "100%",
-    width: "50%",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  openHouseContainer: {
-    backgroundColor: "#F1F1F1",
-    alignItems: "flex-end",
-    height: "100%"
-  },
-  inputButtonContainer: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#DDDDDD"
-  },
-  searchBarContainer: {
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  searchBar: {
-    backgroundColor: "white"
-  },
-  buttonContainer: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    marginBottom: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    width: '28%',
-    backgroundColor: "#25AAFB",
-    borderRadius: 2
-  },
-  inputContainer: {
-      marginRight: 40,
-      marginLeft: 40,
-      marginTop: 2,
-      marginBottom: 10,
-      paddingTop: 5,
-      paddingBottom: 5,
-      width: '28%',
-      backgroundColor: "white",
-      borderRadius: 2
-  },
-  buttonText: {
-    color: "#fff",
-    textAlign: "center",
-    paddingLeft: 10,
-    paddingRight: 10,
-    fontFamily: "Montserrat-Bold",
-    fontSize: 10
-  },
-  modalContainer: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  modalIamge: {
-    height: 200,
-    width: 300,
-    alignItems: "center"
-  },
-  modalNopeButton: {
-    marginRight: 20,
-    marginLeft: 20,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: "white",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  modalConfirmButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: "#25AAFB",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  POHItem: {
-    backgroundColor: "white"
-  },
-  POHItemImage: {
-    width: 50,
-    height: 50
-  }
-});
 
 export default connect(mapStateToProps, { authenticateUser })(Login);
