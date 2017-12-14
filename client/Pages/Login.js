@@ -73,6 +73,7 @@ class Login extends Component {
           value={this.state.password}
         />
         </View>
+        <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
@@ -84,6 +85,7 @@ class Login extends Component {
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
         <Text style={styles.text}>Forgot Password</Text>
+        </View>
         </View>
         {/* <Button
           onPress={
