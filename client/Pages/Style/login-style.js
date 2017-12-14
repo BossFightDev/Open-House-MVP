@@ -10,16 +10,14 @@ export const landscape = StyleSheet.create({
   logo: {
     width: "33.3333%",
     height: '16%',
-    marginBottom: 40,
+    marginBottom: 20,
     justifyContent: "center",
     alignItems: "center"
   },
   loginContainer: {
-    borderWidth: 3,
-    borderColor: 'white',
     width: "33.3333%",
     height: "45%",
-    justifyContent: 'space-between'
+    justifyContent: 'space-around'
   },
   inputTitle: {
     fontFamily: "Montserrat-Regular", 
@@ -54,12 +52,11 @@ buttonText: {
   fontSize: 18
 },
   text: { 
-    borderWidth: 3,
-    borderColor: 'white', 
     fontFamily: "Montserrat-Regular", 
     color: 'white', 
     fontSize:14,
     alignSelf: 'center',
+    marginTop: 20,
   },
 });
 
@@ -74,17 +71,15 @@ export const portrait = StyleSheet.create({
   logo: {
     width: "50%",
     height: '10%',
-    marginBottom: 20,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center"
   },
   loginContainer: {
     width: "50%",
     height: "35%",
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignContent: 'center',
-    borderWidth: 3,
-    borderColor: 'white',
   },
   inputTitle: {
     fontFamily: "Montserrat-Regular", 
@@ -117,11 +112,10 @@ buttonText: {
   fontSize: 14
 },
   text: {
-    borderWidth: 3,
-    borderColor: 'white', 
     fontFamily: "Montserrat-Regular", 
     color: 'white', 
     fontSize:10,
     alignSelf: 'center',
+    marginTop: 15,
   },
 });
