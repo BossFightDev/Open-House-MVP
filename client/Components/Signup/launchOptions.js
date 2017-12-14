@@ -11,7 +11,7 @@ export default class extends Component {
   }
   render() {
     return (
-      <View style={{marginTop: 10}}>
+      <View style={{marginTop: '25%'}}>
         <TouchableOpacity
           style={{backgroundColor: 'white'}}
           onPress={() => this.props.launchSignup()}>
