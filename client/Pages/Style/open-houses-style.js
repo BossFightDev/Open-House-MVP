@@ -13,8 +13,8 @@ export const landscape = StyleSheet.create({
     alignItems: "center"
   },
   logo: {
-    width: 180,
-    height: 65
+    // width: 180,
+    // height: 65
   },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
@@ -22,100 +22,125 @@ export const landscape = StyleSheet.create({
     width: "50%"
   },
   headerContainer: {
-    paddingLeft: 25,
+    paddingLeft: '5%',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: "#DDDDDD"
   },
+  headerInfo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: "90%",
+    height: "90%",
+    borderWidth: 3,
+    borderColor: 'blue'
+  },
   title: {
+    textAlign: 'left',
+    alignSelf: 'flex-start',
     fontFamily: "Montserrat-Regular",
-    fontSize: 14,
+    fontSize: 16,
     marginTop: 25,
     marginBottom: 10
   },
   searchBarContainer: {
     flexDirection: "row",
     marginBottom: 25,
-    // marginRight: 20,
-    justifyContent: "flex-start"
+    alignSelf: 'flex-start'
   },
   searchBar: {
     paddingTop: 10,
     paddingBottom: 5,
-    width: 300,
+    width: "64%",
+    height: 45,
     backgroundColor: "white",
-    borderRadius: 2,
     fontFamily: "Montserrat-Light",
-    fontSize: 10,
-    textAlign: "center"
+    fontSize: 14,
+    textAlign: "center",
+    borderWidth: 1, 
+    borderRadius: 2,
+    borderColor: "#DDDDDD"
   },
   buttonContainer: {
-    marginLeft: 5,
+    marginLeft: "1.5%",
     paddingTop: 10,
     paddingBottom: 5,
     backgroundColor: "#25AAFB",
-    width: 150,
+    width: "28.5%",
+    height: 45,
     borderRadius: 2
   },
   buttonText: {
     color: "#fff",
     textAlign: "center",
+    marginTop: 5,
     paddingLeft: 10,
     paddingRight: 10,
     fontFamily: "Montserrat-Bold",
-    fontSize: 10
+    fontSize: 14
   },
-  listContainer: {
+  listTextContainer: {
     flexDirection: "row",
-    marginTop: 25
+    marginTop: '5%',
+    marginBottom: '2.5%',
+    width: '90%',
+    alignSelf: "center",
+    justifyContent: "space-between",
   },
   listTitle: {
-    marginLeft: 25,
-    marginRight: 250,
-    fontFamily: "Montserrat-Regular"
+    fontFamily: "Montserrat-Regular",
+    fontSize: 16,
   },
   guestCountTitle: {
-    fontFamily: "Montserrat-Regular"
+    fontFamily: "Montserrat-Regular",
+    fontSize: 10
   },
   POHItem: {
     flexDirection: "row",
-    width: 460,
+    width: '90%',
     backgroundColor: "white",
     marginTop: 10,
     marginBottom: 10,
-    marginRight: 25,
-    marginLeft: 25
+    marginLeft: '5%',
+    borderWidth: 1, 
+    borderRadius: 2,
+    borderColor: "#DDDDDD"
   },
   imageContainer: {
-    width: 80,
-    height: 60
+    width: 100,
+    height: 82
   },
   POHItemImage: {
-    width: 80,
-    height: 60
+    width: '100%',
+    height: '100%'
   },
-  infoContainer: {
+  infoWrapper: {
+    width: "79%",
     justifyContent: 'center',
     alignItems: 'center',
   },
+  infoContainer: {
+    width: "90%",
+    flexDirection: 'row',
+  },
   dateAddress: {
     flexDirection: "column",
-    marginLeft: 10
   },
   date: {
     fontFamily: "Montserrat-Bold"
   },
   address: {
-    fontFamily: "Montserrat-Regular"
+    fontFamily: "Montserrat-Regular",
   },
   guestCountContainer: {
-    justifyContent: "center",
-    flex: 1
+    flex: 1,
+    alignSelf: 'center'
   },
   guestCount: {
     fontFamily: "Montserrat-Bold",
     color: "#25AAFB",
-    textAlign: "right",
-    marginRight: 10
+    textAlign: 'right'
   },
   modal: {
     display: "flex",
@@ -259,7 +284,7 @@ export const portrait = StyleSheet.create({
     fontFamily: "Montserrat-Regular"
   },
   guestCountTitle: {
-    fontFamily: "Montserrat-Regular",
+    fontFamily: "Montserrat-Light",
     fontSize: 10
   },
   POHItem: {
@@ -299,7 +324,7 @@ export const portrait = StyleSheet.create({
   },
   address: {
     textAlign: "left",
-    fontFamily: "Montserrat-Regular"
+    fontFamily: "Montserrat-Light"
   },
   guestCountContainer: {
     justifyContent: "center",
