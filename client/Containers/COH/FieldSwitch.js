@@ -11,6 +11,7 @@ class FieldSwitch extends Component{
       image: '../../Assets/iconHouse3x.png',
       imageChange: false,
       Hashtags: null,
+      uploading: false,
     }
   }
 
@@ -20,12 +21,30 @@ class FieldSwitch extends Component{
       aspect: [4, 3],
     });
 
-    //console.log(result);
-
-    if (!result.cancelled) {
-      this.setState({ image: result.uri });
-    }
+    this._handleImagePicked(result)
   };
+
+  _handleImagePicked = async pickerResult => {
+    let uploadResponse,
+        uploadResult
+
+    try {
+      this.setState({ uploading: true})
+
+      if(!pickerResult.cancelled) {
+        uploadResponse = await uploadImageAsync(pickerResult.uri)
+        uploadResult = await uploadResponse.json()
+        this.setState({ image: uploadResult.url})
+      }
+    } catch(err) {
+      console.log({ uploadResponse })
+      console.log({ uploadResult })
+      console.log({ err })
+      alert('Upload failed, sorry :(')
+    } finally {
+      this.setState({ uploading: false })
+    }
+  }
   
 
   onValueChange = () => {
@@ -80,6 +99,31 @@ class FieldSwitch extends Component{
 
   }
 }
+
+const uploadImageAsync = async (uri)=> {
+  let apiUrl = 'https://openhousebackend.herokuapp.com/api/photo'
+  let uriParts = uri.split('.')
+  let fileType = uri[uri.lenghth - 1]
+
+  let formData = new FormData()
+  formData.append('photo', {
+    uri,
+    name: `photo.${fileType}`,
+    type: `image/${fileType}`
+  })
+  
+  let options = {
+    method: 'POST',
+    body: formData,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'multipart/form-data',
+    }
+  }
+
+  return fetch(apiUrl, options);
+
+}  
 
 const styles={
   simpleField:{
