@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TextInput, View, Text, TouchableOpacity } from 'react-native';
 import { SegmentedControls } from 'react-native-radio-buttons';
 import { Dropdown } from 'react-native-material-dropdown';
+import CustomText from '../CustomText';
 
 export default class extends Component {
   constructor() {
@@ -15,7 +16,27 @@ export default class extends Component {
       realEstateAgent: 'Yes',
       agentName: '',
       openHouse: 'Select One',
+      userFocused: false,
+      emailFocused: false,
+      phoneFocused: false,
+      agentFocused: false,
     }
+    this.onFocus = this.onFocus.bind(this)
+    this.onBlur = this.onBlur.bind(this)
+  }
+
+  onFocus(focused) {
+    if (focused === 'user') this.setState({ userFocused: true })
+    else if (focused === 'email') this.setState({ emailFocused: true })
+    else if (focused === 'phone') this.setState({ phoneFocused: true })
+    else if (focused === 'agent') this.setState({ agentFocused: true })
+  }
+
+  onBlur(blurred) {
+    if (blurred === 'user') this.setState({ userFocused: false })
+    else if (blurred === 'email') this.setState({ emailFocused: false })
+    else if (blurred === 'phone') this.setState({ phoneFocused: false })
+    else if (blurred === 'agent') this.setState({ agentFocused: false })
   }
 
   render() {
@@ -30,31 +51,41 @@ export default class extends Component {
     ];
 
     let agent = this.state.realEstateAgent === 'Yes' ? true : false;
+    let userBorder = this.state.userFocused ? 'blue' : 'gray'
+    let emailBorder = this.state.emailFocused ? 'blue' : 'gray'
+    let phoneBorder = this.state.phoneFocused ? 'blue' : 'gray'
+    let agentBorder = this.state.agentFocused ? 'blue' : 'gray'
 
     return (
       <View style={this.props.styles.container}>
-        <Text>Welcome</Text>
-        <Text>Please Sign in</Text>
-        <View style={this.props.styles.inputContainer}>
-          <Text>Name</Text>
-          <TextInput
-            style={this.props.styles.input}
-            onChangeText={(name) => this.setState({ name })}
+        <CustomText>Welcome</CustomText>
+        <CustomText>Please Sign in</CustomText>
+          <View style={this.props.styles.inputContainer}>
+            <CustomText>Name</CustomText>
+            <TextInput
+              style={[this.props.styles.input, { borderColor: userBorder }]}
+              onFocus={() => this.onFocus('user')}
+              onBlur={() => this.onBlur('user')}
+              onChangeText={(name) => this.setState({ name })}
               value={this.state.name}
             />
-            <Text>E-mail Address</Text>
+            <CustomText>E-mail Address</CustomText>
             <TextInput
-              style={this.props.styles.input}
+              style={[this.props.styles.input, { borderColor: emailBorder }]}
+              onFocus={() => this.onFocus('email')}
+              onBlur={() => this.onBlur('email')}
               onChangeText={(email) => this.setState({ email })}
               value={this.state.email}
             />
-            <Text>Phone Number</Text>
+            <CustomText>Phone Number</CustomText>
             <TextInput
-              style={this.props.styles.input}
+              style={[this.props.styles.input, { borderColor: phoneBorder }]}
+              onFocus={() => this.onFocus('phone')}
+              onBlur={() => this.onBlur('phone')}
               onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
               value={this.state.phoneNumber}
             />
-            <Text>Are you currently working with a Real Estate Agent?</Text>
+            <CustomText>Are you currently working with a Real Estate Agent?</CustomText>
             <View style={{ flexDirection: 'row' }}>
               <View style={{width:'33%'}}>
               <SegmentedControls
@@ -68,10 +99,13 @@ export default class extends Component {
                 style={{
                   width: '66%',
                   backgroundColor: agent ? 'white' : 'darkgray',
-                  borderColor: 'gray',
+                  borderColor: agentBorder,
                   borderWidth: 1,
                   borderRadius: 3,
+                  paddingLeft: 10,
                 }}
+                onFocus={() => this.onFocus('agent')}
+                onBlur={() => this.onBlur('agent')}
                 onChangeText={(agentName) => this.setState({ agentName })}
                 value={this.state.agentName}
               />
@@ -86,7 +120,7 @@ export default class extends Component {
               style={this.props.styles.button}
               onPress={this.props.handleSubmit}
             >
-              <Text style={{ color: 'white' }}>SUBMIT</Text>
+              <CustomText style={{ color: 'white' }}>SUBMIT</CustomText>
             </TouchableOpacity>
           </View>
       </View>

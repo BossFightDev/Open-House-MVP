@@ -18,9 +18,9 @@ export const landscape = StyleSheet.create({
   input: {
     width: '100%',
     backgroundColor: 'white',
-    borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 3,
+    paddingLeft: 10,
   },
   inputContainer: {
     width: "75%",
@@ -45,11 +45,11 @@ export const portrait = StyleSheet.create({
   input: {
     width: '100%',
     backgroundColor: 'white',
-    borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 3,
+    paddingLeft: 10,
   },
   inputContainer: {
-    width: "75%",
+    width: "90%",
   },
 })
