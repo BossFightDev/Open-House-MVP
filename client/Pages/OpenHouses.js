@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-native-modal";
-import { Font } from "expo";
+import CustomText from "../Components/CustomText";
 import { landscape, portrait } from "./Style/open-houses-style.js";
 import {
   StyleSheet,
@@ -45,24 +45,16 @@ export default class App extends Component {
   onLayout(e) {
     const { width, height } = Dimensions.get("window");
   }
-  async componentDidMount() {
-    await Font.loadAsync({
-      "Montserrat-Light": require("../Assets/fonts/Montserrat-Light.ttf"),
-      "Montserrat-Regular": require("../Assets/fonts/Montserrat-Regular.ttf"),
-      "Montserrat-Bold": require("../Assets/fonts/Montserrat-Bold.ttf")
-    });
-    this.setState({ fontLoaded: true });
-  }
 
   render() {
-    return this.state.fontLoaded ? (
+    return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
           <Image source={require("../Assets/logo.png")} style={styles.logo} />
         </View>
         <View style={styles.openHouseContainer}>
           <View style={styles.headerContainer}>
-            <Text style={styles.title}>Create a New Open House</Text>
+            <CustomText style={styles.title}>Create a New Open House</CustomText>
             <View style={styles.searchBarContainer}>
               <TextInput
                 style={styles.searchBar}
@@ -73,14 +65,14 @@ export default class App extends Component {
                 onPress={this._showModal}
                 underlayColor="#fff"
               >
-                <Text style={styles.buttonText}>START</Text>
+                <CustomText style={styles.buttonText} font="bold">START</CustomText>
               </TouchableOpacity>
             </View>
           </View>
           <View>
             <View style={styles.listTextContainer}>
-              <Text style={styles.listTitle}>Past Open Houses</Text>
-              <Text style={styles.guestCountTitle}># of Guests</Text>
+              <CustomText style={styles.listTitle}>Past Open Houses</CustomText>
+              <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
             <FlatList style={{height:'100%'}}
               data={[
@@ -144,11 +136,11 @@ export default class App extends Component {
                   <View style={styles.infoWrapper}>
                   <View style={styles.infoContainer}>
                   <View style={styles.dateAddress}>
-                    <Text style={styles.date}>{item.date}</Text>
-                    <Text style={styles.address}>{item.address}</Text>
+                    <CustomText style={styles.date} font="bold">{item.date}</CustomText>
+                    <CustomText style={styles.address}>{item.address}</CustomText>
                   </View>
                   <View style={styles.guestCountContainer}>
-                    <Text style={styles.guestCount}>{item.number}</Text>
+                    <CustomText style={styles.guestCount} font="bold">{item.number}</CustomText>
                   </View>
                   </View>
                   </View>
@@ -169,9 +161,13 @@ export default class App extends Component {
         >
           <View style={styles.modalContainer}>
             <View style={styles.modalTextContainer}>
-              <Text>MLS# 12345678</Text>
-              <Text>245 North Maple Avenue, Apt101, Waco</Text>
-              <Text>$345,000</Text>
+              <View style={styles.MLSAddress}>
+              <CustomText style={styles.modalMLS} font="bold">MLS# 12345678</CustomText>
+              <CustomText style={styles.modalAddress}>245 North Maple Avenue, Apt101, Waco</CustomText>
+              </View>
+            <View style={styles.priceContainer}>
+            <CustomText style={styles.modalPrice} font="bold">$345,000</CustomText>
+            </View>
             </View>
             <View style={styles.modalImageContainer}>
               <Image
@@ -192,20 +188,20 @@ export default class App extends Component {
                   }}
                   underlayColor="#fff"
                 >
-                  <Text style={styles.modalConfirmText}>Confirm</Text>
+                  <CustomText style={styles.modalConfirmText} font="bold">CONFIRM</CustomText>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={landscape.modalNopeButton}
                   onPress={this._hideModal}
                   underlayColor="#fff"
                 >
-                  <Text style={styles.modalNopeText}>Nope, Wrong Property</Text>
+                  <CustomText style={styles.modalNopeText}>Nope, Wrong Property</CustomText>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
         </Modal>
       </View>
-    ) : null;
+    );
   }
 }

@@ -13,8 +13,8 @@ export const landscape = StyleSheet.create({
     alignItems: "center"
   },
   logo: {
-    width: 180,
-    height: 65
+    // width: 180,
+    // height: 65
   },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
@@ -22,163 +22,219 @@ export const landscape = StyleSheet.create({
     width: "50%"
   },
   headerContainer: {
-    paddingLeft: 25,
+    paddingLeft: '5%',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: "#DDDDDD"
   },
+  headerInfo: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: "90%",
+    height: "90%",
+  },
   title: {
-    fontFamily: "Montserrat-Regular",
-    fontSize: 14,
+    textAlign: 'left',
+    alignSelf: 'flex-start',
+    fontSize: 16,
     marginTop: 25,
     marginBottom: 10
   },
   searchBarContainer: {
     flexDirection: "row",
     marginBottom: 25,
-    // marginRight: 20,
-    justifyContent: "flex-start"
+    alignSelf: 'flex-start'
   },
   searchBar: {
     paddingTop: 10,
     paddingBottom: 5,
-    width: 300,
+    width: "64%",
+    height: 45,
     backgroundColor: "white",
+    fontSize: 14,
+    textAlign: "center",
+    borderWidth: 1, 
     borderRadius: 2,
-    fontFamily: "Montserrat-Light",
-    fontSize: 10,
-    textAlign: "center"
+    borderColor: "#DDDDDD"
   },
   buttonContainer: {
-    marginLeft: 5,
+    marginLeft: "1.5%",
     paddingTop: 10,
     paddingBottom: 5,
     backgroundColor: "#25AAFB",
-    width: 150,
+    width: "28.5%",
+    height: 45,
     borderRadius: 2
   },
   buttonText: {
     color: "#fff",
     textAlign: "center",
+    marginTop: 5,
     paddingLeft: 10,
     paddingRight: 10,
-    fontFamily: "Montserrat-Bold",
-    fontSize: 10
+    fontSize: 14
   },
-  listContainer: {
+  listTextContainer: {
     flexDirection: "row",
-    marginTop: 25
+    marginTop: '5%',
+    marginBottom: '2.5%',
+    width: '90%',
+    alignSelf: "center",
+    justifyContent: "space-between",
   },
   listTitle: {
-    marginLeft: 25,
-    marginRight: 250,
-    fontFamily: "Montserrat-Regular"
+    fontSize: 16,
   },
   guestCountTitle: {
-    fontFamily: "Montserrat-Regular"
+    fontSize: 10
   },
   POHItem: {
     flexDirection: "row",
-    width: 460,
+    width: '90%',
     backgroundColor: "white",
     marginTop: 10,
     marginBottom: 10,
-    marginRight: 25,
-    marginLeft: 25
+    marginLeft: '5%',
+    borderWidth: 1, 
+    borderRadius: 2,
+    borderColor: "#DDDDDD"
   },
   imageContainer: {
-    width: 80,
-    height: 60
+    width: 100,
+    height: 82
   },
   POHItemImage: {
-    width: 80,
-    height: 60
+    width: '100%',
+    height: '100%'
   },
-  infoContainer: {
+  infoWrapper: {
+    width: "79%",
     justifyContent: 'center',
     alignItems: 'center',
   },
+  infoContainer: {
+    width: "90%",
+    flexDirection: 'row',
+  },
   dateAddress: {
     flexDirection: "column",
-    marginLeft: 10
   },
   date: {
-    fontFamily: "Montserrat-Bold"
   },
   address: {
-    fontFamily: "Montserrat-Regular"
   },
   guestCountContainer: {
-    justifyContent: "center",
-    flex: 1
+    flex: 1,
+    alignSelf: 'center'
   },
   guestCount: {
-    fontFamily: "Montserrat-Bold",
     color: "#25AAFB",
-    textAlign: "right",
-    marginRight: 10
+    textAlign: 'right'
   },
   modal: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0
+    padding: 0,
   },
   modalContainer: {
-    height: 400,
-    width: 400
+    justifyContent: "center",
+    alignItems: "center",
+    height: "80%",
+    width: "60%",
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: "#DDDDDD",
+    backgroundColor: "#F1F1F1"
   },
   modalImageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F1F1F1"
+    width: "95%",
+    height: "71.25%"
   },
   modalTextContainer: {
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    width: "95%",
+    height: 65,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  MLSAddress: {
+    paddingTop: 10,
+    flexDirection: "column",
+    alignSelf: 'flex-start',
+
+  },
+  modalMLS: {
+    textAlign: "left",
+  },
+  modalAddress: {
+    textAlign: "left",
+  },
+  priceContainer: {
+    justifyContent: "flex-end",
+    paddingBottom: 20,
+    flex: 1,
+  },
+  modalPrice: {
+    textAlign: "right",
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
-    height: 200,
-    width: 300,
+    height: "100%",
+    width: "100%",
     justifyContent: "center"
+  },
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalButtonsContainer: {
     flexDirection: "row",
-    backgroundColor: "#F1F1F1"
+    width: 525,
+    height: 90
   },
   modalConfirmButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "#25AAFB",
-    borderRadius: 0,
+    borderRadius: 2,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: "2%"
   },
   modalConfirmText: {
     color: "#fff",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   },
   modalNopeButton: {
-    marginRight: 20,
-    marginLeft: 20,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "white",
-    borderRadius: 0,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderRadius: 2,
+    borderColor: "#DDDDDD",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalNopeText: {
     color: "gray",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   }
 });
 // THIS IS STYLED FOR PORTRAIT MODE
@@ -209,7 +265,6 @@ export const portrait = StyleSheet.create({
     borderBottomColor: "#DDDDDD"
   },
   title: {
-    fontFamily: "Montserrat-Regular",
     fontSize: 14,
     marginTop: 25,
     marginBottom: 10
@@ -226,7 +281,6 @@ export const portrait = StyleSheet.create({
     height: 35,
     backgroundColor: "white",
     borderRadius: 2,
-    fontFamily: "Montserrat-Light",
     fontSize: 10,
     textAlign: "center"
   },
@@ -244,7 +298,6 @@ export const portrait = StyleSheet.create({
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
-    fontFamily: "Montserrat-Bold",
     fontSize: 12
   },
   listTextContainer: {
@@ -256,10 +309,8 @@ export const portrait = StyleSheet.create({
     justifyContent: "space-between",
   },
   listTitle: {
-    fontFamily: "Montserrat-Regular"
   },
   guestCountTitle: {
-    fontFamily: "Montserrat-Regular",
     fontSize: 10
   },
   POHItem: {
@@ -295,18 +346,15 @@ export const portrait = StyleSheet.create({
   },
   date: {
     textAlign: "left",
-    fontFamily: "Montserrat-Bold"
   },
   address: {
     textAlign: "left",
-    fontFamily: "Montserrat-Regular"
   },
   guestCountContainer: {
     justifyContent: "center",
     flex: 1
   },
   guestCount: {
-    fontFamily: "Montserrat-Bold",
     color: "#25AAFB",
     textAlign: "right",
   },
@@ -314,63 +362,104 @@ export const portrait = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0
+    padding: 0,
   },
   modalContainer: {
-    height: 400,
-    width: 400
+    justifyContent: "center",
+    alignItems: "center",
+    height: "60%",
+    width: "85%",
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: "#DDDDDD",
+    backgroundColor: "#F1F1F1"
   },
   modalImageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F1F1F1"
+    width: "95%",
+    height: "71.25%"
   },
   modalTextContainer: {
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    width: 525,
+    height: 65,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  MLSAddress: {
+    paddingTop: 10,
+    flexDirection: "column",
+    alignSelf: 'flex-start',
+
+  },
+  modalMLS: {
+    textAlign: "left",
+  },
+  modalAddress: {
+    textAlign: "left",
+  },
+  priceContainer: {
+    justifyContent: "flex-end",
+    paddingBottom: 20,
+    flex: 1,
+  },
+  modalPrice: {
+    textAlign: "right",
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
-    height: 200,
-    width: 300,
+    height: "100%",
+    width: "100%",
     justifyContent: "center"
+  },
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalButtonsContainer: {
     flexDirection: "row",
-    backgroundColor: "#F1F1F1"
+    width: 525,
+    height: 90
   },
   modalConfirmButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "#25AAFB",
-    borderRadius: 0,
+    borderRadius: 2,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: "2%"
   },
   modalConfirmText: {
     color: "#fff",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   },
   modalNopeButton: {
-    marginRight: 20,
-    marginLeft: 20,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "white",
-    borderRadius: 0,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderRadius: 2,
+    borderColor: "#DDDDDD",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalNopeText: {
     color: "gray",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   }
 });
