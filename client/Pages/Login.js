@@ -13,7 +13,7 @@ import {
 import { portrait, landscape } from "./Style/login-style.js"
 import { authenticateUser } from "../actions";
 import { connect } from "react-redux";
-import { Font } from "expo";
+import CustomText from "../Components/CustomText";
 
 const {height, width} = Dimensions.get('window'); 
 const aspectRatio = height/width;
@@ -40,25 +40,17 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      fontLoaded: false
     };
-  }
-  async componentDidMount() {
-    await Font.loadAsync({
-      "Montserrat-Light": require("../Assets/fonts/Montserrat-Light.ttf"),
-      "Montserrat-Regular": require("../Assets/fonts/Montserrat-Regular.ttf"),
-      "Montserrat-Bold": require("../Assets/fonts/Montserrat-Bold.ttf")
-    });
-    this.setState({ fontLoaded: true });
   }
 
   render() {
-    return this.state.fontLoaded ? (
+    return (
       <View style={styles.container}>
         <Image source={require("../Assets/logo.png")} style={styles.logo}/>
         <View style={styles.loginContainer}>
         <View style={styles.inputContainer}>
-        <Text style={styles.inputTitle}>Username</Text>
+        {/* <Text style={styles.inputTitle}>Username</Text> */}
+        <CustomText style={styles.inputTitle}>Username</CustomText>
         <TextInput
           style={styles.input}
           onChangeText={username => this.setState({ username })}
@@ -66,7 +58,7 @@ class Login extends Component {
         />
         </View>
         <View style={styles.inputContainer}>
-        <Text style={styles.inputTitle}>Password</Text>
+        <CustomText style={styles.inputTitle}>Password</CustomText>
         <TextInput
           style={styles.input}
           onChangeText={password => this.setState({ password })}
@@ -82,9 +74,9 @@ class Login extends Component {
               this.props.navigation.navigate("CreateOpenHouse");
           }}
         >
-          <Text style={styles.buttonText}>LOGIN</Text>
+          <CustomText style={styles.buttonText}font={"bold"}>LOGIN</CustomText>
         </TouchableOpacity>
-        <Text style={styles.text}>Forgot Password</Text>
+        <CustomText style={styles.text}>Forgot Password</CustomText>
         </View>
         </View>
         {/* <Button
@@ -105,7 +97,7 @@ class Login extends Component {
         <Text>Forgot Password</Text>
         <Text> {this.props.authenticated} </Text> */}
       </View>
-    ) : null;
+    );
   }
 }
 const mapStateToProps = state => {

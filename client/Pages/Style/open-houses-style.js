@@ -33,13 +33,10 @@ export const landscape = StyleSheet.create({
     alignItems: 'center',
     width: "90%",
     height: "90%",
-    borderWidth: 3,
-    borderColor: 'blue'
   },
   title: {
     textAlign: 'left',
     alignSelf: 'flex-start',
-    fontFamily: "Montserrat-Regular",
     fontSize: 16,
     marginTop: 25,
     marginBottom: 10
@@ -55,7 +52,6 @@ export const landscape = StyleSheet.create({
     width: "64%",
     height: 45,
     backgroundColor: "white",
-    fontFamily: "Montserrat-Light",
     fontSize: 14,
     textAlign: "center",
     borderWidth: 1, 
@@ -77,7 +73,6 @@ export const landscape = StyleSheet.create({
     marginTop: 5,
     paddingLeft: 10,
     paddingRight: 10,
-    fontFamily: "Montserrat-Bold",
     fontSize: 14
   },
   listTextContainer: {
@@ -89,11 +84,9 @@ export const landscape = StyleSheet.create({
     justifyContent: "space-between",
   },
   listTitle: {
-    fontFamily: "Montserrat-Regular",
     fontSize: 16,
   },
   guestCountTitle: {
-    fontFamily: "Montserrat-Regular",
     fontSize: 10
   },
   POHItem: {
@@ -128,17 +121,14 @@ export const landscape = StyleSheet.create({
     flexDirection: "column",
   },
   date: {
-    fontFamily: "Montserrat-Bold"
   },
   address: {
-    fontFamily: "Montserrat-Regular",
   },
   guestCountContainer: {
     flex: 1,
     alignSelf: 'center'
   },
   guestCount: {
-    fontFamily: "Montserrat-Bold",
     color: "#25AAFB",
     textAlign: 'right'
   },
@@ -146,64 +136,105 @@ export const landscape = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0
+    padding: 0,
   },
   modalContainer: {
-    height: 400,
-    width: 400
+    justifyContent: "center",
+    alignItems: "center",
+    height: "80%",
+    width: "60%",
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: "#DDDDDD",
+    backgroundColor: "#F1F1F1"
   },
   modalImageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F1F1F1"
+    width: "95%",
+    height: "71.25%"
   },
   modalTextContainer: {
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    width: "95%",
+    height: 65,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  MLSAddress: {
+    paddingTop: 10,
+    flexDirection: "column",
+    alignSelf: 'flex-start',
+
+  },
+  modalMLS: {
+    textAlign: "left",
+  },
+  modalAddress: {
+    textAlign: "left",
+  },
+  priceContainer: {
+    justifyContent: "flex-end",
+    paddingBottom: 20,
+    flex: 1,
+  },
+  modalPrice: {
+    textAlign: "right",
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
-    height: 200,
-    width: 300,
+    height: "100%",
+    width: "100%",
     justifyContent: "center"
+  },
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalButtonsContainer: {
     flexDirection: "row",
-    backgroundColor: "#F1F1F1"
+    width: 525,
+    height: 90
   },
   modalConfirmButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "#25AAFB",
-    borderRadius: 0,
+    borderRadius: 2,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: "2%"
   },
   modalConfirmText: {
     color: "#fff",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   },
   modalNopeButton: {
-    marginRight: 20,
-    marginLeft: 20,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "white",
-    borderRadius: 0,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderRadius: 2,
+    borderColor: "#DDDDDD",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalNopeText: {
     color: "gray",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   }
 });
 // THIS IS STYLED FOR PORTRAIT MODE
@@ -234,7 +265,6 @@ export const portrait = StyleSheet.create({
     borderBottomColor: "#DDDDDD"
   },
   title: {
-    fontFamily: "Montserrat-Regular",
     fontSize: 14,
     marginTop: 25,
     marginBottom: 10
@@ -251,7 +281,6 @@ export const portrait = StyleSheet.create({
     height: 35,
     backgroundColor: "white",
     borderRadius: 2,
-    fontFamily: "Montserrat-Light",
     fontSize: 10,
     textAlign: "center"
   },
@@ -269,7 +298,6 @@ export const portrait = StyleSheet.create({
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
-    fontFamily: "Montserrat-Bold",
     fontSize: 12
   },
   listTextContainer: {
@@ -281,10 +309,8 @@ export const portrait = StyleSheet.create({
     justifyContent: "space-between",
   },
   listTitle: {
-    fontFamily: "Montserrat-Regular"
   },
   guestCountTitle: {
-    fontFamily: "Montserrat-Light",
     fontSize: 10
   },
   POHItem: {
@@ -320,18 +346,15 @@ export const portrait = StyleSheet.create({
   },
   date: {
     textAlign: "left",
-    fontFamily: "Montserrat-Bold"
   },
   address: {
     textAlign: "left",
-    fontFamily: "Montserrat-Light"
   },
   guestCountContainer: {
     justifyContent: "center",
     flex: 1
   },
   guestCount: {
-    fontFamily: "Montserrat-Bold",
     color: "#25AAFB",
     textAlign: "right",
   },
@@ -339,63 +362,104 @@ export const portrait = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0
+    padding: 0,
   },
   modalContainer: {
-    height: 400,
-    width: 400
+    justifyContent: "center",
+    alignItems: "center",
+    height: "60%",
+    width: "85%",
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: "#DDDDDD",
+    backgroundColor: "#F1F1F1"
   },
   modalImageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F1F1F1"
+    width: "95%",
+    height: "71.25%"
   },
   modalTextContainer: {
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    width: 525,
+    height: 65,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  MLSAddress: {
+    paddingTop: 10,
+    flexDirection: "column",
+    alignSelf: 'flex-start',
+
+  },
+  modalMLS: {
+    textAlign: "left",
+  },
+  modalAddress: {
+    textAlign: "left",
+  },
+  priceContainer: {
+    justifyContent: "flex-end",
+    paddingBottom: 20,
+    flex: 1,
+  },
+  modalPrice: {
+    textAlign: "right",
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
-    height: 200,
-    width: 300,
+    height: "100%",
+    width: "100%",
     justifyContent: "center"
+  },
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalButtonsContainer: {
     flexDirection: "row",
-    backgroundColor: "#F1F1F1"
+    width: 525,
+    height: 90
   },
   modalConfirmButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "#25AAFB",
-    borderRadius: 0,
+    borderRadius: 2,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: "2%"
   },
   modalConfirmText: {
     color: "#fff",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   },
   modalNopeButton: {
-    marginRight: 20,
-    marginLeft: 20,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    alignSelf: 'center',
+    width: "49%",
+    height: "50%",
     backgroundColor: "white",
-    borderRadius: 0,
     borderWidth: 1,
-    borderColor: "#fff"
+    borderRadius: 2,
+    borderColor: "#DDDDDD",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalNopeText: {
     color: "gray",
     textAlign: "center",
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    fontSize: 14
   }
 });
