@@ -148,16 +148,21 @@ export const landscape = StyleSheet.create({
     borderColor: "#DDDDDD",
     backgroundColor: "#F1F1F1"
   },
+  contentWrapper: {
+    alignSelf: 'center',
+    height: "95%",
+    width: "95%",
+  },
   modalImageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "95%",
-    height: "71.25%"
+    width: "100%",
+    height: "75%"
   },
   modalTextContainer: {
     backgroundColor: "#F1F1F1",
-    width: "95%",
+    width: "100%",
     height: 65,
     justifyContent: 'center',
     alignItems: 'center',
@@ -196,8 +201,8 @@ export const landscape = StyleSheet.create({
   },
   modalButtonsContainer: {
     flexDirection: "row",
-    width: 525,
-    height: 90
+    width: "100%",
+    height: 90,
   },
   modalConfirmButton: {
     alignSelf: 'center',
@@ -209,7 +214,8 @@ export const landscape = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginRight: "2%"
+    marginRight: "2%",
+    marginBottom: 15
   },
   modalConfirmText: {
     color: "#fff",
@@ -228,6 +234,7 @@ export const landscape = StyleSheet.create({
     borderColor: "#DDDDDD",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 15
   },
   modalNopeText: {
     color: "gray",
@@ -368,46 +375,56 @@ export const portrait = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: "60%",
-    width: "85%",
-    borderWidth: 1,
-    borderRadius: 4,
-    borderColor: "#DDDDDD",
-    backgroundColor: "#F1F1F1"
+    width: "100%",
+    backgroundColor: "#F1F1F1",
+    borderWidth: 3,
+    borderColor: 'green'
+  },
+  contentWrapper: {
+    alignSelf: 'center',
+    height: "95%",
+    width: "95%",
+    borderWidth: 3,
+    borderColor: 'blue',
   },
   modalImageContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "95%",
-    height: "71.25%"
+    width: "100%",
+    height: "75%"
   },
   modalTextContainer: {
     backgroundColor: "#F1F1F1",
-    width: 525,
-    height: 65,
+    width: "100%",
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderWidth: 3,
+    borderColor: 'blue',
   },
   MLSAddress: {
-    paddingTop: 10,
+    paddingTop: 5,
     flexDirection: "column",
     alignSelf: 'flex-start',
-
   },
   modalMLS: {
     textAlign: "left",
+    fontSize: 10,
   },
   modalAddress: {
     textAlign: "left",
+    fontSize: 10,
   },
   priceContainer: {
     justifyContent: "flex-end",
-    paddingBottom: 20,
+    paddingBottom: 5,
     flex: 1,
   },
   modalPrice: {
     textAlign: "right",
+    fontSize: 10,
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
@@ -422,8 +439,9 @@ export const portrait = StyleSheet.create({
   },
   modalButtonsContainer: {
     flexDirection: "row",
-    width: 525,
-    height: 90
+    width: "100%",
+    borderWidth: 3,
+    borderColor: 'blue',
   },
   modalConfirmButton: {
     alignSelf: 'center',
@@ -442,7 +460,7 @@ export const portrait = StyleSheet.create({
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
-    fontSize: 14
+    fontSize: 10
   },
   modalNopeButton: {
     alignSelf: 'center',
@@ -460,6 +478,6 @@ export const portrait = StyleSheet.create({
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
-    fontSize: 14
+    fontSize: 10
   }
 });

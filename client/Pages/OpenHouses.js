@@ -160,6 +160,7 @@ export default class App extends Component {
           style={styles.modal}
         >
           <View style={styles.modalContainer}>
+            <View style={styles.contentWrapper}>
             <View style={styles.modalTextContainer}>
               <View style={styles.MLSAddress}>
               <CustomText style={styles.modalMLS} font="bold">MLS# 12345678</CustomText>
@@ -198,6 +199,7 @@ export default class App extends Component {
                   <CustomText style={styles.modalNopeText}>Nope, Wrong Property</CustomText>
                 </TouchableOpacity>
               </View>
+            </View>
             </View>
           </View>
         </Modal>
