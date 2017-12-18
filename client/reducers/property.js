@@ -1,3 +1,5 @@
+import PROPERTY_FOUND from '../actions'
+
 const init = {
   address: '1600 Pennsylvania Ave NW',
   beds: 3,
@@ -10,7 +12,9 @@ const init = {
 
 export default (state = init, action) => {
   switch (action.type) {
+    case 'PROPERTY_FOUND': 
+      return Object.assign(state, action.payload)
     default:
-      return state;
+      return state
   }
 }
