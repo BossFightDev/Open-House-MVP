@@ -120,7 +120,7 @@ export default class extends Component {
               style={this.props.styles.button}
               onPress={this.props.handleSubmit}
             >
-              <CustomText style={{ color: 'white' }}>SUBMIT</CustomText>
+              <CustomText style={{ color: 'white' }} font='bold'>SUBMIT</CustomText>
             </TouchableOpacity>
           </View>
       </View>

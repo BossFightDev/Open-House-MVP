@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Animated, Dimensions } from 'react-native';
+import { View, Animated, Dimensions, Modal } from 'react-native';
 import { launchForm } from '../actions';
 import LaunchOptions from '../Components/Signup/launchOptions';
 import Submitted from '../Components/Signup/submitted';
@@ -31,15 +31,15 @@ export default class extends Component {
     super();
 
     this.state = {
-      launched: false,
       confirmed: false,
       visible: false,
       visibility: new Animated.Value(1),
       pin: '',
+      modalVisible: true,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.launchSignup = this.launchSignup.bind(this)
     this.confirmPin = this.confirmPin.bind(this)
+    this.toggleModal = this.toggleModal.bind(this)
   }
 
   handleSubmit() {
@@ -52,24 +52,26 @@ export default class extends Component {
     })
   }
 
-  launchSignup() {
-    this.setState({ launched: !this.state.launched })
-  }
-
   confirmPin() {
     this.setState({ confirmed: true })
+  }
+
+  toggleModal() {
+    this.setState({ modalVisible: !this.state.modalVisible })
   }
 
   render() {
     return (
       <View style={styles.container}>
-        {!this.state.launched ?
-          <View>
-            <LaunchOptions launchSignup={this.launchSignup} navigation={this.props.navigation} />
-            <SignupForm handleSubmit={() => {}} styles={styles} />
-          </View> :
-        !this.state.confirmed ?
-          <CreatePin confirmPin={this.confirmPin} launchSignup={this.launchSignup}/> :
+        <Modal
+          // animationType={'slide'}
+          transparent={true}
+          visible={this.state.modalVisible}
+        >
+          <LaunchOptions navigation={this.props.navigation} toggleModal={this.toggleModal} />
+        </Modal>
+        {!this.state.modalVisible && !this.state.confirmed ?
+          <CreatePin confirmPin={this.confirmPin} toggleModal={this.toggleModal}/> :
         !this.state.visible ?
           <SignupForm handleSubmit={this.handleSubmit} styles={styles} /> :
           <Animated.View style={{ opacity: this.state.visibility }}><Submitted /></Animated.View>

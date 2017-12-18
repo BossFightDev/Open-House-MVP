@@ -104,7 +104,7 @@ export default class extends Component {
           />
         </View>
         <TouchableOpacity
-          onPress={() => this.props.launchSignup()}>
+          onPress={() => this.props.toggleModal()}>
           <Text style={{color: 'blue'}}>Cancel</Text>
         </TouchableOpacity>
         <Text>{this.state.errorMessage}</Text>

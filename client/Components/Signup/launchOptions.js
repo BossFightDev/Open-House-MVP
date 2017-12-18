@@ -14,7 +14,7 @@ export default class extends Component {
       <View style={{marginTop: '25%'}}>
         <TouchableOpacity
           style={{backgroundColor: 'white'}}
-          onPress={() => this.props.launchSignup()}>
+          onPress={() => this.props.toggleModal()}>
           <Text style={{color: 'green'}}>Launch</Text>
         </TouchableOpacity>
         <TouchableOpacity
