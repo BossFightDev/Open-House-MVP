@@ -1,3 +1,5 @@
+import LOGGED_IN from '../actions'
+
 const init = {
   firstName: 'John',
   lastName: 'Doe',
@@ -11,6 +13,8 @@ const init = {
 
 export default (state = init, action) => {
   switch (action.type) {
+    case 'LOGGED_IN':
+      return Object.assign(state, action.payload)
     default:
       return state;
   }
