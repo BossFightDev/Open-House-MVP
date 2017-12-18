@@ -377,15 +377,11 @@ export const portrait = StyleSheet.create({
     height: "60%",
     width: "100%",
     backgroundColor: "#F1F1F1",
-    borderWidth: 3,
-    borderColor: 'green'
   },
   contentWrapper: {
     alignSelf: 'center',
     height: "95%",
     width: "95%",
-    borderWidth: 3,
-    borderColor: 'blue',
   },
   modalImageContainer: {
     display: "flex",
@@ -401,8 +397,6 @@ export const portrait = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    borderWidth: 3,
-    borderColor: 'blue',
   },
   MLSAddress: {
     paddingTop: 5,
@@ -434,19 +428,20 @@ export const portrait = StyleSheet.create({
   },
   buttonWrapper: {
     display: "flex",
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
   modalButtonsContainer: {
     flexDirection: "row",
     width: "100%",
-    borderWidth: 3,
-    borderColor: 'blue',
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalConfirmButton: {
     alignSelf: 'center',
     width: "49%",
-    height: "50%",
+    height: "70%",
     backgroundColor: "#25AAFB",
     borderRadius: 2,
     borderWidth: 1,
@@ -465,7 +460,7 @@ export const portrait = StyleSheet.create({
   modalNopeButton: {
     alignSelf: 'center',
     width: "49%",
-    height: "50%",
+    height: "70%",
     backgroundColor: "white",
     borderWidth: 1,
     borderRadius: 2,

@@ -192,7 +192,7 @@ export default class App extends Component {
                   <CustomText style={styles.modalConfirmText} font="bold">CONFIRM</CustomText>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={landscape.modalNopeButton}
+                  style={styles.modalNopeButton}
                   onPress={this._hideModal}
                   underlayColor="#fff"
                 >
