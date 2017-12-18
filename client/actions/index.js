@@ -8,6 +8,8 @@ export const FORM_LAUNCHED = 'FORM_LAUNCHED';
 export const LOGGED_IN = 'LOGGED_IN';
 export const PROPERTY_FOUND = 'PROPERTY_FOUND';
 export const LEADS_FOUND = 'LEADS_ FOUND';
+export const OPENHOUSE_ADDED = 'OPENHOUSE_ADDED';
+export const LEAD_ADDED = 'LEAD_ADDED';
 
 export const authenticateUser = (validation) => {
   return {
@@ -54,7 +56,7 @@ export const findProperty = (MLS) => {
 export const findLeads = (openHouseId) => {
   axios.post(`${SERVER_URL}/leads`, {openHouseId})
     .then((data) => {
-      console.log(`Successfully got response from findLeads`)
+      console.log(`Successfully got response from leads`)
       return {
         type: 'LEADS_FOUND',
         payload: data.data.leads,
@@ -64,3 +66,34 @@ export const findLeads = (openHouseId) => {
       console.log('Error in findLeads action somewhere')
     })
 }
+
+export const addOpenHouse = 
+(id, date, image, phoneQ,agentQ, sourceQ, imageQ,
+ priceQ, bedbathQ, sqftq, hashtagQ, hashtags) => {
+  
+  axios.post(`${SERVER_URL}/newOpenHouse`, 
+  { id, date, image, phoneQ, agentQ, sourceQ, imageQ,
+    priceQ, bedbathQ, sqftq, hashtagQ, hashtags })
+    .then((data) => {
+      console.log(`Successfully got response from newOpenHouse`)
+      return {
+        type: 'OPENHOUSE_ADDED',
+        payload: data.data.openHouse,
+      }
+    })
+    .catch(()=> {
+      console.log('Error in addOpenHouse action somewhere')
+    })
+}
+
+export const addLead = (openHouseId, name, email, phone, agent, source) => {
+  axios.post(`${SERVER_URL}/addlead`, {openHouseId, name, email, phone, agent, source})
+  .then((data)=> {
+    console.log('Succesfully got response from addlead')
+    return {
+      type: 'LEAD_ADDED'
+    }
+  })
+}
+
+
