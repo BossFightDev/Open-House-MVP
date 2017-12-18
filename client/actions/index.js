@@ -10,6 +10,7 @@ export const PROPERTY_FOUND = 'PROPERTY_FOUND';
 export const LEADS_FOUND = 'LEADS_ FOUND';
 export const OPENHOUSE_ADDED = 'OPENHOUSE_ADDED';
 export const LEAD_ADDED = 'LEAD_ADDED';
+export const OPENHOUSE_FOUND = 'OPENHOUSE_FOUND';
 
 export const authenticateUser = (validation) => {
   return {
