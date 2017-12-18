@@ -1,3 +1,5 @@
+import FIND_LEADS from '../actions';
+
 const init = {
   name: 'Jantonivan Coolendez',
   email: 'thebestcoder@LambdaU.com',
@@ -9,6 +11,8 @@ const init = {
 
 export default (state = init, action) => {
   switch (action.type) {
+    case 'FIND_LEADS':
+      return Object.assign(state, action.payload)
     default:
       return state;
   }

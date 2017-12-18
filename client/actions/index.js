@@ -7,6 +7,7 @@ export const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 export const FORM_LAUNCHED = 'FORM_LAUNCHED';
 export const LOGGED_IN = 'LOGGED_IN';
 export const PROPERTY_FOUND = 'PROPERTY_FOUND';
+export const LEADS_FOUND = 'LEADS_ FOUND';
 
 export const authenticateUser = (validation) => {
   return {
@@ -46,6 +47,20 @@ export const findProperty = (MLS) => {
       }
     })
     .catch(()=> {
-      console.log('Error in login action somewhere')
+      console.log('Error in findProperty action somewhere')
+    })
+}
+
+export const findLeads = (openHouseId) => {
+  axios.post(`${SERVER_URL}/leads`, {openHouseId})
+    .then((data) => {
+      console.log(`Successfully got response from findLeads`)
+      return {
+        type: 'LEADS_FOUND',
+        payload: data.data.leads,
+      }
+    })
+    .catch(()=> {
+      console.log('Error in findLeads action somewhere')
     })
 }
