@@ -19,7 +19,10 @@ export default class extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={{backgroundColor: 'white'}}
-          onPress={() => this.props.navigation.goBack()}>
+          onPress={() => {
+            this.props.toggleModal()
+            this.props.navigation.goBack()
+          }}>
           <Text style={{color: 'red'}}>Edit/Cancel</Text>
         </TouchableOpacity>
       </View>

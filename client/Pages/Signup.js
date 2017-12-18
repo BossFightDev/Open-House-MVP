@@ -35,13 +35,16 @@ export default class extends Component {
       visible: false,
       visibility: new Animated.Value(1),
       pin: '',
-      modalVisible: true,
+      modalVisible: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.confirmPin = this.confirmPin.bind(this)
     this.toggleModal = this.toggleModal.bind(this)
   }
 
+  componentDidMount() {
+    this.setState({ modalVisible: true })
+  }
   handleSubmit() {
     this.setState({ visible: true });
     Animated.timing(this.state.visibility, {
@@ -67,6 +70,7 @@ export default class extends Component {
           // animationType={'slide'}
           transparent={true}
           visible={this.state.modalVisible}
+          // onRequestClose={this.props.navigation.goBack()}
         >
           <LaunchOptions navigation={this.props.navigation} toggleModal={this.toggleModal} />
         </Modal>

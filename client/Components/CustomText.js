@@ -19,6 +19,9 @@ export default class CustomText extends Component {
         bold: {
           fontFamily: 'Montserrat-Bold'
         },
+        milkshake: {
+          fontFamily: ''
+        }
       })
     }
   }
@@ -27,14 +30,15 @@ export default class CustomText extends Component {
     await Font.loadAsync({
       "Montserrat-Light": require("../Assets/fonts/Montserrat-Light.ttf"),
       "Montserrat-Regular": require("../Assets/fonts/Montserrat-Regular.ttf"),
-      "Montserrat-Bold": require("../Assets/fonts/Montserrat-Bold.ttf")
+      "Montserrat-Bold": require("../Assets/fonts/Montserrat-Bold.ttf"),
+      "Milkshake": require("../Assets/fonts/Milkshake.ttf")
     });
     this.setState({ fontLoaded: true });
   }
 
   static propTypes = {
     font: PropTypes.oneOf([
-      'light', 'regular', 'bold'
+      'light', 'regular', 'bold', 'milkshake'
     ]),
     style: PropTypes.oneOfType([
       PropTypes.array,
