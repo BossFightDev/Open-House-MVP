@@ -32,6 +32,7 @@ export default class extends Component {
 
     this.state = {
       confirmed: false,
+      launched: false,
       visible: false,
       visibility: new Animated.Value(1),
       pin: '',
@@ -40,6 +41,7 @@ export default class extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.confirmPin = this.confirmPin.bind(this)
     this.toggleModal = this.toggleModal.bind(this)
+    this.launchSignup = this.launchSignup.bind(this)
   }
 
   componentDidMount() {
@@ -63,19 +65,22 @@ export default class extends Component {
     this.setState({ modalVisible: !this.state.modalVisible })
   }
 
+  launchSignup() {
+    this.setState({ launched: !this.state.launched })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Modal
-          // animationType={'slide'}
           transparent={true}
           visible={this.state.modalVisible}
-          // onRequestClose={this.props.navigation.goBack()}
+          onDismiss={() => this.launchSignup()}
         >
           <LaunchOptions navigation={this.props.navigation} toggleModal={this.toggleModal} />
         </Modal>
-        {!this.state.modalVisible && !this.state.confirmed ?
-          <CreatePin confirmPin={this.confirmPin} toggleModal={this.toggleModal}/> :
+        {this.state.launched && !this.state.confirmed ?
+          <CreatePin confirmPin={this.confirmPin} toggleModal={this.toggleModal} launchSignup={this.launchSignup} /> :
         !this.state.visible ?
           <SignupForm handleSubmit={this.handleSubmit} styles={styles} /> :
           <Animated.View style={{ opacity: this.state.visibility }}><Submitted /></Animated.View>

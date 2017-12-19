@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
+import CustomText from '../CustomText';
 
 export default class extends Component {
   constructor() {
@@ -11,19 +12,19 @@ export default class extends Component {
   }
   render() {
     return (
-      <View style={{marginTop: '25%'}}>
+      <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <TouchableOpacity
-          style={{backgroundColor: 'white'}}
+          style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', alignItems: 'center', width: '45%', borderRadius: 5, margin: 1 }}
           onPress={() => this.props.toggleModal()}>
-          <Text style={{color: 'green'}}>Launch</Text>
+          <CustomText font='bold' style={{color: 'yellowgreen', fontSize: 22}}>LAUNCH</CustomText>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{backgroundColor: 'white'}}
+          style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', alignItems: 'center', width: '45%', borderRadius: 5, margin: 1 }}
           onPress={() => {
             this.props.toggleModal()
             this.props.navigation.goBack()
           }}>
-          <Text style={{color: 'red'}}>Edit/Cancel</Text>
+          <CustomText font='bold' style={{color: 'red', fontSize: 22}}>CANCEL</CustomText>
         </TouchableOpacity>
       </View>
     )

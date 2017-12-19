@@ -58,8 +58,19 @@ export default class extends Component {
 
     return (
       <View style={this.props.styles.container}>
-        <CustomText>Welcome</CustomText>
-        <CustomText>Please Sign in</CustomText>
+        <View style={this.props.styles.titleContainer}>
+          <CustomText
+            font='milkshake'
+            style={this.props.styles.welcomeText}
+          >
+            Welcome
+          </CustomText>
+          <CustomText
+            style={this.props.styles.signinText}
+          >
+            Please Sign in
+          </CustomText>
+        </View>
           <View style={this.props.styles.inputContainer}>
             <CustomText>Name</CustomText>
             <TextInput
@@ -86,29 +97,24 @@ export default class extends Component {
               value={this.state.phoneNumber}
             />
             <CustomText>Are you currently working with a Real Estate Agent?</CustomText>
-            <View style={{ flexDirection: 'row' }}>
-              <View style={{width:'33%'}}>
-              <SegmentedControls
-                options={ options }
-                onSelection={ (selectedOption) => { this.setState({ realEstateAgent: selectedOption }) } }
-                selectedOption={ this.state.realEstateAgent }
-              />
-              </View>
-              <TextInput
-                editable={agent}
-                style={{
-                  width: '66%',
-                  backgroundColor: agent ? 'white' : 'darkgray',
-                  borderColor: agentBorder,
-                  borderWidth: 1,
-                  borderRadius: 3,
-                  paddingLeft: 10,
-                }}
-                onFocus={() => this.onFocus('agent')}
-                onBlur={() => this.onBlur('agent')}
-                onChangeText={(agentName) => this.setState({ agentName })}
-                value={this.state.agentName}
-              />
+            <View style={{ flexDirection: 'column', height: '10%', marginBottom: '1.5%' }}>
+              <View>
+                <SegmentedControls
+                  options={options}
+                  onSelection={(selectedOption) => this.setState({ realEstateAgent: selectedOption })}
+                  selectedOption={this.state.realEstateAgent}
+                />
+                </View>
+                <TextInput
+                  editable={agent}
+                  style={[this.props.styles.input,
+                    { backgroundColor: agent ? 'white' : 'darkgray', borderColor: agentBorder, height: '75%' }
+                  ]}
+                  onFocus={() => this.onFocus('agent')}
+                  onBlur={() => this.onBlur('agent')}
+                  onChangeText={(agentName) => this.setState({ agentName })}
+                  value={this.state.agentName}
+                />
             </View>
             <Dropdown
               label='Where did you hear about this open house?'
