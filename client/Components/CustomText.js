@@ -20,7 +20,7 @@ export default class CustomText extends Component {
           fontFamily: 'Montserrat-Bold'
         },
         milkshake: {
-          fontFamily: ''
+          fontFamily: 'Milkshake'
         }
       })
     }
@@ -46,7 +46,7 @@ export default class CustomText extends Component {
       PropTypes.shape({}),
     ])
   }
-  
+
 
   render() {
     const navigation = this.props.navigation ? () => this.props.navigation.navigate('OpenHouses') : null
