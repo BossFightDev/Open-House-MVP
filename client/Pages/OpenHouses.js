@@ -15,19 +15,15 @@ import {
 } from "react-native";
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
-console.log("HEIGHT: " + height);
-console.log("WIDTH: " + width);
 const changeScreenOrientation = () => {
   Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
 };
 let styles;
 if (aspectRatio > 1.6) {
   styles = portrait;
-  console.log("IPHONE");
 } else {
   styles = landscape;
   changeScreenOrientation();
-  console.log("IPAD");
 }
 export default class App extends Component {
   constructor(props) {

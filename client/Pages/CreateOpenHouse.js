@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Button, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import Sidebar from '../Containers/COH/Sidebar';
 import Stage from '../Containers/COH/Stage'
 import TitleClose from '../Components/TitleClose';
 import Fields from '../Assets/fields';
+import CustomText from "../Components/CustomText";
+import { landscape, portrait } from "./Style/create-open-style.js";
 
+const { height, width } = Dimensions.get("window");
+const aspectRatio = height / width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+};
+let styles;
+if (aspectRatio > 1.6) {
+  styles = portrait;
+} else {
+  styles = landscape;
+  changeScreenOrientation();
+}
 const stages = [{
     number: 1,
-    stage: 'Select Questions To Display'
+    stage: 'Select Questions'
   },
   {
     number: 2,
@@ -80,31 +94,3 @@ export default class extends Component {
     )
   }
 }
-
-const styles=StyleSheet.create({
-  screen: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: '100%',
-    width: '100%',
-    borderColor: 'purple',
-    borderWidth: 3,
-  },
-  sidebar: {
-    width: '25%',
-    backgroundColor: '#454545',
-    // padding: 20,
-    flex: 1,
-    // backgroundColor:'#454545',
-    // alignItems: 'stretch',
-    // width: '25%',
-  },
-  fields: {
-    flex: 3,
-    padding: 20,
-    flexDirection: 'row',
-    alignItems:'stretch',
-    borderWidth: 3,
-    borderColor: 'yellow',
-  }
-})
