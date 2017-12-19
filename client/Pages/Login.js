@@ -14,11 +14,10 @@ import { portrait, landscape } from "./Style/login-style.js"
 import { authenticateUser } from "../actions";
 import { connect } from "react-redux";
 import CustomText from "../Components/CustomText";
+import { login } from '../actions';
 
 const {height, width} = Dimensions.get('window'); 
 const aspectRatio = height/width;
-console.log('HEIGHT: ' + height);
-console.log('WIDTH: ' + width);
 const changeScreenOrientation = () => {
   Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
 }
@@ -69,6 +68,7 @@ class Login extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
+            this.props.login(this.state.username, this.state.password);
             const validated = authenticateUser(true); // <~~ change this to true or false
             if (validated.authenticate)
               this.props.navigation.navigate("CreateOpenHouse");
@@ -103,5 +103,6 @@ class Login extends Component {
 const mapStateToProps = state => {
   return { authenticated: state.authenticated };
 };
+const mapDispatchToProps = {authenticateUser, login}
 
-export default connect(mapStateToProps, { authenticateUser })(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

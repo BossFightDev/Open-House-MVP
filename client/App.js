@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import { Provider, connect } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware} from 'redux';
 import * as Pages from './Pages';
 import reducers from './reducers';
+import thunkMiddleware from 'redux-thunk';
 
 const Routes = StackNavigator({
   Home: { screen: Pages.Login },
@@ -22,7 +23,8 @@ const Routes = StackNavigator({
 //   return createStore(reducer, initialState, enhancer)
 // }
 
-const store = createStore(reducers);
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore)
+const store = createStoreWithMiddleware(reducers);
 
 class App extends Component {
   render() {
