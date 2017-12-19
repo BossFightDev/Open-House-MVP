@@ -46,11 +46,13 @@ export default class CustomText extends Component {
       PropTypes.shape({}),
     ])
   }
+  
 
   render() {
+    const navigation = this.props.navigation ? () => this.props.navigation.navigate('OpenHouses') : null
     const { font, style } = this.props
     return this.state.fontLoaded ? (
-      <Text style={[this.state.styles[font], style]}>{this.props.children}</Text>
+      <Text onPress={navigation} style={[this.state.styles[font], style]}>{this.props.children}</Text>
     ) : null
   }
 }
