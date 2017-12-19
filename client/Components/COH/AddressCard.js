@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
-import { View, Image, Text, Button, StyleSheet } from 'react-native';
+import { View, Image, Text, Button, StyleSheet, Dimensions } from 'react-native';
+import CustomText from "../../Components/CustomText";
+import { landscape, portrait } from "../../Pages/Style/create-open-style.js";
+
+const { height, width } = Dimensions.get("window");
+const aspectRatio = height / width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+};
+let styles;
+if (aspectRatio > 1.6) {
+  styles = portrait;
+} else {
+  styles = landscape;
+  changeScreenOrientation();
+}
 
 class AddressCard extends Component{
   constructor(props) {
-    super()
+    super();
   }
   render() {
-  return(
+  return (
     <View style={this.props.style}>
-      <Image source={require('../../Assets/iconHouse2x.png')} />
-      <Text style={styles.text}>MLS# {this.props.MLS}</Text>
-      <Text style={styles.text}>{this.props.Address}</Text>
-      <Button
-        onPress={() => this.props.navigation.navigate('OpenHouses')}
-        title='Change Property'
-        color='blue'
-      />
+      <View style={styles.addressContainer}>
+      <View style={styles.MLSContainer}>
+      <Image style={styles.icon} source={require('../../Assets/iconHouse.png')} />
+      <CustomText style={styles.text}>MLS# {this.props.MLS}</CustomText>
+      </View>
+      <CustomText style={styles.text}>{this.props.Address}</CustomText>
+      </View>
+      <CustomText style={{color:"#25AAFB"}} navigation = {this.props.navigation}>
+       Change Property 
+      </CustomText>
     </View>
   )}
 }
-
-const styles = StyleSheet.create({
-  text:{
-    color: '#fff',
-    fontSize: 16,
-  }
-
-})
 
 export default AddressCard
