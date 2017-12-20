@@ -45,7 +45,8 @@ const Stage2 = [
   }]
 
   const Stage3 = [{
-    type: 'Add Hashtags'
+    type: 'Add Hashtags',
+    value: []
   }]
 const fields =[ Stage1, Stage2, Stage3 ]
 
