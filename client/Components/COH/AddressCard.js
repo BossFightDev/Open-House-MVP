@@ -26,11 +26,11 @@ class AddressCard extends Component{
       <View style={styles.addressContainer}>
       <View style={styles.MLSContainer}>
       <Image style={styles.icon} source={require('../../Assets/iconHouse.png')} />
-      <CustomText style={styles.text}>MLS# {this.props.MLS}</CustomText>
+      <CustomText style={styles.MLSText}> MLS# {this.props.MLS}</CustomText>
       </View>
-      <CustomText style={styles.text}>{this.props.Address}</CustomText>
+      <CustomText font='bold' style={styles.addressText}>{this.props.Address}</CustomText>
       </View>
-      <CustomText style={{color:"#25AAFB"}} navigation = {this.props.navigation}>
+      <CustomText style={styles.property} navigation = {this.props.navigation}>
        Change Property 
       </CustomText>
     </View>
