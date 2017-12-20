@@ -8,7 +8,7 @@ const init = {
   sqft: 25000,
   images: [],
   price: 23000000000,
-  openHouse: null
+  openHouse: {id: 0}
 }
 
 

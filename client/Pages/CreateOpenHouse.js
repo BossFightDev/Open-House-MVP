@@ -96,6 +96,8 @@ class CreateOpenHouse extends Component {
         switchOnPress={this.switchStateChange}
         activeOnPress={this.activeStageChange}
         lastStage={this.state.fields.length - 1}
+        onSubmitHashtags={this.onSubmitHashtags}
+        onSubmitQuestions={this.onSubmitQuestions}
       />
     })
     return (
@@ -108,8 +110,6 @@ class CreateOpenHouse extends Component {
             Address='123 Main Street, San Marcos'
             stages={this.state.sideBarStages}
             navigation={this.props.navigation}
-            onSubmitHashtags={this.onSubmitHashtags}
-            onSubmitQuestions={this.onSubmitQuestions}
           />
           <View style={styles.fields}>
             {PivotingFields[this.state.currentStage - 1]}
@@ -122,7 +122,12 @@ class CreateOpenHouse extends Component {
 
 const mapDispatchToProps = {
   addHashtags,
-
+  addQuestions,
+}
+const mapStateToProps = (state, ownProps) => {
+  return {
+    prop: state.prop
+  }
 }
 
-export default connect(mapDispatchToProps)(CreateOpenHouse)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateOpenHouse)
