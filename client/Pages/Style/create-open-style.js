@@ -5,8 +5,6 @@ export const landscape = StyleSheet.create({
     flexDirection: 'row',
     height: '100%',
     width: '100%',
-    borderColor: 'purple',
-    borderWidth: 3,
   },
   sidebar: {
     width: '25%',
@@ -18,8 +16,6 @@ export const landscape = StyleSheet.create({
     // width: '25%',
   },
   logoContainer: {
-    borderWidth: 3,
-    borderColor: 'blue',
     justifyContent: 'center',
     alignItems: 'center',
     width: "100%",
@@ -36,16 +32,12 @@ export const landscape = StyleSheet.create({
     height: "66%",
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderWidth: 3,
-    borderColor: 'green',
   },
   stageWrapper: {
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderWidth: 3,
     width: "80%",
     height: "80%",
-    borderColor: 'green',
   },
   stageCard: {
     alignItems: 'center',
@@ -64,19 +56,32 @@ export const landscape = StyleSheet.create({
     justifyContent: 'center',
   },
   MLSContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   icon: {
     // width: "10%",
     // height: "10%"
+  },
+  MLSText: {
+    fontSize: 16,
+    color: '#999999'
+  },
+  addressText: {
+    fontSize: 12,
+    color: 'white'
+  },
+  property: {
+    fontSize: 10,
+    color: '#25AAFB',
+    marginTop: '5%'
   },
   fields: {
     flex: 3,
     padding: 20,
     flexDirection: 'row',
     alignItems:'stretch',
-    borderWidth: 3,
-    borderColor: 'yellow',
   },
 });
 
@@ -86,8 +91,6 @@ export const portrait = StyleSheet.create({
     flexDirection: 'row',
     height: '100%',
     width: '100%',
-    borderColor: 'purple',
-    borderWidth: 3,
   },
   sidebar: {
     width: '25%',
@@ -103,7 +106,5 @@ export const portrait = StyleSheet.create({
     padding: 20,
     flexDirection: 'row',
     alignItems:'stretch',
-    borderWidth: 3,
-    borderColor: 'yellow',
   }
 });
