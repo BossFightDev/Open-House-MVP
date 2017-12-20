@@ -9,6 +9,7 @@ export default class extends Component {
   constructor(props) {
     super();
   }
+  onSubmit
   buttonRenderer(){
     switch(this.props.active) {
       case 0:
@@ -33,7 +34,7 @@ export default class extends Component {
               arrow='left'
             />
             <Button
-              onPress={ () => this.props.navigation.navigate('Signup') }
+              onPress={ () => this.props.onSubmitHashtags() }
               label='Preview and Launch'
               color='black'
               arrow='right'
@@ -51,7 +52,10 @@ export default class extends Component {
               arrow='left'
             />
             <Button
-              onPress={ () => this.props.activeOnPress(this.props.active+2) }
+              onPress={ () => {
+                this.props.onSubmitQuestions();
+                this.props.activeOnPress(this.props.active+2) 
+              }}
               label='Next'
               color='black'
               arrow='right'
