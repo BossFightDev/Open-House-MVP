@@ -77,13 +77,13 @@ export default class extends Component {
           visible={this.state.modalVisible}
           onDismiss={() => this.launchSignup()}
         >
-          <LaunchOptions navigation={this.props.navigation} toggleModal={this.toggleModal} />
+          <LaunchOptions navigation={this.props.navigation} toggleModal={this.toggleModal} styles={styles} />
         </Modal>
         {this.state.launched && !this.state.confirmed ?
-          <CreatePin confirmPin={this.confirmPin} toggleModal={this.toggleModal} launchSignup={this.launchSignup} /> :
+          <CreatePin confirmPin={this.confirmPin} toggleModal={this.toggleModal} launchSignup={this.launchSignup} styles={styles} /> :
         !this.state.visible ?
           <SignupForm handleSubmit={this.handleSubmit} styles={styles} /> :
-          <Animated.View style={{ opacity: this.state.visibility }}><Submitted /></Animated.View>
+          <Animated.View style={{ opacity: this.state.visibility }}><Submitted styles={styles} /></Animated.View>
         }
       </View>
     )

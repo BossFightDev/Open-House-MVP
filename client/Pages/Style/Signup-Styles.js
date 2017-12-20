@@ -5,9 +5,10 @@ export const landscape = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     backgroundColor: '#f1f1f1',
     marginTop: '2%',
+    flex: 1,
   },
   button: {
     backgroundColor: '#007AFF',
@@ -33,14 +34,51 @@ export const landscape = StyleSheet.create({
     top: 0,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '5%',
+    marginBottom: '5%',
   },
-  welcomeText: {
+  headerText: {
+    color: '#424242',
     fontSize: 42,
     marginBottom: '-5%',
   },
-  signinText: {
+  subHeaderText: {
+    color: '#bababa',
     fontSize: 18,
+    backgroundColor: 'transparent',
+  },
+  launchContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  launchButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    alignItems: 'center', width: '45%',
+    borderRadius: 5, margin: 1,
+  },
+  launchText: {
+    color: 'yellowgreen',
+    fontSize: 22,
+  },
+  cancelText: {
+    color: 'red',
+    fontSize: 22,
+  },
+  pinContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    height: '10%',
+  },
+  pinInput: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '15%',
+    fontSize: 20,
+    textAlign: 'center',
+    margin: '0.5%',
   },
 })
 
@@ -49,9 +87,10 @@ export const portrait = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     backgroundColor: '#f1f1f1',
     marginTop: '2%',
+    flex: 1,
   },
   button: {
     backgroundColor: '#007AFF',
@@ -79,11 +118,48 @@ export const portrait = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: '5%',
   },
-  welcomeText: {
+  headerText: {
+    color: '#424242',
     fontSize: 42,
     marginBottom: '-5%',
   },
-  signinText: {
+  subHeaderText: {
+    color: '#bababa',
     fontSize: 18,
+    backgroundColor: 'transparent',
+  },
+  launchContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  launchButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    alignItems: 'center', width: '45%',
+    borderRadius: 5, margin: 1
+  },
+  launchText: {
+    color: 'yellowgreen',
+    fontSize: 22,
+  },
+  cancelText: {
+    color: 'red',
+    fontSize: 22,
+  },
+  pinContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    height: '10%',
+  },
+  pinInput: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '15%',
+    fontSize: 20,
+    textAlign: 'center',
+    margin: '0.5%',
   },
 })

@@ -61,12 +61,12 @@ export default class extends Component {
         <View style={this.props.styles.titleContainer}>
           <CustomText
             font='milkshake'
-            style={this.props.styles.welcomeText}
+            style={this.props.styles.headerText}
           >
             Welcome
           </CustomText>
           <CustomText
-            style={this.props.styles.signinText}
+            style={this.props.styles.subHeaderText}
           >
             Please Sign in
           </CustomText>

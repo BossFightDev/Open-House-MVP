@@ -12,19 +12,19 @@ export default class extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <View style={this.props.styles.launchContainer}>
         <TouchableOpacity
-          style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', alignItems: 'center', width: '45%', borderRadius: 5, margin: 1 }}
+          style={this.props.styles.launchButton}
           onPress={() => this.props.toggleModal()}>
-          <CustomText font='bold' style={{color: 'yellowgreen', fontSize: 22}}>LAUNCH</CustomText>
+          <CustomText font='bold' style={this.props.styles.launchText}>LAUNCH</CustomText>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', alignItems: 'center', width: '45%', borderRadius: 5, margin: 1 }}
+          style={this.props.styles.launchButton}
           onPress={() => {
             this.props.toggleModal()
             this.props.navigation.goBack()
           }}>
-          <CustomText font='bold' style={{color: 'red', fontSize: 22}}>CANCEL</CustomText>
+          <CustomText font='bold' style={this.props.styles.cancelText}>CANCEL</CustomText>
         </TouchableOpacity>
       </View>
     )

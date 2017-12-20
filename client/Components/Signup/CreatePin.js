@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import CustomText from '../CustomText';
 
 export default class extends Component {
   constructor() {
@@ -11,10 +12,16 @@ export default class extends Component {
       pin: '',
       confirmedPin: '',
       errorMessage: '',
+      pin1Focused: false,
+      pin2Focused: false,
+      pin3Focused: false,
+      pin4Focused: false,
     }
     this.cancelPin = this.cancelPin.bind(this)
     this.clearPins = this.clearPins.bind(this)
     this.setPin = this.setPin.bind(this)
+    this.onFocus = this.onFocus.bind(this)
+    this.onBlur = this.onBlur.bind(this)
   }
 
   componentDidUpdate() {
@@ -24,7 +31,7 @@ export default class extends Component {
         this.setState({ errorMessage: 'PIN\'s don\'t match! Try again.'})
         setTimeout(() => {
           this.setState({ errorMessage: ''})
-        }, 3000)
+        }, 5000)
         this.cancelPin()
         this.clearPins()
       }
@@ -56,20 +63,40 @@ export default class extends Component {
     }
   }
 
+  onFocus(focused) {
+    if (focused === 'pin1') this.setState({ pin1Focused: true })
+    else if (focused === 'pin2') this.setState({ pin2Focused: true })
+    else if (focused === 'pin3') this.setState({ pin3Focused: true })
+    else if (focused === 'pin4') this.setState({ pin4Focused: true })
+  }
+
+  onBlur(blurred) {
+    if (blurred === 'pin1') this.setState({ pin1Focused: false })
+    else if (blurred === 'pin2') this.setState({ pin2Focused: false })
+    else if (blurred === 'pin3') this.setState({ pin3Focused: false })
+    else if (blurred === 'pin4') this.setState({ pin4Focused: false })
+  }
+
   render() {
+    let pin1Border = this.state.pin1Focused ? 'blue' : '#ddd'
+    let pin2Border = this.state.pin2Focused ? 'blue' : '#ddd'
+    let pin3Border = this.state.pin3Focused ? 'blue' : '#ddd'
+    let pin4Border = this.state.pin4Focused ? 'blue' : '#ddd'
+
+    let pinMessage = !this.state.created ? 'Create PIN to launch' : 'Re-enter PIN to confirm'
+
     return (
-      <View style={{flexDirection: 'column', justifyContent: 'center'}}>
-        {!this.state.created ?
-          <Text>Create PIN to launch</Text> : <Text>Re-enter PIN to confirm</Text>
-        }
-        <View style={{flexDirection: 'row'}}>
+      <View style={[this.props.styles.container, {justifyContent: 'center'}]}>
+        <CustomText style={{fontSize: 18}}>{pinMessage}</CustomText>
+        <View style={this.props.styles.pinContainer}>
           <TextInput
-            style={{textAlign: 'center'}}
             ref='pin1'
             keyboardType={'numeric'}
             maxLength={1}
             autoFocus={true}
-            style={{borderColor: 'black', borderWidth: 1, width: 25}}
+            onFocus={() => this.onFocus('pin1')}
+            onBlur={() => this.onBlur('pin1')}
+            style={[this.props.styles.pinInput, { borderColor: pin1Border }]}
             onChange={this.setPin}
             onChangeText={() => this.refs.pin2.focus()}
           />
@@ -77,7 +104,9 @@ export default class extends Component {
             ref='pin2'
             keyboardType={'numeric'}
             maxLength={1}
-            style={{borderColor: 'black', borderWidth: 1, width: 25}}
+            onFocus={() => this.onFocus('pin2')}
+            onBlur={() => this.onBlur('pin2')}
+            style={[this.props.styles.pinInput, { borderColor: pin2Border }]}
             onChange={this.setPin}
             onChangeText={() => this.refs.pin3.focus()}
           />
@@ -85,7 +114,9 @@ export default class extends Component {
             ref='pin3'
             keyboardType={'numeric'}
             maxLength={1}
-            style={{borderColor: 'black', borderWidth: 1, width: 25}}
+            onFocus={() => this.onFocus('pin3')}
+            onBlur={() => this.onBlur('pin3')}
+            style={[this.props.styles.pinInput, { borderColor: pin3Border }]}
             onChange={this.setPin}
             onChangeText={() => this.refs.pin4.focus()}
           />
@@ -93,7 +124,9 @@ export default class extends Component {
             ref='pin4'
             keyboardType={'numeric'}
             maxLength={1}
-            style={{borderColor: 'black', borderWidth: 1, width: 25}}
+            onFocus={() => this.onFocus('pin4')}
+            onBlur={() => this.onBlur('pin4')}
+            style={[this.props.styles.pinInput, { borderColor: pin4Border }]}
             onChange={this.setPin}
             onChangeText={() => {
               if (!this.state.created) {
@@ -108,9 +141,13 @@ export default class extends Component {
             this.props.toggleModal()
             this.props.launchSignup()
           }}>
-          <Text style={{color: 'blue'}}>Cancel</Text>
+          <CustomText style={{color: 'blue', margin: '1%', fontSize: 16}}>
+            Cancel
+          </CustomText>
         </TouchableOpacity>
-        <Text>{this.state.errorMessage}</Text>
+        <CustomText font='bold' style={{color: 'red', marginTop: '5%'}}>
+          {this.state.errorMessage}
+        </CustomText>
       </View>
     )
   }
