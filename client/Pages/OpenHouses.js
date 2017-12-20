@@ -41,7 +41,7 @@ class App extends Component {
    * HANDLERS
    */
   _showModal = () => {
-    this.props.findProperty(this.state.MLS);
+    // this.props.findProperty(this.state.MLS);
     this.setState({ isModalVisible: true });
   }
   _hideModal = () => this.setState({ isModalVisible: false });

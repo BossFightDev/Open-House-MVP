@@ -78,8 +78,9 @@ export const landscape = StyleSheet.create({
     marginTop: '5%'
   },
   fields: {
+    borderWidth: 3,
+    borderColor: 'blue',
     flex: 3,
-    padding: 20,
     flexDirection: 'row',
     alignItems:'stretch',
   },

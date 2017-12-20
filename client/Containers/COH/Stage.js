@@ -43,7 +43,7 @@ export default class extends Component {
         break;
       default:
         return (
-          <View style={styles.button}>
+          <View style={styles.buttonContainer}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
               label='Back'
@@ -95,11 +95,11 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end',
 
   },
-  button: {
+  buttonContainer: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
+    alignSelf: 'center',
     backgroundColor: 'blue',
-    width: "75%",
+    width: "95%",
     flex: 0,
   },
   title: {
