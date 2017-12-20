@@ -14,7 +14,8 @@ export default class extends Component {
     switch(this.props.active) {
       case 0:
         return (
-          <View style={styles.button}>
+          <View style={styles.buttonWrapper}>
+          <View style={styles.buttonContainer}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active+2) }
               label='Next'
@@ -22,11 +23,13 @@ export default class extends Component {
               arrow='right'
             />
           </View>
+          </View>
         )
         break;
       case this.props.lastStage:
         return (
-          <View style={styles.button}>
+          <View style={styles.buttonWrapper}>
+          <View style={styles.buttonContainer}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
               label='Back'
@@ -40,11 +43,13 @@ export default class extends Component {
               arrow='right'
             />
           </View>
+          </View>
         )
         break;
       default:
         return (
-          <View style={styles.button}>
+          <View style={styles.buttonWrapper}>
+          <View style={styles.buttonContainer}>
             <Button
               onPress={ () => this.props.activeOnPress(this.props.active) }
               label='Back'
@@ -60,6 +65,7 @@ export default class extends Component {
               color='black'
               arrow='right'
             />
+          </View>
           </View>
         )
     }
@@ -95,16 +101,22 @@ const styles = StyleSheet.create({
   fields:{
     display:'flex',
     flex: 1,
-    flexBasis: '15%',
+    // flexBasis: '15%',
     alignContent: 'flex-end',
 
   },
-  button: {
+  buttonWrapper: {
+    borderWidth: 3,
+    borderColor: 'blue',
+    justifyContent: 'center',
+    alignItems: 'center'
+    
+  },
+  buttonContainer: {
     flexDirection: 'row',
-    alignItems: 'flex-end',
-    backgroundColor: 'blue',
-    width: "75%",
-    flex: 0,
+    borderWidth: 3,
+    borderColor: 'red',
+    width: '50%'
   },
   title: {
     fontSize: 18,

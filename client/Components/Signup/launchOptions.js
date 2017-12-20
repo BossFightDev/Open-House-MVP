@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import CustomText from '../CustomText';
 import { addOpenHouse } from '../../actions/index';
+import { connect } from 'react-redux'
 
 
 class LaunchOptions extends Component {
@@ -36,7 +37,7 @@ class LaunchOptions extends Component {
 
 const mapStateToProp = state => {
   return{
-    questions: this.state.questions,
+    questions: state.questions,
   }
 }
 const mapDispatchToProps = {
