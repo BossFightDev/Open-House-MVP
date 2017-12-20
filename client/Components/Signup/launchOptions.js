@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import CustomText from '../CustomText';
+import { addOpenHouse } from '../../actions/index';
 
-export default class extends Component {
+
+class LaunchOptions extends Component {
   constructor() {
     super();
 
@@ -21,6 +23,7 @@ export default class extends Component {
         <TouchableOpacity
           style={this.props.styles.launchButton}
           onPress={() => {
+            this.props.addOpenHouse(this.props.questions);
             this.props.toggleModal()
             this.props.navigation.goBack()
           }}>
@@ -30,3 +33,14 @@ export default class extends Component {
     )
   }
 }
+
+const mapStateToProp = state => {
+  return{
+    questions: this.state.questions,
+  }
+}
+const mapDispatchToProps = {
+  addOpenHouse,
+}
+
+export default connect(mapStateToProp, mapDispatchToProps)(LaunchOptions)

@@ -3,8 +3,13 @@ import { TextInput, View, Text, TouchableOpacity } from 'react-native';
 import { SegmentedControls } from 'react-native-radio-buttons';
 import { Dropdown } from 'react-native-material-dropdown';
 import CustomText from '../CustomText';
+import axios from 'axios';
+import { SERVER_URL } from '../../actions/index';
+import { connect } from 'react-redux';
+axios.defaults.withCredentials = true;
 
-export default class extends Component {
+
+class SignUpForm extends Component {
   constructor() {
     super();
 
@@ -20,9 +25,20 @@ export default class extends Component {
       emailFocused: false,
       phoneFocused: false,
       agentFocused: false,
+      source: ''
     }
     this.onFocus = this.onFocus.bind(this)
     this.onBlur = this.onBlur.bind(this)
+  }
+
+  onSubmit = (openHouseId) => {
+    const { name, email, source} = this.state;
+    const phone = this.state.phoneNumber;
+    const agent = this.state.agentName
+    axios.post( openHouseId, name, email, phone, agent, source  )
+      .then((data) => console.log(`successfully added a lead: ${data}`))
+      .catch(()=> console.log('Failed adding a lead somewhere'))
+    this.props.handleSubmit()
   }
 
   onFocus(focused) {
@@ -124,7 +140,7 @@ export default class extends Component {
             />
             <TouchableOpacity
               style={this.props.styles.button}
-              onPress={this.props.handleSubmit}
+              onPress={this.onSubmit(this.props.property.openHouse.id)}
             >
               <CustomText style={{ color: 'white' }} font='bold'>SUBMIT</CustomText>
             </TouchableOpacity>
@@ -133,3 +149,11 @@ export default class extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return { 
+    property: state.property,
+  }
+}
+
+export default connect(mapStateToProps)(SignUpForm)
