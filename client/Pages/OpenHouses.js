@@ -13,6 +13,9 @@ import {
   TouchableOpacity,
   Dimensions
 } from "react-native";
+import { connect } from 'react-redux';
+import { findProperty, findLeads } from '../actions';
+
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
 const changeScreenOrientation = () => {
@@ -25,22 +28,30 @@ if (aspectRatio > 1.6) {
   styles = landscape;
   changeScreenOrientation();
 }
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalVisible: false,
-      fontLoaded: false
+      fontLoaded: false,
+      MLS: '',
     };
   }
   /**
    * HANDLERS
    */
-  _showModal = () => this.setState({ isModalVisible: true });
+  _showModal = () => {
+    this.props.findProperty(this.state.MLS);
+    this.setState({ isModalVisible: true });
+  }
   _hideModal = () => this.setState({ isModalVisible: false });
   onLayout(e) {
     const { width, height } = Dimensions.get("window");
   }
+  onClickLeads = (openHouseId) => {
+    this.props.findLeads(openHouseID);
+    this.props.navigation.navigate('PastOpenHouses');
+  } 
 
   render() {
     return (
@@ -55,6 +66,8 @@ export default class App extends Component {
               <TextInput
                 style={styles.searchBar}
                 placeholder="Enter MLS# or Select a Listing"
+                onChangeText={MLS => this.setState({ MLS })}
+                value={this.state.MLS}
               />
               <TouchableOpacity
                 style={styles.buttonContainer}
@@ -203,3 +216,15 @@ export default class App extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    property: this.state.property,
+  }
+}
+
+const mapDispatchToProps = {
+  findProperty,
+  findLeads
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
