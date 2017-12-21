@@ -140,7 +140,7 @@ class SignUpForm extends Component {
             />
             <TouchableOpacity
               style={this.props.styles.button}
-              onPress={this.onSubmit(this.props.property.openHouse.id)}
+              onPress={() => this.onSubmit(this.props.property.openHouse.id)}
             >
               <CustomText style={{ color: 'white' }} font='bold'>SUBMIT</CustomText>
             </TouchableOpacity>

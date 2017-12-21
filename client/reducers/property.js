@@ -8,7 +8,50 @@ const init = {
   sqft: 25000,
   images: [],
   price: 23000000000,
-  openHouse: {id: 0}
+  openHouses: [
+    {
+      image:
+        "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
+      date: "Oct 24, 2017",
+      address: "245 Maple Ave, Waco",
+      guests: 52
+    },
+    {
+      image:
+        "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
+      date: "Oct 01, 2017",
+      address: "11 West Main St, Lubbock",
+      guests: 41
+    },
+    {
+      image:
+        "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
+      date: "Oct 24, 2017",
+      address: "245 Maple Ave, Waco",
+      guests: 52
+    },
+    {
+      image:
+        "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
+      date: "Oct 01, 2017",
+      address: "11 West Main St, Lubbock",
+      guests: 41
+    },
+    {
+      image:
+        "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
+      date: "Oct 24, 2017",
+      address: "245 Maple Ave, Waco",
+      guests: 52
+    },
+    {
+      image:
+        "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
+      date: "Oct 01, 2017",
+      address: "11 West Main St, Lubbock",
+      guests: 41
+    }
+  ]
 }
 
 

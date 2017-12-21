@@ -41,7 +41,7 @@ class App extends Component {
    * HANDLERS
    */
   _showModal = () => {
-    // this.props.findProperty(this.state.MLS);
+    this.props.findProperty(this.state.MLS);
     this.setState({ isModalVisible: true });
   }
   _hideModal = () => this.setState({ isModalVisible: false });
@@ -218,7 +218,7 @@ class App extends Component {
 }
 const mapStateToProps = state => {
   return {
-    property: this.state.property,
+    property: state.property,
   }
 }
 
