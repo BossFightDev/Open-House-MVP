@@ -61,7 +61,7 @@ export default (state = init, action) => {
       return Object.assign(state, action.payload)
       break;
     case 'OPENHOUSE_ADDED':
-      return Object.assign(state.openHouse, action.payload)
+      return Object.assign(state.openHouses, action.payload)
     default:
       return state
   }
