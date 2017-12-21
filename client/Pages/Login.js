@@ -62,6 +62,7 @@ class Login extends Component {
           style={styles.input}
           onChangeText={password => this.setState({ password })}
           value={this.state.password}
+          secureTextEntry={true}
         />
         </View>
         <View style={styles.buttonContainer}>
@@ -71,7 +72,7 @@ class Login extends Component {
             this.props.login(this.state.username, this.state.password);
             const validated = authenticateUser(true); // <~~ change this to true or false
             if (validated.authenticate)
-              this.props.navigation.navigate("CreateOpenHouse");
+              this.props.navigation.navigate("OpenHouses");
           }}
         >
           <CustomText style={styles.buttonText}font={"bold"}>LOGIN</CustomText>
