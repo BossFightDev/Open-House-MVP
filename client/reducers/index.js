@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import fieldsReducer from './fields';
+import stateReducer from './appState';
 import leadsReducer from './leads';
 import propertyReducer from './property';
 import userReducer from './user';
@@ -7,7 +7,7 @@ import questionsReducer from './questions'
 
 
 export default rootReducer = combineReducers({
-  fields: fieldsReducer,
+  appState: stateReducer,
   questions: questionsReducer,
   property: propertyReducer,
   user: userReducer,

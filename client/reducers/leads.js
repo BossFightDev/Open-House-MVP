@@ -12,7 +12,7 @@ const init = {
 export default (state = init, action) => {
   switch (action.type) {
     case 'FIND_LEADS':
-      return Object.assign(state, action.payload)
+      return Object.assign({}, state, action.payload)
     default:
       return state;
   }
