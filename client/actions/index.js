@@ -13,6 +13,7 @@ export const LEAD_ADDED = 'LEAD_ADDED';
 export const OPENHOUSE_FOUND = 'OPENHOUSE_FOUND';
 export const ADD_QUESTIONS = 'ADD_QUESTIONS';
 export const ADD_HASHTAGS = 'ADD_HASHTAGS';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
 export const authenticateUser = (validation) => {
   return {
@@ -28,11 +29,14 @@ export const launchForm = (validation) => {
   }
 }
 
-export const login = (username, password) => {
+export const login = (username, password, navigation) => {
   return (dispatch) => {
     axios.post(`${SERVER_URL}/login`, { username, password })
       .then((data) => {
         console.log(`Successfully got response from login`)
+        // const validated = authenticateUser(true); // <~~ change this to true or false
+        //     if (validated.authenticate)
+        navigation.navigate("OpenHouses");
         return {
           type: 'LOGGED_IN',
           payload: data.data.user,
@@ -44,15 +48,16 @@ export const login = (username, password) => {
   }
 }
 
-export const findProperty = (MLS) => {
+export const findProperty = (MLS, modal) => {
   return (dispatch) => {
     axios.post(`${SERVER_URL}/findProperty`, { MLS })
       .then((data) => {
         console.log(`Successfully got response from findProperty`)
-        return {
+        dispatch({
           type: 'PROPERTY_FOUND',
-          payload: data.data.property,
-        }
+          payload: data.data.property
+        })
+        return;
       })
       .catch(() => {
         console.log('Error in findProperty action somewhere')
@@ -131,6 +136,12 @@ export const addHashtags = (hashtagQ, hashtags) => {
   return {
     type: ADD_HASHTAGS,
     payload: { hashtagQ, hashtags }
+  }
+}
+
+export const modalOff = () => {
+  return (dispatch) => {
+    dispatch({type: TOGGLE_MODAL,})
   }
 }
 

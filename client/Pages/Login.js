@@ -69,10 +69,7 @@ class Login extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            this.props.login(this.state.username, this.state.password);
-            const validated = authenticateUser(true); // <~~ change this to true or false
-            if (validated.authenticate)
-              this.props.navigation.navigate("OpenHouses");
+            this.props.login(this.state.username, this.state.password, this.props.navigation);
           }}
         >
           <CustomText style={styles.buttonText}font={"bold"}>LOGIN</CustomText>
@@ -102,7 +99,7 @@ class Login extends Component {
   }
 }
 const mapStateToProps = state => {
-  return { authenticated: state.authenticated };
+  return { authenticated: state.appState.authenticated };
 };
 const mapDispatchToProps = {authenticateUser, login}
 
