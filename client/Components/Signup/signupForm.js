@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { SegmentedControls } from 'react-native-radio-buttons';
 import { Dropdown } from 'react-native-material-dropdown';
 import CustomText from '../CustomText';
@@ -73,7 +73,7 @@ class SignUpForm extends Component {
     let agentBorder = this.state.agentFocused ? 'blue' : 'gray'
 
     return (
-      <View style={this.props.styles.container}>
+      <ScrollView bounces={false}>
         <View style={this.props.styles.titleContainer}>
           <CustomText
             font='milkshake'
@@ -145,7 +145,7 @@ class SignUpForm extends Component {
               <CustomText style={{ color: 'white' }} font='bold'>SUBMIT</CustomText>
             </TouchableOpacity>
           </View>
-      </View>
+      </ScrollView>
     )
   }
 }

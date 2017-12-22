@@ -26,7 +26,7 @@ export default class extends Component {
       <View style={{ width: '100%', height: '40%', marginTop:'4%', alignItems: 'center'}}>
         <Image
           source={require("../../Assets/houseTest.jpg")}
-          style={{ flex: 1, resizeMode: 'contain' }}
+          style={{ flex: 1, width: '100%', height:'100%' }}
         />
         <View style={{ position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0 }}>
           <TouchableOpacity
@@ -35,8 +35,8 @@ export default class extends Component {
             <Image source={require('../../Assets/iconExit.png')} />
           </TouchableOpacity>
         </View>
-        <View style={{ position: 'absolute', width: '96%', height: '35%', bottom: 0 }}>
-          <TouchableOpacity style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
+        <View style={{ position: 'absolute', width: '96%', height: '45%', bottom: 0, }}>
+          <TouchableOpacity style={{width:'100%', height: '95%', backgroundColor: 'rgba(0, 0, 0, 0.6)', justifyContent: 'center',}}>
             <View style={{ width: '80%', marginLeft: '5%' }}>
               <CustomText style={{ color: 'white', fontSize: 13 }} font='bold' >{this.state.data.address}</CustomText>
             </View>
