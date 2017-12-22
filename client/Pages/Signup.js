@@ -5,6 +5,7 @@ import LaunchOptions from '../Components/Signup/launchOptions';
 import Submitted from '../Components/Signup/submitted';
 import SignupForm from '../Components/Signup/signupForm';
 import CreatePin from '../Components/Signup/CreatePin';
+import HouseDisplay from '../Components/Signup/houseDisplay';
 import { portrait, landscape } from "./Style/Signup-Styles"
 
 const {height, width} = Dimensions.get('window');
@@ -72,6 +73,7 @@ export default class extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <HouseDisplay navigation={this.props.navigation} />
         <Modal
           transparent={true}
           visible={this.state.modalVisible}
