@@ -14,7 +14,7 @@ import {
   Dimensions
 } from "react-native";
 import { connect } from 'react-redux';
-import { findProperty, findLeads } from '../actions';
+import { findProperty, findLeads, modalOff } from '../actions';
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -41,10 +41,10 @@ class App extends Component {
    * HANDLERS
    */
   _showModal = () => {
-    this.props.findProperty(this.state.MLS);
+    this.props.findProperty(this.state.MLS, this.props.appState.showModal);
     this.setState({ isModalVisible: true });
   }
-  _hideModal = () => this.setState({ isModalVisible: false });
+  _hideModal = () => this.props.modalOff();
   onLayout(e) {
     const { width, height } = Dimensions.get("window");
   }
@@ -84,56 +84,7 @@ class App extends Component {
               <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
             <FlatList style={{height:'100%'}}
-              data={[
-                {
-                  key: 1,
-                  image:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
-                  date: "Oct 24, 2017",
-                  address: "245 Maple Ave, Waco",
-                  number: 52
-                },
-                {
-                  key: 2,
-                  image:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
-                  date: "Oct 01, 2017",
-                  address: "11 West Main St, Lubbock",
-                  number: 41
-                },
-                {
-                  key: 3,
-                  image:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
-                  date: "Oct 24, 2017",
-                  address: "245 Maple Ave, Waco",
-                  number: 52
-                },
-                {
-                  key: 4,
-                  image:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
-                  date: "Oct 01, 2017",
-                  address: "11 West Main St, Lubbock",
-                  number: 41
-                },
-                {
-                  key: 5,
-                  image:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
-                  date: "Oct 24, 2017",
-                  address: "245 Maple Ave, Waco",
-                  number: 52
-                },
-                {
-                  key: 6,
-                  image:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",
-                  date: "Oct 01, 2017",
-                  address: "11 West Main St, Lubbock",
-                  number: 41
-                }
-              ]}
+              data={this.props.property.openHouses}
               renderItem={({ item }) => (
                 <View style={styles.POHItem}>
                   <View style={styles.imageContainer}>
@@ -149,7 +100,7 @@ class App extends Component {
                     <CustomText style={styles.address}>{item.address}</CustomText>
                   </View>
                   <View style={styles.guestCountContainer}>
-                    <CustomText style={styles.guestCount} font="bold">{item.number}</CustomText>
+                    <CustomText style={styles.guestCount} font="bold">{item.guests}</CustomText>
                   </View>
                   </View>
                   </View>
@@ -159,7 +110,7 @@ class App extends Component {
           </View>
         </View>
         <Modal
-          isVisible={this.state.isModalVisible}
+          isVisible={this.props.appState.showModal}
           supportedOrientations={[
             "portrait",
             "portrait-upside-down",
@@ -172,11 +123,11 @@ class App extends Component {
             <View style={styles.contentWrapper}>
             <View style={styles.modalTextContainer}>
               <View style={styles.MLSAddress}>
-              <CustomText style={styles.modalMLS} font="bold">MLS# 12345678</CustomText>
-              <CustomText style={styles.modalAddress}>245 North Maple Avenue, Apt101, Waco</CustomText>
+              <CustomText style={styles.modalMLS} font="bold">{this.props.property.MLS}</CustomText>
+              <CustomText style={styles.modalAddress}>{this.props.property.address}</CustomText>
               </View>
             <View style={styles.priceContainer}>
-            <CustomText style={styles.modalPrice} font="bold">$345,000</CustomText>
+            <CustomText style={styles.modalPrice} font="bold">{this.props.property.price}</CustomText>
             </View>
             </View>
             <View style={styles.modalImageContainer}>
@@ -184,7 +135,7 @@ class App extends Component {
                 style={styles.modalImage}
                 source={{
                   uri:
-                    "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15"
+                    this.props.property.images[0]
                 }}
               />
             </View>
@@ -219,12 +170,15 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     property: state.property,
+    user: state.user,
+    appState: state.appState,
   }
 }
 
 const mapDispatchToProps = {
   findProperty,
-  findLeads
+  findLeads,
+  modalOff
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

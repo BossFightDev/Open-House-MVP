@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import TitleClose from '../../Components/TitleClose';
 import components from '../../Components';
 import FieldSwitch from '../../Containers/COH/FieldSwitch';
 const { Button } = components;
-
+import { portrait, landscape } from "../../Pages/Style/create-open-style.js"
+const {height, width} = Dimensions.get('window'); 
+const aspectRatio = height/width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+}
+let styles;
+if (aspectRatio > 1.6) {
+   styles = portrait;
+  console.log('IPHONE');
+  
+}
+else {
+   styles = landscape;
+  changeScreenOrientation();
+  console.log('IPAD');
+}
 export default class extends Component {
   constructor(props) {
     super();
@@ -78,7 +94,7 @@ export default class extends Component {
           navigation={this.props.navigation}
           nextLocation='OpenHouses'
         /> 
-        <Text style={styles.title}>{this.props.title}</Text>
+        <Text style={styles.titleStage}>{this.props.title}</Text>
         {this.props.fields.map((field, i) => {
           return <FieldSwitch 
             key={i.toString()}
@@ -88,7 +104,7 @@ export default class extends Component {
             parentIndex={this.props.active}
             switchIndex={i}
             switchChange={this.props.switchOnPress}
-            style={styles.fields}
+            style={styles.fieldsStage}
             />
         })}
         {this.buttonRenderer()}
@@ -96,35 +112,3 @@ export default class extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  fields:{
-    display:'flex',
-    flex: 1,
-    // flexBasis: '15%',
-    alignContent: 'flex-end',
-
-  },
-  buttonWrapper: {
-    borderWidth: 3,
-    borderColor: 'blue',
-    justifyContent: 'center',
-    alignItems: 'center'
-    
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    borderWidth: 3,
-    borderColor: 'red',
-    width: '50%'
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '300',
-    color: '#454545',
-  },
-  button2: {
-
-  }
-
-})

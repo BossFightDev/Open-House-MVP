@@ -19,7 +19,7 @@ const init = {
 export default (state = init, action) => {
   switch (action.type) {
     case 'ADD_HASHTAGS':
-      return Object.assign(state, action.payload);
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }

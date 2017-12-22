@@ -1,6 +1,23 @@
 import React, {Component} from 'react';
-import {Text, TouchableOpacity, StyleSheet, View, Image} from 'react-native';
-
+import {Text, TouchableOpacity, StyleSheet, View, Image, Dimensions} from 'react-native';
+import CustomText from './CustomText.js';
+import { portrait, landscape } from "../Pages/Style/create-open-style.js"
+const {height, width} = Dimensions.get('window'); 
+const aspectRatio = height/width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+}
+let styles;
+if (aspectRatio > 1.6) {
+   styles = portrait;
+  console.log('IPHONE');
+  
+}
+else {
+   styles = landscape;
+  changeScreenOrientation();
+  console.log('IPAD');
+}
 class Button extends Component{
   constructor(props) {
     super()
@@ -9,16 +26,16 @@ class Button extends Component{
     switch(this.props.arrow){
       case 'left':
         return(
-          <View style={landscape.innerButton}>
+          <View style={styles.innerButton}>
             <Image source={require('../Assets/iconBack.png')} />
-            <Text> {this.props.label} </Text>
+            <CustomText style={styles.leftText}> {this.props.label} </CustomText>
           </View>
         )
         break;
       case 'right':
         return(
-          <View style={landscape.innerButton}>
-            <Text> {this.props.label} </Text>
+          <View style={styles.innerButton}>
+            <CustomText style={styles.rightText}> {this.props.label} </CustomText>
             <Image source={require('../Assets/iconArrow.png')} />
           </View>
         )
@@ -26,7 +43,7 @@ class Button extends Component{
       default:
         return (
         <Text
-          style={landscape.buttonText}
+          style={styles.buttonText}
         >
           {this.props.label}
         </Text>
@@ -37,7 +54,7 @@ class Button extends Component{
   render(){
     return(
       <TouchableOpacity
-        style={this.props.arrow === 'left'? landscape.buttonLeft: landscape.buttonRight}
+        style={this.props.arrow === 'left'? styles.buttonLeft: styles.buttonRight}
         onPress={this.props.onPress}
         underlayColor="#fff"
       >
@@ -48,105 +65,3 @@ class Button extends Component{
 }
 
 export default Button;
-
-const landscape = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row"
-  },
-  logo: {
-    backgroundColor: "#454545",
-    height: "100%",
-    width: "50%",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  openHouseContainer: {
-    backgroundColor: "#F1F1F1",
-    alignItems: "flex-end",
-    height: "100%"
-  },
-  inputButtonContainer: {
-    borderBottomWidth: 1, 
-    borderBottomColor: "#DDDDDD"
-  },
-  searchBarContainer: {
-    flexDirection: "row", 
-    alignItems: "center" 
-  },
-  searchBar: {
-    backgroundColor: "white"
-  },
-  innerButton: {
-    flexDirection: 'row',
-  },
-  buttonLeft: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: "#25AAFB",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  buttonRight: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: "#25AAFB",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  buttonText: {
-    color: "#fff",
-    textAlign: "center",
-    paddingLeft: 10,
-    paddingRight: 10
-  },
-  modalContainer: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  modalIamge: {
-    
-    height: 200,
-    width: 300,
-    alignItems: 'center'
-  },
-  modalNopeButton: {
-    marginRight: 20,
-    marginLeft: 20,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: "white",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  modalConfirmButton: {
-    marginRight: 40,
-    marginLeft: 40,
-    marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: "#25AAFB",
-    borderRadius: 0,
-    borderWidth: 1,
-    borderColor: "#fff"
-  },
-  POHItem: {
-    backgroundColor: "white"
-  },
-  POHItemImage: {
-    width: 50, 
-    height: 50
-  },
-});
-
-
