@@ -84,6 +84,8 @@ export const landscape = StyleSheet.create({
   },
   innerButton: {
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   buttonLeft: {
     width: "49%",
@@ -109,6 +111,7 @@ export const landscape = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
+    marginLeft: "2%"
   },
   rightText: {
     color: 'white'
@@ -132,8 +135,7 @@ export const landscape = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-end',
     width: "99%",
-    justifyContent: 'space-between',
-    alignItems: 'flex-end'
+    justifyContent: 'flex-end',
   },
   titleStage: {
     fontSize: 18,
@@ -252,6 +254,7 @@ export const portrait = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
+    marginLeft: "2%"
   },
   rightText: {
     color: 'white'
@@ -275,8 +278,7 @@ export const portrait = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-end',
     width: "99%",
-    justifyContent: 'space-between',
-    alignItems: 'flex-end'
+    justifyContent: 'flex-end',
   },
   titleStage: {
     fontSize: 18,
