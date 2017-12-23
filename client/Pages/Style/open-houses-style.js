@@ -22,21 +22,21 @@ export const landscape = StyleSheet.create({
     width: "50%"
   },
   headerContainer: {
-    paddingLeft: '5%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingLeft: "5%",
+    justifyContent: "center",
+    alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#DDDDDD"
   },
   headerInfo: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     width: "90%",
-    height: "90%",
+    height: "90%"
   },
   title: {
-    textAlign: 'left',
-    alignSelf: 'flex-start',
+    textAlign: "left",
+    alignSelf: "flex-start",
     fontSize: 16,
     marginTop: 25,
     marginBottom: 10
@@ -44,7 +44,7 @@ export const landscape = StyleSheet.create({
   searchBarContainer: {
     flexDirection: "row",
     marginBottom: 25,
-    alignSelf: 'flex-start'
+    alignSelf: "flex-start"
   },
   searchBar: {
     paddingTop: 10,
@@ -54,7 +54,7 @@ export const landscape = StyleSheet.create({
     backgroundColor: "white",
     fontSize: 14,
     textAlign: "center",
-    borderWidth: 1, 
+    borderWidth: 1,
     borderRadius: 2,
     borderColor: "#DDDDDD"
   },
@@ -77,26 +77,26 @@ export const landscape = StyleSheet.create({
   },
   listTextContainer: {
     flexDirection: "row",
-    marginTop: '5%',
-    marginBottom: '2.5%',
-    width: '90%',
+    marginTop: "5%",
+    marginBottom: "2.5%",
+    width: "90%",
     alignSelf: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   listTitle: {
-    fontSize: 16,
+    fontSize: 16
   },
   guestCountTitle: {
     fontSize: 10
   },
   POHItem: {
     flexDirection: "row",
-    width: '90%',
+    width: "90%",
     backgroundColor: "white",
     marginTop: 10,
     marginBottom: 10,
-    marginLeft: '5%',
-    borderWidth: 1, 
+    marginLeft: "5%",
+    borderWidth: 1,
     borderRadius: 2,
     borderColor: "#DDDDDD"
   },
@@ -105,38 +105,36 @@ export const landscape = StyleSheet.create({
     height: 82
   },
   POHItemImage: {
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
   },
   infoWrapper: {
     width: "79%",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   infoContainer: {
     width: "90%",
-    flexDirection: 'row',
+    flexDirection: "row"
   },
   dateAddress: {
-    flexDirection: "column",
+    flexDirection: "column"
   },
-  date: {
-  },
-  address: {
-  },
+  date: {},
+  address: {},
   guestCountContainer: {
     flex: 1,
-    alignSelf: 'center'
+    alignSelf: "center"
   },
   guestCount: {
     color: "#25AAFB",
-    textAlign: 'right'
+    textAlign: "right"
   },
   modal: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0,
+    padding: 0
   },
   modalContainer: {
     justifyContent: "center",
@@ -149,9 +147,9 @@ export const landscape = StyleSheet.create({
     backgroundColor: "#F1F1F1"
   },
   contentWrapper: {
-    alignSelf: 'center',
+    alignSelf: "center",
     height: "95%",
-    width: "95%",
+    width: "95%"
   },
   modalImageContainer: {
     display: "flex",
@@ -164,29 +162,28 @@ export const landscape = StyleSheet.create({
     backgroundColor: "#F1F1F1",
     width: "100%",
     height: 65,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row'
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
   },
   MLSAddress: {
     paddingTop: 10,
     flexDirection: "column",
-    alignSelf: 'flex-start',
-
+    alignSelf: "flex-start"
   },
   modalMLS: {
-    textAlign: "left",
+    textAlign: "left"
   },
   modalAddress: {
-    textAlign: "left",
+    textAlign: "left"
   },
   priceContainer: {
     justifyContent: "flex-end",
     paddingBottom: 20,
-    flex: 1,
+    flex: 1
   },
   modalPrice: {
-    textAlign: "right",
+    textAlign: "right"
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
@@ -197,15 +194,15 @@ export const landscape = StyleSheet.create({
   buttonWrapper: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   modalButtonsContainer: {
     flexDirection: "row",
     width: "100%",
-    height: 90,
+    height: 90
   },
   modalConfirmButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: "49%",
     height: "50%",
     backgroundColor: "#25AAFB",
@@ -225,7 +222,7 @@ export const landscape = StyleSheet.create({
     fontSize: 14
   },
   modalNopeButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: "49%",
     height: "50%",
     backgroundColor: "white",
@@ -309,14 +306,13 @@ export const portrait = StyleSheet.create({
   },
   listTextContainer: {
     flexDirection: "row",
-    marginTop: '5%',
-    marginBottom: '5%',
-    width: '85%',
+    marginTop: "5%",
+    marginBottom: "5%",
+    width: "85%",
     alignSelf: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
-  listTitle: {
-  },
+  listTitle: {},
   guestCountTitle: {
     fontSize: 10
   },
@@ -339,23 +335,23 @@ export const portrait = StyleSheet.create({
   infoWrapper: {
     width: "100%",
     height: "25%",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderWidth: 1,
     borderColor: "#DDDDDD"
   },
   infoContainer: {
     width: "90%",
-    height: "70%",
+    height: "70%"
   },
   dateAddress: {
-    flexDirection: "column",
+    flexDirection: "column"
   },
   date: {
-    textAlign: "left",
+    textAlign: "left"
   },
   address: {
-    textAlign: "left",
+    textAlign: "left"
   },
   guestCountContainer: {
     justifyContent: "center",
@@ -363,25 +359,25 @@ export const portrait = StyleSheet.create({
   },
   guestCount: {
     color: "#25AAFB",
-    textAlign: "right",
+    textAlign: "right"
   },
   modal: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0,
+    padding: 0
   },
   modalContainer: {
     justifyContent: "center",
     alignItems: "center",
     height: "60%",
     width: "100%",
-    backgroundColor: "#F1F1F1",
+    backgroundColor: "#F1F1F1"
   },
   contentWrapper: {
-    alignSelf: 'center',
+    alignSelf: "center",
     height: "95%",
-    width: "95%",
+    width: "95%"
   },
   modalImageContainer: {
     display: "flex",
@@ -394,31 +390,31 @@ export const portrait = StyleSheet.create({
     backgroundColor: "#F1F1F1",
     width: "100%",
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
   },
   MLSAddress: {
     paddingTop: 5,
     flexDirection: "column",
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start"
   },
   modalMLS: {
     textAlign: "left",
-    fontSize: 10,
+    fontSize: 10
   },
   modalAddress: {
     textAlign: "left",
-    fontSize: 10,
+    fontSize: 10
   },
   priceContainer: {
     justifyContent: "flex-end",
     paddingBottom: 5,
-    flex: 1,
+    flex: 1
   },
   modalPrice: {
     textAlign: "right",
-    fontSize: 10,
+    fontSize: 10
   },
   modalImage: {
     backgroundColor: "#F1F1F1",
@@ -430,16 +426,16 @@ export const portrait = StyleSheet.create({
     display: "flex",
     width: "100%",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   modalButtonsContainer: {
     flexDirection: "row",
     width: "100%",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   modalConfirmButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: "49%",
     height: "70%",
     backgroundColor: "#25AAFB",
@@ -458,7 +454,7 @@ export const portrait = StyleSheet.create({
     fontSize: 10
   },
   modalNopeButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: "49%",
     height: "70%",
     backgroundColor: "white",
@@ -466,7 +462,7 @@ export const portrait = StyleSheet.create({
     borderRadius: 2,
     borderColor: "#DDDDDD",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   modalNopeText: {
     color: "gray",

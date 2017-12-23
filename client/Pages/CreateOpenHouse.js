@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
-import { View, Text, Button, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
-import Sidebar from '../Containers/COH/Sidebar';
-import Stage from '../Containers/COH/Stage'
-import TitleClose from '../Components/TitleClose';
-import Fields from '../Assets/fields';
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions
+} from "react-native";
+import Sidebar from "../Containers/COH/Sidebar";
+import Stage from "../Containers/COH/Stage";
+import TitleClose from "../Components/TitleClose";
+import Fields from "../Assets/fields";
 import CustomText from "../Components/CustomText";
 import { landscape, portrait } from "./Style/create-open-style.js";
-import { addQuestions, addHashtags } from '../actions/index';
-import { connect } from 'react-redux';
+import { addQuestions, addHashtags } from "../actions/index";
+import { connect } from "react-redux";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -21,24 +30,24 @@ if (aspectRatio > 1.6) {
   styles = landscape;
   changeScreenOrientation();
 }
-const stages = [{
-  number: 1,
-  stage: 'Select Questions'
-},
-{
-  number: 2,
-  stage: 'Display Options'
-},
-{
-  number: 3,
-  stage: 'Add Hashtags'
-},
-{
-  number: 4,
-  stage: 'Launch Open House'
-},
-]
-
+const stages = [
+  {
+    number: 1,
+    stage: "Select Questions"
+  },
+  {
+    number: 2,
+    stage: "Display Options"
+  },
+  {
+    number: 3,
+    stage: "Add Hashtags"
+  },
+  {
+    number: 4,
+    stage: "Launch Open House"
+  }
+];
 
 class CreateOpenHouse extends Component {
   constructor() {
@@ -47,7 +56,7 @@ class CreateOpenHouse extends Component {
       currentStage: 1,
       sideBarStages: stages,
       fields: Fields
-    }
+    };
     this.switchStateChange = this.switchStateChange.bind(this);
     this.activeStageChange = this.activeStageChange.bind(this);
   }
@@ -57,8 +66,8 @@ class CreateOpenHouse extends Component {
         hashtags = this.state.fields[2][0].value;
       this.props.addHashtags(hashtagQ, hashtags);
     }
-    this.props.navigation.navigate('Signup')
-  }
+    this.props.navigation.navigate("Signup");
+  };
   onSubmitQuestions = () => {
     const phoneQ = this.state.fields[0][2].value,
       agentQ = this.state.fields[0][3].value,
@@ -68,9 +77,17 @@ class CreateOpenHouse extends Component {
       priceQ = this.state.fields[1][1].value,
       bedbathQ = this.state.fields[1][2].value,
       sqftq = this.state.fields[1][3].value;
-    this.props.addQuestions(phoneQ, agentQ, sourceQ, imageQ, image, priceQ, bedbathQ, sqftq);
-  }
-
+    this.props.addQuestions(
+      phoneQ,
+      agentQ,
+      sourceQ,
+      imageQ,
+      image,
+      priceQ,
+      bedbathQ,
+      sqftq
+    );
+  };
 
   switchStateChange(containerIndex, componentIndex) {
     const fields = this.state.fields;
@@ -79,35 +96,37 @@ class CreateOpenHouse extends Component {
 
     this.setState({
       fields: fields
-    })
+    });
   }
   activeStageChange(stage) {
     this.setState({
       currentStage: stage
-    })
+    });
   }
   render() {
     const PivotingFields = this.state.fields.map((field, i) => {
-      return <Stage
-        navigation={this.props.navigation}
-        title={this.state.sideBarStages[i].stage}
-        fields={field}
-        active={i}
-        switchOnPress={this.switchStateChange}
-        activeOnPress={this.activeStageChange}
-        lastStage={this.state.fields.length - 1}
-        onSubmitHashtags={this.onSubmitHashtags}
-        onSubmitQuestions={this.onSubmitQuestions}
-      />
-    })
+      return (
+        <Stage
+          navigation={this.props.navigation}
+          title={this.state.sideBarStages[i].stage}
+          fields={field}
+          active={i}
+          switchOnPress={this.switchStateChange}
+          activeOnPress={this.activeStageChange}
+          lastStage={this.state.fields.length - 1}
+          onSubmitHashtags={this.onSubmitHashtags}
+          onSubmitQuestions={this.onSubmitQuestions}
+        />
+      );
+    });
     return (
       <View style={styles.divider}>
         <View style={styles.screen}>
           <Sidebar
             style={styles.sidebar}
             currentStage={this.state.currentStage}
-            MLS='1234567'
-            Address='123 Main Street, San Marcos'
+            MLS="1234567"
+            Address="123 Main Street, San Marcos"
             stages={this.state.sideBarStages}
             navigation={this.props.navigation}
           />
@@ -116,18 +135,18 @@ class CreateOpenHouse extends Component {
           </View>
         </View>
       </View>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = {
   addHashtags,
-  addQuestions,
-}
+  addQuestions
+};
 const mapStateToProps = (state, ownProps) => {
   return {
     prop: state.prop
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateOpenHouse)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateOpenHouse);

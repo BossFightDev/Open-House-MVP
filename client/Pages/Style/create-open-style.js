@@ -36,7 +36,7 @@ export const landscape = StyleSheet.create({
   stageWrapper: {
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: "80%",
+    width: "100%",
     height: "80%",
   },
   stageCard: {
@@ -117,10 +117,14 @@ export const landscape = StyleSheet.create({
     color: 'white'
   },
   fieldsStage:{
+    borderWidth: 3,
+    borderColor: 'blue',
     display:'flex',
     flex: 1,
+    width: '100%',
+    justifyContent: 'center',
     // flexBasis: '15%',
-    alignContent: 'flex-end',
+    alignItems: 'center'
 
   },
   buttonWrapper: {
@@ -128,18 +132,18 @@ export const landscape = StyleSheet.create({
     justifyContent: 'center',
     // alignItems: 'flex-start',
     flex: 0,
-    width: '75%'
+    width: '97%'
     
   },
   buttonContainer: {
     flexDirection: 'row',
     alignSelf: 'flex-end',
-    width: "99%",
+    width: "100%",
     justifyContent: 'flex-end',
   },
   titleStage: {
-    fontSize: 18,
-    fontWeight: '300',
+    fontSize: 20,
+    margin: '2%',
     color: '#454545',
   },
 });
