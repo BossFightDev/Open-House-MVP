@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
-import { View, Text, Button, Image, StyleSheet, Dimensions} from 'react-native';
-import StageCard from '../../Components/COH/StageCard';
-import AddressCard from '../../Components/COH/AddressCard'
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  Button,
+  Image,
+  StyleSheet,
+  Dimensions
+} from "react-native";
+import StageCard from "../../Components/COH/StageCard";
+import AddressCard from "../../Components/COH/AddressCard";
 import CustomText from "../../Components/CustomText";
 import { landscape, portrait } from "../../Pages/Style/create-open-style.js";
 
@@ -22,30 +29,41 @@ export default class extends Component {
     super();
   }
   navigateBack() {
-    this.props.navigation.navigate('OpenHouses');
+    this.props.navigation.navigate("OpenHouses");
   }
   render() {
     return (
-        <View style={this.props.style}>
-          <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require('../../Assets/logo.png')} />
-          </View>
-          <View style={styles.logoContainer}>
+      <View style={this.props.style}>
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../../Assets/logo.png")}
+          />
+        </View>
+        <View style={styles.logoContainer}>
           <AddressCard
             MLS={this.props.MLS}
             Address={this.props.Address}
             navigation={this.props.navigation}
             style={styles.addressCard}
           />
-          </View>
-          <View style={styles.stageContainer}>
+        </View>
+        <View style={styles.stageContainer}>
           <View style={styles.stageWrapper}>
-          {this.props.stages.map(stage => {
-            return <StageCard style={styles.stageCard} key={stage.number.toString()} currentStage={this.props.currentStage} number={stage.number} stage={stage.stage}/>
-          })}
+            {this.props.stages.map(stage => {
+              return (
+                <StageCard
+                  style={styles.stageCard}
+                  key={stage.number.toString()}
+                  currentStage={this.props.currentStage}
+                  number={stage.number}
+                  stage={stage.stage}
+                />
+              );
+            })}
           </View>
-          </View>
+        </View>
       </View>
-    )
+    );
   }
 }

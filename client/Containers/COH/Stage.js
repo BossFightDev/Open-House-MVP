@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import TitleClose from '../../Components/TitleClose';
 import components from '../../Components';
 import FieldSwitch from '../../Containers/COH/FieldSwitch';
+import CustomText from '../../Components/CustomText.js';
 const { Button } = components;
 import { portrait, landscape } from "../../Pages/Style/create-open-style.js"
 const {height, width} = Dimensions.get('window'); 
@@ -89,12 +90,12 @@ export default class extends Component {
 
   render() {
     return (
-      <View style={this.props.style}>
+      <View style={{width: "100%"}}>
         <TitleClose title='CREATE OPEN HOUSE' 
           navigation={this.props.navigation}
           nextLocation='OpenHouses'
         /> 
-        <Text style={styles.titleStage}>{this.props.title}</Text>
+        <CustomText style={styles.titleStage}>{this.props.title}</CustomText>
         {this.props.fields.map((field, i) => {
           return <FieldSwitch 
             key={i.toString()}

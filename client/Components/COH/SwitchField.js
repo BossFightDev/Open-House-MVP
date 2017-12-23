@@ -1,19 +1,20 @@
-import React from 'react';
-import { View, Text, Switch, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, Switch, StyleSheet } from "react-native";
+import CustomText from "../CustomText.js";
 
-const SwitchField = (props) => {
-  return(
+const SwitchField = props => {
+  return (
     <View style={props.style}>
-      <Text style={{padding: "2%"}}>
+      <CustomText font="bold" style={{ padding: "2%" }}>
         {props.question}
-      </Text>
-      <Switch value={props.value} 
+      </CustomText>
+      <Switch
+        value={props.value}
         onValueChange={props.onChange}
-        style={{padding: "2%"}}
+        style={{ marginRight: "2%" }}
       />
     </View>
-  )
-}
-
+  );
+};
 
 export default SwitchField;

@@ -1,15 +1,16 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
+import CustomText from "../CustomText.js";
 
-const RequiredField = (props) => {
-  return(
+const RequiredField = props => {
+  return (
     <View style={props.style}>
-      <Text style={{padding:'2%'}}>
+      <CustomText font="bold" style={{ padding: "2%" }}>
         {props.question}
-      </Text>
-      <Text style={{padding: '2%'}}> Required </Text>
+      </CustomText>
+      <CustomText style={{ padding: "2%" }}> Required </CustomText>
     </View>
-  )
-}
+  );
+};
 
 export default RequiredField;
