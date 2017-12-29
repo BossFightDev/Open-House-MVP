@@ -19,7 +19,7 @@ class LaunchOptions extends Component {
           style={this.props.styles.launchButton}
           onPress={() => {
             this.props.toggleModal();
-            this.props.addOpenHouse(this.props.property.id, this.props.questions)
+            this.props.addOpenHouse(this.props.user.id, this.props.property.id, this.props.questions)
           }}
         >
           <CustomText font="bold" style={this.props.styles.launchText}>
@@ -45,7 +45,8 @@ class LaunchOptions extends Component {
 const mapStateToProp = state => {
   return {
     questions: state.questions,
-    property: state.property
+    property: state.property,
+    user: state.user
   };
 };
 const mapDispatchToProps = {

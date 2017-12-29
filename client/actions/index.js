@@ -82,14 +82,14 @@ export const findLeads = (openHouseId) => {
 }
 
 export const addOpenHouse =
-  ( id, questions) => {
+  ( uid, id, questions) => {
     const { image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
     priceQ, bedbathQ, sqftQ, hashtagQ, hashtags } = questions;
     const date = new Date();
     return (dispatch) => {
       axios.post(`${SERVER_URL}/newOpenHouse`,
         {
-          id, date, image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
+          uId, id, date, image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
           priceQ, bedbathQ, sqftQ, hashtagQ, hashtags
         })
         .then((data) => {
@@ -117,7 +117,7 @@ export const addLead = (openHouseId, name, email, phone, agent, source) => {
   }
 }
 
-export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, priceQ, bedbathQ, sqftq) => {
+export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, priceQ, bedBathQ, sqftq) => {
   console.log("Made it to AddQuestions: "+ image)
   return {
     type: ADD_QUESTIONS,
@@ -129,7 +129,7 @@ export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, p
       imageQ,
       image,
       priceQ,
-      bedbathQ,
+      bedBathQ,
       sqftq
     }
   }
