@@ -7,7 +7,7 @@ const init = {
   company: 'Boss Fight Dev',
   companyPicture: 'http://res.cloudinary.com/bossfight/image/upload/v1513200109/ybknnlqfa0pmwaztokcc.jpg',
   email: 'wzrdjim@gmail.com',
-  openhouses: [
+  openHouses: [
     {
       image:
         "https://cdn.houseplans.com/product/o2d2ui14afb1sov3cnslpummre/w1024.jpg?v=15",

@@ -84,7 +84,7 @@ class App extends Component {
               <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
             <FlatList style={{height:'100%'}}
-              data={this.props.property.openHouses}
+              data={this.props.user.openHouses}
               renderItem={({ item }) => (
                 <View style={styles.POHItem}>
                   <View style={styles.imageContainer}>
