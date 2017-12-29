@@ -72,6 +72,7 @@ class CreateOpenHouse extends Component {
     const phoneQ = this.state.fields[0][2].value,
       agentQ = this.state.fields[0][3].value,
       sourceQ = this.state.fields[0][4].value,
+      suggestQ = this.state.fields[0][5].value,
       imageQ = this.state.fields[1][0].value,
       image = [],
       priceQ = this.state.fields[1][1].value,
@@ -81,6 +82,7 @@ class CreateOpenHouse extends Component {
       phoneQ,
       agentQ,
       sourceQ,
+      suggestQ,
       imageQ,
       image,
       priceQ,
@@ -145,7 +147,7 @@ const mapDispatchToProps = {
 };
 const mapStateToProps = (state, ownProps) => {
   return {
-    prop: state.prop
+    property: state.property,
   };
 };
 

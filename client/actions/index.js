@@ -82,14 +82,15 @@ export const findLeads = (openHouseId) => {
 }
 
 export const addOpenHouse =
-  ( id, date, image, phoneQ, agentQ, sourceQ, imageQ,
-    priceQ, bedbathQ, sqftq, hashtagQ, hashtags) => {
+  ( id, questions) => {
+    const { image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
+    priceQ, bedbathQ, sqftQ, hashtagQ, hashtags } = questions;
+    const date = new Date();
     return (dispatch) => {
-
       axios.post(`${SERVER_URL}/newOpenHouse`,
         {
-          id, date, image, phoneQ, agentQ, sourceQ, imageQ,
-          priceQ, bedbathQ, sqftq, hashtagQ, hashtags
+          id, date, image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
+          priceQ, bedbathQ, sqftQ, hashtagQ, hashtags
         })
         .then((data) => {
           console.log(`Successfully got response from newOpenHouse`)
@@ -116,13 +117,15 @@ export const addLead = (openHouseId, name, email, phone, agent, source) => {
   }
 }
 
-export const addQuestions = (phoneQ, agentQ, sourceQ, imageQ, image, priceQ, bedbathQ, sqftq) => {
+export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, priceQ, bedbathQ, sqftq) => {
+  console.log("Made it to AddQuestions: "+ image)
   return {
     type: ADD_QUESTIONS,
     payload: {
       phoneQ,
       agentQ,
       sourceQ,
+      suggestQ,
       imageQ,
       image,
       priceQ,
@@ -133,6 +136,7 @@ export const addQuestions = (phoneQ, agentQ, sourceQ, imageQ, image, priceQ, bed
 }
 
 export const addHashtags = (hashtagQ, hashtags) => {
+  console.log("Hashtags: " + hashtags)
   return {
     type: ADD_HASHTAGS,
     payload: { hashtagQ, hashtags }
