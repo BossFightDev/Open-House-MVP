@@ -52,8 +52,12 @@ class App extends Component {
     this.props.findLeads(openHouseID);
     this.props.navigation.navigate('PastOpenHouses');
   } 
+  componentDidMount() {
+    console.log(JSON.stringify(this.props.user))
+  }
 
   render() {
+    console.log(JSON.stringify(this.props.user))
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
@@ -84,7 +88,7 @@ class App extends Component {
               <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
             <FlatList style={{height:'100%'}}
-              data={this.props.user.openHouses}
+              data={this.props.property.openHouses}
               renderItem={({ item }) => (
                 <View style={styles.POHItem}>
                   <View style={styles.imageContainer}>

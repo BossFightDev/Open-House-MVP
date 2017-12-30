@@ -36,11 +36,13 @@ export const login = (username, password, navigation) => {
         console.log(`Successfully got response from login`)
         // const validated = authenticateUser(true); // <~~ change this to true or false
         //     if (validated.authenticate)
-        navigation.navigate("OpenHouses");
-        return {
+        console.log(JSON.stringify(data.data))
+        dispatch ({
           type: 'LOGGED_IN',
-          payload: data.data.user,
-        }
+          payload: data.data,
+        });
+        navigation.navigate("OpenHouses");
+        return;
       })
       .catch(() => {
         console.log('Error in login action somewhere')

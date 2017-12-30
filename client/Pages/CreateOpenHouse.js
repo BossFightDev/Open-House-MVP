@@ -74,7 +74,7 @@ class CreateOpenHouse extends Component {
       sourceQ = this.state.fields[0][4].value,
       suggestQ = this.state.fields[0][5].value,
       imageQ = this.state.fields[1][0].value,
-      image = [],
+      image = this.state.fields[1][0].uri,
       priceQ = this.state.fields[1][1].value,
       bedBathQ = this.state.fields[1][2].value,
       sqftq = this.state.fields[1][3].value;
@@ -106,6 +106,7 @@ class CreateOpenHouse extends Component {
     });
   }
   render() {
+    console.log(JSON.stringify(this.props.user))
     const PivotingFields = this.state.fields.map((field, i) => {
       return (
         <Stage
@@ -148,6 +149,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state, ownProps) => {
   return {
     property: state.property,
+    user: state.user
   };
 };
 
