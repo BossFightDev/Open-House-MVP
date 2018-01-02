@@ -1,4 +1,4 @@
-import FIND_LEADS from '../actions';
+import LEADS_FOUND from '../actions'
 
 const init = {
   name: 'Jantonivan Coolendez',
@@ -11,7 +11,7 @@ const init = {
 
 export default (state = init, action) => {
   switch (action.type) {
-    case 'FIND_LEADS':
+    case 'LEADS_FOUND':
       return Object.assign({}, state, action.payload)
     default:
       return state;

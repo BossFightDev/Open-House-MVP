@@ -31,7 +31,8 @@ const Stage2 = [
   {
     Question: 'Background Image',
     type: "Image",
-    value: true
+    value: true,
+    uri: ''
   },
   {
     Question: 'Listing Price',

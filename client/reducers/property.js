@@ -18,9 +18,6 @@ export default (state = init, action) => {
   switch (action.type) {
     case "PROPERTY_FOUND":
       return Object.assign({}, state, action.payload);
-      break;
-    case "OPENHOUSE_ADDED":
-      return Object.assign({}, state.openHouses, action.payload);
     default:
       return state;
   }

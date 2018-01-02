@@ -36,11 +36,13 @@ export const login = (username, password, navigation) => {
         console.log(`Successfully got response from login`)
         // const validated = authenticateUser(true); // <~~ change this to true or false
         //     if (validated.authenticate)
-        navigation.navigate("OpenHouses");
-        return {
+        console.log(JSON.stringify(data.data))
+        dispatch ({
           type: 'LOGGED_IN',
-          payload: data.data.user,
-        }
+          payload: data.data,
+        });
+        navigation.navigate("OpenHouses");
+        return;
       })
       .catch(() => {
         console.log('Error in login action somewhere')
@@ -65,15 +67,16 @@ export const findProperty = (MLS, modal) => {
   }
 }
 
-export const findLeads = (openHouseId) => {
+export const findLeads = (uID) => {
   return (dispatch) => {
-    axios.post(`${SERVER_URL}/leads`, { openHouseId })
+    axios.post(`${SERVER_URL}/leads`, { uID })
       .then((data) => {
         console.log(`Successfully got response from leads`)
-        return {
+        dispatch({
           type: 'LEADS_FOUND',
-          payload: data.data.leads,
-        }
+          payload: data.data,
+        })
+        return
       })
       .catch(() => {
         console.log('Error in findLeads action somewhere')
@@ -86,6 +89,7 @@ export const addOpenHouse =
     const { image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
     priceQ, bedBathQ, sqftQ, hashtagQ, hashtags } = questions;
     const date = new Date();
+    console.log("ID: " + id)
     return (dispatch) => {
       axios.post(`${SERVER_URL}/newOpenHouse`,
         {
@@ -94,10 +98,11 @@ export const addOpenHouse =
         })
         .then((data) => {
           console.log(`Successfully got response from newOpenHouse`)
-          return {
+          dispatch ({
             type: 'OPENHOUSE_ADDED',
             payload: data.data.openHouse,
-          }
+          })
+          return
         })
         .catch(() => {
           console.log('Error in addOpenHouse action somewhere')
@@ -134,6 +139,7 @@ export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, p
     }
   }
 }
+
 
 export const addHashtags = (hashtagQ, hashtags) => {
   console.log("Hashtags: " + hashtags)

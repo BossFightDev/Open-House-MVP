@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { View, Image, TouchableOpacity } from 'react-native'
 import CustomText from '../CustomText'
 
-export default class extends Component {
+class HouseDisplay  extends Component {
   constructor() {
     super()
 
@@ -25,7 +26,7 @@ export default class extends Component {
     return (
       <View style={{ width: '100%', height: '40%', marginTop:'4%', alignItems: 'center'}}>
         <Image
-          source={require("../../Assets/houseTest.jpg")}
+          source={{ uri:this.props.questions.image }}
           style={{ flex: 1, width: '100%', height:'100%' }}
         />
         <View style={{ position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0 }}>
@@ -38,34 +39,34 @@ export default class extends Component {
         <View style={{ position: 'absolute', width: '96%', height: '45%', bottom: 0, }}>
           <TouchableOpacity style={{width:'100%', height: '95%', backgroundColor: 'rgba(0, 0, 0, 0.6)', justifyContent: 'center',}}>
             <View style={{ width: '80%', marginLeft: '5%' }}>
-              <CustomText style={{ color: 'white', fontSize: 13 }} font='bold' >{this.state.data.address}</CustomText>
+              <CustomText style={{ color: 'white', fontSize: 13 }} font='bold' >{this.props.property.address}</CustomText>
             </View>
             <View style={{ width: '80%', flexDirection: 'row', alignItems: 'center', marginLeft: '5%' }}>
               <CustomText style={{ color: 'white', marginRight: '2%', fontSize: 12 }} font='bold'>
-                {this.state.data.price}
+                {this.props.property.price}
               </CustomText>
               <CustomText style={{ color: 'white', marginHorizontal: '2%', fontSize: 12 }} font='bold'>
-                {this.state.data.beds} beds
+                {this.props.property.beds} beds
               </CustomText>
               <CustomText style={{ color: 'white', marginHorizontal: '2%', fontSize: 12 }} font='bold'>
-                {this.state.data.baths} baths
+                {this.props.property.baths} baths
               </CustomText>
               <CustomText style={{ color: 'white', marginHorizontal: '2%', fontSize: 12 }} font='bold'>
-                {this.state.data.sqft} sqft
+                {this.props.property.sqft} sqft
               </CustomText>
             </View>
             <View style={{ marginLeft: '5%' }}>
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Image source={require("../../Assets/iconHouse2x.png")} style={{ marginRight: '2%' }}/>
+                <Image source={{uri: this.props.user.companyPicture}} style={{ marginRight: '2%' }}/>
                 <View style={{ flexDirection: 'column' }}>
                   <View style={{ flexDirection: 'row' }}>
-                    <CustomText font='bold' style={{ color: 'white', fontSize: 10 }}>{this.state.data.realtor}</CustomText>
+                    <CustomText font='bold' style={{ color: 'white', fontSize: 10 }}>{`${this.props.user.firstName} ${this.props.user.lastName}`}</CustomText>
                     <CustomText style={{ color: 'white', fontSize: 10 }}>, REALTOR</CustomText>
                   </View>
-                  <CustomText style={{ color: 'white', fontSize: 10 }}>{this.state.data.company}</CustomText>
+                  <CustomText style={{ color: 'white', fontSize: 10 }}>{this.props.user.company}</CustomText>
                   <View style={{ flexDirection: 'row' }}>
-                    <CustomText style={{ color: 'white', fontSize: 10, marginRight: '5%' }}>{this.state.data.phone}</CustomText>
-                    <CustomText style={{ color: 'white', fontSize: 10 }}>{this.state.data.email}</CustomText>
+                    <CustomText style={{ color: 'white', fontSize: 10, marginRight: '5%' }}>{this.props.user.phoneNumber}</CustomText>
+                    <CustomText style={{ color: 'white', fontSize: 10 }}>{this.props.user.email}</CustomText>
                   </View>
                 </View>
               </View>
@@ -76,3 +77,13 @@ export default class extends Component {
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    property: state.property,
+    user: state.user,
+    questions: state.questions
+  };
+};
+
+export default connect(mapStateToProps)(HouseDisplay)

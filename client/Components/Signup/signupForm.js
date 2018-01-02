@@ -10,7 +10,7 @@ import { SegmentedControls } from "react-native-radio-buttons";
 import { Dropdown } from "react-native-material-dropdown";
 import CustomText from "../CustomText";
 import axios from "axios";
-import { SERVER_URL } from "../../actions/index";
+import { SERVER_URL } from "../../actions";
 import { connect } from "react-redux";
 axios.defaults.withCredentials = true;
 
@@ -40,8 +40,9 @@ class SignUpForm extends Component {
     const { name, email, source } = this.state;
     const phone = this.state.phoneNumber;
     const agent = this.state.agentName;
+    console.log('Adding lead?')
     axios
-      .post(openHouseId, name, email, phone, agent, source)
+      .post(`${SERVER_URL}/addlead`,{ openHouseId, name, email, phone, agent, source })
       .then(data => console.log(`successfully added a lead: ${data}`))
       .catch(() => console.log("Failed adding a lead somewhere"));
     this.props.handleSubmit();
@@ -150,7 +151,7 @@ class SignUpForm extends Component {
           />
           <TouchableOpacity
             style={this.props.styles.button}
-            onPress={() => this.onSubmit(this.props.property.openHouse.id)}
+            onPress={() => this.onSubmit(this.props.openHouse._id)}
           >
             <CustomText style={{ color: "white" }} font="bold">
               SUBMIT
@@ -164,7 +165,8 @@ class SignUpForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    property: state.property
+    property: state.property,
+    openHouse: state.openHouse
   };
 };
 
