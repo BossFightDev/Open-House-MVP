@@ -17,10 +17,8 @@ class AddHashtags extends Component {
   }
   addHashtag(){
     const { hashtags } = this.state;
-    console.log("This is hashtags: " + hashtags)
     return(
       hashtags.map((hashtag, i) => {
-      console.log("Hello World")
       return (
         <View key={i.toString()}>
         <TextInput 

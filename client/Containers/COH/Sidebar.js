@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
+import { connect } from 'react-redux';
 import StageCard from "../../Components/COH/StageCard";
 import AddressCard from "../../Components/COH/AddressCard";
 import CustomText from "../../Components/CustomText";
@@ -24,7 +25,8 @@ if (aspectRatio > 1.6) {
   styles = landscape;
   changeScreenOrientation();
 }
-export default class extends Component {
+
+class Sidebar extends Component {
   constructor(props) {
     super();
   }
@@ -42,8 +44,8 @@ export default class extends Component {
         </View>
         <View style={styles.logoContainer}>
           <AddressCard
-            MLS={this.props.MLS}
-            Address={this.props.Address}
+            MLS={this.props.property.MLS}
+            Address={this.props.property.address}
             navigation={this.props.navigation}
             style={styles.addressCard}
           />
@@ -67,3 +69,10 @@ export default class extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    property: state.property
+  }
+}
+export default connect(mapStateToProps)(Sidebar)

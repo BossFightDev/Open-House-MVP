@@ -9,7 +9,7 @@ const init = {
   imageQ: true,
   image: [],
   priceQ: true,
-  bedbathQ: true,
+  bedBathQ: true,
   sqftq: false, 
   hashtagQ: false, 
   hashtags: [],

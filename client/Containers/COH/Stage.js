@@ -26,7 +26,6 @@ export default class extends Component {
   constructor(props) {
     super();
   }
-  onSubmit
   buttonRenderer(){
     switch(this.props.active) {
       case 0:

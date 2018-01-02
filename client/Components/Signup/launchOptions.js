@@ -17,7 +17,10 @@ class LaunchOptions extends Component {
       <View style={this.props.styles.launchContainer}>
         <TouchableOpacity
           style={this.props.styles.launchButton}
-          onPress={() => this.props.toggleModal()}
+          onPress={() => {
+            this.props.toggleModal();
+            this.props.addOpenHouse(this.props.user.id, this.props.property.id, this.props.questions)
+          }}
         >
           <CustomText font="bold" style={this.props.styles.launchText}>
             LAUNCH
@@ -26,7 +29,6 @@ class LaunchOptions extends Component {
         <TouchableOpacity
           style={this.props.styles.launchButton}
           onPress={() => {
-            this.props.addOpenHouse(this.props.questions);
             this.props.toggleModal();
             this.props.navigation.goBack();
           }}
@@ -42,7 +44,9 @@ class LaunchOptions extends Component {
 
 const mapStateToProp = state => {
   return {
-    questions: state.questions
+    questions: state.questions,
+    property: state.property,
+    user: state.user
   };
 };
 const mapDispatchToProps = {

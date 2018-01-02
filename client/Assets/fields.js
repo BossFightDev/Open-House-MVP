@@ -17,7 +17,12 @@ const Stage1 = [{
   value: true
 },
 {
-  Question: 'Where did you hear about this open house',
+  Question: 'Where did you hear about this open house?',
+  type: "Boolean",
+  value: false
+},
+{
+  Question: 'Would you be interested in seeing other properties like this one?',
   type: "Boolean",
   value: false
 }]
