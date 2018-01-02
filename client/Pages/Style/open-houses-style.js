@@ -255,8 +255,8 @@ export const portrait = StyleSheet.create({
     alignItems: "center"
   },
   logo: {
-    width: 180,
-    height: 65
+    width: '52.5%',
+    height: '70%'
   },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
