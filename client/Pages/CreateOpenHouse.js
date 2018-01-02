@@ -105,6 +105,13 @@ class CreateOpenHouse extends Component {
       currentStage: stage
     });
   }
+  componentDidMount() {
+    const fields = this.state.fields;
+    fields[1][0].uri = this.props.property.images[0];
+    this.setState({
+      fields: fields
+    })
+  }
   render() {
     console.log(JSON.stringify(this.props.user))
     const PivotingFields = this.state.fields.map((field, i) => {

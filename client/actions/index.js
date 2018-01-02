@@ -88,6 +88,7 @@ export const addOpenHouse =
     const { image, phoneQ, agentQ, sourceQ, suggestQ, imageQ,
     priceQ, bedBathQ, sqftQ, hashtagQ, hashtags } = questions;
     const date = new Date();
+    console.log("ID: " + id)
     return (dispatch) => {
       axios.post(`${SERVER_URL}/newOpenHouse`,
         {

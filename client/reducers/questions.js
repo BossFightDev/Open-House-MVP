@@ -8,7 +8,7 @@ const init = {
   sourceQ: false,
   suggestQ: false,
   imageQ: true,
-  image: '',
+  image: '../../Assets/houseTest.jpg',
   priceQ: true,
   bedBathQ: true,
   sqftQ: false, 

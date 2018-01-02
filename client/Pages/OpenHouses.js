@@ -52,12 +52,8 @@ class App extends Component {
     this.props.findLeads(openHouseID);
     this.props.navigation.navigate('PastOpenHouses');
   } 
-  componentDidMount() {
-    console.log(JSON.stringify(this.props.user))
-  }
 
   render() {
-    console.log(JSON.stringify(this.props.user))
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
@@ -88,7 +84,7 @@ class App extends Component {
               <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
             <FlatList style={{height:'100%'}}
-              data={this.props.property.openHouses}
+              data={this.props.user.openHouses}
               renderItem={({ item }) => (
                 <View style={styles.POHItem}>
                   <View style={styles.imageContainer}>
@@ -100,11 +96,12 @@ class App extends Component {
                   <View style={styles.infoWrapper}>
                   <View style={styles.infoContainer}>
                   <View style={styles.dateAddress}>
-                    <CustomText style={styles.date} font="bold">{item.date}</CustomText>
-                    <CustomText style={styles.address}>{item.address}</CustomText>
+                    <CustomText style={styles.date} font="bold">{dateTranslator(item.date)}</CustomText>
+                    <CustomText style={styles.address}>{item.property.address}</CustomText>
                   </View>
                   <View style={styles.guestCountContainer}>
-                    <CustomText style={styles.guestCount} font="bold">{item.guests}</CustomText>
+                    <CustomText style={styles.guestCount} font="bold">{item.guests || 0 
+                    }</CustomText>
                   </View>
                   </View>
                   </View>
@@ -170,6 +167,12 @@ class App extends Component {
       </View>
     );
   }
+}
+
+const dateTranslator = (date) => {
+  let newDate = date.split('T');
+  let result = newDate[0].split('-').join(' ');
+  return result;
 }
 const mapStateToProps = state => {
   return {
