@@ -1,4 +1,5 @@
 import LOGGED_IN from '../actions'
+import LEADS_FOUND from '../actions'
 
 const init = {
   firstName: 'John',
@@ -56,6 +57,8 @@ const init = {
 
 export default (state = init, action) => {
   switch (action.type) {
+    case 'LEADS_FOUND':
+      return Object.assign({}, state, action.payload)
     case 'LOGGED_IN':
       return Object.assign({}, state, action.payload)
     default:

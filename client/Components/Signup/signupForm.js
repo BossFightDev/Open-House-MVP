@@ -151,7 +151,7 @@ class SignUpForm extends Component {
           />
           <TouchableOpacity
             style={this.props.styles.button}
-            onPress={() => this.onSubmit(this.props.property.openHouse._id)}
+            onPress={() => this.onSubmit(this.props.openHouse._id)}
           >
             <CustomText style={{ color: "white" }} font="bold">
               SUBMIT
@@ -165,7 +165,8 @@ class SignUpForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    property: state.property
+    property: state.property,
+    openHouse: state.openHouse
   };
 };
 

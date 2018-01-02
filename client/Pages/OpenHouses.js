@@ -48,10 +48,14 @@ class App extends Component {
   onLayout(e) {
     const { width, height } = Dimensions.get("window");
   }
-  onClickLeads = (openHouseId) => {
-    this.props.findLeads(openHouseID);
+  onClickLeads = (userID) => {
+    this.props.findLeads(userID);
     this.props.navigation.navigate('PastOpenHouses');
   } 
+  componentDidMount() {
+    console.log(`User Id: ${this.props.user._id}`)
+    this.props.findLeads(this.props.user._id)
+  }
 
   render() {
     return (
