@@ -88,11 +88,13 @@ class App extends Component {
               <CustomText style={styles.listTitle}>Past Open Houses</CustomText>
               <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
-            <FlatList style={{height:'100%'}}
+            <View style={{height:'100%'}}>
+            <FlatList
               data={this.props.user.openHouses}
               renderItem={({ item, index }) => (
+                <View>
                 <TouchableOpacity 
-                  style={styles.POHItem} 
+                style={styles.POHItem}
                   onPress={
                   () => {this.props.navigation.navigate('PastOpenHouses', {lead: this.props.user.openHouses[index]})}}>
                   <View style={styles.imageContainer}>
@@ -114,8 +116,10 @@ class App extends Component {
                   </View>
                   </View>
                 </TouchableOpacity>
+                </View>
               )}
             />
+            </View>
           </View>
         </View>
         <Modal

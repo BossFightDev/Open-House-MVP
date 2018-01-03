@@ -79,7 +79,7 @@ export const landscape = StyleSheet.create({
   },
   leadContainer: {
     flexDirection: "row",
-    backgroundColor: "#white",
+    backgroundColor: "white",
     padding: "2%",
     justifyContent: "space-between",
   },
