@@ -1,8 +1,9 @@
-import { AUTHENTICATE_USER,  TOGGLE_MODAL, PROPERTY_FOUND } from '../actions';
+import { AUTHENTICATE_USER,  TOGGLE_MODAL, PROPERTY_FOUND, IMAGE_MODAL_ON, IMAGE_MODAL_OFF } from '../actions';
 const questions = require('../Assets/fields')
 const init = {
   portrait: true,
-  showModal: false
+  showModal: false,
+  imageModal: false,
 }
 
 export default (state = init, action) => {
@@ -12,6 +13,12 @@ export default (state = init, action) => {
     }
     case 'TOGGLE_MODAL': {
       return Object.assign({}, state, { showModal: false })
+    }
+    case 'IMAGE_MODAL_ON': {
+      return Object.assign({}, state, { imageModal: true })
+    }
+    case 'IMAGE_MODAL_OFF': {
+      return Object.assign({}, state, { imageModal: false })
     }
     case 'USER_AUTHENTICATED':
       return Object.assign({}, state, { authenticate: true });

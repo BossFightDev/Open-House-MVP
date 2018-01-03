@@ -117,6 +117,7 @@ class CreateOpenHouse extends Component {
     const PivotingFields = this.state.fields.map((field, i) => {
       return (
         <Stage
+          appState={this.props.appState}
           navigation={this.props.navigation}
           title={this.state.sideBarStages[i].stage}
           fields={field}
@@ -156,7 +157,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state, ownProps) => {
   return {
     property: state.property,
-    user: state.user
+    user: state.user,
+    appState: state.appState,
   };
 };
 
