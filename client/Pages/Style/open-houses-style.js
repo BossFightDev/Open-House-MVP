@@ -53,7 +53,7 @@ export const landscape = StyleSheet.create({
     height: 45,
     backgroundColor: "white",
     fontSize: 14,
-    textAlign: "center",
+    paddingLeft: '5%',
     borderWidth: 1,
     borderRadius: 2,
     borderColor: "#DDDDDD"
@@ -234,7 +234,7 @@ export const landscape = StyleSheet.create({
     marginBottom: 15
   },
   modalNopeText: {
-    color: "gray",
+    color: "#999999",
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
@@ -283,10 +283,10 @@ export const portrait = StyleSheet.create({
     paddingBottom: 5,
     width: "67%",
     height: 35,
+    paddingLeft: '5%',
     backgroundColor: "white",
     borderRadius: 2,
     fontSize: 10,
-    textAlign: "center"
   },
   buttonContainer: {
     marginLeft: 5,
@@ -337,12 +337,10 @@ export const portrait = StyleSheet.create({
     height: "25%",
     justifyContent: "center",
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#DDDDDD"
   },
   infoContainer: {
     width: "90%",
-    height: "70%"
+    height: "70%",
   },
   dateAddress: {
     flexDirection: "column"
@@ -355,7 +353,7 @@ export const portrait = StyleSheet.create({
   },
   guestCountContainer: {
     justifyContent: "center",
-    flex: 1
+    marginBottom: '10%'
   },
   guestCount: {
     color: "#25AAFB",
@@ -465,7 +463,7 @@ export const portrait = StyleSheet.create({
     alignItems: "center"
   },
   modalNopeText: {
-    color: "gray",
+    color: "#999999",
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
