@@ -98,6 +98,7 @@ export default class extends Component {
         {this.props.fields.map((field, i) => {
           return <FieldSwitch 
             key={i.toString()}
+            appState={this.props.appState}
             question={field.Question} 
             type={field.type} 
             value={field.value} 

@@ -14,6 +14,8 @@ export const OPENHOUSE_FOUND = 'OPENHOUSE_FOUND';
 export const ADD_QUESTIONS = 'ADD_QUESTIONS';
 export const ADD_HASHTAGS = 'ADD_HASHTAGS';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const IMAGE_MODAL_ON = 'IMAGE_MODAL_ON';
+export const IMAGE_MODAL_OFF = 'IMAGE_MODAL_OFF';
 
 export const authenticateUser = (validation) => {
   return {
@@ -152,6 +154,16 @@ export const addHashtags = (hashtagQ, hashtags) => {
 export const modalOff = () => {
   return (dispatch) => {
     dispatch({type: TOGGLE_MODAL,})
+  }
+}
+
+export const toggleImageModal = (option) => {
+  return (dispatch) => {
+    if (option === 'ON'){
+      dispatch({type: IMAGE_MODAL_ON})
+    } else {
+      dispatch({type: IMAGE_MODAL_OFF})
+    }
   }
 }
 

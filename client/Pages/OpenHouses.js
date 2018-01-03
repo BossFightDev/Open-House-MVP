@@ -177,7 +177,6 @@ class App extends Component {
   }
 }
 
-
 const mapStateToProps = state => {
   return {
     property: state.property,

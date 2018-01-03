@@ -65,6 +65,7 @@ class FieldSwitch extends Component {
         return (
           <ChooseImage
             question={this.props.question}
+            imageModal={this.props.appState.imageModal}
             value={this.props.value}
             onChange={this.onValueChange}
             image={this.state.image}
