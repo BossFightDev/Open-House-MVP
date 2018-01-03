@@ -126,7 +126,6 @@ export const landscape = StyleSheet.create({
     display:'flex',
     flex: 1,
     width: '100%',
-    justifyContent: 'center',
     // flexBasis: '15%',
     alignItems: 'center'
 
