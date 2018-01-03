@@ -85,7 +85,7 @@ class AddHashtags extends Component {
               underlayColor="#fff"
             >
               <CustomText font="bold" style={{ color: "#999999" }}>
-                Choose Image
+                Add Another
               </CustomText>
             </TouchableOpacity>
           </View>
