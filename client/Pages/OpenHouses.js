@@ -15,6 +15,7 @@ import {
 } from "react-native";
 import { connect } from 'react-redux';
 import { findProperty, findLeads, modalOff } from '../actions';
+import { dateTranslator } from "../Assets/helper";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -89,8 +90,11 @@ class App extends Component {
             </View>
             <FlatList style={{height:'100%'}}
               data={this.props.user.openHouses}
-              renderItem={({ item }) => (
-                <View style={styles.POHItem}>
+              renderItem={({ item, index }) => (
+                <TouchableOpacity 
+                  style={styles.POHItem} 
+                  onPress={
+                  () => {this.props.navigation.navigate('PastOpenHouses', {lead: this.props.user.openHouses[index]})}}>
                   <View style={styles.imageContainer}>
                   <Image
                     style={styles.POHItemImage}
@@ -109,7 +113,7 @@ class App extends Component {
                   </View>
                   </View>
                   </View>
-                </View>
+                </TouchableOpacity>
               )}
             />
           </View>
@@ -173,11 +177,7 @@ class App extends Component {
   }
 }
 
-const dateTranslator = (date) => {
-  let newDate = date.split('T');
-  let result = newDate[0].split('-').join(' ');
-  return result;
-}
+
 const mapStateToProps = state => {
   return {
     property: state.property,
