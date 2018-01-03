@@ -239,6 +239,7 @@ export const portrait = StyleSheet.create({
   questionText: {
     borderWidth: 3,
     borderColor: 'blue',
+    maxWidth: '90%',
     padding: '1%',
     flexWrap: 'wrap'
   },
