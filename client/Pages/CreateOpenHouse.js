@@ -48,6 +48,24 @@ const stages = [
     stage: "Launch Open House"
   }
 ];
+const titleStages = [
+  {
+    number: 1,
+    stage: "Select Questions to Display"
+  },
+  {
+    number: 2,
+    stage: "Choose features to display"
+  },
+  {
+    number: 3,
+    stage: "Add custom hashtags (optional)"
+  },
+  {
+    number: 4,
+    stage: "Launch Open House"
+  }
+];
 
 class CreateOpenHouse extends Component {
   constructor() {
@@ -55,7 +73,9 @@ class CreateOpenHouse extends Component {
     this.state = {
       currentStage: 1,
       sideBarStages: stages,
-      fields: Fields
+      fields: Fields,
+      titles: titleStages
+
     };
     this.switchStateChange = this.switchStateChange.bind(this);
     this.activeStageChange = this.activeStageChange.bind(this);
@@ -119,7 +139,7 @@ class CreateOpenHouse extends Component {
         <Stage
           appState={this.props.appState}
           navigation={this.props.navigation}
-          title={this.state.sideBarStages[i].stage}
+          title={this.state.titles[i].stage}
           fields={field}
           active={i}
           switchOnPress={this.switchStateChange}

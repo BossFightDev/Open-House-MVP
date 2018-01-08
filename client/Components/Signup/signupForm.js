@@ -115,7 +115,8 @@ class SignUpForm extends Component {
             style={{
               flexDirection: "column",
               height: "10%",
-              marginBottom: "1.5%"
+              marginBottom: "1.5%",
+              width: '100%'
             }}
           >
             <View>
@@ -134,7 +135,7 @@ class SignUpForm extends Component {
                 {
                   backgroundColor: agent ? "white" : "darkgray",
                   borderColor: agentBorder,
-                  height: "75%"
+                  height: "75%",
                 }
               ]}
               onFocus={() => this.onFocus("agent")}
@@ -143,20 +144,28 @@ class SignUpForm extends Component {
               value={this.state.agentName}
             />
           </View>
+          <View style={{
+              borderWidth: 3,
+              borderColor: 'red',
+              width: '100%',
+              
+            }}>
           <Dropdown
             label="Where did you hear about this open house?"
             value="Select One"
             onChangeText={value => this.setState({ openHouse: value })}
             data={data}
+            
           />
           <TouchableOpacity
             style={this.props.styles.button}
             onPress={() => this.onSubmit(this.props.openHouse._id)}
           >
-            <CustomText style={{ color: "white" }} font="bold">
+            <CustomText style={{ color: "white",}} font="bold">
               SUBMIT
             </CustomText>
           </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     );

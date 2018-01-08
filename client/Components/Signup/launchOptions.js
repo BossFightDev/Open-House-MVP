@@ -34,7 +34,7 @@ class LaunchOptions extends Component {
           }}
         >
           <CustomText font="bold" style={this.props.styles.cancelText}>
-            CANCEL
+            Nope, Exit
           </CustomText>
         </TouchableOpacity>
       </View>
