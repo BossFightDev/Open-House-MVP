@@ -24,10 +24,10 @@ class HouseDisplay  extends Component {
 
   render() {
     return (
-      <View style={{ width: '100%', height: '40%', marginTop:'4%', alignItems: 'center'}}>
+      <View style={[{width: '100%', height: '40%', alignItems: 'center'}, this.props.styles.logoContainer]}>
         <Image
           source={{ uri:this.props.questions.image }}
-          style={{ flex: 1, width: '100%', height:'100%' }}
+          style={{ width: '100%', height:'100%' }}
         />
         <View style={{ position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0 }}>
           <TouchableOpacity

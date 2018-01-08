@@ -107,7 +107,7 @@ class App extends Component {
                   <View style={styles.infoContainer}>
                   <View style={styles.dateAddress}>
                     <CustomText style={styles.date} font="bold">{dateTranslator(item.date)}</CustomText>
-                    <CustomText style={styles.address}>{item.property.address}</CustomText>
+                    {/* <CustomText style={styles.address}>{item.property.address}</CustomText> */}
                   </View>
                   <View style={styles.guestCountContainer}>
                     <CustomText style={styles.guestCount} font="bold">{item.guests || 0 

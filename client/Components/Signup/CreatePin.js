@@ -86,7 +86,7 @@ export default class extends Component {
     let pinMessage = !this.state.created ? 'Create PIN to launch' : 'Re-enter PIN to confirm'
 
     return (
-      <View style={[this.props.styles.container, {justifyContent: 'center'}]}>
+      <View style={[this.props.styles.container, {justifyContent: 'center', alignSelf: 'center'}]}>
         <CustomText style={{fontSize: 18}}>{pinMessage}</CustomText>
         <View style={this.props.styles.pinContainer}>
           <TextInput
