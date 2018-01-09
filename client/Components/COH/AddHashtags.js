@@ -27,6 +27,7 @@ class AddHashtags extends Component {
               paddingTop: "2.5%",
               paddingBottom: "2.5%",
               borderWidth: 1,
+              borderColor: '#DDDDDD',
               borderRadius: 2,
               backgroundColor: "#F1F1F1",
               marginBottom: '2.5%'

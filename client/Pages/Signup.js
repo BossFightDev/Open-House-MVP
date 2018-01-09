@@ -71,7 +71,7 @@ export default class extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HouseDisplay navigation={this.props.navigation} />
+        <HouseDisplay styles={styles} navigation={this.props.navigation} />
         <Modal
           transparent={true}
           visible={this.state.modalVisible}

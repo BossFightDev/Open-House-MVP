@@ -4,19 +4,24 @@ export const landscape = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    alignItems: 'center',
-    // justifyContent: 'center',
-    backgroundColor: '#f1f1f1',
-    marginTop: '2%',
-    flex: 1,
+    flexDirection: 'row'
+  },
+  logoContainer: {
+    backgroundColor: "#454545",
+    height: "100%",
+    width: "50%",
+    justifyContent: "center",
+    alignItems: "center"
   },
   button: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#25AAFB",
     borderRadius: 4,
-    height: '10%',
+    height: '30%',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '5%',
+    borderWidth: 3,
+    borderColor: 'red',
   },
   input: {
     width: '100%',
@@ -28,7 +33,9 @@ export const landscape = StyleSheet.create({
     marginBottom: '1.5%',
   },
   inputContainer: {
-    width: "75%",
+    height: "100%",
+    width: "80%",
+    alignSelf: 'center'
   },
   titleContainer: {
     top: 0,
@@ -38,8 +45,8 @@ export const landscape = StyleSheet.create({
   },
   headerText: {
     color: '#424242',
-    fontSize: 42,
-    marginBottom: '-5%',
+    fontSize: 60,
+    marginBottom: '-2%'
   },
   subHeaderText: {
     color: '#bababa',
@@ -54,12 +61,14 @@ export const landscape = StyleSheet.create({
   },
   launchButton: {
     backgroundColor: 'rgba(255, 255, 255, 0.92)',
-    alignItems: 'center', width: '45%',
+    alignItems: 'center', width: '34%', height: '17%',
     borderRadius: 5, margin: 1,
+    justifyContent: 'center',
+
   },
   launchText: {
     color: 'yellowgreen',
-    fontSize: 22,
+    fontSize: 30,
   },
   cancelText: {
     color: 'red',
@@ -93,7 +102,7 @@ export const portrait = StyleSheet.create({
     flex: 1,
   },
   button: {
-    backgroundColor: '#007AFF',
+    backgroundColor: "#25AAFB",
     borderRadius: 4,
     height: '10%',
     alignItems: 'center',
@@ -136,7 +145,7 @@ export const portrait = StyleSheet.create({
   },
   launchButton: {
     backgroundColor: 'rgba(255, 255, 255, 0.92)',
-    alignItems: 'center', width: '45%',
+    alignItems: 'center', width: '45%', height: '10%', justifyContent: 'center',
     borderRadius: 5, margin: 1
   },
   launchText: {
