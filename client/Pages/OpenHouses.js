@@ -60,7 +60,7 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, StyleSheet.absoluteFill, ]}>
         <View style={styles.logoContainer}>
           <Image source={require("../Assets/logo.png")} style={styles.logo} />
         </View>
@@ -88,9 +88,11 @@ class App extends Component {
               <CustomText style={styles.listTitle}>Past Open Houses</CustomText>
               <CustomText style={styles.guestCountTitle} font="light"># of Guests</CustomText>
             </View>
-            <View style={{height:'100%'}}>
+            <View style={styles.list}>
             <FlatList
+              bounces={false}
               data={this.props.user.openHouses}
+              keyExtractor={(item, index) => index}
               renderItem={({ item, index }) => (
                 <View>
                 <TouchableOpacity 
@@ -100,6 +102,7 @@ class App extends Component {
                   <View style={styles.imageContainer}>
                   <Image
                     style={styles.POHItemImage}
+                    resizeMode='contain'
                     source={{ uri: `${item.image}` }}
                   />
                   </View>
