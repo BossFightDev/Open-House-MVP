@@ -91,7 +91,6 @@ export const landscape = StyleSheet.create({
     flexDirection: "row",
     paddingTop: "5%",
     paddingBottom: "2.5%",
-    // alignSelf: "center",
     justifyContent: "space-between",
     paddingLeft: '5%',
     paddingRight: '5%',
