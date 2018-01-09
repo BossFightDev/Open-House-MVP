@@ -82,19 +82,19 @@ export default class extends Component {
               </View>
             </View>
             <View style={styles.labelContainer}>
-              <CustomText style={styles.label} font="bold">
+              <CustomText style={styles.labelName} font="bold">
                 NAME
               </CustomText>
-              <CustomText style={styles.label} font="bold">
+              <CustomText style={styles.labelEmail} font="bold">
                 EMAIL
               </CustomText>
-              <CustomText style={styles.label} font="bold">
+              <CustomText style={styles.labelPhone} font="bold">
                 PHONE
               </CustomText>
-              <CustomText style={styles.label} font="bold">
+              <CustomText style={styles.labelAgent} font="bold">
                 AGENT
               </CustomText>
-              <CustomText style={styles.label} font="bold">
+              <CustomText style={styles.labelSource} font="bold">
                 SOURCE
               </CustomText>
             </View>
@@ -103,19 +103,19 @@ export default class extends Component {
               data={state.params.lead.leads}
               renderItem={({ item }) => (
                 <View style={styles.leadContainer}>
-                  <CustomText style={styles.lead}>
+                  <CustomText style={styles.leadName}>
                     {item.name}
                   </CustomText>
-                  <CustomText style={styles.lead}>
+                  <CustomText style={styles.leadEmail}>
                     {item.email}
                   </CustomText>
-                  <CustomText style={styles.lead}>
+                  <CustomText style={styles.leadPhone}>
                     {item.phone}
                   </CustomText>
-                  <CustomText style={styles.lead}>
+                  <CustomText style={styles.leadAgent}>
                     {item.agent}
                   </CustomText>
-                  <CustomText style={styles.lead}>
+                  <CustomText style={styles.leadSource}>
                     {item.source}
                   </CustomText>
                 </View>
