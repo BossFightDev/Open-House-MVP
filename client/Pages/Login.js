@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Platform,
-  Dimensions
+  Dimensions,
+  KeyboardAvoidingView
 } from "react-native";
 import { portrait, landscape } from "./Style/login-style.js"
 import { authenticateUser } from "../actions";
@@ -44,7 +45,7 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <Image source={require("../Assets/logo.png")} style={styles.logo}/>
         <View style={styles.loginContainer}>
         <View style={styles.inputContainer}>
@@ -94,7 +95,7 @@ class Login extends Component {
         />
         <Text>Forgot Password</Text>
         <Text> {this.props.authenticated} </Text> */}
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }

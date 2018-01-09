@@ -145,7 +145,7 @@ export const portrait = StyleSheet.create({
   },
   launchButton: {
     backgroundColor: 'rgba(255, 255, 255, 0.92)',
-    alignItems: 'center', width: '45%', height: '10%',
+    alignItems: 'center', width: '45%', height: '10%', justifyContent: 'center',
     borderRadius: 5, margin: 1
   },
   launchText: {

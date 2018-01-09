@@ -75,10 +75,15 @@ export const landscape = StyleSheet.create({
     paddingRight: 10,
     fontSize: 14
   },
+  list: {
+    height: '82%',
+    borderWidth: 3,
+    borderColor: 'green'
+  },
   listTextContainer: {
     flexDirection: "row",
-    marginTop: "5%",
-    marginBottom: "2.5%",
+    paddingTop: "5%",
+    paddingBottom: "2.5%",
     width: "90%",
     alignSelf: "center",
     justifyContent: "space-between"
@@ -304,10 +309,15 @@ export const portrait = StyleSheet.create({
     paddingRight: 10,
     fontSize: 12
   },
+  list: {
+    height: '70%',
+    borderWidth: 3,
+    borderColor: 'green'
+  },
   listTextContainer: {
     flexDirection: "row",
-    marginTop: "5%",
-    marginBottom: "5%",
+    paddingTop: "5%",
+    paddingBottom: "5%",
     width: "85%",
     alignSelf: "center",
     justifyContent: "space-between"
@@ -318,19 +328,23 @@ export const portrait = StyleSheet.create({
   },
   POHItem: {
     alignSelf: "center",
-    width: "90%",
-    height: "90%",
+    width: "80%",
+    height: "80%",
     backgroundColor: "white",
     borderWidth: 1,
     borderColor: "#DDDDDD"
   },
   imageContainer: {
-    width: "100%",
-    height: "75%"
+    borderWidth: 3,
+    flex: 1,
+    borderColor: "red",
+    // width: "100%",
+    // height: "75%"
   },
   POHItemImage: {
-    width: "100%",
-    height: "100%"
+    flex: 1,
+    // width: "100%",
+    // height: "100%"
   },
   infoWrapper: {
     width: "100%",
