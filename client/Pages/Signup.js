@@ -40,7 +40,7 @@ class Signup extends Component {
       modalVisible: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.confirmPin = this.confirmPin.bind(this);
+    this.validatePin = this.validatePin.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.launchSignup = this.launchSignup.bind(this);
   }
@@ -63,7 +63,7 @@ class Signup extends Component {
     });
   }
 
-  confirmPin() {
+  validatePin() {
     this.setState({ confirmed: true });
   }
 
@@ -101,7 +101,7 @@ class Signup extends Component {
           <CreatePin
             exiting={this.state.exiting}
             exitingPage={this.exitingPage}
-            confirmPin={this.confirmPin}
+            validatePin={this.validatePin}
             toggleModal={this.toggleModal}
             launchSignup={this.launchSignup}
             navigation={this.props.navigation}
@@ -112,7 +112,7 @@ class Signup extends Component {
           <CreatePin
             exiting={this.state.exiting}
             exitingPage={this.exitingPage}
-            confirmPin={this.confirmPin}
+            validatePin={this.validatePin}
             toggleModal={this.toggleModal}
             launchSignup={this.launchSignup}
             styles={styles}

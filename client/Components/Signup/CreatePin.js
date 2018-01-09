@@ -42,7 +42,7 @@ class CreatePin extends Component {
     }
     else if (pin.length === 4 && confirmedPin.length === 4) {
       if (pin === confirmedPin) {
-        this.props.confirmPin()
+        this.props.validatePin()
         this.props.createPin({pin})
       }
       else {
