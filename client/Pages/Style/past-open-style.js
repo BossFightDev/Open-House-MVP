@@ -71,11 +71,31 @@ export const landscape = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#555555",
     padding: "2%",
-    justifyContent: "space-between",
   },
-  label: {
+  labelName: {
     color: "white",
-    fontSize: 12
+    fontSize: 12,
+    width: "25%",
+  },
+  labelEmail: {
+    color: "white",
+    fontSize: 12,
+    width: "25%",
+  },
+  labelPhone: {
+    color: "white",
+    fontSize: 12,
+    width: "20%",
+  },
+  labelAgent: {
+    color: "white",
+    fontSize: 12,
+    width: "20%",
+  },
+  labelSource: {
+    color: "white",
+    fontSize: 12,
+    width: "10%",
   },
   leadContainer: {
     flexDirection: "row",
@@ -83,9 +103,30 @@ export const landscape = StyleSheet.create({
     padding: "2%",
     justifyContent: "space-between",
   },
-  lead: {
+  leadName: {
     color: "#454545",
-    fontSize: 12
+    fontSize: 12,
+    width: "25%",
+  },
+  leadEmail: {
+    color: "#454545",
+    fontSize: 12,
+    width: "25%",
+  },
+  leadPhone: {
+    color: "#454545",
+    fontSize: 12,
+    width: "20%",
+  },
+  leadAgent: {
+    color: "#454545",
+    fontSize: 12,
+    width: "20%",
+  },
+  leadSource: {
+    color: "#454545",
+    fontSize: 12,
+    width: "10%",
   },
 })
 

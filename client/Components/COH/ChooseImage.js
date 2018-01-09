@@ -51,12 +51,12 @@ class ChooseImage extends Component {
   render() {
     return (
       <View
-        style={{
+        style={{flex: 20,
           borderWidth: 3,
           borderColor: "blue",
           backgroundColor: "white",
           width: "95%",
-          height: "100%",
+          // height: "100%",
           justifyContent: "center",
           alignItems: "center"
         }}
@@ -100,20 +100,32 @@ class ChooseImage extends Component {
         </Modal>
         <View
           style={{
+            flex: 1,
             borderWidth: 3,
             borderColor: "green",
             width: "95%",
-            height: "80%"
+            height: "80%",
           }}
         >
-          <View>
+          <View style={{flexDirection: 'row',justifyContent:'space-between', borderWidth: 5}}>
             <CustomText font="bold">{this.props.question}</CustomText>
             <Switch
               value={this.props.value}
               onValueChange={this.props.onChange}
+              style={{alignSelf: 'flex-end'}}
             />
           </View>
-          <View style={{ alignItems: "center", justifyContent: "center" }}>
+          <View style={{ alignItems: "center",flex: 1, flexDirection:'row', justifyContent: "center" }}>
+          <View style={[styles.displayImageContainer, {borderWidth: 3}]}>
+              
+              <Image
+                source={{
+                  uri: this.props.questions.image
+                }}
+                style={{ flex: 1, alignSelf: 'flex-start', resizeMode: 'contain', width: '100%'}}
+              />
+              
+            </View>
             <TouchableOpacity
               style={{
                 width: "25%",
@@ -164,6 +176,12 @@ const styles = StyleSheet.create({
     flex: 3,
     width: '80%'
   },
+  displayImageContainer: {
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flex: 3,
+    width: '50%'
+  },
   buttonContainer: {
     flexDirection: "row",
     height: '10%'
@@ -173,7 +191,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
   return {
     appState: state.appState,
-    property: state.property
+    property: state.property,
+    questions: state.questions
   };
 };
 

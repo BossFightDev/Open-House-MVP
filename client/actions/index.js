@@ -182,3 +182,17 @@ export const toggleImageModal = (option) => {
     }
   }
 }
+
+export const setOrientation = (orientation) => {
+  return(dispatch) => {
+    if (orientation === 'landscape') {
+      dispatch({
+        type: 'ORIENTATION_LANDSCAPE'
+      })
+      return;
+    }
+    dispatch({
+      type: 'ORIENTATION_PORTRAIT'
+    })
+  }
+}
