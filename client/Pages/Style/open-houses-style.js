@@ -16,10 +16,13 @@ export const landscape = StyleSheet.create({
     // width: 180,
     // height: 65
   },
+  rightSide: {
+    flexDirection: 'column',
+    width: '50%'
+  },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
-    height: "100%",
-    width: "50%"
+    height: "16%",
   },
   headerContainer: {
     paddingLeft: "5%",
@@ -32,7 +35,9 @@ export const landscape = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "90%",
-    height: "90%"
+    height: "90%",
+    
+    borderWidth: 4
   },
   title: {
     textAlign: "left",
@@ -75,18 +80,22 @@ export const landscape = StyleSheet.create({
     paddingRight: 10,
     fontSize: 14
   },
+  POHContainer: {
+    height: '85%',
+    width: '100%',
+  },
   list: {
-    height: '82%',
-    borderWidth: 3,
-    borderColor: 'green'
+    height: '84%',
   },
   listTextContainer: {
     flexDirection: "row",
     paddingTop: "5%",
     paddingBottom: "2.5%",
-    width: "90%",
-    alignSelf: "center",
-    justifyContent: "space-between"
+    // alignSelf: "center",
+    justifyContent: "space-between",
+    paddingLeft: '5%',
+    paddingRight: '5%',
+
   },
   listTitle: {
     fontSize: 16
@@ -249,8 +258,9 @@ export const landscape = StyleSheet.create({
 // THIS IS STYLED FOR PORTRAIT MODE
 export const portrait = StyleSheet.create({
   container: {
-    height: "100%",
-    width: "100%"
+    flex: 1,
+    // height: "100%",
+    // width: "100%"
   },
   logoContainer: {
     backgroundColor: "#454545",
@@ -263,29 +273,32 @@ export const portrait = StyleSheet.create({
     width: '52.5%',
     height: '70%'
   },
+  rightSide: {
+    height: '85%',
+    flex: 1
+  },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
-    height: "100%",
+    height: "20%",
     width: "100%"
   },
   headerContainer: {
-    paddingLeft: 25,
+    flex: 1,
     borderBottomWidth: 1,
-    borderBottomColor: "#DDDDDD"
+    borderBottomColor: "#DDDDDD",
+    padding: '5%'
+    
   },
   title: {
+    flex: 1,
     fontSize: 14,
-    marginTop: 25,
-    marginBottom: 10
   },
   searchBarContainer: {
     flexDirection: "row",
-    marginBottom: 25,
     justifyContent: "flex-start"
   },
   searchBar: {
-    paddingTop: 10,
-    paddingBottom: 5,
+    flex: 2.5,
     width: "67%",
     height: 35,
     paddingLeft: '5%',
@@ -294,7 +307,8 @@ export const portrait = StyleSheet.create({
     fontSize: 10,
   },
   buttonContainer: {
-    marginLeft: 5,
+    flex: 1,
+    marginLeft: '1%',
     paddingTop: 10,
     paddingBottom: 5,
     backgroundColor: "#25AAFB",
@@ -303,23 +317,26 @@ export const portrait = StyleSheet.create({
     borderRadius: 2
   },
   buttonText: {
+    flex: 1,
     color: "#fff",
     textAlign: "center",
     paddingLeft: 10,
     paddingRight: 10,
     fontSize: 12
   },
+  POHContainer: {
+    height: '80%',
+    width: '100%',
+  },
   list: {
-    height: '70%',
-    borderWidth: 3,
-    borderColor: 'green'
+    height: '90%',
   },
   listTextContainer: {
     flexDirection: "row",
-    paddingTop: "5%",
-    paddingBottom: "5%",
-    width: "85%",
+    width: "90%",
     alignSelf: "center",
+    paddingTop: '5%',
+    height: '10%',
     justifyContent: "space-between"
   },
   listTitle: {},
@@ -328,33 +345,35 @@ export const portrait = StyleSheet.create({
   },
   POHItem: {
     alignSelf: "center",
-    width: "80%",
+    width: "90%",
     height: "80%",
     backgroundColor: "white",
     borderWidth: 1,
+    flex: 1,
+    marginBottom: '5%',
     borderColor: "#DDDDDD"
   },
   imageContainer: {
-    borderWidth: 3,
     flex: 1,
-    borderColor: "red",
-    // width: "100%",
-    // height: "75%"
+    width: "100%",
+    height: 200
   },
   POHItemImage: {
     flex: 1,
-    // width: "100%",
-    // height: "100%"
+    width: "100%",
+    height: "100%"
   },
   infoWrapper: {
     width: "100%",
     height: "25%",
     justifyContent: "center",
     alignItems: "center",
+    padding: '3%'
+    
   },
   infoContainer: {
     width: "90%",
-    height: "70%",
+    flex: 1
   },
   dateAddress: {
     flexDirection: "column"
@@ -367,7 +386,6 @@ export const portrait = StyleSheet.create({
   },
   guestCountContainer: {
     justifyContent: "center",
-    marginBottom: '10%'
   },
   guestCount: {
     color: "#25AAFB",
