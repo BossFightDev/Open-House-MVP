@@ -31,7 +31,7 @@ class HouseDisplay  extends Component {
         />
         <View style={{ position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0 }}>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('OpenHouses')}
+            onPress={() => this.props.exitingPage()}
           >
             <Image source={require('../../Assets/iconExit.png')} />
           </TouchableOpacity>

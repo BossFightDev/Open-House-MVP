@@ -7,6 +7,7 @@ import SignupForm from "../Components/Signup/signupForm";
 import CreatePin from "../Components/Signup/CreatePin";
 import HouseDisplay from "../Components/Signup/houseDisplay";
 import { portrait, landscape } from "./Style/Signup-Styles";
+import { connect } from 'react-redux'
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -25,11 +26,12 @@ if (aspectRatio > 1.6) {
   console.log("IPAD");
 }
 
-export default class extends Component {
+class Signup extends Component {
   constructor() {
     super();
 
     this.state = {
+      exiting: false,
       confirmed: false,
       launched: false,
       visible: false,
@@ -43,9 +45,14 @@ export default class extends Component {
     this.launchSignup = this.launchSignup.bind(this);
   }
 
+  exitingPage = () => {
+    this.setState({ exiting: !this.state.exiting })
+  }
+
   componentDidMount() {
     this.setState({ modalVisible: true });
   }
+
   handleSubmit() {
     this.setState({ visible: true });
     Animated.timing(this.state.visibility, {
@@ -69,9 +76,16 @@ export default class extends Component {
   }
 
   render() {
+    console.log('pin: ' + JSON.stringify(this.props.pin))
     return (
       <View style={styles.container}>
-        <HouseDisplay styles={styles} navigation={this.props.navigation} />
+        <HouseDisplay
+          styles={styles}
+          exiting={this.state.exiting}
+          exitingPage={this.exitingPage}
+          navigation={this.props.navigation}
+          pin={this.props.pin}
+        />
         <Modal
           transparent={true}
           visible={this.state.modalVisible}
@@ -83,8 +97,21 @@ export default class extends Component {
             styles={styles}
           />
         </Modal>
-        {this.state.launched && !this.state.confirmed ? (
+        {this.state.exiting ? (
           <CreatePin
+            exiting={this.state.exiting}
+            exitingPage={this.exitingPage}
+            confirmPin={this.confirmPin}
+            toggleModal={this.toggleModal}
+            launchSignup={this.launchSignup}
+            navigation={this.props.navigation}
+            styles={styles}
+          />
+        ) :
+        this.state.launched && !this.state.confirmed ? (
+          <CreatePin
+            exiting={this.state.exiting}
+            exitingPage={this.exitingPage}
             confirmPin={this.confirmPin}
             toggleModal={this.toggleModal}
             launchSignup={this.launchSignup}
@@ -101,3 +128,11 @@ export default class extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    pin: state.pin
+  }
+}
+
+export default connect(mapStateToProps, null)(Signup)
