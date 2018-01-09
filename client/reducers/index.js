@@ -5,6 +5,7 @@ import propertyReducer from './property';
 import userReducer from './user';
 import questionsReducer from './questions';
 import openHouseReducer from './openHouse';
+import pinReducer from './pinReducer'
 
 
 export default rootReducer = combineReducers({
@@ -13,5 +14,6 @@ export default rootReducer = combineReducers({
   property: propertyReducer,
   user: userReducer,
   leads: leadsReducer,
-  openHouse: openHouseReducer
+  openHouse: openHouseReducer,
+  pin: pinReducer,
 })

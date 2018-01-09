@@ -16,6 +16,22 @@ export const ADD_HASHTAGS = 'ADD_HASHTAGS';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const IMAGE_MODAL_ON = 'IMAGE_MODAL_ON';
 export const IMAGE_MODAL_OFF = 'IMAGE_MODAL_OFF';
+export const CREATE_PIN = 'CREATE_PIN'
+export const CONFIRM_PIN = 'CONFIRM_PIN'
+
+export const createPin = (pin) => {
+  return {
+    type: 'CREATE_PIN',
+    payload: pin
+  }
+}
+
+export const confirmPin = (pin) => {
+  return {
+    type: 'CONFIRM_PIN',
+    payload: pin
+  }
+}
 
 export const authenticateUser = (validation) => {
   return {
@@ -166,7 +182,3 @@ export const toggleImageModal = (option) => {
     }
   }
 }
-
-
-
-
