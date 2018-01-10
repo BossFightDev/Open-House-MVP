@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import CustomText from '../CustomText';
+import { connect } from 'react-redux'
 
-export default class extends Component {
+class Submitted extends Component {
   constructor() {
     super()
   }
 
   render() {
     return (
-      <View style={this.props.styles.container}>
+      <View style={{flex: 1, width: '100%', alignItems: 'center',}}>
         <View style={this.props.styles.titleContainer}>
           <CustomText
             font='milkshake'
@@ -23,10 +24,18 @@ export default class extends Component {
             Enjoy your visit
           </CustomText>
         </View>
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Image source={require("../../Assets/iconHouse3x.png")} />
+        <View style={{ flex: 1, justifyContent: 'center',}}>
+          <Image source={{uri: this.props.user.companyPicture}} />
         </View>
       </View>
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps)(Submitted)

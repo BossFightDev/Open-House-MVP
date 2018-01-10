@@ -213,8 +213,6 @@ export const landscape = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     height: 90,
-    borderWidth: 3,
-    borderColor: 'blue'
 
   },
   modalConfirmButton: {

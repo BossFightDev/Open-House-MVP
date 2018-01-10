@@ -74,7 +74,7 @@ class SignUpForm extends Component {
     let agentBorder = this.state.agentFocused ? "blue" : "gray";
 
     return (
-      <ScrollView bounces={false}>
+      <ScrollView style={{ flex: 1, borderWidth: 3}}>
         <View style={this.props.styles.titleContainer}>
           <CustomText font="milkshake" style={this.props.styles.headerText}>
             Welcome
@@ -113,14 +113,16 @@ class SignUpForm extends Component {
           </CustomText>
           <View
             style={{
+              marginTop: '5%',
               flexDirection: "column",
               height: "10%",
-              marginBottom: "1.5%",
+              marginBottom: "5%",
               width: '100%'
             }}
           >
-            <View>
+            <View style={{marginBottom: "5%",}}>
               <SegmentedControls
+              
                 options={options}
                 onSelection={selectedOption =>
                   this.setState({ realEstateAgent: selectedOption })
@@ -135,7 +137,7 @@ class SignUpForm extends Component {
                 {
                   backgroundColor: agent ? "white" : "darkgray",
                   borderColor: agentBorder,
-                  height: "75%",
+                  height: "75%", marginBottom: '5%'
                 }
               ]}
               onFocus={() => this.onFocus("agent")}
@@ -146,6 +148,7 @@ class SignUpForm extends Component {
           </View>
           <View style={{
               width: '100%',
+              flex: 1,
               
             }}>
           <Dropdown
