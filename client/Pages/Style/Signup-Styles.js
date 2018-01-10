@@ -22,10 +22,10 @@ export const landscape = StyleSheet.create({
   button: {
     backgroundColor: "#25AAFB",
     borderRadius: 4,
-    height: '30%',
+    height: '20%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '5%',
+    marginTop: '5%'
   },
   exitIcon: {
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
@@ -100,12 +100,14 @@ export const landscape = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 3,
     paddingLeft: 10,
-    marginBottom: '1.5%',
+    marginBottom: '5%',
   },
   inputContainer: {
     height: "100%",
     width: "80%",
-    alignSelf: 'center'
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    marginBottom: '5%'
   },
   titleContainer: {
     top: 0,
@@ -113,12 +115,17 @@ export const landscape = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: '5%',
   },
+  animated: {
+     width: '50%'
+  },
   headerText: {
+    textAlign: 'center',
     color: '#424242',
     fontSize: 60,
     marginBottom: '-2%'
   },
   subHeaderText: {
+    textAlign: 'center',
     color: '#bababa',
     fontSize: 18,
     backgroundColor: 'transparent',
@@ -179,10 +186,9 @@ export const portrait = StyleSheet.create({
   button: {
     backgroundColor: "#25AAFB",
     borderRadius: 4,
-    height: '10%',
+    height: '40%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '5%',
   },
   exitIcon: {
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
@@ -261,13 +267,19 @@ export const portrait = StyleSheet.create({
   },
   inputContainer: {
     width: "90%",
-    alignSelf: 'center'
+    height: '100%',
+    flex: 1,
+    alignSelf: 'center',
+    paddingBottom: '5%'
   },
   titleContainer: {
     top: 0,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '5%',
+  },
+  animated: {
+    
   },
   headerText: {
     color: '#424242',

@@ -120,7 +120,7 @@ class Signup extends Component {
         ) : !this.state.visible ? (
           <SignupForm handleSubmit={this.handleSubmit} styles={styles} />
         ) : (
-          <Animated.View style={{ opacity: this.state.visibility }}>
+          <Animated.View style={[{opacity: this.state.visibility},styles.animated]}>
             <Submitted styles={styles} />
           </Animated.View>
         )}

@@ -23,9 +23,11 @@ class AddHashtags extends Component {
         <View key={i.toString()}>
           <TextInput
             style={{
+              fontStyle: 'italic',
               width: "100%",
               paddingTop: "2.5%",
               paddingBottom: "2.5%",
+              paddingLeft: '2.5%',
               borderWidth: 1,
               borderColor: '#DDDDDD',
               borderRadius: 2,
@@ -50,8 +52,6 @@ class AddHashtags extends Component {
     return (
       <View
         style={{
-          borderWidth: 3,
-          borderColor: "blue",
           width: "95%",
           height: "50%",
           justifyContent: "center",
@@ -61,8 +61,6 @@ class AddHashtags extends Component {
       >
         <View
           style={{
-            borderWidth: 3,
-            borderColor: "green",
             width: "95%",
             height: "80%",
             justifyContent: "space-between"
