@@ -104,8 +104,8 @@ class CreatePin extends Component {
     let pinMessage = !this.state.created ? 'Create PIN to launch' : 'Re-enter PIN to confirm'
 
     return (
-      <View style={[this.props.styles.container, {justifyContent: 'center', alignSelf: 'center'}]}>
-        <CustomText style={{fontSize: 18}}>{pinMessage}</CustomText>
+      <View style={[this.props.styles.createPinContainer, {justifyContent: 'center', alignSelf: 'center'}]}>
+        <CustomText style={{fontSize: 18, alignSelf: 'center'}}>{pinMessage}</CustomText>
         <View style={this.props.styles.pinContainer}>
           <TextInput
             ref='pin1'
@@ -162,7 +162,7 @@ class CreatePin extends Component {
               this.props.launchSignup()
             }
           }}>
-          <CustomText style={{color: 'blue', margin: '1%', fontSize: 16}}>
+          <CustomText style={{color: 'blue', margin: '1%', fontSize: 16, alignSelf: 'center'}}>
             Cancel
           </CustomText>
         </TouchableOpacity>

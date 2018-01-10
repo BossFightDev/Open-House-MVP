@@ -212,7 +212,10 @@ export const landscape = StyleSheet.create({
   modalButtonsContainer: {
     flexDirection: "row",
     width: "100%",
-    height: 90
+    height: 90,
+    borderWidth: 3,
+    borderColor: 'blue'
+
   },
   modalConfirmButton: {
     alignSelf: "center",
@@ -391,7 +394,7 @@ export const portrait = StyleSheet.create({
     textAlign: "right"
   },
   modal: {
-    display: "flex",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     padding: 0
@@ -452,7 +455,7 @@ export const portrait = StyleSheet.create({
     justifyContent: "center"
   },
   buttonWrapper: {
-    display: "flex",
+    flex: 1,
     width: "100%",
     justifyContent: "center",
     alignItems: "center"
@@ -461,7 +464,8 @@ export const portrait = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    height: '38%',
   },
   modalConfirmButton: {
     alignSelf: "center",
@@ -496,8 +500,8 @@ export const portrait = StyleSheet.create({
   modalNopeText: {
     color: "#999999",
     textAlign: "center",
-    paddingLeft: 10,
-    paddingRight: 10,
+    // paddingLeft: 10,
+    // paddingRight: 10,
     fontSize: 10
   }
 });

@@ -103,6 +103,8 @@ export const landscape = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
+    marginLeft: '2%'
+   
   },
   leftText: {
     color: '#999999'
@@ -117,7 +119,7 @@ export const landscape = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: "2%"
+    marginLeft: '2%'
   },
   rightText: {
     color: 'white'
@@ -131,16 +133,15 @@ export const landscape = StyleSheet.create({
 
   },
   buttonWrapper: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     justifyContent: 'center',
-    // alignItems: 'flex-start',
+    alignItems: 'center',
     flex: 0,
-    width: '97%'
+    width: '95%'
     
   },
   buttonContainer: {
     flexDirection: 'row',
-    alignSelf: 'flex-end',
     width: "100%",
     justifyContent: 'flex-end',
   },
@@ -277,7 +278,8 @@ export const portrait = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: "2%"
+    alignSelf: 'flex-end',
+    marginLeft: '2%'
   },
   rightText: {
     color: 'white'
@@ -292,16 +294,15 @@ export const portrait = StyleSheet.create({
 
   },
   buttonWrapper: {
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     justifyContent: 'center',
-    // alignItems: 'flex-start',
+    alignItems: 'center',
     flex: 0,
-    width: '97%'
+    width: '95%'
     
   },
   buttonContainer: {
     flexDirection: 'row',
-    alignSelf: 'flex-end',
     width: "100%",
     justifyContent: 'flex-end',
   },
