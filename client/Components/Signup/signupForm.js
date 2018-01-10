@@ -145,8 +145,6 @@ class SignUpForm extends Component {
             />
           </View>
           <View style={{
-              borderWidth: 3,
-              borderColor: 'red',
               width: '100%',
               
             }}>
