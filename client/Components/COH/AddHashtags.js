@@ -56,14 +56,15 @@ class AddHashtags extends Component {
           height: "50%",
           justifyContent: "center",
           backgroundColor: "white",
-          alignItems: "center"
+          alignItems: "center",
+          top: 0,
         }}
       >
         <View
           style={{
             width: "95%",
             height: "80%",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
           }}
         >
           <View>
