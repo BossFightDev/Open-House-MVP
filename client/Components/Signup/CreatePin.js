@@ -29,7 +29,7 @@ class CreatePin extends Component {
   componentDidUpdate() {
     const { pin, confirmedPin } = this.state
     if (this.props.exiting && pin.length === 4) {
-      if (this.props.confirmPin(pin)) {
+      if (this.props.pin === pin) {
         this.props.navigation.navigate('OpenHouses')
       } else {
         this.setState({ errorMessage: 'PIN doesn\'t match! Try again.'})
@@ -101,7 +101,7 @@ class CreatePin extends Component {
     let pin3Border = this.state.pin3Focused ? 'blue' : '#ddd'
     let pin4Border = this.state.pin4Focused ? 'blue' : '#ddd'
 
-    let pinMessage = !this.state.created ? 'Create PIN to launch' : 'Re-enter PIN to confirm'
+    let pinMessage = this.props.exiting ? 'Enter PIN to Exit' : !this.state.created ? 'Create PIN to launch' : 'Re-enter PIN to confirm'
 
     return (
       <View style={[this.props.styles.createPinContainer, {justifyContent: 'center', alignSelf: 'center'}]}>
@@ -173,10 +173,13 @@ class CreatePin extends Component {
     )
   }
 }
-
+const mapStateToProps = (state) => {
+  return {
+    pin: state.pin.pin
+  }
+}
 const mapDispatchToProps = {
   createPin,
-  confirmPin
 }
 
-export default connect(null, mapDispatchToProps)(CreatePin)
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePin)
