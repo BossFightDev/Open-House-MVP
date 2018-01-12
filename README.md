@@ -23,11 +23,9 @@ $ npm i open-house-mvp --save
 
 Please read [CONTRIBUTING.md](https://github.com/BossFightDev/Open-House-MVP/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Authors
+## Contributors
 
-* **Jiovan Melendez** - *Initial work* - [Jiovan Melendez](https://github.com/jiovan)
-
-See also the list of [contributors](https://github.com/BossFightDev/Open-House-MVP/graphs/contributors) who participated in this project.
+See the list of [contributors](https://github.com/BossFightDev/Open-House-MVP/graphs/contributors) who participated in this project.
 
 ## License
 
