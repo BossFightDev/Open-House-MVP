@@ -31,6 +31,7 @@
     "prop-types": "^15.6.0",
     "react": "16.0.0",
     "react-native": "0.50.3",
+    "react-native-checkbox": "^2.0.0",
     "react-native-material-dropdown": "^0.6.0",
     "react-native-modal": "^4.1.1",
     "react-native-radio-buttons": "^1.0.0",
