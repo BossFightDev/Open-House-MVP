@@ -34,5 +34,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to Julian Pegues, Antonio Melendez, and Jake Cooley for leading the charge and bringing this idea to life.
-* Thanks to Brandon Bruce and Katschke for providing the opportunity, designs, product leadership, and guiding the user experience.
+* Thanks to Brandon Bruce and Katschke for providing the designs, user experience, and product leadership.
 * Shout-out to Ryan Hamblin and Dan Frehner for the help along the way.
