@@ -37,8 +37,8 @@ export default class extends Component {
   }
 
   render() {
-    const {state} = this.props.navigation
-    console.log('PARAMS: ' + JSON.stringify(state.params));
+    const { state } = this.props.navigation;
+    console.log("PARAMS: " + JSON.stringify(state.params));
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
@@ -58,7 +58,10 @@ export default class extends Component {
                 <CustomText font="bold" style={{ color: "#454545" }}>
                   {dateTranslator(state.params.lead.date)}
                 </CustomText>
-                <CustomText>{state.params.lead.property.address} - {state.params.lead.guests} guests</CustomText>
+                <CustomText>
+                  {state.params.lead.property.address} -{" "}
+                  {state.params.lead.guests} guests
+                </CustomText>
               </View>
               <View style={styles.dateAddressRight}>
                 <TouchableOpacity
@@ -72,8 +75,9 @@ export default class extends Component {
                 <TouchableOpacity
                   style={styles.buttonContainer2}
                   underlayColor="#89C541"
-                  onPress={
-                    () => {this.props.navigation.navigate('OpenHouses')}}
+                  onPress={() => {
+                    this.props.navigation.navigate("OpenHouses");
+                  }}
                 >
                   <CustomText style={styles.buttonText} font="bold">
                     EXPORT
@@ -103,18 +107,10 @@ export default class extends Component {
               data={state.params.lead.leads}
               renderItem={({ item }) => (
                 <View style={styles.leadContainer}>
-                  <CustomText style={styles.leadName}>
-                    {item.name}
-                  </CustomText>
-                  <CustomText style={styles.leadEmail}>
-                    {item.email}
-                  </CustomText>
-                  <CustomText style={styles.leadPhone}>
-                    {item.phone}
-                  </CustomText>
-                  <CustomText style={styles.leadAgent}>
-                    {item.agent}
-                  </CustomText>
+                  <CustomText style={styles.leadName}>{item.name}</CustomText>
+                  <CustomText style={styles.leadEmail}>{item.email}</CustomText>
+                  <CustomText style={styles.leadPhone}>{item.phone}</CustomText>
+                  <CustomText style={styles.leadAgent}>{item.agent}</CustomText>
                   <CustomText style={styles.leadSource}>
                     {item.source}
                   </CustomText>
@@ -156,5 +152,5 @@ const list = [
     phone: "(555) 123-4567",
     agent: "Clark Kent",
     source: "Google"
-  },
-]
+  }
+];
