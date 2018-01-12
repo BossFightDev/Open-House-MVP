@@ -156,7 +156,6 @@ export const portrait = StyleSheet.create({
   leadsContainer: {
     flex: 1,
     padding: "1%",
-    // borderWidth: 4,
   },
   dateAddressContainer:{
     padding: "2%",
