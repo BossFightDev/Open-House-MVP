@@ -21,7 +21,7 @@ $ npm i open-house-mvp --save
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/BossFightDev/Open-House-MVP/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Contributions are welcome. Please read [CONTRIBUTING.md](https://github.com/BossFightDev/Open-House-MVP/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Contributors
 
