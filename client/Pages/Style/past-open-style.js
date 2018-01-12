@@ -142,7 +142,7 @@ export const portrait = StyleSheet.create({
     height: "20%",
     width: "100%",
     alignItems: "center",
-    paddingTop: "5%"
+    padding: "5%",
   },
   contentContainer: {
     backgroundColor: "#F1F1F1",
@@ -155,28 +155,33 @@ export const portrait = StyleSheet.create({
   },
   leadsContainer: {
     flex: 1,
-    padding: "3%",
-    borderWidth: "4",
+    padding: "1%",
+    // borderWidth: 4,
   },
   dateAddressContainer:{
-    flex: 1,
+    padding: "2%",
+    height: "30%",
     flexDirection: "column",
-    marginTop: "4%",
+    // marginTop: "4%",
     marginBottom: "3%",
-    justifyContent: "space-between"
+    justifyContent: "space-around",
+    // borderWidth: 4,
+    // borderColor: "orange"
   },
   dateAddressLeft:{
 
   },
   dateAddressRight: {
-    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: "50%",
     flexDirection: "row",
-    borderWidth: 2,
-    borderColor: 'tomato'
+    // borderWidth: 2,
+    // borderColor: 'tomato'
   },
   buttonContainer1: {
     flex: 1,
-    marginLeft: "1.5%",
+    // marginLeft: "1.5%",
     paddingTop: 10,
     paddingBottom: 5,
     backgroundColor: "#89C541",
@@ -203,7 +208,7 @@ export const portrait = StyleSheet.create({
   labelContainer: {
     flexDirection: "row",
     backgroundColor: "#555555",
-    padding: "2%",
+    padding: "1%",
   },
   labelName: {
     color: "white",
