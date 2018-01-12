@@ -1,1 +1,40 @@
-# Open-House-MVP
+# Open House
+
+This app allows real estate agents to host open house events and generate leads from potential home buyers. 
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development.
+
+### Installing
+
+```
+$ npm i open-house-mvp --save
+```
+
+## Built With
+
+* [React Native](https://facebook.github.io/react-native/) - The framework used
+* [Redux](https://redux.js.org/) - The library used for state management
+* [Node.js](https://nodejs.org/en/) - Used for the backend
+* [MongoDB](https://docs.mongodb.com/manual/) - Used for the database
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/BossFightDev/Open-House-MVP/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+* **Jiovan Melendez** - *Initial work* - [Jiovan Melendez](https://github.com/jiovan)
+
+See also the list of [contributors](https://github.com/BossFightDev/Open-House-MVP/graphs/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to Julian Pegues, Antonio Melendez, and Jake Cooley for leading the charge and bringing this idea to life.
+* Thanks to Brandon Bruce and Katschke for providing the opportunity, designs, product leadership, and guiding the user experience.
+* Shout-out to Ryan Hamblin and Dan Frehner for the help along the way.
