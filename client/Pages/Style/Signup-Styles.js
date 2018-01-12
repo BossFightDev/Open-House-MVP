@@ -198,12 +198,17 @@ export const portrait = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  buttonContainer: {
+    height: '25%',
+    borderWidth: 3,
+    borderColor: 'pink'
+  },
   button: {
     backgroundColor: "#25AAFB",
     borderRadius: 4,
-    height: '40%',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1
   },
   exitIcon: {
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
@@ -286,6 +291,33 @@ export const portrait = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
     paddingBottom: '5%'
+  },
+  // input: {
+  //   width: '100%',
+  //   flex: 1,
+  //   backgroundColor: 'white',
+  //   borderWidth: 1,
+  //   borderRadius: 3,
+  //   paddingLeft: 10,
+  //   marginBottom: '5%',
+  // },
+  // inputContainer: {
+  //   height: "100%",
+  //   width: "80%",
+  //   alignSelf: 'center',
+  //   borderWidth: 3,
+  //   borderColor: 'blue',
+  //   justifyContent: 'space-around'
+  // },
+  innerContainer: {
+    borderWidth: 3,
+    borderColor: 'green',
+    height: '15%'
+  },
+  realEstateContainer: {
+    borderWidth: 3,
+    borderColor: 'orange',
+    height: '25%'
   },
   titleContainer: {
     top: 0,
