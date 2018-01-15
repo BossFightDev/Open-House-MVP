@@ -104,7 +104,7 @@ export const landscape = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: '2%'
-   
+
   },
   leftText: {
     color: '#999999'
@@ -138,7 +138,7 @@ export const landscape = StyleSheet.create({
     alignItems: 'center',
     flex: 0,
     width: '95%'
-    
+
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -149,6 +149,45 @@ export const landscape = StyleSheet.create({
     fontSize: 20,
     margin: '2%',
     color: '#454545',
+  },
+  addHashtag: {
+    fontStyle: 'italic',
+    width: "100%",
+    paddingTop: "2.5%",
+    paddingBottom: "2.5%",
+    paddingLeft: '2.5%',
+    borderWidth: 1,
+    borderColor: '#DDDDDD',
+    borderRadius: 2,
+    backgroundColor: "#F1F1F1",
+    marginBottom: '2.5%'
+  },
+  hashtagContainer: {
+    width: "95%",
+    height: "50%",
+    justifyContent: "center",
+    backgroundColor: "white",
+    alignItems: "center",
+    top: 0,
+  },
+  hashtagSecondaryContainer: {
+    width: "95%",
+    height: "80%",
+    justifyContent: "space-between",
+  },
+  hashtagButton: {
+    width: "25%",
+    backgroundColor: "#DDDDDD",
+    paddingTop: "2.5%",
+    paddingBottom: "2.5%",
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  hashtagFont: {
+    color: "#999999",
   },
 });
 
@@ -295,7 +334,7 @@ export const portrait = StyleSheet.create({
     alignItems: 'center',
     flex: 0,
     width: '95%'
-    
+
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -306,5 +345,44 @@ export const portrait = StyleSheet.create({
     fontSize: 20,
     margin: '2%',
     color: '#454545',
+  },
+  addHashtag: {
+    fontStyle: 'italic',
+    width: "100%",
+    paddingTop: "2.5%",
+    paddingBottom: "2.5%",
+    paddingLeft: '2.5%',
+    borderWidth: 1,
+    borderColor: '#DDDDDD',
+    borderRadius: 2,
+    backgroundColor: "#F1F1F1",
+    marginBottom: '2.5%'
+  },
+  hashtagContainer: {
+    width: "95%",
+    height: "50%",
+    justifyContent: "center",
+    backgroundColor: "white",
+    alignItems: "center",
+    top: 0,
+  },
+  hashtagSecondaryContainer: {
+    width: "95%",
+    height: "80%",
+    justifyContent: "space-between",
+  },
+  hashtagButton: {
+    width: "25%",
+    backgroundColor: "#DDDDDD",
+    paddingTop: "2.5%",
+    paddingBottom: "2.5%",
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  hashtagFont: {
+    color: "#999999",
   },
 });

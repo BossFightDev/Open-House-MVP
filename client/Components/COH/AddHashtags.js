@@ -1,6 +1,20 @@
 import React, { Component } from "react";
-import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Button, TouchableOpacity, Dimensions } from "react-native";
 import CustomText from "../CustomText";
+import { landscape, portrait } from "../../Pages/Style/create-open-style.js";
+
+const { height, width } = Dimensions.get("window");
+const aspectRatio = height / width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+};
+let styles;
+if (aspectRatio > 1.6) {
+  styles = portrait;
+} else {
+  styles = landscape;
+  changeScreenOrientation();
+}
 
 class AddHashtags extends Component {
   constructor(props) {
@@ -22,18 +36,7 @@ class AddHashtags extends Component {
       return (
         <View key={i.toString()}>
           <TextInput
-            style={{
-              fontStyle: 'italic',
-              width: "100%",
-              paddingTop: "2.5%",
-              paddingBottom: "2.5%",
-              paddingLeft: '2.5%',
-              borderWidth: 1,
-              borderColor: '#DDDDDD',
-              borderRadius: 2,
-              backgroundColor: "#F1F1F1",
-              marginBottom: '2.5%'
-            }}
+            style={styles.addHashtag}
             placeholder="Enter hashtag"
             onChangeText={text => this.onChange(text, i)}
             value={this.state.hashtags[i]}
@@ -50,41 +53,16 @@ class AddHashtags extends Component {
 
   render() {
     return (
-      <View
-        style={{
-          width: "95%",
-          height: "50%",
-          justifyContent: "center",
-          backgroundColor: "white",
-          alignItems: "center",
-          top: 0,
-        }}
-      >
-        <View
-          style={{
-            width: "95%",
-            height: "80%",
-            justifyContent: "space-between",
-          }}
-        >
+      <View style={styles.hashtagContainer}>
+        <View style={styles.hashtagSecondaryContainer}>
           <View>
             {this.addHashtag()}
             <TouchableOpacity
-              style={{
-                width: "25%",
-                backgroundColor: "#DDDDDD",
-                paddingTop: "2.5%",
-                paddingBottom: "2.5%",
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: "#fff",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
+              style={styles.hashtagButton}
               onPress={this.addInput}
               underlayColor="#fff"
             >
-              <CustomText font="bold" style={{ color: "#999999" }}>
+              <CustomText font="bold" style={styles.hashtagFont}>
                 Add Another
               </CustomText>
             </TouchableOpacity>
