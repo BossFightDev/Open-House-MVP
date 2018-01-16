@@ -151,7 +151,7 @@ export const addLead = (openHouseId, name, email, phone, agent, source) => {
   }
 }
 
-export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, priceQ, bedBathQ, sqftq) => {
+export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, priceQ, bedBathQ, sqftQ) => {
   console.log("Made it to AddQuestions: "+ image)
   return {
     type: ADD_QUESTIONS,
@@ -164,7 +164,7 @@ export const addQuestions = (phoneQ, agentQ, sourceQ, suggestQ, imageQ, image, p
       image,
       priceQ,
       bedBathQ,
-      sqftq
+      sqftQ
     }
   }
 }

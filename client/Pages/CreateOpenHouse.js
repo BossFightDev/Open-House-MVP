@@ -97,7 +97,7 @@ class CreateOpenHouse extends Component {
       image = this.state.fields[1][0].uri,
       priceQ = this.state.fields[1][1].value,
       bedBathQ = this.state.fields[1][2].value,
-      sqftq = this.state.fields[1][3].value;
+      sqftQ = this.state.fields[1][3].value;
     this.props.addQuestions(
       phoneQ,
       agentQ,
@@ -107,7 +107,7 @@ class CreateOpenHouse extends Component {
       image,
       priceQ,
       bedBathQ,
-      sqftq
+      sqftQ
     );
   };
 
