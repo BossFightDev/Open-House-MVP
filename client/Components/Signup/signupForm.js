@@ -87,36 +87,36 @@ class SignUpForm extends Component {
         </View>
         <View style={this.props.styles.inputContainer}>
           <View style={this.props.styles.innerContainer}>
-          <CustomText>Name</CustomText>
-          <TextInput
-            style={[this.props.styles.input, { borderColor: userBorder }]}
-            onFocus={() => this.onFocus("user")}
-            onBlur={() => this.onBlur("user")}
-            onChangeText={name => this.setState({ name })}
-            value={this.state.name}
-          />
+            <CustomText>Name</CustomText>
+            <TextInput
+              style={[this.props.styles.input, { borderColor: userBorder }]}
+              onFocus={() => this.onFocus("user")}
+              onBlur={() => this.onBlur("user")}
+              onChangeText={name => this.setState({ name })}
+              value={this.state.name}
+            />
           </View>
           <View style={this.props.styles.innerContainer}>
-          <CustomText>E-mail Address</CustomText>
-          <TextInput
-            style={[this.props.styles.input, { borderColor: emailBorder }]}
-            onFocus={() => this.onFocus("email")}
-            onBlur={() => this.onBlur("email")}
-            onChangeText={email => this.setState({ email })}
-            value={this.state.email}
-          />
+            <CustomText>E-mail Address</CustomText>
+            <TextInput
+              style={[this.props.styles.input, { borderColor: emailBorder }]}
+              onFocus={() => this.onFocus("email")}
+              onBlur={() => this.onBlur("email")}
+              onChangeText={email => this.setState({ email })}
+              value={this.state.email}
+            />
           </View>
           {
             this.props.questions.phoneQ ?
               <View style={this.props.styles.innerContainer}>
-              <CustomText>Phone Number</CustomText>
-              <TextInput
-                style={[this.props.styles.input, { borderColor: phoneBorder }]}
-                onFocus={() => this.onFocus("phone")}
-                onBlur={() => this.onBlur("phone")}
-                onChangeText={phoneNumber => this.setState({ phoneNumber })}
-                value={this.state.phoneNumber}
-              />
+                <CustomText>Phone Number</CustomText>
+                <TextInput
+                  style={[this.props.styles.input, { borderColor: phoneBorder }]}
+                  onFocus={() => this.onFocus("phone")}
+                  onBlur={() => this.onBlur("phone")}
+                  onChangeText={phoneNumber => this.setState({ phoneNumber })}
+                  value={this.state.phoneNumber}
+                />
               </View> : null
           }
 

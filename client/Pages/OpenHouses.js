@@ -60,15 +60,15 @@ class App extends Component {
       <View style={[styles.container, StyleSheet.absoluteFill]}>
         <Logo style={styles.logoContainer} logoStyle={styles.logo} />
         <View style={styles.rightSide}>
-        <SearchBar
-          findProperty={this.props.findProperty}
-          showModal={this._showModal}
-          appState={this.props.appState}
-        />
-        <POHContainer
-          user={this.props.user}
-          navigation={this.props.navigation}
-        />
+          <SearchBar
+            findProperty={this.props.findProperty}
+            showModal={this._showModal}
+            appState={this.props.appState}
+          />
+          <POHContainer
+            user={this.props.user}
+            navigation={this.props.navigation}
+          />
         </View>
         <Modal
           isVisible={this.props.appState.showModal}

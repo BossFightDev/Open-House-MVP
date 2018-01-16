@@ -150,7 +150,7 @@ export const landscape = StyleSheet.create({
     margin: '2%',
     color: '#454545',
   },
-  addHashtag: {
+  hashtagInput: {
     fontStyle: 'italic',
     width: "100%",
     paddingTop: "2.5%",
@@ -163,17 +163,14 @@ export const landscape = StyleSheet.create({
     marginBottom: '2.5%'
   },
   hashtagContainer: {
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
+    width: "95%",
+    maxHeight: "95%",
     backgroundColor: "white",
-    alignItems: "center",
-    // top: 0,
+    padding: '5%',
   },
-  hashtagSecondaryContainer: {
-    width: "80%",
-    height: "80%",
-    // justifyContent: "space-between",
+  hashtagInputContainer: {
+    width: "100%",
+    alignItems: 'flex-start',
   },
   hashtagButton: {
     width: "25%",
@@ -352,7 +349,7 @@ export const portrait = StyleSheet.create({
     margin: '2%',
     color: '#454545',
   },
-  addHashtag: {
+  hashtagInput: {
     fontStyle: 'italic',
     width: "100%",
     paddingTop: "2.5%",
@@ -365,17 +362,15 @@ export const portrait = StyleSheet.create({
     marginBottom: '2.5%'
   },
   hashtagContainer: {
-    width: "100%",
-    height: "80%",
-    justifyContent: "center",
+    // alignSelf: 'flex-start',
+    width: "95%",
+    maxHeight: "95%",
     backgroundColor: "white",
-    alignItems: "stretch",
-    // top: 0,
+    padding: '5%',
   },
-  hashtagSecondaryContainer: {
-    width: "80%",
-    height: "80%",
-    // justifyContent: "space-between",
+  hashtagInputContainer: {
+    width: "100%",
+    alignItems: 'flex-start',
   },
   hashtagButton: {
     width: "25%",

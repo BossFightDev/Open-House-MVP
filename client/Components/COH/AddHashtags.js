@@ -43,17 +43,17 @@ class AddHashtags extends Component {
     const { hashtags } = this.state;
     return hashtags.map((hashtag, i) => {
       return (
-        <KeyboardAvoidingView
+        <View
           key={i.toString()}
-          style={styles.hashtagSecondaryContainer}
+          style={styles.hashtagInputContainer}
         >
           <TextInput
-            style={styles.addHashtag}
+            style={styles.hashtagInput}
             placeholder="Enter hashtag"
             onChangeText={text => this.onChange(text, i)}
             value={this.state.hashtags[i]}
           />
-        </KeyboardAvoidingView>
+        </View>
       );
     });
   }
@@ -65,22 +65,22 @@ class AddHashtags extends Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={{ width: '100%', height: '80%' }}>
-        <View style={styles.hashtagContainer}>
-          {/* <View> */}
+      <View style={styles.hashtagContainer}>
+        <ScrollView
+          bounces={false}
+        >
             {this.addHashtag()}
-            <TouchableOpacity
-              style={styles.hashtagButton}
-              onPress={this.addInput}
-              underlayColor="#fff"
-            >
-              <CustomText font="bold" style={styles.hashtagFont}>
-                Add Another
-              </CustomText>
-            </TouchableOpacity>
-          {/* </View> */}
-        </View>
-      </ScrollView>
+        </ScrollView>
+        <TouchableOpacity
+          style={styles.hashtagButton}
+          onPress={() => this.addInput()}
+          underlayColor="#fff"
+        >
+          <CustomText font="bold" style={styles.hashtagFont}>
+            Add Another
+          </CustomText>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
