@@ -35,7 +35,7 @@ export const landscape = StyleSheet.create({
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
   },
   cardContainer: {
-    position: 'absolute', width: '95%', height: '25%', bottom: 0, 
+    position: 'absolute', width: '95%', height: '25%', bottom: 0,
   },
   card: {
     width:'100%', height: '95%', backgroundColor: 'rgba(0, 0, 0, 0.6)', justifyContent: 'center',
@@ -77,7 +77,7 @@ export const landscape = StyleSheet.create({
     flexDirection: 'column'
   },
   realtorInfo: {
-    flexDirection: 'row' 
+    flexDirection: 'row'
   },
   realtorName: {
     color: 'white', fontSize: 14
@@ -86,13 +86,13 @@ export const landscape = StyleSheet.create({
     color: 'white', fontSize: 12
   },
   company: {
-    color: 'white', fontSize: 12 
+    color: 'white', fontSize: 12
   },
   contactInfo: {
     flexDirection: 'row'
   },
   phoneNumber: {
-    color: 'white', fontSize: 12, marginRight: '5%' 
+    color: 'white', fontSize: 12, marginRight: '5%'
   },
   email: {
     color: 'white', fontSize: 12
@@ -208,13 +208,13 @@ export const portrait = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
   },
   exitIcon: {
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
   },
   cardContainer: {
-    position: 'absolute', width: '96%', height: '45%', bottom: 0, 
+    position: 'absolute', width: '96%', height: '45%', bottom: 0,
   },
   card: {
     width:'100%', height: '95%', backgroundColor: 'rgba(0, 0, 0, 0.6)', justifyContent: 'center',
@@ -256,7 +256,7 @@ export const portrait = StyleSheet.create({
     flexDirection: 'column'
   },
   realtorInfo: {
-    flexDirection: 'row' 
+    flexDirection: 'row'
   },
   realtorName: {
     color: 'white', fontSize: 10
@@ -265,32 +265,32 @@ export const portrait = StyleSheet.create({
     color: 'white', fontSize: 10
   },
   company: {
-    color: 'white', fontSize: 10 
+    color: 'white', fontSize: 10
   },
   contactInfo: {
     flexDirection: 'row'
   },
   phoneNumber: {
-    color: 'white', fontSize: 10, marginRight: '5%' 
+    color: 'white', fontSize: 10, marginRight: '5%'
   },
   email: {
     color: 'white', fontSize: 10
   },
   input: {
     width: '100%',
-    height: '100%',
+    height: '60%',
     backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 3,
-    paddingLeft: 10,
-    marginBottom: '1.5%',
+    // paddingLeft: 10,
+    // marginBottom: '1.5%',
   },
   inputContainer: {
-    width: "90%",
-    height: '100%',
+    // width: "100%",
+    // height: '100%',
     flex: 1,
-    alignSelf: 'center',
-    paddingBottom: '5%'
+    // alignSelf: 'center',
+    // padding: '2%'
   },
   // input: {
   //   width: '100%',
@@ -312,7 +312,8 @@ export const portrait = StyleSheet.create({
   innerContainer: {
     borderWidth: 3,
     borderColor: 'green',
-    height: '15%'
+    height: '15%',
+    marginBottom: '1%',
   },
   realEstateContainer: {
     borderWidth: 3,
@@ -326,7 +327,7 @@ export const portrait = StyleSheet.create({
     marginBottom: '5%',
   },
   animated: {
-    
+
   },
   headerText: {
     color: '#424242',

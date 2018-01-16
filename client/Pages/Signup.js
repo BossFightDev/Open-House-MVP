@@ -6,7 +6,7 @@ import Submitted from "../Components/Signup/submitted";
 import SignupForm from "../Components/Signup/signupForm";
 import CreatePin from "../Components/Signup/CreatePin";
 import HouseDisplay from "../Components/Signup/houseDisplay";
-import { portrait, landscape } from "./Style/Signup-Styles";
+import { portrait, landscape } from "./Style/signup-style";
 import { connect } from 'react-redux'
 
 const { height, width } = Dimensions.get("window");
