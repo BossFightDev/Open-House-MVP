@@ -83,6 +83,7 @@ class ChooseImage extends Component {
               />
               
             </View>
+            <View style={styles.buttonWrapper}>
             <View style={styles.buttonContainer}>
               <Button arrow="left" 
                 onPress={this.onLeftPress}
@@ -95,6 +96,7 @@ class ChooseImage extends Component {
                 title="Choose an image from Device"
                 color="#454545"
               /> */}
+            </View>
             </View>
           </View>
         </Modal>
@@ -154,27 +156,27 @@ class ChooseImage extends Component {
 
 const styles = StyleSheet.create({
   modal: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
     padding: 0
   },
-  modalContainer: {
-    flex: 1,
+  modalContainer: { // need to change for mobile currently too tall and too narrow
     justifyContent: "center",
     alignItems: "center",
-    height: "80%",
-    width: "60%",
-    borderWidth: 1,
+    height: "60%",
+    width: "55%",
+    borderWidth: 2,
     borderRadius: 4,
     borderColor: "#DDDDDD",
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    padding: 0
   },
   imageContainer: {
     justifyContent: "center",
     alignItems: "center",
     flex: 3,
-    width: '80%'
+    width: '95%'
   },
   displayImageContainer: {
     justifyContent: "flex-start",
@@ -182,10 +184,19 @@ const styles = StyleSheet.create({
     flex: 3,
     width: '50%'
   },
+  buttonWrapper: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 0,
+    width: '95%'
+
+  },
   buttonContainer: {
-    flexDirection: "row",
-    height: '10%'
-  }
+    flexDirection: 'row',
+    width: "100%",
+    justifyContent: 'flex-end',
+  },
 });
 
 const mapStateToProps = state => {

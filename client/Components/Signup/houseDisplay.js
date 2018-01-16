@@ -42,18 +42,24 @@ class HouseDisplay  extends Component {
               <CustomText style={this.props.styles.addressText} font='bold' >{this.props.property.address}</CustomText>
             </View>
             <View style={this.props.styles.detailsContainer}>
-              <CustomText style={this.props.styles.priceText} font='bold'>
-                {this.props.property.price}
-              </CustomText>
+              {
+                this.props.questions.priceQ &&
+                 <CustomText style={this.props.styles.priceText} font='bold'>
+                 {this.props.property.price}
+               </CustomText>
+              }
+             {
+              this.props.questions.bedBathQ &&
               <CustomText style={this.props.styles.bedsText} font='bold'>
-                {this.props.property.beds} beds
+                {this.props.property.beds} beds   {this.props.property.baths} baths
               </CustomText>
-              <CustomText style={this.props.styles.bathsText} font='bold'>
-                {this.props.property.baths} baths
-              </CustomText>
+             }
+             {
+               this.props.questions.sqftQ &&
               <CustomText style={this.props.styles.sqftText} font='bold'>
                 {this.props.property.sqft} sqft
               </CustomText>
+             }
             </View>
             <View style={this.props.styles.realtorDetailsContainer}>
               <View style={this.props.styles.realtorDetails}>

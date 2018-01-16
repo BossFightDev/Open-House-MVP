@@ -67,7 +67,7 @@ class SignUpForm extends Component {
   render() {
     const options = ["Yes", "No"];
 
-    const data = [{ value: "Option One" }, { value: "Option Two" }];
+    const data = [{ value: "Google" }, { value: "Facebook" }, { value: "Email" }];
 
     let agent = this.state.realEstateAgent === "Yes" ? true : false;
     let userBorder = this.state.userFocused ? "blue" : "gray";

@@ -276,11 +276,16 @@ export const portrait = StyleSheet.create({
     alignItems:'stretch',
   },
   questionText: {
+    flex: 3,
+    borderWidth: 3,
     maxWidth: '90%',
     padding: '1%',
     flexWrap: 'wrap'
   },
   switch: {
+    flex: 1,
+    borderWidth: 3,
+    borderColor: 'coral',
     marginRight: '1%',
     flexWrap: 'wrap'
   },
