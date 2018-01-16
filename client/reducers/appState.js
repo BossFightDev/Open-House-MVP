@@ -1,14 +1,18 @@
-import { AUTHENTICATE_USER,  TOGGLE_MODAL, PROPERTY_FOUND, IMAGE_MODAL_ON, IMAGE_MODAL_OFF, ORIENTATION_PORTRAIT, ORIENTATION_LANDSCAPE} from '../actions';
+import { AUTHENTICATE_USER,  TOGGLE_MODAL, PROPERTY_FOUND, IMAGE_MODAL_ON, IMAGE_MODAL_OFF, ORIENTATION_PORTRAIT, ORIENTATION_LANDSCAPE, ERROR_FOUND} from '../actions';
 const questions = require('../Assets/fields')
 const init = {
   portrait: true,
   showModal: false,
   imageModal: false,
-  orientation: "landscape"
+  orientation: "landscape",
+  errorMessage: "",
 }
 
 export default (state = init, action) => {
   switch (action.type) {
+    case 'ERROR_FOUND': {
+      return Object.assign({}, state, action.payload)
+    }
     case 'ORIENTATION_LANDSCAPE':
       return Object.assign({}, state, {orientation: "landscape"})
     case 'ORIENTATION_PORTRAIT':

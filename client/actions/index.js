@@ -16,8 +16,9 @@ export const ADD_HASHTAGS = 'ADD_HASHTAGS';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const IMAGE_MODAL_ON = 'IMAGE_MODAL_ON';
 export const IMAGE_MODAL_OFF = 'IMAGE_MODAL_OFF';
-export const CREATE_PIN = 'CREATE_PIN'
-export const CONFIRM_PIN = 'CONFIRM_PIN'
+export const CREATE_PIN = 'CREATE_PIN';
+export const CONFIRM_PIN = 'CONFIRM_PIN';
+export const ERROR_FOUND = 'ERROR_FOUND';
 
 export const createPin = (pin) => {
   return {
@@ -73,13 +74,23 @@ export const findProperty = (MLS, modal) => {
     axios.post(`${SERVER_URL}/findProperty`, { MLS })
       .then((data) => {
         console.log(`Successfully got response from findProperty`)
-        dispatch({
-          type: 'PROPERTY_FOUND',
-          payload: data.data.property
-        })
+        if(data.data.property.address){
+          dispatch({
+            type: 'PROPERTY_FOUND',
+            payload: data.data.property
+          })
         return;
+        }
+        dispatch({
+          type: 'ERROR_FOUND',
+          payload: {errorMessage: 'No property found try another MLS'}
+        })
       })
       .catch(() => {
+        dispatch({
+          type: 'ERROR_FOUND',
+          payload: {errorMessage: 'No property found try another MLS'}
+        })
         console.log('Error in findProperty action somewhere')
       })
   }
