@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { View, Text, TextInput, Button, TouchableOpacity, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  TouchableOpacity,
+  Dimensions,
+  ScrollView,
+  KeyboardAvoidingView,
+} from "react-native";
 import CustomText from "../CustomText";
 import { landscape, portrait } from "../../Pages/Style/create-open-style.js";
 
@@ -34,14 +43,17 @@ class AddHashtags extends Component {
     const { hashtags } = this.state;
     return hashtags.map((hashtag, i) => {
       return (
-        <View key={i.toString()}>
+        <KeyboardAvoidingView
+          key={i.toString()}
+          style={styles.hashtagSecondaryContainer}
+        >
           <TextInput
             style={styles.addHashtag}
             placeholder="Enter hashtag"
             onChangeText={text => this.onChange(text, i)}
             value={this.state.hashtags[i]}
           />
-        </View>
+        </KeyboardAvoidingView>
       );
     });
   }
@@ -53,9 +65,9 @@ class AddHashtags extends Component {
 
   render() {
     return (
-      <View style={styles.hashtagContainer}>
-        <View style={styles.hashtagSecondaryContainer}>
-          <View>
+      <ScrollView contentContainerStyle={{ width: '100%', height: '80%' }}>
+        <View style={styles.hashtagContainer}>
+          {/* <View> */}
             {this.addHashtag()}
             <TouchableOpacity
               style={styles.hashtagButton}
@@ -66,9 +78,9 @@ class AddHashtags extends Component {
                 Add Another
               </CustomText>
             </TouchableOpacity>
-          </View>
+          {/* </View> */}
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

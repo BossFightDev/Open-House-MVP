@@ -163,17 +163,17 @@ export const landscape = StyleSheet.create({
     marginBottom: '2.5%'
   },
   hashtagContainer: {
-    width: "95%",
-    height: "50%",
+    width: "100%",
+    height: "100%",
     justifyContent: "center",
     backgroundColor: "white",
     alignItems: "center",
-    top: 0,
+    // top: 0,
   },
   hashtagSecondaryContainer: {
-    width: "95%",
+    width: "80%",
     height: "80%",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
   hashtagButton: {
     width: "25%",
@@ -271,6 +271,7 @@ export const portrait = StyleSheet.create({
     marginTop: '2%'
   },
   fields: {
+    width: '100%',
     flex: 3,
     flexDirection: 'row',
     alignItems:'stretch',
@@ -364,17 +365,17 @@ export const portrait = StyleSheet.create({
     marginBottom: '2.5%'
   },
   hashtagContainer: {
-    width: "95%",
-    height: "50%",
+    width: "100%",
+    height: "80%",
     justifyContent: "center",
     backgroundColor: "white",
-    alignItems: "center",
-    top: 0,
+    alignItems: "stretch",
+    // top: 0,
   },
   hashtagSecondaryContainer: {
-    width: "95%",
+    width: "80%",
     height: "80%",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
   hashtagButton: {
     width: "25%",
