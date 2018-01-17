@@ -25,25 +25,28 @@ export const landscape = StyleSheet.create({
   },
   inputContainer: {
     width: "100%",
-    height: 45
+    height: '20%',
+    marginBottom: '17%',
   },
   input: {
-    marginTop: 2,
-    paddingLeft: "5%",
-    height: 50,
+    padding: "5%",
     width: "100%",
     backgroundColor: "white",
-    borderRadius: 2
+    borderRadius: 2,
+    marginBottom: '1.5%',
+  },
+  buttonContainer: {
+    width: '100%',
   },
   button: {
     width: "100%",
-    height: 50,
+    height: '25%',
     borderRadius: 2,
-    marginBottom: 10,
-    marginTop: 15,
     backgroundColor: "#25AAFB",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: '1%',
+    padding: '11.5%',
   },
   buttonText: {
     color: "white",
@@ -69,15 +72,14 @@ export const portrait = StyleSheet.create({
   logo: {
     width: "50%",
     height: "10%",
-    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center"
   },
   loginContainer: {
     width: "50%",
-    height: "35%",
+    height: "40%",
     justifyContent: "space-around",
-    alignContent: "center"
+    alignContent: "center",
   },
   inputTitle: {
     color: "white",
@@ -85,23 +87,28 @@ export const portrait = StyleSheet.create({
   },
   inputContainer: {
     width: "100%",
-    height: 35
+    height: '20%',
+    marginBottom: '17%',
   },
   input: {
-    marginTop: 2,
-    height: 35,
-    paddingLeft: "5%",
+    padding: "5%",
     width: "100%",
     backgroundColor: "white",
-    borderRadius: 2
+    borderRadius: 2,
+    marginBottom: '1.5%',
+  },
+  buttonContainer: {
+    width: '100%',
   },
   button: {
     width: "100%",
-    height: 35,
+    height: '25%',
     borderRadius: 2,
     backgroundColor: "#25AAFB",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: '1%',
+    padding: '11.5%',
   },
   buttonText: {
     color: "#fff",
@@ -112,6 +119,6 @@ export const portrait = StyleSheet.create({
     color: "white",
     fontSize: 10,
     alignSelf: "center",
-    marginTop: 15
+    marginTop: '5%',
   }
 });

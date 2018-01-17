@@ -47,15 +47,12 @@ class Login extends Component {
         <Image source={require("../Assets/logo.png")} style={styles.logo} />
         <View style={styles.loginContainer}>
           <View style={styles.inputContainer}>
-            {/* <Text style={styles.inputTitle}>Username</Text> */}
             <CustomText style={styles.inputTitle}>Username</CustomText>
             <TextInput
               style={styles.input}
               onChangeText={username => this.setState({ username })}
               value={this.state.username}
             />
-          </View>
-          <View style={styles.inputContainer}>
             <CustomText style={styles.inputTitle}>Password</CustomText>
             <TextInput
               style={styles.input}
@@ -82,23 +79,6 @@ class Login extends Component {
             <CustomText style={styles.text}>Forgot Password</CustomText>
           </View>
         </View>
-        {/* <Button
-          onPress={
-            () => {
-              const validated = authenticateUser(true); // <~~ change this to true or false
-              if (validated.authenticate) this.props.navigation.navigate('OpenHouses')
-            }}
-          title='Login'
-          color='black'
-          /> 
-        <Button
-          onPress={
-            () => {this.props.navigation.navigate('PastOpenHouses')}}
-          title='POH'
-          color='purple'
-        />
-        <Text>Forgot Password</Text>
-        <Text> {this.props.authenticated} </Text> */}
       </KeyboardAvoidingView>
     );
   }
