@@ -2,16 +2,6 @@
 
 This app allows real estate agents to host open house events and generate leads from potential home buyers. 
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development.
-
-### Installing
-
-```
-$ npm i open-house-mvp --save
-```
-
 ## Built With
 
 * [React Native](https://facebook.github.io/react-native/) - The framework used
