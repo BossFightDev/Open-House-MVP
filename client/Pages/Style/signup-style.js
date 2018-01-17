@@ -181,6 +181,14 @@ export const landscape = StyleSheet.create({
     textAlign: 'center',
     margin: '2%',
   },
+  signupContainer: {
+    width: '50%',
+    maxHeight: '95%',
+    margin: '1%',
+    padding: '1%',
+    borderWidth: 2,
+    borderColor: 'pink'
+  },
 })
 
 export const portrait = StyleSheet.create({
@@ -209,6 +217,7 @@ export const portrait = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
+    padding: '2%',
   },
   exitIcon: {
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
@@ -278,56 +287,29 @@ export const portrait = StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: '60%',
     backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 3,
-    // paddingLeft: 10,
-    // marginBottom: '1.5%',
+    padding: '2.5%',
   },
-  inputContainer: {
-    // width: "100%",
-    // height: '100%',
-    flex: 1,
-    // alignSelf: 'center',
-    // padding: '2%'
-  },
-  // input: {
-  //   width: '100%',
-  //   flex: 1,
-  //   backgroundColor: 'white',
-  //   borderWidth: 1,
-  //   borderRadius: 3,
-  //   paddingLeft: 10,
-  //   marginBottom: '5%',
-  // },
   // inputContainer: {
-  //   height: "100%",
-  //   width: "80%",
-  //   alignSelf: 'center',
-  //   borderWidth: 3,
-  //   borderColor: 'blue',
-  //   justifyContent: 'space-around'
+  //   flex: 1,
   // },
   innerContainer: {
     borderWidth: 3,
     borderColor: 'green',
-    height: '15%',
     marginBottom: '1%',
   },
   realEstateContainer: {
     borderWidth: 3,
     borderColor: 'orange',
-    height: '25%'
+    marginBottom: '1%',
   },
   titleContainer: {
     top: 0,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '5%',
-  },
-  animated: {
-
   },
   headerText: {
     color: '#424242',
@@ -372,5 +354,13 @@ export const portrait = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: '0.5%',
+  },
+  signupContainer: {
+    width: '95%',
+    maxHeight: '55%',
+    margin: '1%',
+    padding: '1%',
+    borderWidth: 2,
+    borderColor: 'pink'
   },
 })
