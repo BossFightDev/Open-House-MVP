@@ -1,64 +1,75 @@
 import { StyleSheet } from "react-native";
 export const landscape = StyleSheet.create({
   screen: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: '100%',
-    width: '100%',
+    display: "flex",
+    flexDirection: "row",
+    height: "100%",
+    width: "100%"
   },
   sidebar: {
-    width: '25%',
-    backgroundColor: '#454545',
+    width: "25%",
+    backgroundColor: "#454545",
     // padding: 20,
-    flex: 1,
+    flex: 1
     // backgroundColor:'#454545',
     // alignItems: 'stretch',
     // width: '25%',
   },
+  chooseImageButton: {
+    width: "25%",
+    backgroundColor: "#DDDDDD",
+    paddingTop: "2.5%",
+    paddingBottom: "2.5%",
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center"
+  },
   logoContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     width: "100%",
     height: "17%"
   },
   logo: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     width: "80%",
-    height: "55%",
+    height: "55%"
   },
   stageContainer: {
     width: "100%",
     height: "66%",
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: "space-around",
+    alignItems: "center"
   },
   stageWrapper: {
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: "space-around",
+    alignItems: "center",
     width: "100%",
-    height: "80%",
+    height: "80%"
   },
   stageCard: {
-    alignItems: 'center',
+    alignItems: "center",
     flex: 1,
-    backgroundColor: '#454545'
+    backgroundColor: "#454545"
   },
   addressCard: {
     flex: 1,
     width: "100%",
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(51, 51, 51, .7)'
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(51, 51, 51, .7)"
   },
   addressContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
   MLSContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
   },
   icon: {
     // width: "10%",
@@ -66,32 +77,32 @@ export const landscape = StyleSheet.create({
   },
   MLSText: {
     fontSize: 16,
-    color: '#999999'
+    color: "#999999"
   },
   addressText: {
     fontSize: 12,
-    color: 'white'
+    color: "white"
   },
   property: {
     fontSize: 10,
-    color: '#25AAFB',
-    marginTop: '5%'
+    color: "#25AAFB",
+    marginTop: "5%"
   },
   fields: {
     flex: 3,
-    flexDirection: 'row',
-    alignItems:'stretch',
+    flexDirection: "row",
+    alignItems: "stretch"
   },
   questionText: {
-    padding: '2%'
+    padding: "2%"
   },
   switch: {
-    marginRight: '2%'
+    marginRight: "2%"
   },
   innerButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   },
   buttonLeft: {
     width: "49%",
@@ -103,11 +114,10 @@ export const landscape = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: '2%'
-
+    marginLeft: "2%"
   },
   leftText: {
-    color: '#999999'
+    color: "#999999"
   },
   buttonRight: {
     width: "49%",
@@ -119,58 +129,56 @@ export const landscape = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: '2%'
+    marginLeft: "2%"
   },
   rightText: {
-    color: 'white'
+    color: "white"
   },
-  fieldsStage:{
-    display:'flex',
+  fieldsStage: {
+    display: "flex",
     flex: 1,
-    width: '100%',
+    width: "100%",
     // flexBasis: '15%',
-    alignItems: 'center'
-
+    alignItems: "center"
   },
   buttonWrapper: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
     flex: 0,
-    width: '95%'
-
+    width: "95%"
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     width: "100%",
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end"
   },
   titleStage: {
     fontSize: 20,
-    margin: '2%',
-    color: '#454545',
+    margin: "2%",
+    color: "#454545"
   },
   hashtagInput: {
-    fontStyle: 'italic',
+    fontStyle: "italic",
     width: "100%",
     paddingTop: "2.5%",
     paddingBottom: "2.5%",
-    paddingLeft: '2.5%',
+    paddingLeft: "2.5%",
     borderWidth: 1,
-    borderColor: '#DDDDDD',
+    borderColor: "#DDDDDD",
     borderRadius: 2,
     backgroundColor: "#F1F1F1",
-    marginBottom: '2.5%'
+    marginBottom: "2.5%"
   },
   hashtagContainer: {
     width: "95%",
     maxHeight: "95%",
     backgroundColor: "white",
-    padding: '5%',
+    padding: "5%"
   },
   hashtagInputContainer: {
     width: "100%",
-    alignItems: 'flex-start',
+    alignItems: "flex-start"
   },
   hashtagButton: {
     width: "25%",
@@ -184,71 +192,114 @@ export const landscape = StyleSheet.create({
     alignItems: "center"
   },
   hashtagFont: {
-    color: "#999999",
+    color: "#999999"
   },
+  modal: {
+    // flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 0
+  },
+  modalContainer: {
+    // need to change for mobile currently too tall and too narrow
+    justifyContent: "center",
+    alignItems: "center",
+    height: "60%",
+    width: "55%",
+    borderWidth: 2,
+    borderRadius: 4,
+    borderColor: "#DDDDDD",
+    backgroundColor: "#F1F1F1",
+    padding: 0
+  },
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 3,
+    width: "95%"
+  },
+  displayImageContainer: {
+    padding: "2%",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flex: 2,
+    width: "50%"
+  },
+  modalButtonWrapper: {
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 0,
+    width: "95%"
+  },
+  modalButtonContainer: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "flex-end"
+  }
 });
 
 export const portrait = StyleSheet.create({
   screen: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: '100%',
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    width: "100%"
   },
   sidebar: {
-    width: '100%',
-    backgroundColor: '#454545',
+    width: "100%",
+    backgroundColor: "#454545",
     // padding: 20,
-    flex: 1,
+    flex: 1
     // backgroundColor:'#454545',
     // alignItems: 'stretch',
     // width: '25%',
   },
   logoContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     width: "100%",
     height: "50%"
   },
   logo: {
-    width: '35%',
-    height: '55%'
+    width: "35%",
+    height: "55%"
   },
   stageContainer: {
-    display: 'none',
+    display: "none",
     width: "0%",
     height: "0%",
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: "space-around",
+    alignItems: "center"
   },
   stageWrapper: {
-    display: 'none',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    display: "none",
+    justifyContent: "space-around",
+    alignItems: "center",
     width: "0%",
-    height: "0%",
+    height: "0%"
   },
   stageCard: {
-    display: 'none',
-    alignItems: 'center',
+    display: "none",
+    alignItems: "center",
     flex: 0,
-    backgroundColor: '#454545'
+    backgroundColor: "#454545"
   },
   addressCard: {
     flex: 1,
     width: "100%",
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(51, 51, 51, .7)'
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(51, 51, 51, .7)"
   },
   addressContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
   MLSContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
   },
   icon: {
     // width: "10%",
@@ -256,41 +307,36 @@ export const portrait = StyleSheet.create({
   },
   MLSText: {
     fontSize: 16,
-    color: '#999999'
+    color: "#999999"
   },
   addressText: {
     fontSize: 12,
-    color: 'white'
+    color: "white"
   },
   property: {
     fontSize: 10,
-    color: '#25AAFB',
-    marginTop: '2%'
+    color: "#25AAFB",
+    marginTop: "2%"
   },
   fields: {
-    width: '100%',
+    width: "100%",
     flex: 3,
-    flexDirection: 'row',
-    alignItems:'stretch',
+    flexDirection: "row",
+    alignItems: "stretch"
   },
   questionText: {
-    flex: 3,
-    borderWidth: 3,
-    maxWidth: '90%',
-    padding: '1%',
-    flexWrap: 'wrap'
+    flex: 4,
+    padding: "1%",
+    paddingRight: "10%",
+    flexWrap: "wrap"
   },
   switch: {
-    flex: 1,
-    borderWidth: 3,
-    borderColor: 'coral',
-    marginRight: '1%',
-    flexWrap: 'wrap'
+    flex: 1
   },
   innerButton: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
   },
   buttonLeft: {
     width: "49%",
@@ -301,10 +347,10 @@ export const portrait = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#fff",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   leftText: {
-    color: '#999999'
+    color: "#999999"
   },
   buttonRight: {
     width: "49%",
@@ -316,67 +362,65 @@ export const portrait = StyleSheet.create({
     borderColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    alignSelf: 'flex-end',
-    marginLeft: '2%'
+    alignSelf: "flex-end",
+    marginLeft: "2%"
   },
   rightText: {
-    color: 'white'
+    color: "white"
   },
   fieldsStage: {
-    display:'flex',
+    display: "flex",
     flex: 1,
-    width: '100%',
-    justifyContent: 'center',
+    width: "100%",
+    justifyContent: "center",
     // flexBasis: '15%',
-    alignItems: 'center'
-
+    alignItems: "center"
   },
   buttonWrapper: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
     flex: 0,
-    width: '95%'
-
+    width: "95%"
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     width: "100%",
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end"
   },
   titleStage: {
     fontSize: 20,
-    margin: '2%',
-    color: '#454545',
+    margin: "2%",
+    color: "#454545"
   },
   hashtagInput: {
-    fontStyle: 'italic',
+    fontStyle: "italic",
     width: "100%",
     paddingTop: "2.5%",
     paddingBottom: "2.5%",
-    paddingLeft: '2.5%',
+    paddingLeft: "2.5%",
     borderWidth: 1,
-    borderColor: '#DDDDDD',
+    borderColor: "#DDDDDD",
     borderRadius: 2,
     backgroundColor: "#F1F1F1",
-    marginBottom: '2.5%'
+    marginBottom: "2.5%"
   },
   hashtagContainer: {
     // alignSelf: 'flex-start',
     width: "95%",
     maxHeight: "95%",
     backgroundColor: "white",
-    padding: '5%',
+    padding: "5%"
   },
   hashtagInputContainer: {
     width: "100%",
-    alignItems: 'flex-start',
+    alignItems: "flex-start"
   },
   hashtagButton: {
-    width: "25%",
+    width: "35%",
     backgroundColor: "#DDDDDD",
-    paddingTop: "2.5%",
-    paddingBottom: "2.5%",
+    paddingTop: "2%",
+    paddingBottom: "2%",
     borderRadius: 2,
     borderWidth: 1,
     borderColor: "#fff",
@@ -384,6 +428,61 @@ export const portrait = StyleSheet.create({
     alignItems: "center"
   },
   hashtagFont: {
-    color: "#999999",
+    color: "#999999"
   },
+  modal: {
+    // flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 0
+  },
+  modalContainer: {
+    // need to change for mobile currently too tall and too narrow
+    justifyContent: "center",
+    alignItems: "center",
+    height: "50%",
+    maxHeight: "40%",
+    width: "90%",
+    borderWidth: 2,
+    borderRadius: 4,
+    borderColor: "#DDDDDD",
+    backgroundColor: "#F1F1F1",
+    padding: 0
+  },
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 3,
+    width: "95%"
+  },
+  displayImageContainer: {
+    padding: "2%",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    flex: 2,
+    width: "50%"
+  },
+  modalButtonWrapper: {
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 0,
+    width: "95%"
+  },
+  modalButtonContainer: {
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "flex-end"
+  },
+  chooseImageButton: {
+    width: "30%",
+    backgroundColor: "#DDDDDD",
+    paddingTop: "1%",
+    paddingBottom: "1%",
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });

@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const landscape = StyleSheet.create({
-  container:{ 
+  container: {
     flex: 1,
-    flexDirection: 'row',
-    height: '100%',
-    width: '100%'
+    flexDirection: "row",
+    height: "100%",
+    width: "100%"
   },
   logoContainer: {
     flex: 1,
@@ -21,25 +21,23 @@ export const landscape = StyleSheet.create({
     width: "70%"
   },
   logo: {
-    resizeMode: 'contain',
+    resizeMode: "contain",
     width: "80%"
   },
   leadsContainer: {
     flex: 1,
     padding: "3%"
   },
-  dateAddressContainer:{
+  dateAddressContainer: {
     flexDirection: "row",
     marginTop: "4%",
     marginBottom: "3%",
     justifyContent: "space-between"
   },
-  dateAddressLeft:{
-
-  },
+  dateAddressLeft: {},
   dateAddressRight: {
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "flex-end"
   },
   buttonContainer1: {
     marginLeft: "1.5%",
@@ -70,71 +68,71 @@ export const landscape = StyleSheet.create({
   labelContainer: {
     flexDirection: "row",
     backgroundColor: "#555555",
-    padding: "2%",
+    padding: "2%"
   },
   labelName: {
     color: "white",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   labelEmail: {
     color: "white",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   labelPhone: {
     color: "white",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   labelAgent: {
     color: "white",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   labelSource: {
     color: "white",
     fontSize: 12,
-    width: "10%",
+    width: "10%"
   },
   leadContainer: {
     flexDirection: "row",
     backgroundColor: "white",
     padding: "2%",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   leadName: {
     color: "#454545",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   leadEmail: {
     color: "#454545",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   leadPhone: {
     color: "#454545",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   leadAgent: {
     color: "#454545",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   leadSource: {
     color: "#454545",
     fontSize: 12,
-    width: "10%",
-  },
-})
+    width: "10%"
+  }
+});
 
 export const portrait = StyleSheet.create({
-  container:{ 
+  container: {
     flex: 1,
-    height: '100%',
-    width: '100%'
+    height: "100%",
+    width: "100%"
   },
   logoContainer: {
     flex: 1,
@@ -142,7 +140,7 @@ export const portrait = StyleSheet.create({
     height: "20%",
     width: "100%",
     alignItems: "center",
-    padding: "5%",
+    padding: "5%"
   },
   contentContainer: {
     backgroundColor: "#F1F1F1",
@@ -150,31 +148,29 @@ export const portrait = StyleSheet.create({
     width: "100%"
   },
   logo: {
-    resizeMode: 'contain',
+    resizeMode: "contain",
     width: "80%"
   },
   leadsContainer: {
     flex: 1,
-    padding: "1%",
+    padding: "1%"
   },
-  dateAddressContainer:{
+  dateAddressContainer: {
     padding: "2%",
     height: "30%",
     flexDirection: "column",
     // marginTop: "4%",
     marginBottom: "3%",
-    justifyContent: "space-around",
+    justifyContent: "space-around"
     // borderWidth: 4,
     // borderColor: "orange"
   },
-  dateAddressLeft:{
-
-  },
+  dateAddressLeft: {},
   dateAddressRight: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     height: "50%",
-    flexDirection: "row",
+    flexDirection: "row"
     // borderWidth: 2,
     // borderColor: 'tomato'
   },
@@ -185,10 +181,10 @@ export const portrait = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: "#89C541",
     borderRadius: 2,
-    height: 45,
+    height: 45
   },
   buttonContainer2: {
-    flex:1,
+    flex: 1,
     marginLeft: "1.5%",
     paddingTop: 10,
     paddingBottom: 5,
@@ -207,62 +203,62 @@ export const portrait = StyleSheet.create({
   labelContainer: {
     flexDirection: "row",
     backgroundColor: "#555555",
-    padding: "1%",
+    padding: "1%"
   },
   labelName: {
     color: "white",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   labelEmail: {
     color: "white",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   labelPhone: {
     color: "white",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   labelAgent: {
     color: "white",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   labelSource: {
     color: "white",
     fontSize: 12,
-    width: "10%",
+    width: "10%"
   },
   leadContainer: {
     flexDirection: "row",
     backgroundColor: "white",
     padding: "2%",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   leadName: {
     color: "#454545",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   leadEmail: {
     color: "#454545",
     fontSize: 12,
-    width: "25%",
+    width: "25%"
   },
   leadPhone: {
     color: "#454545",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   leadAgent: {
     color: "#454545",
     fontSize: 12,
-    width: "20%",
+    width: "20%"
   },
   leadSource: {
     color: "#454545",
     fontSize: 12,
-    width: "10%",
-  },
-})
+    width: "10%"
+  }
+});

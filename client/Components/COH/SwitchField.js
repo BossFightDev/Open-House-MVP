@@ -16,18 +16,19 @@ if (aspectRatio > 1.6) {
   changeScreenOrientation();
 }
 const SwitchField = props => {
-  const color = props.value? 'white' : "rgba(1,1,1,0)";
-  const textColor = props.value? '#454545' : '#797979'
+  const color = props.value ? "white" : "rgba(1,1,1,0)";
+  const textColor = props.value ? "#454545" : "#797979";
   return (
-    <View style={[props.style, {backgroundColor: color}]}>
-      <CustomText font="bold" style={[styles.questionText, {color: textColor}]}>
+    <View style={[props.style, { backgroundColor: color }]}>
+      <CustomText
+        font="bold"
+        style={[styles.questionText, { color: textColor }]}
+      >
         {props.question}
       </CustomText>
-      <Switch
-        value={props.value}
-        onValueChange={props.onChange}
-        style={styles.switch}
-      />
+      <View style={styles.switch}>
+        <Switch value={props.value} onValueChange={props.onChange} />
+      </View>
     </View>
   );
 };

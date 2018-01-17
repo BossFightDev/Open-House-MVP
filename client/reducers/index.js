@@ -1,15 +1,14 @@
-import { combineReducers } from 'redux';
-import stateReducer from './appState';
-import leadsReducer from './leads';
-import propertyReducer from './property';
-import userReducer from './user';
-import questionsReducer from './questions';
-import openHouseReducer from './openHouse';
-import pinReducer from './pinReducer'
-import houseImageReducer from './houseImageReducer';
+import { combineReducers } from "redux";
+import stateReducer from "./appState";
+import leadsReducer from "./leads";
+import propertyReducer from "./property";
+import userReducer from "./user";
+import questionsReducer from "./questions";
+import openHouseReducer from "./openHouse";
+import pinReducer from "./pinReducer";
+import houseImageReducer from "./houseImageReducer";
 
-
-export default rootReducer = combineReducers({
+export default (rootReducer = combineReducers({
   appState: stateReducer,
   questions: questionsReducer,
   property: propertyReducer,
@@ -18,5 +17,4 @@ export default rootReducer = combineReducers({
   openHouse: openHouseReducer,
   pin: pinReducer,
   houseImage: houseImageReducer
-  
-})
+}));

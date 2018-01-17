@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView
 } from "react-native";
-import CheckBox  from 'react-native-checkbox';
+import CheckBox from "react-native-checkbox";
 import { SegmentedControls } from "react-native-radio-buttons";
 import { Dropdown } from "react-native-material-dropdown";
 import CustomText from "../CustomText";
@@ -32,7 +32,7 @@ class SignUpForm extends Component {
       phoneFocused: false,
       agentFocused: false,
       source: "",
-      checked: false,
+      checked: false
     };
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
@@ -42,9 +42,16 @@ class SignUpForm extends Component {
     const { name, email, source } = this.state;
     const phone = this.state.phoneNumber;
     const agent = this.state.agentName;
-    console.log('Adding lead?')
+    console.log("Adding lead?");
     axios
-      .post(`${SERVER_URL}/addlead`,{ openHouseId, name, email, phone, agent, source })
+      .post(`${SERVER_URL}/addlead`, {
+        openHouseId,
+        name,
+        email,
+        phone,
+        agent,
+        source
+      })
       .then(data => console.log(`successfully added a lead: ${data}`))
       .catch(() => console.log("Failed adding a lead somewhere"));
     this.props.handleSubmit();
@@ -67,7 +74,11 @@ class SignUpForm extends Component {
   render() {
     const options = ["Yes", "No"];
 
-    const data = [{ value: "Google" }, { value: "Facebook" }, { value: "Email" }];
+    const data = [
+      { value: "Google" },
+      { value: "Facebook" },
+      { value: "Email" }
+    ];
 
     let agent = this.state.realEstateAgent === "Yes" ? true : false;
     let userBorder = this.state.userFocused ? "blue" : "gray";
@@ -106,33 +117,32 @@ class SignUpForm extends Component {
               value={this.state.email}
             />
           </View>
-          {
-            this.props.questions.phoneQ ?
-              <View style={this.props.styles.innerContainer}>
-                <CustomText>Phone Number</CustomText>
-                <TextInput
-                  style={[this.props.styles.input, { borderColor: phoneBorder }]}
-                  onFocus={() => this.onFocus("phone")}
-                  onBlur={() => this.onBlur("phone")}
-                  onChangeText={phoneNumber => this.setState({ phoneNumber })}
-                  value={this.state.phoneNumber}
-                />
-              </View> : null
-          }
-          {
-            this.props.questions.agentQ ?
+          {this.props.questions.phoneQ ? (
+            <View style={this.props.styles.innerContainer}>
+              <CustomText>Phone Number</CustomText>
+              <TextInput
+                style={[this.props.styles.input, { borderColor: phoneBorder }]}
+                onFocus={() => this.onFocus("phone")}
+                onBlur={() => this.onBlur("phone")}
+                onChangeText={phoneNumber => this.setState({ phoneNumber })}
+                value={this.state.phoneNumber}
+              />
+            </View>
+          ) : null}
+          {this.props.questions.agentQ ? (
             <View style={this.props.styles.realEstateContainer}>
               <CustomText>
                 Are you currently working with a Real Estate Agent?
               </CustomText>
               <View
                 style={{
-                  marginTop: '5%',
+                  marginTop: "5%",
                   flexDirection: "column",
                   flex: 1,
-                  width: '100%'
-                }}>
-                <View style={{marginBottom: "5%",}}>
+                  width: "100%"
+                }}
+              >
+                <View style={{ marginBottom: "5%" }}>
                   <SegmentedControls
                     options={options}
                     onSelection={selectedOption =>
@@ -147,7 +157,7 @@ class SignUpForm extends Component {
                     this.props.styles.input,
                     {
                       backgroundColor: agent ? "white" : "darkgray",
-                      borderColor: agentBorder,
+                      borderColor: agentBorder
                     }
                   ]}
                   onFocus={() => this.onFocus("agent")}
@@ -156,45 +166,47 @@ class SignUpForm extends Component {
                   value={this.state.agentName}
                 />
               </View>
-            </View> : null
-          }
-          {
-            this.props.questions.suggestQ ?
+            </View>
+          ) : null}
+          {this.props.questions.suggestQ ? (
             <View
-              style={
-                [
-                  this.props.styles.innerContainer,
-                  {flexDirection: 'row'}
-                ]
-            }>
-              <CheckBox label=''
+              style={[
+                this.props.styles.innerContainer,
+                { flexDirection: "row" }
+              ]}
+            >
+              <CheckBox
+                label=""
                 checked={this.state.checked}
                 value={true}
-                onChange={()=> this.setState({checked: !this.state.checked})}
-                checkboxStyle={{backgroundColor: 'white',borderColor: '#DDDDDD'}}
-                containerStyle={{ marginRight: '2%'}}
+                onChange={() => this.setState({ checked: !this.state.checked })}
+                checkboxStyle={{
+                  backgroundColor: "white",
+                  borderColor: "#DDDDDD"
+                }}
+                containerStyle={{ marginRight: "2%" }}
               />
               <CustomText>
-                Would you be interested in seeing other properties like this one?
+                Would you be interested in seeing other properties like this
+                one?
               </CustomText>
-            </View> : null
-          }
-          {
-            this.props.questions.sourceQ ?
-              <View style={this.props.styles.innerContainer}>
-                <Dropdown
-                  label="Where did you hear about this open house?"
-                  value="Select One"
-                  onChangeText={value => this.setState({ openHouse: value })}
-                  data={data}
-                />
-              </View> : null
-          }
+            </View>
+          ) : null}
+          {this.props.questions.sourceQ ? (
+            <View style={this.props.styles.innerContainer}>
+              <Dropdown
+                label="Where did you hear about this open house?"
+                value="Select One"
+                onChangeText={value => this.setState({ openHouse: value })}
+                data={data}
+              />
+            </View>
+          ) : null}
           <TouchableOpacity
             style={this.props.styles.button}
             onPress={() => this.onSubmit(this.props.openHouse._id)}
           >
-            <CustomText style={{ color: "white",}} font="bold">
+            <CustomText style={{ color: "white" }} font="bold">
               SUBMIT
             </CustomText>
           </TouchableOpacity>

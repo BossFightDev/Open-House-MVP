@@ -7,12 +7,26 @@ import {
   Image,
   Switch,
   TouchableOpacity,
+  Dimensions,
   StyleSheet
 } from "react-native";
 import CustomText from "../CustomText";
 import { toggleImageModal, setHouseImage } from "../../actions/index";
 import Button from "../Button";
-
+import { landscape, portrait } from "../../Pages/Style/create-open-style";
+// SET PROPER STYLING IF LANDSCAPE OR PORTRAIT
+const { height, width } = Dimensions.get("window");
+const aspectRatio = height / width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+};
+let styles;
+if (aspectRatio > 1.6) {
+  styles = portrait;
+} else {
+  styles = landscape;
+  changeScreenOrientation();
+}
 class ChooseImage extends Component {
   constructor(props) {
     super(props);
@@ -21,39 +35,38 @@ class ChooseImage extends Component {
     };
   }
   onLeftPress = () => {
-    if(this.props.property.images.length <= 1) return;
-    if(this.state.position === 0) {
+    if (this.props.property.images.length <= 1) return;
+    if (this.state.position === 0) {
       this.setState({
         position: this.props.property.images.length - 1
-      })
+      });
     } else {
-      let newPosition = this.state.position
-      newPosition--
+      let newPosition = this.state.position;
+      newPosition--;
       this.setState({
         position: newPosition
-      })
+      });
     }
-  }
+  };
   onRightPress = () => {
-    if(this.props.property.images.length <= 1) return;
-    if(this.state.position === this.props.property.images.length - 1) {
+    if (this.props.property.images.length <= 1) return;
+    if (this.state.position === this.props.property.images.length - 1) {
       this.setState({
         position: 0
-      })
+      });
     } else {
-      let newPosition = this.state.position
-      newPosition++
+      let newPosition = this.state.position;
+      newPosition++;
       this.setState({
         position: newPosition
-      })
+      });
     }
-  }
+  };
   render() {
     return (
       <View
-        style={{flex: 20,
-          borderWidth: 3,
-          borderColor: "blue",
+        style={{
+          flex: 20,
           backgroundColor: "white",
           width: "95%",
           // height: "100%",
@@ -70,82 +83,85 @@ class ChooseImage extends Component {
             "landscape-right"
           ]}
           style={styles.modal}
-          onBackdropPress={()=>this.props.toggleImageModal('OFF')}
+          onBackdropPress={() => this.props.toggleImageModal("OFF")}
         >
           <View style={styles.modalContainer}>
-              <TouchableOpacity
-                style={styles.imageContainer}
-                onPress={()=>
-                  {
-                    this.props.setImage(this.state.position)
-                    this.props.toggleImageModal('OFF')
-                  }
-                }
-              >
+            <TouchableOpacity
+              style={styles.imageContainer}
+              onPress={() => {
+                this.props.setImage(this.state.position);
+                this.props.toggleImageModal("OFF");
+              }}
+            >
               <Image
                 source={{
                   uri: this.props.property.images[this.state.position]
                 }}
-                style={{ flex: 1, resizeMode: 'contain', width: '100%'}}
+                style={{ flex: 1, resizeMode: "contain", width: "100%" }}
               />
-              </TouchableOpacity>
-            <View style={styles.buttonWrapper}>
-            <View style={styles.buttonContainer}>
-              <Button arrow="left" 
-                onPress={this.onLeftPress}
-              />
-              <Button arrow="right" 
-                onPress={this.onRightPress}
-              />
-              {/* <Button
+            </TouchableOpacity>
+            <View style={styles.modalButtonWrapper}>
+              <View style={styles.modalButtonContainer}>
+                <Button arrow="left" onPress={this.onLeftPress} />
+                <Button arrow="right" onPress={this.onRightPress} />
+                {/* <Button
                 onPress={this._pickImage}
                 title="Choose an image from Device"
                 color="#454545"
               /> */}
-            </View>
+              </View>
             </View>
           </View>
         </Modal>
         <View
           style={{
             flex: 1,
-            borderWidth: 3,
-            borderColor: "green",
             width: "95%",
-            height: "80%",
+            height: "80%"
           }}
         >
-          <View style={{flexDirection: 'row',justifyContent:'space-between', borderWidth: 5}}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingTop: "2%",
+              paddingBottom: "2%"
+            }}
+          >
             <CustomText font="bold">{this.props.question}</CustomText>
             <Switch
               value={this.props.value}
               onValueChange={this.props.onChange}
-              style={{alignSelf: 'flex-end'}}
+              style={{ alignSelf: "flex-end" }}
             />
           </View>
-          <View style={{ alignItems: "center",flex: 1, flexDirection:'row', justifyContent: "center" }}>
-          <View style={[styles.displayImageContainer, {borderWidth: 3}]}>
-              
-              <Image
-                source={{
-                  uri: this.props.image
-                }}
-                style={{ flex: 1, alignSelf: 'flex-start', resizeMode: 'contain', width: '100%'}}
-              />
-              
+          <View
+            style={{
+              alignItems: "center",
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "center"
+            }}
+          >
+            <View style={[styles.displayImageContainer]}>
+              <View
+                style={{ flex: 1, width: "30%", justifyContent: "flex-start" }}
+              >
+                <Image
+                  source={{
+                    uri: this.props.image
+                  }}
+                  style={{
+                    flex: 1,
+                    alignSelf: "flex-start",
+                    resizeMode: "contain",
+                    width: "100%"
+                  }}
+                />
+              </View>
             </View>
             <TouchableOpacity
-              style={{
-                width: "25%",
-                backgroundColor: "#DDDDDD",
-                paddingTop: "2.5%",
-                paddingBottom: "2.5%",
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: "#fff",
-                justifyContent: "center",
-                alignItems: "center"
-              }}
+              style={styles.chooseImageButton}
               onPress={() => this.props.toggleImageModal("ON")}
               underlayColor="#fff"
             >
@@ -160,63 +176,17 @@ class ChooseImage extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  modal: {
-    // flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 0
-  },
-  modalContainer: { // need to change for mobile currently too tall and too narrow
-    justifyContent: "center",
-    alignItems: "center",
-    height: "60%",
-    width: "55%",
-    borderWidth: 2,
-    borderRadius: 4,
-    borderColor: "#DDDDDD",
-    backgroundColor: "#F1F1F1",
-    padding: 0
-  },
-  imageContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 3,
-    width: '95%'
-  },
-  displayImageContainer: {
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    flex: 3,
-    width: '50%'
-  },
-  buttonWrapper: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 0,
-    width: '95%'
-
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    width: "100%",
-    justifyContent: 'flex-end',
-  },
-});
-
 const mapStateToProps = state => {
   return {
     appState: state.appState,
     property: state.property,
-    questions: state.questions,
-    houseImage: state.houseImage.uri
+    questions: state.questions
   };
 };
 
 const mapDispatchToProps = {
-    setHouseImage,
-    toggleImageModal
-}
+  setHouseImage,
+  toggleImageModal
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChooseImage);

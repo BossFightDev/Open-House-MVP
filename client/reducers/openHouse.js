@@ -1,7 +1,5 @@
 import OPENHOUSE_ADDED from "../actions";
 
-
-
 export default (state = {}, action) => {
   switch (action.type) {
     case "OPENHOUSE_ADDED":
