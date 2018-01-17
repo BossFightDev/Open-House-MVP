@@ -75,7 +75,6 @@ class CreateOpenHouse extends Component {
       sideBarStages: stages,
       fields: Fields,
       titles: titleStages
-
     };
     this.switchStateChange = this.switchStateChange.bind(this);
     this.activeStageChange = this.activeStageChange.bind(this);
@@ -130,15 +129,15 @@ class CreateOpenHouse extends Component {
     fields[1][0].uri = this.props.property.images[0];
     this.setState({
       fields: fields
-    })
+    });
   }
-  setImage = (index) => {
+  setImage = index => {
     const fields = this.state.fields;
     fields[1][0].uri = this.props.property.images[index];
     this.setState({
       fields: fields
-    })
-  }
+    });
+  };
   render() {
     // console.log(JSON.stringify(this.props.user))
     const PivotingFields = this.state.fields.map((field, i) => {
@@ -187,7 +186,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     property: state.property,
     user: state.user,
-    appState: state.appState,
+    appState: state.appState
   };
 };
 

@@ -1,9 +1,7 @@
-import Button from './Button';
-import TitleClose from './TitleClose';
+import Button from "./Button";
+import TitleClose from "./TitleClose";
 
-
-
-export default components ={
+export default (components = {
   Button,
-  TitleClose,
-}
+  TitleClose
+});

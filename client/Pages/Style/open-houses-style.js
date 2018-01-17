@@ -17,12 +17,12 @@ export const landscape = StyleSheet.create({
     // height: 65
   },
   rightSide: {
-    flexDirection: 'column',
-    width: '50%'
+    flexDirection: "column",
+    width: "50%"
   },
   openHouseContainer: {
     backgroundColor: "#F1F1F1",
-    height: "16%",
+    height: "16%"
   },
   headerContainer: {
     paddingLeft: "5%",
@@ -36,7 +36,7 @@ export const landscape = StyleSheet.create({
     alignItems: "center",
     width: "90%",
     height: "90%",
-    
+
     borderWidth: 4
   },
   title: {
@@ -58,7 +58,7 @@ export const landscape = StyleSheet.create({
     height: 45,
     backgroundColor: "white",
     fontSize: 14,
-    paddingLeft: '5%',
+    paddingLeft: "5%",
     borderWidth: 1,
     borderRadius: 2,
     borderColor: "#DDDDDD"
@@ -81,20 +81,19 @@ export const landscape = StyleSheet.create({
     fontSize: 14
   },
   POHContainer: {
-    height: '85%',
-    width: '100%',
+    height: "85%",
+    width: "100%"
   },
   list: {
-    height: '84%',
+    height: "84%"
   },
   listTextContainer: {
     flexDirection: "row",
     paddingTop: "5%",
     paddingBottom: "2.5%",
     justifyContent: "space-between",
-    paddingLeft: '5%',
-    paddingRight: '5%',
-
+    paddingLeft: "5%",
+    paddingRight: "5%"
   },
   listTitle: {
     fontSize: 16
@@ -212,8 +211,7 @@ export const landscape = StyleSheet.create({
   modalButtonsContainer: {
     flexDirection: "row",
     width: "100%",
-    height: 90,
-
+    height: 90
   },
   modalConfirmButton: {
     alignSelf: "center",
@@ -258,7 +256,7 @@ export const landscape = StyleSheet.create({
 // THIS IS STYLED FOR PORTRAIT MODE
 export const portrait = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
     // height: "100%",
     // width: "100%"
   },
@@ -270,11 +268,11 @@ export const portrait = StyleSheet.create({
     alignItems: "center"
   },
   logo: {
-    width: '52.5%',
-    height: '70%'
+    width: "52.5%",
+    height: "70%"
   },
   rightSide: {
-    height: '85%',
+    height: "85%",
     flex: 1
   },
   openHouseContainer: {
@@ -286,12 +284,11 @@ export const portrait = StyleSheet.create({
     flex: 1,
     borderBottomWidth: 1,
     borderBottomColor: "#DDDDDD",
-    padding: '5%'
-    
+    padding: "5%"
   },
   title: {
     flex: 1,
-    fontSize: 14,
+    fontSize: 14
   },
   searchBarContainer: {
     flexDirection: "row",
@@ -301,14 +298,14 @@ export const portrait = StyleSheet.create({
     flex: 2.5,
     width: "67%",
     height: 35,
-    paddingLeft: '5%',
+    paddingLeft: "5%",
     backgroundColor: "white",
     borderRadius: 2,
-    fontSize: 10,
+    fontSize: 10
   },
   buttonContainer: {
     flex: 1,
-    marginLeft: '1%',
+    marginLeft: "1%",
     paddingTop: 10,
     paddingBottom: 5,
     backgroundColor: "#25AAFB",
@@ -325,18 +322,18 @@ export const portrait = StyleSheet.create({
     fontSize: 12
   },
   POHContainer: {
-    height: '80%',
-    width: '100%',
+    height: "80%",
+    width: "100%"
   },
   list: {
-    height: '90%',
+    height: "90%"
   },
   listTextContainer: {
     flexDirection: "row",
     width: "90%",
     alignSelf: "center",
-    paddingTop: '5%',
-    height: '10%',
+    paddingTop: "5%",
+    height: "10%",
     justifyContent: "space-between"
   },
   listTitle: {},
@@ -350,7 +347,7 @@ export const portrait = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 1,
     flex: 1,
-    marginBottom: '5%',
+    marginBottom: "5%",
     borderColor: "#DDDDDD"
   },
   imageContainer: {
@@ -368,8 +365,7 @@ export const portrait = StyleSheet.create({
     height: "25%",
     justifyContent: "center",
     alignItems: "center",
-    padding: '3%'
-    
+    padding: "3%"
   },
   infoContainer: {
     width: "90%",
@@ -385,7 +381,7 @@ export const portrait = StyleSheet.create({
     textAlign: "left"
   },
   guestCountContainer: {
-    justifyContent: "center",
+    justifyContent: "center"
   },
   guestCount: {
     color: "#25AAFB",
@@ -463,7 +459,7 @@ export const portrait = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    height: '38%',
+    height: "38%"
   },
   modalConfirmButton: {
     alignSelf: "center",

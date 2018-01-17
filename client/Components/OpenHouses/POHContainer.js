@@ -39,50 +39,45 @@ class POHContainer extends Component {
           </CustomText>
         </View>
         {/* <View style={styles.list}> */}
-          <FlatList
-            style={styles.list}
-            data={this.props.user.openHouses}
-            keyExtractor={(item, index) => index}
-            renderItem={({ item, index }) => (
-                <TouchableOpacity
-                  style={styles.POHItem}
-                  onPress={() => {
-                    this.props.navigation.navigate("PastOpenHouses", {
-                      lead: this.props.user.openHouses[index]
-                    });
-                  }}
-                >
-                  <View style={styles.imageContainer}
-                  >
-                    <Image
-                      style={styles.POHItemImage}
-                      source={{ uri: `${item.image}` }}
-                    />
+        <FlatList
+          style={styles.list}
+          data={this.props.user.openHouses.slice().reverse()}
+          keyExtractor={(item, index) => index}
+          renderItem={({ item, index }) => (
+            <TouchableOpacity
+              style={styles.POHItem}
+              onPress={() => {
+                this.props.navigation.navigate("PastOpenHouses", {
+                  lead: this.props.user.openHouses[index]
+                });
+              }}
+            >
+              <View style={styles.imageContainer}>
+                <Image
+                  style={styles.POHItemImage}
+                  source={{ uri: `${item.image}` }}
+                />
+              </View>
+              <View style={styles.infoWrapper}>
+                <View style={styles.infoContainer}>
+                  <View style={styles.dateAddress}>
+                    <CustomText style={styles.date} font="bold">
+                      {dateTranslator(item.date)}
+                    </CustomText>
+                    <CustomText style={styles.address}>
+                      {item.property.address}
+                    </CustomText>
                   </View>
-                  <View style={styles.infoWrapper}
-                  >
-                    <View style={styles.infoContainer}
-                    >
-                      <View style={styles.dateAddress}
-                      >
-                        <CustomText style={styles.date} font="bold">
-                          {dateTranslator(item.date)}
-                        </CustomText>
-                        <CustomText style={styles.address}>
-                          {item.property.address}
-                        </CustomText>
-                      </View>
-                      <View style={styles.guestCountContainer}
-                      >
-                        <CustomText style={styles.guestCount} font="bold">
-                          {item.guests || 0}
-                        </CustomText>
-                      </View>
-                    </View>
+                  <View style={styles.guestCountContainer}>
+                    <CustomText style={styles.guestCount} font="bold">
+                      {item.guests || 0}
+                    </CustomText>
                   </View>
-                </TouchableOpacity>
-            )}
-          />
+                </View>
+              </View>
+            </TouchableOpacity>
+          )}
+        />
         {/* </View> */}
       </View>
     );

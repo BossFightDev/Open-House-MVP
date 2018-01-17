@@ -7,7 +7,7 @@ import SignupForm from "../Components/Signup/signupForm";
 import CreatePin from "../Components/Signup/CreatePin";
 import HouseDisplay from "../Components/Signup/houseDisplay";
 import { portrait, landscape } from "./Style/signup-style";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -46,8 +46,8 @@ class Signup extends Component {
   }
 
   exitingPage = () => {
-    this.setState({ exiting: !this.state.exiting })
-  }
+    this.setState({ exiting: !this.state.exiting });
+  };
 
   componentDidMount() {
     this.setState({ modalVisible: true });
@@ -76,7 +76,7 @@ class Signup extends Component {
   }
 
   render() {
-    console.log('pin: ' + JSON.stringify(this.props.pin))
+    console.log("pin: " + JSON.stringify(this.props.pin));
     return (
       <View style={styles.container}>
         <HouseDisplay
@@ -107,8 +107,7 @@ class Signup extends Component {
             navigation={this.props.navigation}
             styles={styles}
           />
-        ) :
-        this.state.launched && !this.state.confirmed ? (
+        ) : this.state.launched && !this.state.confirmed ? (
           <CreatePin
             exiting={this.state.exiting}
             exitingPage={this.exitingPage}
@@ -120,7 +119,9 @@ class Signup extends Component {
         ) : !this.state.visible ? (
           <SignupForm handleSubmit={this.handleSubmit} styles={styles} />
         ) : (
-          <Animated.View style={[{opacity: this.state.visibility},styles.animated]}>
+          <Animated.View
+            style={[{ opacity: this.state.visibility }, styles.animated]}
+          >
             <Submitted styles={styles} />
           </Animated.View>
         )}
@@ -132,7 +133,7 @@ class Signup extends Component {
 const mapStateToProps = state => {
   return {
     pin: state.pin
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, null)(Signup)
+export default connect(mapStateToProps, null)(Signup);

@@ -1,13 +1,14 @@
-import LOGGED_IN from '../actions'
-import LEADS_FOUND from '../actions'
+import LOGGED_IN from "../actions";
+import LEADS_FOUND from "../actions";
 
 const init = {
-  firstName: 'John',
-  lastName: 'Doe',
+  firstName: "John",
+  lastName: "Doe",
   phoneNumber: 5555559292,
-  company: 'Boss Fight Dev',
-  companyPicture: 'http://res.cloudinary.com/bossfight/image/upload/v1513200109/ybknnlqfa0pmwaztokcc.jpg',
-  email: 'wzrdjim@gmail.com',
+  company: "Boss Fight Dev",
+  companyPicture:
+    "http://res.cloudinary.com/bossfight/image/upload/v1513200109/ybknnlqfa0pmwaztokcc.jpg",
+  email: "wzrdjim@gmail.com",
   openHouses: [
     {
       image:
@@ -52,16 +53,15 @@ const init = {
       guests: 41
     }
   ]
-}
-
+};
 
 export default (state = init, action) => {
   switch (action.type) {
-    case 'LEADS_FOUND':
-      return Object.assign({}, state, action.payload)
-    case 'LOGGED_IN':
-      return Object.assign({}, state, action.payload)
+    case "LEADS_FOUND":
+      return Object.assign({}, state, action.payload);
+    case "LOGGED_IN":
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }
-}
+};

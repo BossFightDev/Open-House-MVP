@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import StageCard from "../../Components/COH/StageCard";
 import AddressCard from "../../Components/COH/AddressCard";
 import CustomText from "../../Components/CustomText";
@@ -73,6 +73,6 @@ class Sidebar extends Component {
 const mapStateToProps = state => {
   return {
     property: state.property
-  }
-}
-export default connect(mapStateToProps)(Sidebar)
+  };
+};
+export default connect(mapStateToProps)(Sidebar);

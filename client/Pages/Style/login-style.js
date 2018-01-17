@@ -29,7 +29,7 @@ export const landscape = StyleSheet.create({
   },
   input: {
     marginTop: 2,
-    paddingLeft: '5%',
+    paddingLeft: "5%",
     height: 50,
     width: "100%",
     backgroundColor: "white",
@@ -90,7 +90,7 @@ export const portrait = StyleSheet.create({
   input: {
     marginTop: 2,
     height: 35,
-    paddingLeft: '5%',
+    paddingLeft: "5%",
     width: "100%",
     backgroundColor: "white",
     borderRadius: 2
@@ -106,7 +106,6 @@ export const portrait = StyleSheet.create({
   buttonText: {
     color: "#fff",
     textAlign: "center",
-
     fontSize: 14
   },
   text: {

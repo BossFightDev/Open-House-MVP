@@ -19,7 +19,11 @@ class LaunchOptions extends Component {
           style={this.props.styles.launchButton}
           onPress={() => {
             this.props.toggleModal();
-            this.props.addOpenHouse(this.props.user._id, this.props.property._id, this.props.questions)
+            this.props.addOpenHouse(
+              this.props.user._id,
+              this.props.property._id,
+              this.props.questions
+            );
           }}
         >
           <CustomText font="bold" style={this.props.styles.launchText}>
