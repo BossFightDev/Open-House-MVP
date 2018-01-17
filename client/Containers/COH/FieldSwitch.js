@@ -68,7 +68,8 @@ class FieldSwitch extends Component {
             imageModal={this.props.appState.imageModal}
             value={this.props.value}
             onChange={this.onValueChange}
-            image={this.state.image}
+            image={this.props.image}
+            setImage={this.props.setImage}
             _pickImage={this._pickImage}
           />
         );

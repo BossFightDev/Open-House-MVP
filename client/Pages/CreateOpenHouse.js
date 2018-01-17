@@ -132,8 +132,15 @@ class CreateOpenHouse extends Component {
       fields: fields
     })
   }
+  setImage = (index) => {
+    const fields = this.state.fields;
+    fields[1][0].uri = this.props.property.images[index];
+    this.setState({
+      fields: fields
+    })
+  }
   render() {
-    console.log(JSON.stringify(this.props.user))
+    // console.log(JSON.stringify(this.props.user))
     const PivotingFields = this.state.fields.map((field, i) => {
       return (
         <Stage
@@ -147,6 +154,8 @@ class CreateOpenHouse extends Component {
           lastStage={this.state.fields.length - 1}
           onSubmitHashtags={this.onSubmitHashtags}
           onSubmitQuestions={this.onSubmitQuestions}
+          setImage={this.setImage}
+          image={this.state.fields[1][0].uri}
         />
       );
     });
