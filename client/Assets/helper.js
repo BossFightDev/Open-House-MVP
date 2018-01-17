@@ -1,4 +1,4 @@
-export default dateTranslator = (date) => {
+const dateTranslator = (date) => {
   const month = [
     "Jan",
     "Feb",
@@ -23,6 +23,32 @@ export default dateTranslator = (date) => {
   return result.join(' ');
 }
 
+const priceTranslator = (price) => {
+  return price.toLocaleString('en', { style: 'currency', currency: 'USD' })
+}
+
+const phoneTranslator = (phone) => {
+  let newPhone = phone.toString().split('');
+  const result = [];
+  for (let i = 0; i < newPhone.length; i++) {
+    if (i === 0) {
+      result.push('(' + newPhone[i]);
+    }
+    else if (i === 2) {
+      result.push(newPhone[i] + ')');
+    }
+    else if (i === 5) {
+      result.push(newPhone[i] + '-');
+    }
+    else {
+      result.push(newPhone[i]);
+    }
+  }
+  return result.join('');
+}
+
 module.exports = {
   dateTranslator: dateTranslator,
+  priceTranslator: priceTranslator,
+  phoneTranslator,
 }

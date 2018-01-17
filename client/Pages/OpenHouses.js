@@ -15,6 +15,7 @@ import { findProperty, findLeads, modalOff } from "../actions";
 import Logo from "../Components/OpenHouses/Logo";
 import SearchBar from "../Components/OpenHouses/SearchBar";
 import POHContainer from "../Components/OpenHouses/POHContainer";
+import { priceTranslator } from "../Assets/helper";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -93,7 +94,7 @@ class App extends Component {
                 </View>
                 <View style={styles.priceContainer}>
                   <CustomText style={styles.modalPrice} font="bold">
-                    {this.props.property.price}
+                    {priceTranslator(this.props.property.price)}
                   </CustomText>
                 </View>
               </View>
