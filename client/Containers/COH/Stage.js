@@ -106,6 +106,8 @@ export default class extends Component {
             switchIndex={i}
             switchChange={this.props.switchOnPress}
             style={styles.fieldsStage}
+            setImage={this.props.setImage}
+            image={this.props.image}
             />
         })}
         {this.buttonRenderer()}

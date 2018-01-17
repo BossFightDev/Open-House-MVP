@@ -77,7 +77,7 @@ class ChooseImage extends Component {
                 style={styles.imageContainer}
                 onPress={()=>
                   {
-                    this.props.setHouseImage({uri: this.props.property.images[this.state.position]})
+                    this.props.setImage(this.state.position)
                     this.props.toggleImageModal('OFF')
                   }
                 }
@@ -128,7 +128,7 @@ class ChooseImage extends Component {
               
               <Image
                 source={{
-                  uri: this.props.questions.image
+                  uri: this.props.image
                 }}
                 style={{ flex: 1, alignSelf: 'flex-start', resizeMode: 'contain', width: '100%'}}
               />

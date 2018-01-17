@@ -24,8 +24,8 @@ class Submitted extends Component {
             Enjoy your visit
           </CustomText>
         </View>
-        <View style={{ flex: 1, justifyContent: 'center',}}>
-          <Image source={{uri: this.props.user.companyPicture}} />
+        <View style={{ justifyContent: 'center', paddingTop: '20%', height: '50%', width: '75%', borderRadius: 3,}}>
+          <Image source={{uri: this.props.user.companyPicture}} style={{height: '100%', width: '100%'}} resizeMode='cover'/>
         </View>
       </View>
     )
