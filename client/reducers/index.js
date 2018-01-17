@@ -6,6 +6,7 @@ import userReducer from './user';
 import questionsReducer from './questions';
 import openHouseReducer from './openHouse';
 import pinReducer from './pinReducer'
+import houseImageReducer from './houseImageReducer';
 
 
 export default rootReducer = combineReducers({
@@ -16,4 +17,6 @@ export default rootReducer = combineReducers({
   leads: leadsReducer,
   openHouse: openHouseReducer,
   pin: pinReducer,
+  houseImage: houseImageReducer
+  
 })

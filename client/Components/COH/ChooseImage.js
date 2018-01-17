@@ -10,7 +10,7 @@ import {
   StyleSheet
 } from "react-native";
 import CustomText from "../CustomText";
-import { toggleImageModal } from "../../actions/index";
+import { toggleImageModal, setHouseImage } from "../../actions/index";
 import Button from "../Button";
 
 class ChooseImage extends Component {
@@ -27,7 +27,7 @@ class ChooseImage extends Component {
         position: this.props.property.images.length - 1
       })
     } else {
-      const newPosition = this.state.position
+      let newPosition = this.state.position
       newPosition--
       this.setState({
         position: newPosition
@@ -41,7 +41,7 @@ class ChooseImage extends Component {
         position: 0
       })
     } else {
-      const newPosition = this.state.position
+      let newPosition = this.state.position
       newPosition++
       this.setState({
         position: newPosition
@@ -73,16 +73,22 @@ class ChooseImage extends Component {
           onBackdropPress={()=>this.props.toggleImageModal('OFF')}
         >
           <View style={styles.modalContainer}>
-            <View style={styles.imageContainer}>
-              
+              <TouchableOpacity
+                style={styles.imageContainer}
+                onPress={()=>
+                  {
+                    this.props.setHouseImage({uri: this.props.property.images[this.state.position]})
+                    this.props.toggleImageModal('OFF')
+                  }
+                }
+              >
               <Image
                 source={{
                   uri: this.props.property.images[this.state.position]
                 }}
                 style={{ flex: 1, resizeMode: 'contain', width: '100%'}}
               />
-              
-            </View>
+              </TouchableOpacity>
             <View style={styles.buttonWrapper}>
             <View style={styles.buttonContainer}>
               <Button arrow="left" 
@@ -203,8 +209,14 @@ const mapStateToProps = state => {
   return {
     appState: state.appState,
     property: state.property,
-    questions: state.questions
+    questions: state.questions,
+    houseImage: state.houseImage.uri
   };
 };
 
-export default connect(mapStateToProps, { toggleImageModal })(ChooseImage);
+const mapDispatchToProps = {
+    setHouseImage,
+    toggleImageModal
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseImage);

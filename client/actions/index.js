@@ -194,6 +194,13 @@ export const toggleImageModal = (option) => {
   }
 }
 
+export const setHouseImage = (url) => {
+  return {
+    type: 'IMAGE_SELECTED',
+    payload: url
+  }
+}
+
 export const setOrientation = (orientation) => {
   return(dispatch) => {
     if (orientation === 'landscape') {
