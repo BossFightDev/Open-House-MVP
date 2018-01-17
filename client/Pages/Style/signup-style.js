@@ -29,7 +29,8 @@ export const landscape = StyleSheet.create({
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
+    padding: '2%',
   },
   exitIcon: {
     position: 'absolute', width: 100, height: 100, marginTop: '1%', left: 0, alignSelf: 'flex-start', top: 0
@@ -99,12 +100,10 @@ export const landscape = StyleSheet.create({
   },
   input: {
     width: '100%',
-    flex: 1,
     backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 3,
-    paddingLeft: 10,
-    marginBottom: '5%',
+    padding: '2.5%',
   },
   inputContainer: {
     height: "100%",
@@ -117,12 +116,12 @@ export const landscape = StyleSheet.create({
   innerContainer: {
     borderWidth: 3,
     borderColor: 'green',
-    height: '15%'
+    marginBottom: '1%',
   },
   realEstateContainer: {
     borderWidth: 3,
     borderColor: 'orange',
-    height: '25%'
+    marginBottom: '1%',
   },
   titleContainer: {
     top: 0,
