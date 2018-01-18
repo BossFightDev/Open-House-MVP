@@ -238,27 +238,27 @@ export const portrait = StyleSheet.create({
   },
   leadName: {
     color: "#454545",
-    fontSize: 12,
+    fontSize: 8,
     width: "25%"
   },
   leadEmail: {
     color: "#454545",
-    fontSize: 12,
+    fontSize: 8,
     width: "25%"
   },
   leadPhone: {
     color: "#454545",
-    fontSize: 12,
+    fontSize: 8,
     width: "20%"
   },
   leadAgent: {
     color: "#454545",
-    fontSize: 12,
+    fontSize: 8,
     width: "20%"
   },
   leadSource: {
     color: "#454545",
-    fontSize: 12,
-    width: "10%"
+    fontSize: 8,
+    width: "12%"
   }
 });

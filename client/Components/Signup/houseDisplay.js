@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { View, Image, TouchableOpacity } from "react-native";
 import CustomText from "../CustomText";
+import { priceTranslator, phoneTranslator } from "../../Assets/helper";
 
 class HouseDisplay extends Component {
   constructor() {
@@ -49,7 +50,7 @@ class HouseDisplay extends Component {
             <View style={this.props.styles.detailsContainer}>
               {this.props.questions.priceQ && (
                 <CustomText style={this.props.styles.priceText} font="bold">
-                  {this.props.property.price}
+                  {priceTranslator(this.props.property.price)}
                 </CustomText>
               )}
               {this.props.questions.bedBathQ && (
@@ -88,7 +89,7 @@ class HouseDisplay extends Component {
                   </CustomText>
                   <View style={this.props.styles.contactInfo}>
                     <CustomText style={this.props.styles.phoneNumber}>
-                      {this.props.user.phoneNumber}
+                      {phoneTranslator(this.props.user.phoneNumber)}
                     </CustomText>
                     <CustomText style={this.props.styles.email}>
                       {this.props.user.email}

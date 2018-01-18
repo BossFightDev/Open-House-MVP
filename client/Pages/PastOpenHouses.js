@@ -14,19 +14,21 @@ import {
   Dimensions
 } from "react-native";
 import { connect } from "react-redux";
-import { dateTranslator } from "../Assets/helper";
+import { dateTranslator, phoneTranslator } from "../Assets/helper";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
 const changeScreenOrientation = () => {
   Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
 };
+let mobile = true;
 let styles;
 if (aspectRatio > 1.6) {
   styles = portrait;
   console.log("IPHONE");
 } else {
   styles = landscape;
+  mobile = false;
   changeScreenOrientation();
   console.log("IPAD");
 }
@@ -98,18 +100,24 @@ export default class extends Component {
               <CustomText style={styles.labelAgent} font="bold">
                 AGENT
               </CustomText>
+              { mobile ?
+              <CustomText style={styles.labelSource} font="bold">
+                SRC
+              </CustomText> :
               <CustomText style={styles.labelSource} font="bold">
                 SOURCE
               </CustomText>
+              }
             </View>
             <FlatList
               style={{ height: "100%" }}
               data={state.params.lead.leads}
+              keyExtractor={(item, index) => index}
               renderItem={({ item }) => (
                 <View style={styles.leadContainer}>
                   <CustomText style={styles.leadName}>{item.name}</CustomText>
                   <CustomText style={styles.leadEmail}>{item.email}</CustomText>
-                  <CustomText style={styles.leadPhone}>{item.phone}</CustomText>
+                  <CustomText style={styles.leadPhone}>{item.phone && phoneTranslator(item.phone)}</CustomText>
                   <CustomText style={styles.leadAgent}>{item.agent}</CustomText>
                   <CustomText style={styles.leadSource}>
                     {item.source}
