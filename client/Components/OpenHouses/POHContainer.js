@@ -47,8 +47,9 @@ class POHContainer extends Component {
             <TouchableOpacity
               style={styles.POHItem}
               onPress={() => {
+                const lead = this.props.user.openHouses.reverse()
                 this.props.navigation.navigate("PastOpenHouses", {
-                  lead: this.props.user.openHouses[index]
+                  lead: lead[index]
                 });
               }}
             >
