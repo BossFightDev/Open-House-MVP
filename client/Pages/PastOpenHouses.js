@@ -21,12 +21,14 @@ const aspectRatio = height / width;
 const changeScreenOrientation = () => {
   Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
 };
+let mobile = true;
 let styles;
 if (aspectRatio > 1.6) {
   styles = portrait;
   console.log("IPHONE");
 } else {
   styles = landscape;
+  mobile = false;
   changeScreenOrientation();
   console.log("IPAD");
 }
@@ -98,9 +100,14 @@ export default class extends Component {
               <CustomText style={styles.labelAgent} font="bold">
                 AGENT
               </CustomText>
+              { mobile ?
+              <CustomText style={styles.labelSource} font="bold">
+                SRC
+              </CustomText> :
               <CustomText style={styles.labelSource} font="bold">
                 SOURCE
               </CustomText>
+              }
             </View>
             <FlatList
               style={{ height: "100%" }}
