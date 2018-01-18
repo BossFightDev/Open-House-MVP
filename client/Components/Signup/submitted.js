@@ -23,7 +23,7 @@ class Submitted extends Component {
           <Image
             source={{ uri: this.props.user.companyPicture }}
             style={{ height: "100%", width: "100%" }}
-            resizeMode="cover"
+            resizeMode="contain"
           />
         </View>
       </View>

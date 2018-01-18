@@ -14,7 +14,7 @@ import {
   Dimensions
 } from "react-native";
 import { connect } from "react-redux";
-import { dateTranslator } from "../Assets/helper";
+import { dateTranslator, phoneTranslator } from "../Assets/helper";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -105,11 +105,12 @@ export default class extends Component {
             <FlatList
               style={{ height: "100%" }}
               data={state.params.lead.leads}
+              keyExtractor={(item, index) => index}
               renderItem={({ item }) => (
                 <View style={styles.leadContainer}>
                   <CustomText style={styles.leadName}>{item.name}</CustomText>
                   <CustomText style={styles.leadEmail}>{item.email}</CustomText>
-                  <CustomText style={styles.leadPhone}>{item.phone}</CustomText>
+                  <CustomText style={styles.leadPhone}>{item.phone && phoneTranslator(item.phone)}</CustomText>
                   <CustomText style={styles.leadAgent}>{item.agent}</CustomText>
                   <CustomText style={styles.leadSource}>
                     {item.source}
