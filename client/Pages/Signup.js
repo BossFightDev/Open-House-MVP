@@ -26,6 +26,7 @@ if (aspectRatio > 1.6) {
   console.log("IPAD");
 }
 
+
 class Signup extends Component {
   constructor() {
     super();
@@ -76,7 +77,8 @@ class Signup extends Component {
   }
 
   render() {
-    console.log("pin: " + JSON.stringify(this.props.pin));
+    const { relaunch, index } = this.props.navigation.state.params
+    console.log(relaunch)
     return (
       <View style={styles.container}>
         <HouseDisplay
@@ -96,6 +98,7 @@ class Signup extends Component {
             navigation={this.props.navigation}
             toggleModal={this.toggleModal}
             styles={styles}
+            relaunch={relaunch}
           />
         </Modal>
         {this.state.exiting ? (
@@ -118,7 +121,11 @@ class Signup extends Component {
             styles={styles}
           />
         ) : !this.state.visible ? (
-          <SignupForm handleSubmit={this.handleSubmit} styles={styles} />
+          <SignupForm 
+            handleSubmit={this.handleSubmit} 
+            styles={styles} 
+            index={index}
+          />
         ) : (
           <Animated.View
             style={[{ opacity: this.state.visibility }, styles.animated]}

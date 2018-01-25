@@ -34,13 +34,12 @@ if (aspectRatio > 1.6) {
 }
 
 export default class extends Component {
-  constructor() {
+  constructor(props) {
     super();
   }
 
   render() {
-    const { state } = this.props.navigation;
-    console.log("PARAMS: " + JSON.stringify(state.params));
+    const { lead, index, relaunch } = this.props.navigation.state.params;
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
@@ -58,18 +57,18 @@ export default class extends Component {
             <View style={styles.dateAddressContainer}>
               <View style={styles.dateAddressLeft}>
                 <CustomText font="bold" style={{ color: "#454545" }}>
-                  {dateTranslator(state.params.lead.date)}
+                  {dateTranslator(lead.date)}
                 </CustomText>
                 <CustomText>
-                  {state.params.lead.property.address} -{" "}
-                  {state.params.lead.guests} guests
+                  {lead.property.address} -{" "}
+                  {lead.guests} guests
                 </CustomText>
               </View>
               <View style={styles.dateAddressRight}>
                 <TouchableOpacity
                   style={styles.buttonContainer1}
                   underlayColor="#fff"
-                  onPress={()=> state.params.relaunch(state.params.lead, this.props.navigation)}
+                  onPress={()=> relaunch(lead, this.props.navigation, index)}
                 >
                   <CustomText style={styles.buttonText} font="bold">
                     RELAUNCH
@@ -112,7 +111,7 @@ export default class extends Component {
             </View>
             <FlatList
               style={{ height: "100%" }}
-              data={state.params.lead.leads}
+              data={lead.leads}
               keyExtractor={(item, index) => index}
               renderItem={({ item }) => (
                 <View style={styles.leadContainer}>

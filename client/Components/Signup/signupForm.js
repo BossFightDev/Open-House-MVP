@@ -41,7 +41,9 @@ class SignUpForm extends Component {
   onSubmit = openHouseId => {
     const { name, email, source } = this.state;
     const phone = this.state.phoneNumber;
+    if(phone === "NotValid") return
     const agent = this.state.agentName;
+    const index = this.props.index
     console.log("Adding lead?");
     this.props.addLead(
         this.props.openHouse,
@@ -49,7 +51,8 @@ class SignUpForm extends Component {
         email,
         phone,
         agent,
-        source
+        source,
+        index
       )
     this.props.handleSubmit();
   };
@@ -64,7 +67,12 @@ class SignUpForm extends Component {
   onBlur(blurred) {
     if (blurred === "user") this.setState({ userFocused: false });
     else if (blurred === "email") this.setState({ emailFocused: false });
-    else if (blurred === "phone") this.setState({ phoneFocused: false });
+    else if (blurred === "phone"){
+      if(this.state.phoneNumber.length < 8) {
+        this.setState({phoneNumber: "NotValid", phoneFocused: false});
+      }
+      this.setState({ phoneFocused: false });
+      }
     else if (blurred === "agent") this.setState({ agentFocused: false });
   }
 
@@ -150,6 +158,8 @@ class SignUpForm extends Component {
                 </View>
                 <TextInput
                   editable={agent}
+                  keyboardType="numeric"
+                  maxLength={10}
                   style={[
                     this.props.styles.input,
                     {
@@ -194,7 +204,7 @@ class SignUpForm extends Component {
               <Dropdown
                 label="Where did you hear about this open house?"
                 value="Select One"
-                onChangeText={value => this.setState({ openHouse: value })}
+                onChangeText={value => this.setState({ source: value })}
                 data={data}
               />
             </View>

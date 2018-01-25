@@ -127,13 +127,13 @@ export const addOpenHouse = (openHouseQuestions, oldOpenHouses, propertyInfo) =>
   }
 }
 
-export const relaunch = (openHouse, navigation) => {
+export const relaunch = (openHouse, navigation, index) => {
   return dispatch =>{
     dispatch({
       type: RELAUNCH_OPENHOUSE,
       payload: openHouse
     })
-    navigation.navigate("Signup")
+    navigation.navigate("Signup", {relaunch: true, index})
   }
 } 
 

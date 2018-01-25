@@ -19,6 +19,7 @@ class LaunchOptions extends Component {
           style={this.props.styles.launchButton}
           onPress={() => {
             this.props.toggleModal();
+            !this.props.relaunch &&
             this.props.addOpenHouse(
               this.props.questions,
               this.props.openHouse.openHouses,

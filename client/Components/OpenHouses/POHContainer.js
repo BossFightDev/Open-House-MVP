@@ -51,7 +51,8 @@ class POHContainer extends Component {
                 this.props.navigation.navigate("PastOpenHouses", {
                   lead,
                   openHouse: item,
-                  relaunch: this.props.relaunch
+                  relaunch: this.props.relaunch,
+                  index
                 });
               }}
             >
