@@ -11,9 +11,9 @@ import { SegmentedControls } from "react-native-radio-buttons";
 import { Dropdown } from "react-native-material-dropdown";
 import CustomText from "../CustomText";
 import axios from "axios";
-import { SERVER_URL } from "../../actions";
+import { addLead } from "../../actions";
 import { connect } from "react-redux";
-axios.defaults.withCredentials = true;
+
 
 class SignUpForm extends Component {
   constructor() {
@@ -41,19 +41,19 @@ class SignUpForm extends Component {
   onSubmit = openHouseId => {
     const { name, email, source } = this.state;
     const phone = this.state.phoneNumber;
+    if(phone === "NotValid") return
     const agent = this.state.agentName;
+    const index = this.props.index
     console.log("Adding lead?");
-    axios
-      .post(`${SERVER_URL}/addlead`, {
-        openHouseId,
+    this.props.addLead(
+        this.props.openHouse,
         name,
         email,
         phone,
         agent,
-        source
-      })
-      .then(data => console.log(`successfully added a lead: ${data}`))
-      .catch(() => console.log("Failed adding a lead somewhere"));
+        source,
+        index
+      )
     this.props.handleSubmit();
   };
 
@@ -67,7 +67,12 @@ class SignUpForm extends Component {
   onBlur(blurred) {
     if (blurred === "user") this.setState({ userFocused: false });
     else if (blurred === "email") this.setState({ emailFocused: false });
-    else if (blurred === "phone") this.setState({ phoneFocused: false });
+    else if (blurred === "phone"){
+      if(this.state.phoneNumber.length < 8) {
+        this.setState({phoneNumber: "NotValid", phoneFocused: false});
+      }
+      this.setState({ phoneFocused: false });
+      }
     else if (blurred === "agent") this.setState({ agentFocused: false });
   }
 
@@ -153,6 +158,8 @@ class SignUpForm extends Component {
                 </View>
                 <TextInput
                   editable={agent}
+                  keyboardType="numeric"
+                  maxLength={10}
                   style={[
                     this.props.styles.input,
                     {
@@ -197,14 +204,14 @@ class SignUpForm extends Component {
               <Dropdown
                 label="Where did you hear about this open house?"
                 value="Select One"
-                onChangeText={value => this.setState({ openHouse: value })}
+                onChangeText={value => this.setState({ source: value })}
                 data={data}
               />
             </View>
           ) : null}
           <TouchableOpacity
             style={this.props.styles.button}
-            onPress={() => this.onSubmit(this.props.openHouse._id)}
+            onPress={() => this.onSubmit()}
           >
             <CustomText style={{ color: "white" }} font="bold">
               SUBMIT
@@ -224,4 +231,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(SignUpForm);
+export default connect(mapStateToProps, {addLead})(SignUpForm);

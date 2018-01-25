@@ -11,7 +11,7 @@ import {
   Dimensions
 } from "react-native";
 import { connect } from "react-redux";
-import { findProperty, findLeads, modalOff } from "../actions";
+import { findProperty, modalOff, relaunch } from "../actions";
 import Logo from "../Components/OpenHouses/Logo";
 import SearchBar from "../Components/OpenHouses/SearchBar";
 import POHContainer from "../Components/OpenHouses/POHContainer";
@@ -46,15 +46,7 @@ class App extends Component {
   _onLayout(e) {
     const { width, height } = Dimensions.get("window");
   }
-  _onClickLeads = userID => {
-    this.props.findLeads(userID);
-    this.props.navigation.navigate("PastOpenHouses");
-  };
-
-  componentDidMount() {
-    console.log(`User Id: ${this.props.user._id}`);
-    this.props.findLeads(this.props.user._id);
-  }
+ 
 
   render() {
     return (
@@ -67,8 +59,9 @@ class App extends Component {
             appState={this.props.appState}
           />
           <POHContainer
-            user={this.props.user}
+            openHouses={this.props.openHouse.openHouses}
             navigation={this.props.navigation}
+            relaunch={this.props.relaunch}
           />
         </View>
         <Modal
@@ -143,14 +136,15 @@ const mapStateToProps = state => {
   return {
     property: state.property,
     user: state.user,
+    openHouse: state.openHouse,
     appState: state.appState
   };
 };
 
 const mapDispatchToProps = {
   findProperty,
-  findLeads,
-  modalOff
+  modalOff,
+  relaunch
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

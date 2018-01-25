@@ -19,10 +19,11 @@ class LaunchOptions extends Component {
           style={this.props.styles.launchButton}
           onPress={() => {
             this.props.toggleModal();
+            !this.props.relaunch &&
             this.props.addOpenHouse(
-              this.props.user._id,
-              this.props.property._id,
-              this.props.questions
+              this.props.questions,
+              this.props.openHouse.openHouses,
+              this.props.property
             );
           }}
         >
@@ -49,8 +50,8 @@ class LaunchOptions extends Component {
 const mapStateToProp = state => {
   return {
     questions: state.questions,
-    property: state.property,
-    user: state.user
+    openHouse: state.openHouse,
+    property: state.property
   };
 };
 const mapDispatchToProps = {

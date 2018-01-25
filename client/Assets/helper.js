@@ -13,14 +13,13 @@ const dateTranslator = (date) => {
     "November",
     "December"
   ]
-  let newDate = date.split('T');
-  let numericalDate = newDate[0].split('-');
-  let result = [];
-  result.push(month[numericalDate[1]-1])
+  let newDate = date.split(' ')
+  const result = [];
+  result.push(newDate[1])
 
-  result.push(numericalDate[2]+',')
-  result.push(numericalDate[0])
-  return result.join(' ');
+  result.push(newDate[2]+',')
+  result.push(newDate[3])
+  return result.join(' ')
 }
 
 const priceTranslator = (price) => {

@@ -1,4 +1,4 @@
-import { ADD_HASHTAGS, ADD_QUESTIONS } from "../actions/index";
+import { ADD_HASHTAGS, ADD_QUESTIONS, RELAUNCH_OPENHOUSE } from "../actions/index";
 
 ADD_HASHTAGS;
 
@@ -18,6 +18,8 @@ const init = {
 
 export default (state = init, action) => {
   switch (action.type) {
+    case "RELAUNCH_OPENHOUSE":
+      return Object.assign({}, state, action.payload);      
     case "ADD_QUESTIONS":
       return Object.assign({}, state, action.payload);
     case "ADD_HASHTAGS":

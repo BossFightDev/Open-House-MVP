@@ -41,15 +41,18 @@ class POHContainer extends Component {
         {/* <View style={styles.list}> */}
         <FlatList
           style={styles.list}
-          data={this.props.user.openHouses.slice().reverse()}
+          data={this.props.openHouses.slice()}
           keyExtractor={(item, index) => index}
           renderItem={({ item, index }) => (
             <TouchableOpacity
               style={styles.POHItem}
               onPress={() => {
-                const lead = this.props.user.openHouses.reverse()
+                const lead = this.props.openHouses[index]
                 this.props.navigation.navigate("PastOpenHouses", {
-                  lead: lead[index]
+                  lead,
+                  openHouse: item,
+                  relaunch: this.props.relaunch,
+                  index
                 });
               }}
             >

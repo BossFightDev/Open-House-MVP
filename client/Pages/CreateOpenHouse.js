@@ -85,7 +85,7 @@ class CreateOpenHouse extends Component {
         hashtags = this.state.fields[2][0].value;
       this.props.addHashtags(hashtagQ, hashtags);
     }
-    this.props.navigation.navigate("Signup");
+    this.props.navigation.navigate("Signup", {relaunch: false, index: 0});
   };
   onSubmitQuestions = () => {
     const phoneQ = this.state.fields[0][2].value,

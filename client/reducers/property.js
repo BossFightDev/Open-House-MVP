@@ -1,5 +1,6 @@
 import PROPERTY_FOUND from "../actions";
 import OPENHOUSE_ADDED from "../actions";
+import RELAUNCH_OPENHOUSE from "../actions";
 
 const init = {
   address: "1600 Pennsylvania Ave NW",
@@ -18,6 +19,8 @@ export default (state = init, action) => {
   switch (action.type) {
     case "PROPERTY_FOUND":
       return Object.assign({}, state, action.payload);
+    case "RELAUNCH_OPENHOUSE":
+      return Object.assign({}, state, action.payload.property);
     default:
       return state;
   }
