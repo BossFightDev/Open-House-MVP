@@ -1,4 +1,5 @@
 import axios from "axios";
+import { AsyncStorage } from 'react-native';
 axios.defaults.withCredentials = true;
 export const SERVER_URL = "https://openhousebackend.herokuapp.com/api";
 
@@ -6,9 +7,9 @@ export const AUTHENTICATE_USER = "AUTHENTICATE_USER";
 export const FORM_LAUNCHED = "FORM_LAUNCHED";
 export const LOGGED_IN = "LOGGED_IN";
 export const PROPERTY_FOUND = "PROPERTY_FOUND";
-export const LEADS_FOUND = "LEADS_ FOUND";
+export const LEADS_FOUND = "LEADS_FOUND";
 export const OPENHOUSE_ADDED = "OPENHOUSE_ADDED";
-export const LEAD_ADDED = "LEAD_ADDED";
+export const ADD_LEAD = "ADD_LEAD";
 export const OPENHOUSE_FOUND = "OPENHOUSE_FOUND";
 export const ADD_QUESTIONS = "ADD_QUESTIONS";
 export const ADD_HASHTAGS = "ADD_HASHTAGS";
@@ -18,6 +19,8 @@ export const IMAGE_MODAL_OFF = "IMAGE_MODAL_OFF";
 export const CREATE_PIN = "CREATE_PIN";
 export const CONFIRM_PIN = "CONFIRM_PIN";
 export const ERROR_FOUND = "ERROR_FOUND";
+export const RELAUNCH_OPENHOUSE = "RELAUNCH_OPENHOUSE";
+export const LOAD_OPENHOUSE = "LOAD_OPENHOUSE";
 
 export const createPin = pin => {
   return {
@@ -52,10 +55,6 @@ export const login = (username, password, navigation) => {
     axios
       .post(`${SERVER_URL}/login`, { username, password })
       .then(data => {
-        console.log(`Successfully got response from login`);
-        // const validated = authenticateUser(true); // <~~ change this to true or false
-        //     if (validated.authenticate)
-        console.log(JSON.stringify(data.data));
         dispatch({
           type: "LOGGED_IN",
           payload: data.data
@@ -97,90 +96,66 @@ export const findProperty = (MLS, modal) => {
   };
 };
 
-export const findLeads = uID => {
-  return dispatch => {
-    axios
-      .post(`${SERVER_URL}/leads`, { uID })
-      .then(data => {
-        console.log(`Successfully got response from leads`);
-        dispatch({
-          type: "LEADS_FOUND",
-          payload: data.data
-        });
-        return;
-      })
-      .catch(() => {
-        console.log("Error in findLeads action somewhere");
-      });
-  };
-};
+export const loadOpenHouses = () => {
+  return async (dispatch) => {
+    const openHouses = await AsyncStorage.getItem("OpenHouses");
+    const loadedOpenHouses = JSON.parse(openHouses)
+    loadedOpenHouses && 
+    dispatch({
+      type: LOAD_OPENHOUSE,
+      payload: {openHouses: loadedOpenHouses}
+    })
+  }
+}
 
-export const addOpenHouse = (uId, id, questions) => {
-  const {
-    image,
-    phoneQ,
-    agentQ,
-    sourceQ,
-    suggestQ,
-    imageQ,
-    priceQ,
-    bedBathQ,
-    sqftQ,
-    hashtagQ,
-    hashtags
-  } = questions;
-  const date = new Date();
-  console.log("ID: " + id);
-  return dispatch => {
-    axios
-      .post(`${SERVER_URL}/newOpenHouse`, {
-        uId,
-        id,
-        date,
-        image,
-        phoneQ,
-        agentQ,
-        sourceQ,
-        suggestQ,
-        imageQ,
-        priceQ,
-        bedBathQ,
-        sqftQ,
-        hashtagQ,
-        hashtags
-      })
-      .then(data => {
-        console.log(`Successfully got response from newOpenHouse`);
-        dispatch({
-          type: "OPENHOUSE_ADDED",
-          payload: data.data.openHouse
-        });
-        return;
-      })
-      .catch(() => {
-        console.log("Error in addOpenHouse action somewhere");
-      });
-  };
-};
 
-export const addLead = (openHouseId, name, email, phone, agent, source) => {
-  return dispatch => {
-    axios
-      .post(`${SERVER_URL}/addlead`, {
-        openHouseId,
-        name,
-        email,
-        phone,
-        agent,
-        source
-      })
-      .then(data => {
-        console.log("Succesfully got response from addlead");
-        return {
-          type: "LEAD_ADDED"
-        };
-      });
-  };
+
+export const addOpenHouse = (openHouseQuestions, oldOpenHouses, propertyInfo) => {
+  return async (dispatch) => {
+    const questions = {...openHouseQuestions}
+    questions.property = {...propertyInfo}
+    questions.guests = 0
+    questions.date = Date()
+    
+    const openHouses = oldOpenHouses.slice()
+    openHouses.unshift(questions)
+    await AsyncStorage.setItem("OpenHouses", JSON.stringify(openHouses))
+    dispatch({
+    type: "OPENHOUSE_ADDED",
+    payload: {openHouses}
+    })
+  }
+}
+
+export const relaunch = (openHouse, navigation) => {
+  return dispatch =>{
+    dispatch({
+      type: RELAUNCH_OPENHOUSE,
+      payload: openHouse
+    })
+    navigation.navigate("Signup")
+  }
+} 
+
+
+export const addLead = (oldOpenHouse, name, email, phone, agent, source, current = 0) => {
+  return async(dispatch) => {
+    const openHouse = {...oldOpenHouse}
+    const openHouses = openHouse.openHouses
+    console.log(openHouses)
+    if(openHouses[current].guests === 0) {
+      openHouses[current].guests += 1
+      openHouses[current].leads = [{name, email, phone, agent, source}]
+    } else {
+      openHouses[current].guests += 1
+      openHouses[current].leads.unshift({name, email, phone, agent, source})
+    }
+    await AsyncStorage.setItem("OpenHouses", JSON.stringify(openHouses))
+    return {
+      type: ADD_LEAD,
+      payload: openHouses
+    }
+  }
 };
 
 export const addQuestions = (

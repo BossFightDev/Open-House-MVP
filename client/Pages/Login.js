@@ -9,13 +9,16 @@ import {
   StyleSheet,
   Platform,
   Dimensions,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  AsyncStorage
 } from "react-native";
 import { portrait, landscape } from "./Style/login-style.js";
-import { authenticateUser } from "../actions";
+import { authenticateUser, loadOpenHouses } from "../actions";
 import { connect } from "react-redux";
 import CustomText from "../Components/CustomText";
 import { login } from "../actions";
+
+
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -39,6 +42,9 @@ class Login extends Component {
       username: "",
       password: ""
     };
+  }
+  componentDidMount() {
+    this.props.loadOpenHouses()
   }
 
   render() {
@@ -76,7 +82,9 @@ class Login extends Component {
                 LOGIN
               </CustomText>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => AsyncStorage.clear()}>
             <CustomText style={styles.text}>Forgot Password</CustomText>
+            </TouchableOpacity>
           </View>
         </View>
       </KeyboardAvoidingView>
@@ -86,6 +94,6 @@ class Login extends Component {
 const mapStateToProps = state => {
   return { authenticated: state.appState.authenticated };
 };
-const mapDispatchToProps = { authenticateUser, login };
+const mapDispatchToProps = { authenticateUser, login, loadOpenHouses };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

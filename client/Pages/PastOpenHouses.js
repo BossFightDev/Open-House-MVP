@@ -69,6 +69,7 @@ export default class extends Component {
                 <TouchableOpacity
                   style={styles.buttonContainer1}
                   underlayColor="#fff"
+                  onPress={()=> state.params.relaunch(state.params.lead, this.props.navigation)}
                 >
                   <CustomText style={styles.buttonText} font="bold">
                     RELAUNCH

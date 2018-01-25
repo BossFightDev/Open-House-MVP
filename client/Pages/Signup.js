@@ -85,6 +85,7 @@ class Signup extends Component {
           exitingPage={this.exitingPage}
           navigation={this.props.navigation}
           pin={this.props.pin}
+          property={this.props.questions.property || this.props.property}
         />
         <Modal
           transparent={true}
@@ -132,7 +133,10 @@ class Signup extends Component {
 
 const mapStateToProps = state => {
   return {
-    pin: state.pin
+    pin: state.pin,
+    property: state.property,
+    openHouse: state.openHouse,
+    questions: state.questions,
   };
 };
 

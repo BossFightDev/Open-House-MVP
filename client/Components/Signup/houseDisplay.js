@@ -107,7 +107,7 @@ class HouseDisplay extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    property: state.property,
+    // property: state.property,
     user: state.user,
     questions: state.questions
   };
