@@ -57,7 +57,8 @@ class FieldSwitch extends Component {
         return (
           <RequiredField
             question={this.props.question}
-            style={styles.simpleField}
+            styles={styles.simpleField}
+            style={this.props.style}
           />
         );
         break;
@@ -93,7 +94,7 @@ class FieldSwitch extends Component {
   };
   render() {
     let { image } = this.state;
-    return <View style={this.props.style}>{this.renderQuestions()}</View>;
+    return <View style={this.props.style.fieldsStage}>{this.renderQuestions()}</View>;
   }
 }
 

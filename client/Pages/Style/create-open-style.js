@@ -326,9 +326,11 @@ export const portrait = StyleSheet.create({
   },
   questionText: {
     flex: 4,
+    marginLeft: '1.5%',
     padding: "1%",
     paddingRight: "10%",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    fontSize: 11,
   },
   switch: {
     flex: 1
@@ -374,7 +376,7 @@ export const portrait = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     // flexBasis: '15%',
-    alignItems: "center"
+    alignItems: "center",
   },
   buttonWrapper: {
     alignSelf: "center",

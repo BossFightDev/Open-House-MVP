@@ -4,11 +4,11 @@ import CustomText from "../CustomText.js";
 
 const RequiredField = props => {
   return (
-    <View style={props.style}>
-      <CustomText font="bold" style={{ padding: "2%" }}>
+    <View style={props.styles}>
+      <CustomText font="bold" style={props.style.questionText}>
         {props.question}
       </CustomText>
-      <CustomText style={{ padding: "2%" }}> Required </CustomText>
+      <CustomText style={{ padding: "2%", fontSize: 14 }}> Required </CustomText>
     </View>
   );
 };

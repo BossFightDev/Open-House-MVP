@@ -105,7 +105,7 @@ export default class extends Component {
               parentIndex={this.props.active}
               switchIndex={i}
               switchChange={this.props.switchOnPress}
-              style={styles.fieldsStage}
+              style={styles}
               setImage={this.props.setImage}
               image={this.props.image}
             />
