@@ -66,12 +66,16 @@ class ChooseImage extends Component {
     return (
       <View
         style={{
-          flex: 20,
+          flex: 1,
           backgroundColor: "white",
           width: "95%",
           // height: "100%",
           justifyContent: "center",
-          alignItems: "center"
+          borderRadius: 5,
+          borderWidth: 1,
+          borderColor: "#ddd",
+          alignItems: "center",
+          marginBottom: '2%',
         }}
       >
         <Modal
