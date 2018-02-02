@@ -94,7 +94,8 @@ export const landscape = StyleSheet.create({
     alignItems: "stretch"
   },
   questionText: {
-    padding: "2%"
+    padding: "2%",
+    fontSize: 15,
   },
   switch: {
     marginRight: "2%"
@@ -135,13 +136,15 @@ export const landscape = StyleSheet.create({
     color: "white"
   },
   fieldsStage: {
-    display: "flex",
-    flex: 1,
+    // flex: 1,
     width: "100%",
+    height: 100,
+    justifyContent: 'center',
     // flexBasis: '15%',
     alignItems: "center"
   },
   buttonWrapper: {
+    borderWidth: 3,
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",

@@ -64,15 +64,15 @@ class FieldSwitch extends Component {
         break;
       case "Image":
         return (
-          <ChooseImage
-            question={this.props.question}
-            imageModal={this.props.appState.imageModal}
-            value={this.props.value}
-            onChange={this.onValueChange}
-            image={this.props.image}
-            setImage={this.props.setImage}
-            _pickImage={this._pickImage}
-          />
+            <ChooseImage
+              question={this.props.question}
+              imageModal={this.props.appState.imageModal}
+              value={this.props.value}
+              onChange={this.onValueChange}
+              image={this.props.image}
+              setImage={this.props.setImage}
+              _pickImage={this._pickImage}
+            />
         );
         break;
       case "Add Hashtags":
@@ -84,7 +84,7 @@ class FieldSwitch extends Component {
             question={this.props.question}
             value={this.props.value}
             onChange={this.onValueChange}
-            style={styles.simpleField}
+            style={styles.switchField}
           />
         );
         break;
@@ -94,6 +94,9 @@ class FieldSwitch extends Component {
   };
   render() {
     let { image } = this.state;
+    if (this.props.type === 'Image') {
+      return <View style={{height: '25%', alignItems: 'center'}}>{this.renderQuestions()}</View>;
+    }
     return <View style={this.props.style.fieldsStage}>{this.renderQuestions()}</View>;
   }
 }
@@ -137,7 +140,25 @@ const styles = {
     borderColor: "#ddd",
     flex: 1,
     backgroundColor: "#fff",
-    borderRadius: 3
+  },
+  switchField: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    justifyContent: "space-between",
+    paddingBottom: 10,
+    width: "95%",
+    marginTop: "1%",
+    marginBottom: "1%",
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#ddd",
+    height: 88,
+    // flex: 1,
+    backgroundColor: "#fff",
+  },
+  chooseImage: {
+
   }
 };
 

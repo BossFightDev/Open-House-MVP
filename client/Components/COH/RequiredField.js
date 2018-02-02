@@ -8,7 +8,7 @@ const RequiredField = props => {
       <CustomText font="bold" style={props.style.questionText}>
         {props.question}
       </CustomText>
-      <CustomText style={{ padding: "2%", fontSize: 14 }}> Required </CustomText>
+      <CustomText style={{ padding: "2%", fontSize: 10, backgroundColor: 'transparent' }}> Required </CustomText>
     </View>
   );
 };
