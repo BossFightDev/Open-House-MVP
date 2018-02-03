@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 export const landscape = StyleSheet.create({
   screen: {
     display: "flex",
@@ -144,7 +144,8 @@ export const landscape = StyleSheet.create({
     alignItems: "center"
   },
   buttonWrapper: {
-    borderWidth: 3,
+    position: "absolute",
+    bottom: 0,
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",

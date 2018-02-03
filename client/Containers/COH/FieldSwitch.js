@@ -97,6 +97,9 @@ class FieldSwitch extends Component {
     if (this.props.type === 'Image') {
       return <View style={{height: '25%', alignItems: 'center'}}>{this.renderQuestions()}</View>;
     }
+    if (this.props.type === 'Add Hashtags') {
+      return <View style={{flex: 1, width: "100%", alignItems: "center"}}>{this.renderQuestions()}</View>
+    }
     return <View style={this.props.style.fieldsStage}>{this.renderQuestions()}</View>;
   }
 }
