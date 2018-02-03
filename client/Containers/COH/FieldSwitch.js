@@ -1,9 +1,22 @@
 import React, { Component } from "react";
-import { View, Text, Switch, StyleSheet } from "react-native";
+import { View, Text, Switch, StyleSheet, Dimensions } from "react-native";
 import { ImagePicker } from "expo";
 import components from "../../Components/COH";
 const { RequiredField, SwitchField, ChooseImage, AddHashtags } = components;
-
+import { landscape, portrait } from "../../Pages/Style/create-open-style";
+// SET PROPER STYLING IF LANDSCAPE OR PORTRAIT
+const { height, width } = Dimensions.get("window");
+const aspectRatio = height / width;
+const changeScreenOrientation = () => {
+  Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE);
+};
+let styles;
+if (aspectRatio > 1.6) {
+  styles = portrait;
+} else {
+  styles = landscape;
+  changeScreenOrientation();
+}
 class FieldSwitch extends Component {
   constructor(props) {
     super();
@@ -126,43 +139,6 @@ const uploadImageAsync = async uri => {
   };
 
   return fetch(apiUrl, options);
-};
-
-const styles = {
-  simpleField: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    justifyContent: "space-between",
-    paddingBottom: 10,
-    width: "95%",
-    marginTop: "1%",
-    marginBottom: "1%",
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: "#ddd",
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  switchField: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    justifyContent: "space-between",
-    paddingBottom: 10,
-    width: "95%",
-    marginTop: "1%",
-    marginBottom: "1%",
-    borderWidth: 1,
-    borderRadius: 5,
-    borderColor: "#ddd",
-    height: 88,
-    // flex: 1,
-    backgroundColor: "#fff",
-  },
-  chooseImage: {
-
-  }
 };
 
 export default FieldSwitch;
