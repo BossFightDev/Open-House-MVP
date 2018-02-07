@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import CustomText from "../CustomText";
 import { landscape, portrait } from "../../Pages/Style/create-open-style.js";
+import { connect } from "react-redux";
 
 const { height, width } = Dimensions.get("window");
 const aspectRatio = height / width;
@@ -27,9 +28,9 @@ if (aspectRatio > 1.6) {
 
 class AddHashtags extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      hashtags: ["", ""]
+      hashtags: [`openhouse${this.props.MLS}`, ""]
     };
   }
   onChange = (text, index) => {
@@ -78,4 +79,11 @@ class AddHashtags extends Component {
   }
 }
 
-export default AddHashtags;
+const mapStateToProps = (state) => {
+  console.log(state.search.currentText);
+  return {
+    MLS: state.search.currentText
+  }
+}
+
+export default connect(mapStateToProps)(AddHashtags);

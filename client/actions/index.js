@@ -68,6 +68,13 @@ export const login = (username, password, navigation) => {
   };
 };
 
+export const updateSearchText = (searchText) => {
+  return {
+    type: "UPDATE_SEARCH_TEXT",
+    payload: { searchText }
+  }
+};
+
 export const findProperty = (MLS, modal) => {
   return dispatch => {
     axios

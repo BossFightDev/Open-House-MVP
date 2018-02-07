@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { View, TouchableOpacity, TextInput, Dimensions } from "react-native";
 import { landscape, portrait } from "../../Pages/Style/open-houses-style.js";
 import CustomText from "../CustomText";
+import { connect } from "react-redux";
+import { updateSearchText } from "../../actions/index";
 
 // SET PROPER STYLING IF LANDSCAPE OR PORTRAIT
 const { height, width } = Dimensions.get("window");
@@ -20,12 +22,9 @@ if (aspectRatio > 1.6) {
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      MLS: ""
-    };
   }
   _showModal = () => {
-    this.props.findProperty(this.state.MLS, this.props.appState.showModal);
+    this.props.findProperty(this.props.MLS, this.props.appState.showModal);
     this.setState({ isModalVisible: true });
   };
   render() {
@@ -37,8 +36,8 @@ class SearchBar extends Component {
             <TextInput
               style={styles.searchBar}
               placeholder="Enter MLS# or Select a Listing"
-              onChangeText={MLS => this.setState({ MLS })}
-              value={this.state.MLS}
+              onChangeText={this.props.updateSearchText}
+              value={this.props.MLS}
             />
             <TouchableOpacity
               style={styles.buttonContainer}
@@ -55,4 +54,14 @@ class SearchBar extends Component {
     );
   }
 }
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return {
+    MLS: state.search.currentText
+  }
+}
+
+const mapDispatchToProps = {
+  updateSearchText,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

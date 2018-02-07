@@ -7,11 +7,13 @@ import questionsReducer from "./questions";
 import openHouseReducer from "./openHouse";
 import pinReducer from "./pinReducer";
 import houseImageReducer from "./houseImageReducer";
+import searchReducer from "./search";
 
 export default (rootReducer = combineReducers({
   appState: stateReducer,
   questions: questionsReducer,
   property: propertyReducer,
+  search: searchReducer,
   user: userReducer,
   leads: leadsReducer,
   openHouse: openHouseReducer,
