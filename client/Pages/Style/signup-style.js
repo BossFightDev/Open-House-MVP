@@ -30,8 +30,12 @@ export const landscape = StyleSheet.create({
     height: "25%"
   },
   button: {
+    alignSelf: 'center',
+    width: '85%',
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: "#25AAFB",
-    borderRadius: 4,
+    borderRadius: 3,
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
@@ -150,10 +154,14 @@ export const landscape = StyleSheet.create({
     justifyContent: "space-around"
   },
   innerContainer: {
-    marginBottom: "1%"
+    marginBottom: "5%",
+    alignSelf: 'center',
+    width: '85%'
   },
   realEstateContainer: {
-    marginBottom: "1%"
+    marginBottom: "5%",
+    alignSelf: 'center',
+    width: '85%'
   },
   titleContainer: {
     top: 0,
@@ -216,7 +224,7 @@ export const landscape = StyleSheet.create({
   },
   signupContainer: {
     width: "50%",
-    maxHeight: "95%",
+    height: '100%',
     // margin: '1%',
     padding: "1%"
   }
@@ -247,12 +255,16 @@ export const portrait = StyleSheet.create({
     width: 200
   },
   button: {
+    alignSelf: 'center',
+    width: '85%',
+    position: 'absolute',
+    bottom: 0,
     backgroundColor: "#25AAFB",
-    borderRadius: 4,
+    borderRadius: 3,
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
-    padding: "2%"
+    padding: "3%"
   },
   exitIcon: {
     position: "absolute",
@@ -354,6 +366,7 @@ export const portrait = StyleSheet.create({
   },
   input: {
     width: "100%",
+    alignSelf: 'center',
     backgroundColor: "white",
     borderWidth: 1,
     borderRadius: 3,
@@ -363,10 +376,14 @@ export const portrait = StyleSheet.create({
   //   flex: 1,
   // },
   innerContainer: {
-    marginBottom: "1%"
+    marginBottom: "3%",
+    alignSelf: 'center',
+    width: '85%'
   },
   realEstateContainer: {
-    marginBottom: "1%"
+    marginBottom: "3%",
+    alignSelf: 'center',
+    width: '85%'
   },
   titleContainer: {
     top: 0,
@@ -424,7 +441,7 @@ export const portrait = StyleSheet.create({
   },
   signupContainer: {
     width: "95%",
-    maxHeight: "55%",
+    height: '59.5%',
     margin: "1%",
     padding: "1%"
   }

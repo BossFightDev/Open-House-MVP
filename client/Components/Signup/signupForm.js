@@ -209,7 +209,8 @@ class SignUpForm extends Component {
               />
             </View>
           ) : null}
-          <TouchableOpacity
+        </ScrollView>
+        <TouchableOpacity
             style={this.props.styles.button}
             onPress={() => this.onSubmit()}
           >
@@ -217,7 +218,6 @@ class SignUpForm extends Component {
               SUBMIT
             </CustomText>
           </TouchableOpacity>
-        </ScrollView>
       </View>
     );
   }

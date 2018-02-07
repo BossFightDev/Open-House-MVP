@@ -60,7 +60,7 @@ export const landscape = StyleSheet.create({
     fontSize: 14,
     paddingLeft: "5%",
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 3,
     borderColor: "#DDDDDD"
   },
   buttonContainer: {
@@ -109,7 +109,7 @@ export const landscape = StyleSheet.create({
     marginBottom: 10,
     marginLeft: "5%",
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 3,
     borderColor: "#DDDDDD"
   },
   imageContainer: {
@@ -218,9 +218,9 @@ export const landscape = StyleSheet.create({
     width: "49%",
     height: "50%",
     backgroundColor: "#25AAFB",
-    borderRadius: 2,
+    borderRadius: 3,
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: "transparent",
     justifyContent: "center",
     alignItems: "center",
     marginRight: "2%",
@@ -239,7 +239,7 @@ export const landscape = StyleSheet.create({
     height: "50%",
     backgroundColor: "white",
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 3,
     borderColor: "#DDDDDD",
     justifyContent: "center",
     alignItems: "center",
@@ -300,7 +300,7 @@ export const portrait = StyleSheet.create({
     height: 35,
     paddingLeft: "5%",
     backgroundColor: "white",
-    borderRadius: 2,
+    borderRadius: 3,
     fontSize: 10
   },
   buttonContainer: {
@@ -466,9 +466,9 @@ export const portrait = StyleSheet.create({
     width: "49%",
     height: "70%",
     backgroundColor: "#25AAFB",
-    borderRadius: 2,
+    borderRadius: 3,
     borderWidth: 1,
-    borderColor: "#fff",
+    borderColor: "transparent",
     justifyContent: "center",
     alignItems: "center",
     marginRight: "2%"
@@ -486,7 +486,7 @@ export const portrait = StyleSheet.create({
     height: "70%",
     backgroundColor: "white",
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 3,
     borderColor: "#DDDDDD",
     justifyContent: "center",
     alignItems: "center"

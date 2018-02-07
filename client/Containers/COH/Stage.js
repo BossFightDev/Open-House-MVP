@@ -52,7 +52,7 @@ export default class extends Component {
               />
               <Button
                 onPress={() => this.props.onSubmitHashtags()}
-                label="Preview and Launch"
+                label="Preview & Launch"
                 color="black"
                 arrow="right"
               />
