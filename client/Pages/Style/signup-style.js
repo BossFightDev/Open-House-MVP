@@ -443,6 +443,7 @@ export const portrait = StyleSheet.create({
     width: "95%",
     height: '59.5%',
     margin: "1%",
-    padding: "1%"
+    padding: "1%",
+    paddingBottom: 30,
   }
 });
